@@ -1,0 +1,3876 @@
+[
+  {
+    "module": "SparseSGD.Comparison.BoundedComparison",
+    "file": "SparseSGD/Comparison/BoundedComparison.lean",
+    "theorem_names": [
+      "Params.sampledKernelMass_pos",
+      "Params.sampledConvolution_abs_le",
+      "Params.raw_sampledConvolution",
+      "Params.normalized_convolution_quadrature_bound",
+      "Params.comparisonFlow_renewal_reversed",
+      "Params.risk_comparison_of_quadrature_bound",
+      "Params.comparison_quadrature_bound",
+      "Params.risk_comparison_bounded",
+      "Params.risk_comparison_bounded_margin"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.ConvolutionQuadrature",
+    "file": "SparseSGD/Comparison/ConvolutionQuadrature.lean",
+    "theorem_names": [
+      "partial_integral_le_Ioi",
+      "continuum_convolution_quadrature_bound",
+      "Params.sampledKernelMass_hasSum",
+      "Params.sampledKernelMass_error"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.Embedding",
+    "file": "SparseSGD/Comparison/Embedding.lean",
+    "theorem_names": [
+      "matching_cov_step",
+      "matching_cov_first_entry"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.ExactEmbedding",
+    "file": "SparseSGD/Comparison/ExactEmbedding.lean",
+    "theorem_names": [
+      "continuumMeanFlow_nat_grid",
+      "Params.meanMatrix_pow_matching",
+      "Params.sampledImpulse_eq_power",
+      "Params.kickResponse_matched",
+      "Params.kickResponse_sq_matched",
+      "Params.matchedCovariance_first_entry",
+      "Params.matchingImpulseDenominator_ne_zero",
+      "Params.sampledImpulse_sq_hasSum",
+      "Params.gridImpulseFactor_eq",
+      "Params.normalizedKernelLag_eq_sampled",
+      "Params.exact_embedding_step",
+      "Params.freeRisk_eq_matched_grid",
+      "Params.exact_embedding_renewal",
+      "Params.noiseFree_risk_eq_matched_grid",
+      "Params.sampledImpulse_sq_tsum_pos",
+      "Params.normalizedKernelLag_eq_continuum_sampling",
+      "Params.sampled_continuum_kernel_normalized_hasSum"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.ExactMatching",
+    "file": "SparseSGD/Comparison/ExactMatching.lean",
+    "theorem_names": [
+      "Params.matchingSign_mul_traceCosine",
+      "Params.matched_trace_normalization",
+      "Params.matchedMeanFlow_invariants",
+      "Params.matchedMeanFlow_det",
+      "Params.matchedMeanFlow_trace",
+      "Params.matchedMeanFlow_impulse_ne_zero",
+      "Params.exact_matching_similarity",
+      "Params.exact_matching_kick",
+      "Params.matchingMatrix_unique",
+      "Params.matchingMatrix_det_ne_zero",
+      "Params.exact_matching_existsUnique"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.ForcingModes",
+    "file": "SparseSGD/Comparison/ForcingModes.lean",
+    "theorem_names": [
+      "continuum_forcing_eq_modes",
+      "forcingModeCoefficients_mass_le",
+      "forcingModeRates_real_parts",
+      "forcingModeRates_imag_bound",
+      "forcing_kernel_relative_phase_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.FunctionalBounds",
+    "file": "SparseSGD/Comparison/FunctionalBounds.lean",
+    "theorem_names": [
+      "decaying_exp_sampled_mass",
+      "sampledFunctionalConvolution_norm_le",
+      "single_mode_convolution_norm_le",
+      "sampledFunctionalConvolution_sub",
+      "normalized_functional_error"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.FunctionalComparison",
+    "file": "SparseSGD/Comparison/FunctionalComparison.lean",
+    "theorem_names": [
+      "Params.energy_comparison_of_forcing_quadrature_bound",
+      "moment_comparison_energyFunctional",
+      "moment_comparison"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.FunctionalEmbedding",
+    "file": "SparseSGD/Comparison/FunctionalEmbedding.lean",
+    "theorem_names": [
+      "scalar_complex_duhamel",
+      "scalar_complex_duhamel_reversed",
+      "continuumFlow_slowEnergy_duhamel",
+      "continuumFlow_oscillatoryEnergy_duhamel",
+      "continuumFlow_free_covariance",
+      "continuumFlow_free_slowEnergy",
+      "continuumFlow_free_oscillatoryEnergy",
+      "impulsedMoments_cov",
+      "Params.matchedMoments_step",
+      "Params.matched_slowEnergy_step",
+      "Params.matched_oscillatoryEnergy_step"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.FunctionalGrid",
+    "file": "SparseSGD/Comparison/FunctionalGrid.lean",
+    "theorem_names": [
+      "scalar_grid_unroll",
+      "scalar_exponential_grid_unroll",
+      "sampledFunctionalConvolution_eq_rightEndpoint",
+      "Params.gridImpulseFactor_eq_normalized_step",
+      "Params.matched_slowEnergy_grid",
+      "Params.matched_oscillatoryEnergy_grid"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.FunctionalModes",
+    "file": "SparseSGD/Comparison/FunctionalModes.lean",
+    "theorem_names": [
+      "energyModeRates_real",
+      "energyModeRates_free",
+      "energyModeGain_norm",
+      "energyModeRates_norm_le",
+      "continuumFlow_energyFunctional_duhamel",
+      "Params.matched_energyFunctional_grid",
+      "large_energy_convolution_quadrature_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.FunctionalQuadrature",
+    "file": "SparseSGD/Comparison/FunctionalQuadrature.lean",
+    "theorem_names": [
+      "Params.comparisonForcing_hasDerivAt",
+      "Params.comparisonForcingDeriv_continuous",
+      "Params.comparisonForcing_bounds",
+      "Params.single_mode_comparison_quadrature_bounded"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.Geometric",
+    "file": "SparseSGD/Comparison/Geometric.lean",
+    "theorem_names": [
+      "m_zero",
+      "one_sub_mul_sum_geometric",
+      "sampled_pair_sum_geometric",
+      "sampled_pair_sum_q_one",
+      "sampled_pair_sum_mul_denominator",
+      "sampled_pair_sum_closed",
+      "pair_integral_closed",
+      "pair_integral_equal",
+      "sampled_pair_sum_quadrature",
+      "hasSum_sampled_exp",
+      "tsum_sampled_exp"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.LargeComparison",
+    "file": "SparseSGD/Comparison/LargeComparison.lean",
+    "theorem_names": [
+      "large_continuum_convolution_quadrature_bound",
+      "large_kernel_quadrature_bound",
+      "Params.sampledKernelMass_error_of_partial_bound",
+      "risk_comparison_large"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.MatchedFlow",
+    "file": "SparseSGD/Comparison/MatchedFlow.lean",
+    "theorem_names": [
+      "Params.matchedCovariance_symmetric",
+      "Params.matchedMoments_cov",
+      "Params.matchedMoments_psd",
+      "Params.matchedFreeRisk_eq_continuumFreeRisk"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.MatchedParameters",
+    "file": "SparseSGD/Comparison/MatchedParameters.lean",
+    "theorem_names": [
+      "Params.matchedStep_pos",
+      "Params.exp_neg_matchedStep",
+      "Params.matchingSign_sq",
+      "Params.foldedAngle_bounds",
+      "Params.matchedDelta_critical",
+      "Params.matchedDelta_underdamped",
+      "matchingP_unique"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.MatchingScalars",
+    "file": "SparseSGD/Comparison/MatchingScalars.lean",
+    "theorem_names": [
+      "Params.exp_neg_half_matchedStep",
+      "Params.cosh_half_matchedStep",
+      "Params.traceCosine_abs_lt_cosh",
+      "Params.arcosh_traceCosine_lt_half_step",
+      "Params.matchedDelta_pos"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.ModalQuadrature",
+    "file": "SparseSGD/Comparison/ModalQuadrature.lean",
+    "theorem_names": [
+      "exponentialModeSum_continuous",
+      "sampledModeConvolution_eq_pairs",
+      "modeConvolution_eq_pairs",
+      "modal_convolution_quadrature_bound",
+      "real_modal_convolution_error_eq",
+      "complex_modal_convolution_error_eq"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.MomentComparison",
+    "file": "SparseSGD/Comparison/MomentComparison.lean",
+    "theorem_names": [
+      "Params.matchedStep_le_one",
+      "Params.large_matched_frequency",
+      "moment_comparison_risk"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.NormalizationBound",
+    "file": "SparseSGD/Comparison/NormalizationBound.lean",
+    "theorem_names": [
+      "Params.matched_frequency_of_one_le",
+      "Params.sampledKernelMass_closed_form",
+      "Params.sampledKernelMass_ge_one_fifth"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.QuadratureBound",
+    "file": "SparseSGD/Comparison/QuadratureBound.lean",
+    "theorem_names": [
+      "expSlope_zero",
+      "expSlope_differentiable",
+      "expSlope\u2082_continuous",
+      "exp_ne_one_of_small_im",
+      "expSlope_ne_zero",
+      "m_eq_expSlope_inv",
+      "m_sub_one_factor",
+      "quadrature_factor_bound",
+      "exponential_pair_quadrature_bound",
+      "exponential_pair_quadrature_bound_stable"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.RiemannBound",
+    "file": "SparseSGD/Comparison/RiemannBound.lean",
+    "theorem_names": [
+      "rightEndpoint_cell_error",
+      "rightEndpoint_error",
+      "rightEndpoint_infinite_error"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.Similarity",
+    "file": "SparseSGD/Comparison/Similarity.lean",
+    "theorem_names": [
+      "matchingP_first_row",
+      "matchingP_lowerTriangular",
+      "matchingP_det",
+      "matchingP_det_ne",
+      "matching_first_relation",
+      "matching_similarity",
+      "matching_kick_relation"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.SingleModeQuadrature",
+    "file": "SparseSGD/Comparison/SingleModeQuadrature.lean",
+    "theorem_names": [
+      "decaying_exp_partial_mass",
+      "single_mode_convolution_quadrature_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.SquareRootLift",
+    "file": "SparseSGD/Comparison/SquareRootLift.lean",
+    "theorem_names": [
+      "Params.noiseFree_rankOne_transport",
+      "Params.noiseFree_rankOne_square_root_lift",
+      "Params.squareRootLift_defect",
+      "liftMeanFlow_entry_hasDerivAt",
+      "Params.squareRootLiftX_hasDerivAt",
+      "Params.squareRootLiftY_hasDerivAt",
+      "Params.squareRootLift_oscillator",
+      "Params.squareRootLift_initial",
+      "Params.matchedCovariance_rankOne",
+      "Params.matchedFreeRisk_squareRootLift",
+      "Params.noiseFree_risk_squareRootLift_grid",
+      "rank_outer_product_nonzero",
+      "Params.noiseFree_covariance_rank",
+      "Params.noiseFree_rankOne_rank",
+      "Params.noiseFree_zero_rank",
+      "Params.continuumFreeFlow_squareRootLift_cov",
+      "Params.comparisonFlow_squareRootLift_cov",
+      "Params.comparisonFlow_squareRootLift_R",
+      "Params.squareRootLiftVector_ne_zero",
+      "Params.comparisonFlow_squareRootLift_rank",
+      "Params.comparisonFlow_zero_rank",
+      "Params.squareRootLiftX_second_hasDerivAt",
+      "Params.squareRootLift_oscillator_defect"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.UniformBounds",
+    "file": "SparseSGD/Comparison/UniformBounds.lean",
+    "theorem_names": [
+      "continuumRenewalKernel_partial_mass_le_one",
+      "continuumFlow_risk_uniform_bound",
+      "continuumFlow_energy_uniform_bound",
+      "Moments.psd_cross_energy_bound",
+      "continuumFlow_risk_derivative_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.Algebra",
+    "file": "SparseSGD/Continuum/Algebra.lean",
+    "theorem_names": [
+      "slowEnergy_field",
+      "freeEnergy_dissipation",
+      "rankDefect_field",
+      "continuumField_eq_zero_iff",
+      "existsUnique_continuum_equilibrium"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.CovarianceFlow",
+    "file": "SparseSGD/Continuum/CovarianceFlow.lean",
+    "theorem_names": [
+      "continuumCovarianceFlow_initial",
+      "continuumCovarianceFlow_hasDerivAt_R",
+      "continuumField_covariance",
+      "continuumCovarianceFlow_hasDerivAt",
+      "continuumMeanFlow_zero",
+      "continuumMeanFlow_hasDerivAt",
+      "hasDerivAt_matrix_transpose",
+      "continuumCovarianceFlow_transport_hasDerivAt",
+      "continuumMeanFlow_continuous",
+      "continuumFlow_R_continuous",
+      "continuumCovarianceFlow_variation_of_constants"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.Differential",
+    "file": "SparseSGD/Continuum/Differential.lean",
+    "theorem_names": [
+      "slowEnergy_hasDerivAt",
+      "rankDefect_hasDerivAt"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.Eigenfunctionals",
+    "file": "SparseSGD/Continuum/Eigenfunctionals.lean",
+    "theorem_names": [
+      "oscillatoryEnergy_field",
+      "oscillatoryEnergy_hasDerivAt"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.Energy",
+    "file": "SparseSGD/Continuum/Energy.lean",
+    "theorem_names": [
+      "free_moment_energy_antitone",
+      "free_moment_risk_le_initial_energy",
+      "free_oscillator_energy_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.EnergyBound",
+    "file": "SparseSGD/Continuum/EnergyBound.lean",
+    "theorem_names": [
+      "continuumFlow_freeRisk",
+      "continuumFlow_free_energy_antitone",
+      "continuumFreeRisk_le_initial_energy"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.ExponentialStability",
+    "file": "SparseSGD/Continuum/ExponentialStability.lean",
+    "theorem_names": [
+      "stability_energy_bounds",
+      "continuumStabilityRate_pos",
+      "stability_energy_hasDerivAt",
+      "dissipative_exp_bound",
+      "continuumFlow_stabilityEnergy_exp_bound",
+      "continuumFlow_energy_exp_bound",
+      "absoluteCovariance_psd",
+      "positivePart_psd",
+      "negativePart_psd",
+      "continuumFlow_difference",
+      "psd_momentSize_bound",
+      "momentSize_difference_le",
+      "continuumFlow_exponentially_stable",
+      "continuumFlow_equilibrium_shift",
+      "continuumFlow_equilibrium_exponential_bound",
+      "realEigenTrajectory_isMomentSolution",
+      "continuumFlow_not_exponentially_stable",
+      "continuumFlow_exponentially_stable_iff"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.Flow",
+    "file": "SparseSGD/Continuum/Flow.lean",
+    "theorem_names": [
+      "continuumFlow_initial",
+      "homogeneousFlowVector_hasDerivAt",
+      "homogeneousFlowVector_fourth",
+      "continuumFlow_hasDerivAt",
+      "continuumFlow_isMomentSolution",
+      "continuum_solution_exists"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.Hurwitz",
+    "file": "SparseSGD/Continuum/Hurwitz.lean",
+    "theorem_names": [
+      "det_complex_scalar_one_sub_continuumGenerator",
+      "continuum_roots_re_neg",
+      "continuumGenerator_hurwitz",
+      "exists_nonneg_spectrum_root",
+      "continuumGenerator_hurwitz_iff"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.KernelEstimates",
+    "file": "SparseSGD/Continuum/KernelEstimates.lean",
+    "theorem_names": [
+      "continuumMeanFlow_entry_hasDerivAt",
+      "continuumImpulseResponse_hasDerivAt",
+      "continuumImpulseVelocity_hasDerivAt",
+      "continuumImpulseResponse_continuous",
+      "continuumImpulseVelocity_continuous",
+      "continuumRenewalKernel_continuous",
+      "continuumKernelTail_hasDerivAt",
+      "continuumImpulseEnergy_hasDerivAt",
+      "continuumKernelTail_initial",
+      "continuumKernelTail_nonneg",
+      "impulse_energy_bounds",
+      "scalar_energy_exp_bound",
+      "continuumImpulseEnergy_exp_bound",
+      "continuumKernelTail_tendsto_zero",
+      "continuumRenewalKernel_integrableOn",
+      "continuumRenewalKernel_mass",
+      "continuumImpulseEnergy_tendsto_zero",
+      "continuumImpulseResponse_sq_integrable",
+      "continuumImpulseResponse_sq_integral",
+      "impulseKineticEnergy_hasDerivAt",
+      "impulseKineticEnergy_tendsto_zero",
+      "continuumImpulseVelocity_sq_integrable",
+      "continuumImpulseVelocity_sq_integral",
+      "continuumRenewalKernel_hasDerivAt",
+      "kernel_deriv_bound",
+      "continuumRenewalKernel_deriv_abs_integrable",
+      "continuumKernelTotalVariation_le",
+      "continuumRenewalKernel_deriv_continuous",
+      "continuumRenewalKernel_eVariationOn_le_integral",
+      "continuumRenewalKernel_eVariationOn_le"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.KernelModes",
+    "file": "SparseSGD/Continuum/KernelModes.lean",
+    "theorem_names": [
+      "freeModeRates_real",
+      "freeModeRates_imag_bound",
+      "continuumRenewalKernel_eq_modes",
+      "kernelModeCoefficients_mass_le"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.LaplaceTransform",
+    "file": "SparseSGD/Continuum/LaplaceTransform.lean",
+    "theorem_names": [
+      "impulseC_integrable",
+      "impulseR_tendsto_zero",
+      "impulseV_tendsto_zero",
+      "impulseC_tendsto_zero",
+      "impulseR_hasDerivAt",
+      "impulseV_hasDerivAt",
+      "impulseC_hasDerivAt",
+      "weighted_integrable",
+      "weighted_tendsto_zero",
+      "weightedIntegral_const_mul",
+      "weightedIntegral_sub",
+      "weighted_derivative_identity",
+      "continuumKernelLaplace_integrable",
+      "continuumKernelLaplace_eq"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.LargeDeltaModes",
+    "file": "SparseSGD/Continuum/LargeDeltaModes.lean",
+    "theorem_names": [
+      "exists_largeMode_parameter",
+      "largeModeFrequency_pos",
+      "largeModeFrequency_sq",
+      "largeMode_cubic_factor",
+      "largeModeRootPlus_is_root",
+      "largeModeFrequency_deviation",
+      "mode_factors_eigenrelations",
+      "exponentialModeMoments_isMomentSolution",
+      "largeModeHomogeneousFlow_initial",
+      "largeModeHomogeneousFlow_isMomentSolution",
+      "largeModeFlow_initial",
+      "largeModeFlow_isMomentSolution",
+      "continuumFlow_largeMode_expansion",
+      "abs_sub_le_sum",
+      "largeModeSlowCoefficient_bound",
+      "largeMode_coefficients_bound",
+      "continuumFlow_largeMode_coefficients_bound",
+      "complex_re_decomposition",
+      "continuumFlow_largeMode_sum",
+      "continuumFlow_largeMode_sum_coefficients_bound",
+      "largeModeRates_real_parts",
+      "largeModeRootPlus_deviation",
+      "largeModeRates_imag_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.ModalInversion",
+    "file": "SparseSGD/Continuum/ModalInversion.lean",
+    "theorem_names": [
+      "oscillatoryRoot_quadratic",
+      "oscillatoryRoot_add_two_ne_zero",
+      "oscillatoryEnergy_polynomial",
+      "oscillatoryEnergy_re",
+      "oscillatoryEnergy_im",
+      "risk_modal_inversion"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.OscillatorFormula",
+    "file": "SparseSGD/Continuum/OscillatorFormula.lean",
+    "theorem_names": [
+      "oscillatorFormula_hasDerivAt",
+      "continuumMeanFlow_eq_oscillatorFormula",
+      "continuumMeanFlow_critical",
+      "continuumMeanFlow_critical_impulse_ne_zero",
+      "continuumMeanFlow_oscillatory",
+      "continuumMeanFlow_hyperbolic",
+      "oscillatorFormula_trace",
+      "oscillatorFormula_det"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.PerronRate",
+    "file": "SparseSGD/Continuum/PerronRate.lean",
+    "theorem_names": [
+      "continuumCharacteristicRoots_finite",
+      "continuumCharacteristicRoots_nonempty",
+      "continuumPerronRate_attained",
+      "continuumPerronRate_pos",
+      "continuumPerronRate_lt_one_sub_load"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.PositiveFlow",
+    "file": "SparseSGD/Continuum/PositiveFlow.lean",
+    "theorem_names": [
+      "continuumFreeCovariance_psd",
+      "continuumFreeRisk_nonneg",
+      "nonneg_of_renewal",
+      "continuumFlow_R_nonneg",
+      "intervalIntegral_matrix_linear",
+      "intervalIntegral_matrix_entry",
+      "intervalIntegral_matrix_psd",
+      "continuumFlow_psd",
+      "continuumFlow_rankDefect_nonneg",
+      "continuumFlow_rankDefect_variation_of_constants",
+      "continuumFlow_rankDefect_pos_of_positive_risk",
+      "continuumFlow_exists_positive_risk",
+      "continuumFlow_rankDefect_pos",
+      "continuumFlow_cov_posDef"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.Renewal",
+    "file": "SparseSGD/Continuum/Renewal.lean",
+    "theorem_names": [
+      "continuumRenewalKernel_nonneg",
+      "continuumFlow_renewal_initial",
+      "continuumCovarianceSource_response",
+      "continuumFlow_renewal"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.Spectrum",
+    "file": "SparseSGD/Continuum/Spectrum.lean",
+    "theorem_names": [
+      "det_scalar_one_sub_continuumGenerator",
+      "spectrumPolynomial_at_u_sub_one",
+      "spectrumPolynomial_at_zero",
+      "exists_spectrum_root_between"
+    ]
+  },
+  {
+    "module": "SparseSGD.Continuum.Uniqueness",
+    "file": "SparseSGD/Continuum/Uniqueness.lean",
+    "theorem_names": [
+      "continuum_solution_unique_at_initial",
+      "momentSolution_homogeneous_hasDerivAt",
+      "momentSolution_unique",
+      "continuum_solution_unique",
+      "continuum_solution_eqOn"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.Algebra",
+    "file": "SparseSGD/Discrete/Algebra.lean",
+    "theorem_names": [
+      "Params.det_meanMatrix",
+      "Params.step_cov",
+      "Params.trajectory_cov_noiseFree",
+      "Params.det_trajectory_cov_noiseFree",
+      "Params.trajectory_cov_rankOne_noiseFree",
+      "Params.trajectory_R_rankOne_noiseFree"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.Chebyshev",
+    "file": "SparseSGD/Discrete/Chebyshev.lean",
+    "theorem_names": [
+      "kickResponse_eq_chebyshev"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.Equilibrium",
+    "file": "SparseSGD/Discrete/Equilibrium.lean",
+    "theorem_names": [
+      "Params.steady_of_balance",
+      "Params.equilibrium_fixed"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.FreeRisk",
+    "file": "SparseSGD/Discrete/FreeRisk.lean",
+    "theorem_names": [
+      "freeRisk_tendsto_zero",
+      "freeRisk_nonneg",
+      "trajectory_risk_defect_sup_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.GeometricDecay",
+    "file": "SparseSGD/Discrete/GeometricDecay.lean",
+    "theorem_names": [
+      "power_block_decay",
+      "power_has_contracting_block",
+      "power_all_exponents_geometric",
+      "power_tendsto_zero_block_geometric",
+      "matrix_power_geometric_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.KernelMass",
+    "file": "SparseSGD/Discrete/KernelMass.lean",
+    "theorem_names": [
+      "discrete_kernel_finite_telescope",
+      "kickResponse_sq_partial_sum",
+      "kickResponse_sq_hasSum",
+      "Params.renewal_kernel_hasSum"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.Loads",
+    "file": "SparseSGD/Discrete/Loads.lean",
+    "theorem_names": [
+      "renormNoise_lt_one_iff",
+      "floor_identity",
+      "total_minus_renorm",
+      "switch_rate_strict"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.Lyapunov",
+    "file": "SparseSGD/Discrete/Lyapunov.lean",
+    "theorem_names": [
+      "discreteMean_eq_meanMatrix",
+      "discrete_kernel_lyapunov_identity"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.Positivity",
+    "file": "SparseSGD/Discrete/Positivity.lean",
+    "theorem_names": [
+      "Moments.rankDefect_eq_cov_det",
+      "Moments.psd_R_nonneg",
+      "Moments.psd_V_nonneg",
+      "Moments.psd_rankDefect_nonneg",
+      "Params.step_psd",
+      "Params.trajectory_psd"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.Renewal",
+    "file": "SparseSGD/Discrete/Renewal.lean",
+    "theorem_names": [
+      "kickResponse_zero",
+      "kickResponse_one",
+      "Params.meanMatrix_cayleyHamilton",
+      "kickResponse_recurrence",
+      "Params.trajectory_cov_unroll",
+      "Params.trajectory_R_renewal",
+      "kickResponse_sq_nonneg",
+      "Params.renewal_kernel_nonneg"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.RenewalBounds",
+    "file": "SparseSGD/Discrete/RenewalBounds.lean",
+    "theorem_names": [
+      "scalar_renewal_bound",
+      "absolute_renewal_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.RiskBound",
+    "file": "SparseSGD/Discrete/RiskBound.lean",
+    "theorem_names": [
+      "normalized_trajectory_recurrence",
+      "normalized_kernel_partial_mass_le_one",
+      "trajectory_risk_uniform_bound",
+      "trajectory_risk_defect_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.Stability",
+    "file": "SparseSGD/Discrete/Stability.lean",
+    "theorem_names": [
+      "scalar_renewal_not_summable",
+      "freeRisk_pos_zero_or_one",
+      "trajectory_risk_not_summable",
+      "weighted_renewal_geometric_bound",
+      "kickResponse_scaledMeanParams",
+      "weighted_normalized_kernel_hasSum",
+      "exists_weighted_kernel_gain",
+      "weighted_freeRisk_bounded",
+      "renewal_partial_mass_eq",
+      "weighted_renewal_tail_bound",
+      "scalar_renewal_floor_geometric",
+      "trajectory_risk_geometric_convergence",
+      "trajectory_risk_tendsto_floor",
+      "normalized_kernel_geometric_bound",
+      "trajectory_risk_not_geometrically_decaying"
+    ]
+  },
+  {
+    "module": "SparseSGD.Discrete.StableKernel",
+    "file": "SparseSGD/Discrete/StableKernel.lean",
+    "theorem_names": [
+      "stable_kernel_masses",
+      "normalized_kernel_lag_nonneg",
+      "normalized_kernel_lag_hasSum"
+    ]
+  },
+  {
+    "module": "SparseSGD.Examples.LeastSquares",
+    "file": "SparseSGD/Examples/LeastSquares.lean",
+    "theorem_names": [
+      "seedVec1_norm_sq",
+      "seed_fst_memLp",
+      "seed_snd_memLp",
+      "seed_integratedMoments",
+      "leastSquares_one_step",
+      "leastSquares_one_step_risk"
+    ]
+  },
+  {
+    "module": "SparseSGD.Examples.LogisticFixedProbability",
+    "file": "SparseSGD/Examples/LogisticFixedProbability.lean",
+    "theorem_names": [
+      "logistic_fixed_probability_fluid_example"
+    ]
+  },
+  {
+    "module": "SparseSGD.Examples.LogisticFluid",
+    "file": "SparseSGD/Examples/LogisticFluid.lean",
+    "theorem_names": [
+      "reciprocalProbability_power",
+      "logistic_fluid_example"
+    ]
+  },
+  {
+    "module": "SparseSGD.Examples.LogisticTeacher",
+    "file": "SparseSGD/Examples/LogisticTeacher.lean",
+    "theorem_names": [
+      "logisticTeacher_norm",
+      "logisticTeacher_norm_eventually"
+    ]
+  },
+  {
+    "module": "SparseSGD.Examples.OneStep",
+    "file": "SparseSGD/Examples/OneStep.lean",
+    "theorem_names": [
+      "sample_step",
+      "sample_rankDefect",
+      "sample_full_rank"
+    ]
+  },
+  {
+    "module": "SparseSGD.External.BernsteinMoments",
+    "file": "SparseSGD/External/BernsteinMoments.lean",
+    "theorem_names": [
+      "iid_average_mgf"
+    ]
+  },
+  {
+    "module": "SparseSGD.External.GaussianStein",
+    "file": "SparseSGD/External/GaussianStein.lean",
+    "theorem_names": []
+  },
+  {
+    "module": "SparseSGD.External.Jury",
+    "file": "SparseSGD/External/Jury.lean",
+    "theorem_names": [
+      "mean_powers_tendsto_zero"
+    ]
+  },
+  {
+    "module": "SparseSGD.External.MartingaleBernstein",
+    "file": "SparseSGD/External/MartingaleBernstein.lean",
+    "theorem_names": []
+  },
+  {
+    "module": "SparseSGD.Foundations",
+    "file": "SparseSGD/Foundations.lean",
+    "theorem_names": []
+  },
+  {
+    "module": "SparseSGD.Logistic.Bounds",
+    "file": "SparseSGD/Logistic/Bounds.lean",
+    "theorem_names": [
+      "root_lower_bound",
+      "root_lower_bound_of_phi_le",
+      "bulk_bounds_of_phi_le"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.Coefficients",
+    "file": "SparseSGD/Logistic/Coefficients.lean",
+    "theorem_names": [
+      "hasDerivAt_sigma",
+      "hasDerivAt_sigmaPrime",
+      "sigmaPrime_pos",
+      "sigmaPrime_le_one",
+      "sigmaPrime_abs_le_one",
+      "sigmaSecond_abs_le_one",
+      "sigmaSqSecond_abs_le_four",
+      "oneMinusSigmaSqSecond_abs_le_four",
+      "measurable_classLogit0",
+      "measurable_classLogit1",
+      "measurable_sigmaPrime",
+      "measurable_sigmaSecond",
+      "measurable_sigmaSqSecond",
+      "measurable_oneMinusSigmaSqSecond",
+      "integrable_of_abs_le",
+      "integrable_sigmaPrime",
+      "coefA_pos"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.ConditionalDrift",
+    "file": "SparseSGD/Logistic/ConditionalDrift.lean",
+    "theorem_names": [
+      "measurable_past",
+      "measurable_fresh",
+      "process_succ",
+      "pastSigma_le_ambient",
+      "pastSigma_mono",
+      "measurable_historyState",
+      "process_eq_historyState",
+      "process_past_measurable",
+      "past_fresh_jointLaw",
+      "featureNormAverage_memLp_two",
+      "batchGradient_norm_le_featureNormAverage",
+      "batchGradient_kernel_memLp_two",
+      "fresh_batchGradient_memLp_two",
+      "process_memLp_two",
+      "process_fresh_condExp",
+      "history_update_kernel_memLp_two",
+      "measurable_signalCoord",
+      "measurable_bulkPart",
+      "conditional_signal_memLp",
+      "conditional_inner_integrable",
+      "sourcePast_past_measurable",
+      "sourceSigma_le_past",
+      "conditional_measurable_sourceState",
+      "conditional_process_eq_sourceState",
+      "process_source_measurable",
+      "process_source_fresh_condExp",
+      "process_gradient_condExp",
+      "process_conditional_signal_drift",
+      "process_conditional_bulk_drift",
+      "process_source_conditional_signal_drift",
+      "process_source_conditional_bulk_drift"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.ContinuousBootstrap",
+    "file": "SparseSGD/Logistic/ContinuousBootstrap.lean",
+    "theorem_names": [
+      "continuous_norm_no_escape",
+      "continuous_norm_bootstrap_bound",
+      "continuous_norm_no_escape_margin_one"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.Drift",
+    "file": "SparseSGD/Logistic/Drift.lean",
+    "theorem_names": [
+      "drift_measurable_logit",
+      "drift_integrable_bounded",
+      "drift_integrable_weight",
+      "drift_sigma_meas",
+      "drift_sigma_abs",
+      "drift_sigmaPrime_integrable",
+      "drift_gaussianVec_integrable",
+      "drift_logit_eq",
+      "gaussian_logistic_gradient_mean",
+      "gaussian_positive_gradient_mean",
+      "gradient_integral",
+      "bulkLinear_apply",
+      "bulkPart_add",
+      "bulkPart_sub",
+      "bulkPart_smul",
+      "bulkPart_self",
+      "bulkPart_norm_sq",
+      "drift_weighted_coord2",
+      "drift_weighted_norm_integral",
+      "drift_weighted_inner_integral",
+      "drift_weighted_bulk_integral",
+      "drift_residual_sq_true",
+      "drift_class_bulk_second",
+      "bulkGradient_memLp_two",
+      "bulkGradient_integral",
+      "bulkGradient_norm_sq_integral",
+      "drift_iid_mean",
+      "batchGradient_integral",
+      "bulkBatchGradient_memLp_two",
+      "bulkBatchGradient_integral",
+      "bulkResidual_memLp_two",
+      "bulkResidual_integral",
+      "bulkResidual_norm_sq_integral",
+      "bulkBatchGradient_norm_sq_integral",
+      "drift_signal_integral",
+      "update_momentum_memLp_two",
+      "update_parameter_memLp_two",
+      "update_momentum_integral",
+      "update_parameter_integral",
+      "drift_signal_self",
+      "update_signal_momentum_integral",
+      "update_signal_parameter_integral",
+      "drift_toLp_gram",
+      "drift_integrated_gram_step",
+      "update_bulk_integratedGram",
+      "driftParams_explicit",
+      "update_bulk_parameter_memLp_two",
+      "update_bulk_momentum_memLp_two",
+      "update_bulk_moment_drift",
+      "one_step_drift"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicClipped",
+    "file": "SparseSGD/Logistic/DynamicClipped.lean",
+    "theorem_names": [
+      "dynamicBoxClamp_lipschitz",
+      "dynamicBoxClamp_norm_bound",
+      "dynamicBoxClamp_eq",
+      "dynamic_clipped_solution_exists"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicCompact",
+    "file": "SparseSGD/Logistic/DynamicCompact.lean",
+    "theorem_names": [
+      "dynamicAlpha_le_closedBall",
+      "data_norm_bound",
+      "dynamicDriftMap_uniform_consistency"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicConsistency",
+    "file": "SparseSGD/Logistic/DynamicConsistency.lean",
+    "theorem_names": [
+      "dynamicCoefficientStep_eq_increment",
+      "dynamicIncrement_zero_eq_field",
+      "contDiff_dynamicIncrement",
+      "dynamicIncrement_lipschitz_closedBall",
+      "dynamicIncrementData_distance",
+      "dynamicCoefficientStep_consistency",
+      "dynamicAlpha_summary",
+      "dynamicNoiseRate_eq_source",
+      "dynamic_normalized_coefficient_errors",
+      "dynamicAlpha_of_geometry",
+      "dynamicDrift_noise_identity",
+      "dynamicDriftMap_consistency"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicConvergence",
+    "file": "SparseSGD/Logistic/DynamicConvergence.lean",
+    "theorem_names": [
+      "dynamic_grid_error_of_local_residual"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicDrift",
+    "file": "SparseSGD/Logistic/DynamicDrift.lean",
+    "theorem_names": [
+      "dynamicDriftMap_bulk",
+      "dynamicDriftMap_eq_integral"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicEnergy",
+    "file": "SparseSGD/Logistic/DynamicEnergy.lean",
+    "theorem_names": [
+      "hasDerivAt_dynamicEnergy",
+      "dynamicEnergy_coercive",
+      "dynamicEnergy_finite_horizon_bound",
+      "dynamicEnergy_controls_norm"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicEuler",
+    "file": "SparseSGD/Logistic/DynamicEuler.lean",
+    "theorem_names": [
+      "dynamicField_compact_bounds",
+      "dynamic_ode_euler_error",
+      "dynamic_one_step_error",
+      "dynamic_discrete_gronwall"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicField",
+    "file": "SparseSGD/Logistic/DynamicField.lean",
+    "theorem_names": [
+      "contDiff_dynamicField",
+      "dynamic_determinant_identity",
+      "hasDerivAt_dynamicDeterminant",
+      "dynamicDeterminant_evolution",
+      "dynamic_rank_one_preserved",
+      "dynamicRankOneLift_determinant",
+      "hasDerivAt_dynamicRankOneLift"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicFrozen",
+    "file": "SparseSGD/Logistic/DynamicFrozen.lean",
+    "theorem_names": [
+      "dynamicFrozenField_eq_actual",
+      "contDiff_dynamicFrozenData",
+      "hasDerivAt_dynamicFrozenRankOneLift",
+      "dynamic_frozen_solution_unique"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicGlobal",
+    "file": "SparseSGD/Logistic/DynamicGlobal.lean",
+    "theorem_names": [
+      "dynamic_solution_exists_on_finite_horizon"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicLinearBulk",
+    "file": "SparseSGD/Logistic/DynamicLinearBulk.lean",
+    "theorem_names": [
+      "dynamicBulkClamp_lipschitz",
+      "dynamicBulkClamp_norm_le",
+      "dynamicBulkClamp_norm_bound",
+      "dynamicBulkClamp_eq",
+      "dynamicLinearBulkField_norm",
+      "dynamicLinearBulkField_sub",
+      "dynamic_linear_bulk_exists"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicParameters",
+    "file": "SparseSGD/Logistic/DynamicParameters.lean",
+    "theorem_names": [
+      "dynamicField_parameter_error",
+      "dynamicNoiseRate_parameter_error"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicPhysical",
+    "file": "SparseSGD/Logistic/DynamicPhysical.lean",
+    "theorem_names": [
+      "dynamicDualBackwardField_norm",
+      "dynamicDualBackwardField_sub",
+      "dynamic_dual_backward_exists",
+      "dynamicPhysical_iff_quadratic",
+      "dynamicPhysical_closed",
+      "dynamicPhysical_convex",
+      "dynamic_terminal_adjoint_exists",
+      "dynamicPhysical_preserved"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicRank",
+    "file": "SparseSGD/Logistic/DynamicRank.lean",
+    "theorem_names": [
+      "dynamic_solution_unique",
+      "dynamic_rank_one_factorization",
+      "dynamic_rank_one_solution_lift",
+      "dynamic_rank_one_oscillator_coordinates",
+      "contDiff_dynamicOscillatorField",
+      "dynamic_rank_one_oscillator_exists",
+      "dynamic_rank_one_local_oscillator"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicRankGlobal",
+    "file": "SparseSGD/Logistic/DynamicRankGlobal.lean",
+    "theorem_names": [
+      "dynamic_rank_one_full_interval_oscillator",
+      "dynamic_rank_one_full_interval_coordinates"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.DynamicSource",
+    "file": "SparseSGD/Logistic/DynamicSource.lean",
+    "theorem_names": [
+      "parameter_bound",
+      "dynamic_LR34_on_compact",
+      "prop_LR34"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.Equilibrium",
+    "file": "SparseSGD/Logistic/Equilibrium.lean",
+    "theorem_names": [
+      "g_strictMonoOn_pos",
+      "g_at_r",
+      "positive_root_le_r",
+      "g_continuous",
+      "g_at_zero",
+      "exists_unique_positive_root",
+      "positive_root_lt_r",
+      "g_eq_alpha_mul",
+      "slowField_zero_iff",
+      "equilibrium_alpha"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.EquilibriumAnalysis",
+    "file": "SparseSGD/Logistic/EquilibriumAnalysis.lean",
+    "theorem_names": [
+      "hasFDerivAt_alpha",
+      "hasFDerivAt_slowField",
+      "equilibriumJacobian_apply",
+      "equilibriumJacobianMatrix_columns",
+      "equilibriumJacobianMatrix_trace",
+      "equilibriumJacobianMatrix_det",
+      "equilibriumJacobianMatrix_trace_neg",
+      "equilibriumJacobianMatrix_det_pos",
+      "slowField_divergence_neg",
+      "equilibrium_log_alpha_bounds",
+      "equilibrium_signal_exp_log",
+      "equilibrium_log_alpha_bulk_error",
+      "equilibrium_bulk_load_error",
+      "equilibrium_log_alpha_load_error",
+      "positiveRoot_spec",
+      "positiveRoot_slowField_zero",
+      "equilibriumLogAlpha_load_error",
+      "equilibriumLogAlpha_bulk_isBigO",
+      "equilibriumLogAlpha_load_isBigO"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.EquilibriumScaling",
+    "file": "SparseSGD/Logistic/EquilibriumScaling.lean",
+    "theorem_names": [
+      "familyPhi_ratio_tendsto",
+      "integerBatch_power_ratio",
+      "familyPhi_integerBatch_ratio",
+      "equilibriumBulk_family_comparable",
+      "equilibriumBulk_integerBatch_comparable",
+      "equilibriumBulk_fixedBatch_comparable"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FixedPoint",
+    "file": "SparseSGD/Logistic/FixedPoint.lean",
+    "theorem_names": [
+      "moment_fixedPoint_coordinates",
+      "moment_fixedPoint_balance",
+      "moment_fixedPoint_eq_equilibrium",
+      "driftParams_loads",
+      "driftParams_equilibrium_R",
+      "logistic_moment_fixedPoint",
+      "actual_drift_fixedPoint_signal",
+      "actual_drift_fixedPoint_bulk",
+      "logistic_fixedPoint_normalized_covariance"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FixedPointAsymptotics",
+    "file": "SparseSGD/Logistic/FixedPointAsymptotics.lean",
+    "theorem_names": [
+      "relative_error_bound",
+      "linear_balance_error",
+      "tame_signal_fixedPoint",
+      "tame_bulk_fixedPoint",
+      "actual_tame_fixedPoint_signal",
+      "logisticPhi_nonneg",
+      "logistic_fixedPoint_coefficient_balance",
+      "logistic_tame_fixedPoint_bulk",
+      "actual_tame_fixedPoint_bulk",
+      "tame_fixedPoint_covariance_bound",
+      "tame_fixedPoint_covariance_tendsto"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidAsymptotics",
+    "file": "SparseSGD/Logistic/FluidAsymptotics.lean",
+    "theorem_names": [
+      "fluid_sqrt_log_dimension_tendsto",
+      "fluid_sqrt_rate_eventual_bootstrap",
+      "fluid_power_learning_absorption"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidBootstrap",
+    "file": "SparseSGD/Logistic/FluidBootstrap.lean",
+    "theorem_names": [
+      "fluidBootstrap",
+      "fluidBootstrap_of_parameters"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidCells",
+    "file": "SparseSGD/Logistic/FluidCells.lean",
+    "theorem_names": [
+      "matchedSummary_coldState",
+      "compact_reference_bound",
+      "actual_fluid_cells_three_four",
+      "actual_fluid_cell_two"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidClock",
+    "file": "SparseSGD/Logistic/FluidClock.lean",
+    "theorem_names": [
+      "min_clock_learning_horizon",
+      "lrIncrementVariance_min_clock_bound",
+      "lrIncrementScale_dimension_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidClockCaps",
+    "file": "SparseSGD/Logistic/FluidClockCaps.lean",
+    "theorem_names": [
+      "min_clock_learning_horizon_le_cap",
+      "min_clock_retention_horizon_le_cap",
+      "min_clock_learning_of_small_delta"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidComplete",
+    "file": "SparseSGD/Logistic/FluidComplete.lean",
+    "theorem_names": [
+      "cor_fluid_cells_three_four",
+      "cor_fluid_cell_two"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidConfidence",
+    "file": "SparseSGD/Logistic/FluidConfidence.lean",
+    "theorem_names": [
+      "fluid_polynomial_log_confidence",
+      "fluid_dimension_confidence",
+      "fluid_radius_sqrt_dimension_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicCoefficients",
+    "file": "SparseSGD/Logistic/FluidDeterministicCoefficients.lean",
+    "theorem_names": [
+      "scalarBias_exp_le",
+      "scalarBias_gaussian_exp_le",
+      "scalarBias_gaussian_square_exp_le",
+      "bounded_average",
+      "scalarGaussianJet_bound_of_averages",
+      "scalarCoefAJet_compact_bound",
+      "scalarSquareJet_compact_bound",
+      "scalarCoefBJet_compact_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicDerivative",
+    "file": "SparseSGD/Logistic/FluidDeterministicDerivative.lean",
+    "theorem_names": [
+      "hasFDerivWithinAt_of_local_quadratic_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicFree",
+    "file": "SparseSGD/Logistic/FluidDeterministicFree.lean",
+    "theorem_names": [
+      "matchedFreeOperator_apply",
+      "matchedFreeOperator_pow_apply",
+      "matchedFreeOperator_pow_norm_le_four"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicPhysical",
+    "file": "SparseSGD/Logistic/FluidDeterministicPhysical.lean",
+    "theorem_names": [
+      "matchedPhysical_iff_quadratic",
+      "matchedPhysical_convex",
+      "matchedPhysical_variance",
+      "matchedSummary_physical",
+      "matchedCoefficientStep_physical"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicProducts",
+    "file": "SparseSGD/Logistic/FluidDeterministicProducts.lean",
+    "theorem_names": [
+      "matchedJacobianProduct_duhamel",
+      "matched_geometric_envelope",
+      "matchedJacobianProduct_perturbation_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicRealization",
+    "file": "SparseSGD/Logistic/FluidDeterministicRealization.lean",
+    "theorem_names": [
+      "exists_parameter_of_scalar_geometry",
+      "exists_parameter_of_physical_state"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicRegularContainment",
+    "file": "SparseSGD/Logistic/FluidDeterministicRegularContainment.lean",
+    "theorem_names": [
+      "matched_regular_reference_containment"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicRegularEventually",
+    "file": "SparseSGD/Logistic/FluidDeterministicRegularEventually.lean",
+    "theorem_names": [
+      "matched_regular_eventually_bounded"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicRegularFamily",
+    "file": "SparseSGD/Logistic/FluidDeterministicRegularFamily.lean",
+    "theorem_names": [
+      "matched_regular_family_containment"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicResponses",
+    "file": "SparseSGD/Logistic/FluidDeterministicResponses.lean",
+    "theorem_names": [
+      "jacobianResponse_eq_matchedProduct",
+      "matchedJacobianResponse_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicScalarTaylor",
+    "file": "SparseSGD/Logistic/FluidDeterministicScalarTaylor.lean",
+    "theorem_names": [
+      "matchedScalarJet_signal",
+      "matchedScalarJet_variance",
+      "matchedScalarJet_compact_bound",
+      "matchedScalarJet_uniform_bound",
+      "matchedScalarJet_rectangle_taylor"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicSlowContainment",
+    "file": "SparseSGD/Logistic/FluidDeterministicSlowContainment.lean",
+    "theorem_names": [
+      "matched_slow_reference_containment"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicSlowContainmentCore",
+    "file": "SparseSGD/Logistic/FluidDeterministicSlowContainmentCore.lean",
+    "theorem_names": [
+      "slowTracking_norm_bound",
+      "slow_LR2_local_tame_containment"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicSlowEventually",
+    "file": "SparseSGD/Logistic/FluidDeterministicSlowEventually.lean",
+    "theorem_names": [
+      "matched_slow_eventually_bounded"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicSlowFamily",
+    "file": "SparseSGD/Logistic/FluidDeterministicSlowFamily.lean",
+    "theorem_names": [
+      "matched_slow_family_containment"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicSlowLoadCore",
+    "file": "SparseSGD/Logistic/FluidDeterministicSlowLoadCore.lean",
+    "theorem_names": [
+      "slow_LR2_local_tame_load_containment"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicSlowLoadGrid",
+    "file": "SparseSGD/Logistic/FluidDeterministicSlowLoadGrid.lean",
+    "theorem_names": [
+      "slow_grid_error_of_distinct_tracking_load"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicSlowTransport",
+    "file": "SparseSGD/Logistic/FluidDeterministicSlowTransport.lean",
+    "theorem_names": [
+      "slowToMatched_matchedToSlow",
+      "matchedToSlow_eq_normalize",
+      "matchedToSlow_drift",
+      "slowToMatched_norm_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicStateTaylor",
+    "file": "SparseSGD/Logistic/FluidDeterministicStateTaylor.lean",
+    "theorem_names": [
+      "matchedPhysical_variance_bound",
+      "matchedScalarState_taylor_bound",
+      "matchedNormalizedScalar_controls"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicTameRegular",
+    "file": "SparseSGD/Logistic/FluidDeterministicTameRegular.lean",
+    "theorem_names": [
+      "matched_regular_small_probability_eventually_bounded"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicTameSlow",
+    "file": "SparseSGD/Logistic/FluidDeterministicTameSlow.lean",
+    "theorem_names": [
+      "matched_slow_small_probability_eventually_bounded"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicTameWarm",
+    "file": "SparseSGD/Logistic/FluidDeterministicTameWarm.lean",
+    "theorem_names": [
+      "matched_warm_slow_small_probability_eventually_bounded"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicTransport",
+    "file": "SparseSGD/Logistic/FluidDeterministicTransport.lean",
+    "theorem_names": [
+      "dynamicToMatched_matchedToDynamic",
+      "matchedToDynamic_dynamicToMatched",
+      "matchedToDynamic_drift",
+      "dynamicToMatched_norm_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicVariance",
+    "file": "SparseSGD/Logistic/FluidDeterministicVariance.lean",
+    "theorem_names": [
+      "scalarFrameMu_norm",
+      "scalarFrameTheta_norm",
+      "scalarFrameTheta_signal",
+      "scalar_bulk_variance_nonneg",
+      "scalarCoefD0_nonneg",
+      "matchedDriftMap_physical",
+      "matchedDriftOrbit_physical"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicWarmComparison",
+    "file": "SparseSGD/Logistic/FluidDeterministicWarmComparison.lean",
+    "theorem_names": [
+      "warm_sequence_duhamel",
+      "warm_scalar_forcing",
+      "warm_local_perturbation_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDeterministicWarmEventually",
+    "file": "SparseSGD/Logistic/FluidDeterministicWarmEventually.lean",
+    "theorem_names": [
+      "matched_warm_slow_eventually_bounded"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDimensionRate",
+    "file": "SparseSGD/Logistic/FluidDimensionRate.lean",
+    "theorem_names": [
+      "actual_fluid_radius_sqrt_dimension",
+      "actual_matched_fluid_sqrt_dimension"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidDomain",
+    "file": "SparseSGD/Logistic/FluidDomain.lean",
+    "theorem_names": [
+      "fluid_pathwise_bootstrap_on_process",
+      "fluid_probability_norming_bound_on_process",
+      "fluid_limit_normingFamily_on_process"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidFamily",
+    "file": "SparseSGD/Logistic/FluidFamily.lean",
+    "theorem_names": [
+      "actual_matched_fluid_family"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidInitial",
+    "file": "SparseSGD/Logistic/FluidInitial.lean",
+    "theorem_names": [
+      "initial_compact_reference_bound",
+      "cor_fluid_cells_three_four_initial",
+      "cor_fluid_cell_two_initial"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidPowerCells",
+    "file": "SparseSGD/Logistic/FluidPowerCells.lean",
+    "theorem_names": [
+      "fluid_power_actual_delta_eq",
+      "actual_fluid_power_cell_two",
+      "actual_fluid_power_cells_three_four"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidPowerTameCells",
+    "file": "SparseSGD/Logistic/FluidPowerTameCells.lean",
+    "theorem_names": [
+      "fixed_fluid_actual_delta_eq",
+      "actual_fluid_power_tame_cell_two",
+      "actual_fluid_power_tame_cells_three_four"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidScaling",
+    "file": "SparseSGD/Logistic/FluidScaling.lean",
+    "theorem_names": [
+      "eta_div_batch_le_phi",
+      "lrSourceVariance_horizon_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidTameComplete",
+    "file": "SparseSGD/Logistic/FluidTameComplete.lean",
+    "theorem_names": [
+      "tame_compact_reference_bound",
+      "cor_fluid_tame_cells_three_four",
+      "cor_fluid_tame_cell_two_warm"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidTameFamily",
+    "file": "SparseSGD/Logistic/FluidTameFamily.lean",
+    "theorem_names": [
+      "actual_matched_fluid_tame_family"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidTamenessLimits",
+    "file": "SparseSGD/Logistic/FluidTamenessLimits.lean",
+    "theorem_names": [
+      "probability_tendsto_zero_of_tame_error",
+      "tame_error_tendsto_zero_of_bounded_parameters"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidTheorem",
+    "file": "SparseSGD/Logistic/FluidTheorem.lean",
+    "theorem_names": [
+      "condLExp_predictable_indicator",
+      "stopped_condLExp_exp_le",
+      "measurableSet_fluidAlive",
+      "fluidBernstein_of_unit",
+      "fluid_error_unroll",
+      "fluid_pathwise_bootstrap",
+      "fluidStoppedSum_dual_tail",
+      "fluidStoppedSum_coordinate_tail",
+      "measurable_fluidStoppedSum",
+      "fluidStoppedSum_union_bound",
+      "fluid_probability_bound",
+      "fluid_log_confidence",
+      "fluid_limit_supNorm",
+      "fluidStoppedSum_family_union_bound",
+      "fluid_probability_norming_bound",
+      "fluid_limit_normingFamily"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FluidWarm",
+    "file": "SparseSGD/Logistic/FluidWarm.lean",
+    "theorem_names": [
+      "warm_compact_reference_bound",
+      "cor_fluid_cell_two_warm"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FrameAlignmentBasis",
+    "file": "SparseSGD/Logistic/FrameAlignmentBasis.lean",
+    "theorem_names": [
+      "exists_active_logistic_frame",
+      "exists_two_bulk_logistic_frame"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FrameAlignmentCoordinates",
+    "file": "SparseSGD/Logistic/FrameAlignmentCoordinates.lean",
+    "theorem_names": [
+      "framePrefix_apply",
+      "frameComplement_apply",
+      "frame_norm_square_split",
+      "frame_inner_split",
+      "frame_inner_of_complement_zero",
+      "framePrefix_feature",
+      "frameComplement_feature",
+      "frame_bias_prefix",
+      "frame_logit_prefix",
+      "frameComplement_gradient",
+      "frameComplement_batchGradient",
+      "frameComplement_meanBatchGradient",
+      "frameComplement_centeredBatchGradient",
+      "frame_norm_prefix",
+      "frame_r_prefix",
+      "frame_signal_prefix",
+      "frame_gaussianAlpha_prefix",
+      "frame_tameError_prefix",
+      "frame_coefD0_prefix",
+      "frameComplement_of_support"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FrameAlignmentEnergy",
+    "file": "SparseSGD/Logistic/FrameAlignmentEnergy.lean",
+    "theorem_names": [
+      "frame_meanBatchGradient_rotation",
+      "frame_centeredBatchGradient_rotation",
+      "frame_bulk_zero_coordinate",
+      "frame_bulk_other_coordinate",
+      "frame_bulk_norm_square",
+      "frame_active_axis_unit",
+      "frame_active_axis_orthogonal",
+      "frame_active_axis_projection",
+      "frame_centered_bulk_energy"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FrameAlignmentRotation",
+    "file": "SparseSGD/Logistic/FrameAlignmentRotation.lean",
+    "theorem_names": [
+      "frame_feature_rotation",
+      "frame_bias_rotation",
+      "frame_gradient_rotation",
+      "frame_batchGradient_rotation",
+      "frame_signal_rotation",
+      "frame_bulk_rotation",
+      "frame_tameError_rotation",
+      "frame_coefD0_rotation",
+      "frame_rotated_batchLaw_split"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.FrameAlignmentSource",
+    "file": "SparseSGD/Logistic/FrameAlignmentSource.lean",
+    "theorem_names": [
+      "logistic_full_state_frame"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.GaussianDerivativeBounds",
+    "file": "SparseSGD/Logistic/GaussianDerivativeBounds.lean",
+    "theorem_names": [
+      "BoundedDerivativeSequence.continuous",
+      "BoundedDerivativeSequence.average_mean",
+      "BoundedDerivativeSequence.average_variance",
+      "BoundedDerivativeSequence.average_variance_pos",
+      "sigma_boundedDerivativeSequence",
+      "sigmaSquare_boundedDerivativeSequence",
+      "oneMinusSigmaSquare_boundedDerivativeSequence",
+      "gaussian_sigmaDerivative_bounds",
+      "gaussian_sigmaSquareDerivative_bound",
+      "gaussian_oneMinusSigmaSquareDerivative_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.GaussianFrameSplit",
+    "file": "SparseSGD/Logistic/GaussianFrameSplit.lean",
+    "theorem_names": [
+      "measurable_splitGaussianNoise",
+      "standardGaussianProduct_split",
+      "sampleLaw_split",
+      "measurable_splitGaussianSample",
+      "batchLaw_split"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.GaussianSigmoid",
+    "file": "SparseSGD/Logistic/GaussianSigmoid.lean",
+    "theorem_names": [
+      "sigma_continuous",
+      "sigmaPrime_continuous",
+      "sigmaSecond_continuous",
+      "sigmaSqSecond_continuous",
+      "oneMinusSigmaSqSecond_continuous",
+      "gaussian_integral_abs_bound",
+      "gaussian_sigma_integral_bound",
+      "gaussian_sigmaPrime_integral_bound",
+      "gaussian_sigmaPrime_error_bound",
+      "gaussian_sigma_sq_integral_bound",
+      "gaussian_oneMinusSigma_sq_error_bound",
+      "gaussian_sigmaSqSecond_integral_bound",
+      "gaussian_oneMinusSigmaSqSecond_integral_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.GaussianStein",
+    "file": "SparseSGD/Logistic/GaussianStein.lean",
+    "theorem_names": [
+      "hasDerivAt_sigmaSq",
+      "continuous_sigma",
+      "continuous_sigmaPrime",
+      "continuous_sigmaSecond",
+      "continuous_sigmaSqSecond",
+      "continuous_oneMinusSigmaSqSecond",
+      "continuous_two_sigma_sigmaPrime",
+      "continuous_negative_residual_prime",
+      "hasDerivAt_sigmaSq_deriv",
+      "hasDerivAt_oneMinusSigmaSq",
+      "hasDerivAt_oneMinusSigmaSq_deriv",
+      "logistic_first_order",
+      "logistic_positive_class_first_order",
+      "logistic_positive_residual_second_order",
+      "logistic_negative_residual_second_order"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementAlignedBulk",
+    "file": "SparseSGD/Logistic/IncrementAlignedBulk.lean",
+    "theorem_names": [
+      "aligned_bulk_square_mgf"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementBatchFourthRemainder",
+    "file": "SparseSGD/Logistic/IncrementBatchFourthRemainder.lean",
+    "theorem_names": [
+      "mgf_upper_of_global_remainder",
+      "iid_global_fourth_mgf_remainder",
+      "tame_paired_batch_projection_fourth_remainder"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementBernsteinAssembly",
+    "file": "SparseSGD/Logistic/IncrementBernsteinAssembly.lean",
+    "theorem_names": [
+      "increment_two_component_bernstein"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementBoundedMGF",
+    "file": "SparseSGD/Logistic/IncrementBoundedMGF.lean",
+    "theorem_names": [
+      "increment_exp_remainder_bound",
+      "bounded_centered_mgf_remainder",
+      "increment_pow_remainder_le",
+      "iid_bounded_mgf_remainder",
+      "increment_power_second_remainder"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementBulkBounds",
+    "file": "SparseSGD/Logistic/IncrementBulkBounds.lean",
+    "theorem_names": [
+      "bulk_parameter_bounds",
+      "bulk_exponent_bound",
+      "tame_bulk_square_mgf"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementCenteredSquare",
+    "file": "SparseSGD/Logistic/IncrementCenteredSquare.lean",
+    "theorem_names": [
+      "increment_exp_neg_le_quadratic",
+      "fourth_moment_of_square_remainder",
+      "positive_centered_square_mgf",
+      "negative_centered_square_mgf",
+      "centered_square_mgf_of_remainder"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementComplementBounds",
+    "file": "SparseSGD/Logistic/IncrementComplementBounds.lean",
+    "theorem_names": [
+      "complement_parameter_bounds",
+      "complement_exponent_bound",
+      "tame_residualGaussianComplement_simple_mgf",
+      "tame_residualGaussianComplement_bernstein_mgf"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementComplementMGF",
+    "file": "SparseSGD/Logistic/IncrementComplementMGF.lean",
+    "theorem_names": [
+      "complementWeight_variance",
+      "measurable_batchResidualEnergy",
+      "measurable_residualGaussianComplement",
+      "tame_residualGaussianComplement_mgf"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementComplementMean",
+    "file": "SparseSGD/Logistic/IncrementComplementMean.lean",
+    "theorem_names": [
+      "gaussian_weighted_sum_norm_second",
+      "residualGaussianComplement_norm_second"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementConditional",
+    "file": "SparseSGD/Logistic/IncrementConditional.lean",
+    "theorem_names": [
+      "increment_condLExp_of_joint_product",
+      "process_fresh_condLExp",
+      "measurable_meanBatchGradient",
+      "measurable_centeredBatchGradient",
+      "process_tame_projection_condLExp"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementDecomposition",
+    "file": "SparseSGD/Logistic/IncrementDecomposition.lean",
+    "theorem_names": [
+      "centeredBatchGradient_memLp_two",
+      "centeredBatchGradient_integral",
+      "centeredBulk_memLp_two",
+      "centeredBulk_integral",
+      "centeredBulkSquare_integrable",
+      "centeredBulkSquare_integral",
+      "affine_norm_square_centered",
+      "update_centered_parameter",
+      "update_centered_momentum",
+      "matchedIncrement_bulk_parameter",
+      "affine_inner_centered",
+      "matchedIncrement_bulk_momentum",
+      "matchedIncrement_bulk_covariance",
+      "affine_signal_centered",
+      "matchedIncrement_signal_parameter",
+      "matchedIncrement_signal_momentum"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementDirectionMGF",
+    "file": "SparseSGD/Logistic/IncrementDirectionMGF.lean",
+    "theorem_names": [
+      "tame_batch_direction_mgf"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementDriftMap",
+    "file": "SparseSGD/Logistic/IncrementDriftMap.lean",
+    "theorem_names": [
+      "matchedSummary_variance",
+      "matchedCoefficientStep_bulk",
+      "matchedDriftMap_summary",
+      "measurable_gaussianAverage_comp",
+      "measurable_matchedDriftMap"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementDualBounds",
+    "file": "SparseSGD/Logistic/IncrementDualBounds.lean",
+    "theorem_names": [
+      "increment_abs_two_weights",
+      "matchedDualQuadraticCoefficient_abs_le",
+      "matchedDualLinearDirection_norm_le_unit_weights"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementDualDecomposition",
+    "file": "SparseSGD/Logistic/IncrementDualDecomposition.lean",
+    "theorem_names": [
+      "increment_bulk_inner_mu_zero",
+      "increment_inner_bulk_projection",
+      "matchedIncrement_dual_decomposition",
+      "matched_dual_coordinates",
+      "matched_dual_coordinate_abs_le",
+      "matchedIncrement_continuousDual_decomposition",
+      "matchedDualLinearDirection_norm_le"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementEffectiveStep",
+    "file": "SparseSGD/Logistic/IncrementEffectiveStep.lean",
+    "theorem_names": [
+      "tame_coefA_abs_le_on_norm_ball",
+      "meanUpdate_bulk_momentum_formula",
+      "meanUpdate_bulk_parameter_formula",
+      "meanUpdate_bulk_parameter_scaled_formula",
+      "meanUpdate_bulk_momentum_scaled_formula",
+      "meanUpdate_bulk_norm_bounds",
+      "matchedDualLinearDirection_norm_le_stopped",
+      "matchedDualLinearDirection_norm_le_bounded_learning_step"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementFiniteMGF",
+    "file": "SparseSGD/Logistic/IncrementFiniteMGF.lean",
+    "theorem_names": [
+      "finite_exp_sum_le_average",
+      "finite_exp_integrable_bound",
+      "tame_batch_projection_energy_mgf"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementFluidAutomatic",
+    "file": "SparseSGD/Logistic/IncrementFluidAutomatic.lean",
+    "theorem_names": [
+      "actual_matched_fluid_on_bounded_orbit",
+      "matchedPopulationJacobian_hasFDerivWithinAt_physical",
+      "actual_matched_fluid_uniform_constants"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementFluidBridge",
+    "file": "SparseSGD/Logistic/IncrementFluidBridge.lean",
+    "theorem_names": [
+      "matchedProcess_stronglyAdapted",
+      "matchedProcess_fluidNoise",
+      "matchedProcess_fluidUnitBernstein"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementFluidLimit",
+    "file": "SparseSGD/Logistic/IncrementFluidLimit.lean",
+    "theorem_names": [
+      "matchedOrbit_succ",
+      "matchedProcess_initial_dirac",
+      "lrIncrementVariance_nonneg",
+      "lrIncrementScale_nonneg",
+      "matched_proj_unit",
+      "actual_matched_fluid_limit",
+      "actual_matched_fluid_limit_on_tube"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementFluidMapBounds",
+    "file": "SparseSGD/Logistic/IncrementFluidMapBounds.lean",
+    "theorem_names": [
+      "add",
+      "const_mul",
+      "difference_bound",
+      "mul",
+      "mono",
+      "scalarExpansion_const",
+      "scalarExpansion_proj",
+      "eval_add",
+      "eval_mul",
+      "eval_neg",
+      "eval_sub",
+      "bound_nonneg",
+      "control",
+      "matchedPerturbation_controls",
+      "matchedDriftMap_factorization",
+      "matchedPopulationJacobian_control_from_inputs",
+      "matchedPerturbationInput_controls",
+      "matchedPopulationJacobian_uniform_controls",
+      "matchedDimensionlessParameters_norm_le"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementFluidRates",
+    "file": "SparseSGD/Logistic/IncrementFluidRates.lean",
+    "theorem_names": [
+      "lrSourceVarianceConstant_nonneg",
+      "lrSourceScaleConstant_nonneg",
+      "lrIncrement_horizon_variance_le_source",
+      "lrIncrement_scale_le_source_rate",
+      "actual_fluid_radius_le_source",
+      "actual_matched_fluid_source_radius"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementFourthRemainder",
+    "file": "SparseSGD/Logistic/IncrementFourthRemainder.lean",
+    "theorem_names": [
+      "increment_exp_fourth_remainder_bound",
+      "pairedDifference_odd_integral_zero",
+      "symmetric_mgf_fourth_remainder",
+      "paired_exp_integrable",
+      "centered_global_mgf_remainder",
+      "tame_paired_projection_mgf_remainders"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementFullConditional",
+    "file": "SparseSGD/Logistic/IncrementFullConditional.lean",
+    "theorem_names": [
+      "measurable_matchedSummary",
+      "measurable_matchedDrift",
+      "measurable_matchedIncrement",
+      "process_tame_matchedIncrement_dual_condLExp"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementFullMGF",
+    "file": "SparseSGD/Logistic/IncrementFullMGF.lean",
+    "theorem_names": [
+      "tame_matchedIncrement_dual_mgf"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementGaussianComplement",
+    "file": "SparseSGD/Logistic/IncrementGaussianComplement.lean",
+    "theorem_names": [
+      "gaussian_weighted_sum_law",
+      "gaussian_weighted_sum_norm_mgf"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementGlobalEnvelope",
+    "file": "SparseSGD/Logistic/IncrementGlobalEnvelope.lean",
+    "theorem_names": [
+      "global_gaussian_shift_bound",
+      "tame_global_residualExpAbs_bound",
+      "tame_global_projection_weighted_moment",
+      "feature_projection_exp_integrable",
+      "feature_projection_exp_integral",
+      "normalized_projection_exp_abs_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementLinearMGF",
+    "file": "SparseSGD/Logistic/IncrementLinearMGF.lean",
+    "theorem_names": [
+      "tame_single_projection_mgf",
+      "centeredBatch_projection_eq_average",
+      "tame_batch_projection_mgf"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementMGFAlgebra",
+    "file": "SparseSGD/Logistic/IncrementMGFAlgebra.lean",
+    "theorem_names": [
+      "exp_add_le_average_doubles",
+      "exp_add_integrable_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementMoments",
+    "file": "SparseSGD/Logistic/IncrementMoments.lean",
+    "theorem_names": [
+      "exp_abs_le_sum",
+      "classZeroMajorant_integrable",
+      "classZeroMajorant_integral",
+      "classZeroMajorant_bound",
+      "classZero_residual_exp_abs_integrable",
+      "classZero_residual_exp_abs_bound",
+      "classOneMajorant_integrable",
+      "classOneMajorant_bound",
+      "classOne_residual_exp_abs_integrable",
+      "classOne_residual_exp_abs_bound",
+      "residualExpAbs_integrable",
+      "residualExpAbs_bound",
+      "increment_gaussian_shift_bound",
+      "tame_residualExpAbs_bound",
+      "residual_projection_moment_pointwise",
+      "residual_projection_moment_integrable",
+      "tame_residual_projection_moments",
+      "rareProjectionConstant_pos",
+      "tame_unit_gradient_projection_moments"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementProjectionSquare",
+    "file": "SparseSGD/Logistic/IncrementProjectionSquare.lean",
+    "theorem_names": [
+      "tame_batch_projection_square_remainder",
+      "tame_batch_projection_second_moment"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementProjectionSquareMGF",
+    "file": "SparseSGD/Logistic/IncrementProjectionSquareMGF.lean",
+    "theorem_names": [
+      "projectionSquareRadius_pos",
+      "tame_batch_projection_centered_square_mgf"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementQuadraticConditional",
+    "file": "SparseSGD/Logistic/IncrementQuadraticConditional.lean",
+    "theorem_names": [
+      "measurable_state_projection_energy",
+      "process_tame_projection_energy_condLExp"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementQuadraticMoments",
+    "file": "SparseSGD/Logistic/IncrementQuadraticMoments.lean",
+    "theorem_names": [
+      "sampleResidualSquare_nonneg",
+      "sampleResidualSquare_le_one",
+      "measurable_sampleResidualSquare",
+      "sampleResidualSquare_memLp_two",
+      "sampleResidualSquare_integral",
+      "residualSquare_mean_nonneg",
+      "residualSquare_second_moment_le_mean",
+      "tame_residualSquare_mean_le",
+      "batchResidualEnergy_nonneg",
+      "batchResidualEnergy_le",
+      "batchResidualEnergy_memLp_two",
+      "batchResidualEnergy_integral",
+      "batchResidualEnergy_variance",
+      "batchResidualEnergy_variance_le",
+      "batchResidualEnergy_second_moment_le",
+      "residualSquare_moments",
+      "tame_residualSquare_mgf",
+      "tame_batchResidualEnergy_mgf"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementSourceRates",
+    "file": "SparseSGD/Logistic/IncrementSourceRates.lean",
+    "theorem_names": [
+      "lr_quadratic_rate_le",
+      "lrIncrementVariance_le_source",
+      "lrIncrementScale_le_source"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementSquareFourth",
+    "file": "SparseSGD/Logistic/IncrementSquareFourth.lean",
+    "theorem_names": [
+      "gaussian_quartic_tilt_majorant",
+      "square_fourth_remainder_of_global"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementSquareMGF",
+    "file": "SparseSGD/Logistic/IncrementSquareMGF.lean",
+    "theorem_names": [
+      "square_mgf_of_global_remainder",
+      "iid_bounded_square_mgf",
+      "tame_batchResidualEnergy_square_mgf"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementStoppedDomain",
+    "file": "SparseSGD/Logistic/IncrementStoppedDomain.lean",
+    "theorem_names": [
+      "matchedSummary_norm_controls",
+      "matched_neighborhood_norm_bounds",
+      "stoppedTameConstant_pos",
+      "tameError_le_stoppedNorm",
+      "matched_neighborhood_tame_bounds"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementSymmetricMoments",
+    "file": "SparseSGD/Logistic/IncrementSymmetricMoments.lean",
+    "theorem_names": [
+      "paired_weighted_moment",
+      "tame_paired_projection_weighted_moment"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.IncrementSymmetrization",
+    "file": "SparseSGD/Logistic/IncrementSymmetrization.lean",
+    "theorem_names": [
+      "centered_convex_symmetrization",
+      "square_remainder_symmetrization"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.MarkovReduction",
+    "file": "SparseSGD/Logistic/MarkovReduction.lean",
+    "theorem_names": [
+      "measurable_rotateNoise",
+      "measurable_rotateSample",
+      "measurable_rotateBatch",
+      "feature_rotation",
+      "gradient_rotation",
+      "batchGradient_rotation",
+      "update_rotation",
+      "signalCoord_rotation",
+      "bulkPart_rotation",
+      "summary_rotation",
+      "measurable_summary",
+      "gaussian_rotation_invariant",
+      "sample_rotation_invariant",
+      "batch_rotation_invariant",
+      "markov_familyCombination_norm",
+      "exists_rotation_of_gram_eq",
+      "markov_bulk_inner",
+      "summary_eq_iff_rotation",
+      "summary_transition_eq",
+      "measurable_reduceState",
+      "reduceState_surjective",
+      "reduceState_rotation",
+      "fullSummaryKernel_apply",
+      "fullSummaryKernel_fiber",
+      "reduceState_representative",
+      "reducedKernel_apply_reduceState",
+      "reducedSigma_le_past",
+      "reducedProcess_history_measurable",
+      "reducedKernel_integral",
+      "measurable_reducedKernel_integral",
+      "reducedKernel_drift",
+      "reducedProcess_markov"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.Measurability",
+    "file": "SparseSGD/Logistic/Measurability.lean",
+    "theorem_names": [
+      "measurable_sigma",
+      "measurable_labelReal",
+      "measurable_feature",
+      "measurable_gradient",
+      "measurable_batchGradient",
+      "measurable_update",
+      "measurable_process"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.Model",
+    "file": "SparseSGD/Logistic/Model.lean",
+    "theorem_names": [
+      "update_momentum_inner",
+      "update_parameter_inner",
+      "update_signal_momentum",
+      "update_signal_parameter"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.Moments",
+    "file": "SparseSGD/Logistic/Moments.lean",
+    "theorem_names": [
+      "sigma_pos",
+      "sigma_lt_one",
+      "logistic_residual_abs_le_one",
+      "gaussianVec_memLp_two",
+      "sample_feature_memLp_two",
+      "gradient_memLp_two",
+      "batchGradient_memLp_two"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.PopulationApproximation",
+    "file": "SparseSGD/Logistic/PopulationApproximation.lean",
+    "theorem_names": [
+      "populationLoss_line_hasDerivAt",
+      "gaussianLossApprox_line_hasDerivAt",
+      "populationLoss_gaussianApprox_bound",
+      "populationTameConstant_pos",
+      "parameter_line_norm_bound",
+      "tameError_bounded_domain",
+      "populationLoss_tame_approximation",
+      "populationLoss_probability_path_approximation"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.PopulationCalculus",
+    "file": "SparseSGD/Logistic/PopulationCalculus.lean",
+    "theorem_names": [
+      "hasFDerivAt_gradient",
+      "sampleHessian_norm_bound",
+      "measurable_sampleHessian",
+      "hasFDerivAt_populationGradient",
+      "populationHessian_quadratic",
+      "hasGradientAt_populationLoss",
+      "populationGradient_eq_coefficients",
+      "populationHessian_quadratic_nonneg",
+      "populationGradient_differentiable",
+      "populationGradient_continuous"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.PopulationEquilibrium",
+    "file": "SparseSGD/Logistic/PopulationEquilibrium.lean",
+    "theorem_names": [
+      "equilibrium_scalar_potential_error",
+      "equilibrium_parameter_size",
+      "equilibrium_segment_bounds",
+      "populationLoss_equilibrium_floor",
+      "populationLoss_equilibrium_alpha_floor",
+      "populationLoss_canonical_equilibrium_floor",
+      "populationLoss_canonical_equilibrium_relative_error"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.PopulationLoss",
+    "file": "SparseSGD/Logistic/PopulationLoss.lean",
+    "theorem_names": [
+      "hasDerivAt_softplus",
+      "softplus_continuous",
+      "softplus_nonneg",
+      "softplus_lipschitz",
+      "softplus_abs_bound",
+      "measurable_sampleLoss",
+      "sampleLoss_abs_bound",
+      "sampleLoss_integrable",
+      "hasFDerivAt_sampleLoss",
+      "sampleLoss_derivative_norm_bound",
+      "hasFDerivAt_populationLoss",
+      "populationLoss_differentiable",
+      "populationLoss_continuous"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.RectangleTaylor",
+    "file": "SparseSGD/Logistic/RectangleTaylor.lean",
+    "theorem_names": [
+      "rectangle_taylor_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.ScalarCoefficients",
+    "file": "SparseSGD/Logistic/ScalarCoefficients.lean",
+    "theorem_names": [
+      "avg_sigmaSq_continuous",
+      "avg_oneMinusSigmaSq_continuous",
+      "signal_product",
+      "coefA_eq_scalar",
+      "coefB_eq_scalar",
+      "coefD0_eq_scalar",
+      "coefDtheta_eq_scalar",
+      "scalarGaussianJet_signal",
+      "scalarGaussianJet_variance",
+      "scalarGaussianJet_variance_pos",
+      "scalarGaussianJet_eq_actual",
+      "scalar_sigmaDerivative_zero_fun",
+      "scalar_sigmaDerivative_one_fun",
+      "scalar_sigmaSquareDerivative_zero_fun",
+      "scalar_oneMinusSquareDerivative_zero_fun",
+      "scalar_sigmaSquareDerivative_two_fun",
+      "scalar_oneMinusSquareDerivative_two_fun",
+      "scalar_gaussianAverage_zero",
+      "scalarCoefAJet_zero",
+      "scalarCoefBJet_zero",
+      "scalarCoefD0Jet_zero",
+      "scalarCoefDthetaJet_zero",
+      "scalar_zero_boundedDerivativeSequence",
+      "scalarCoefAJet_signal",
+      "scalarCoefAJet_variance",
+      "scalarCoefAJet_variance_pos",
+      "scalarCoefD0Jet_signal",
+      "scalarCoefD0Jet_variance",
+      "scalarCoefD0Jet_variance_pos",
+      "scalarCoefDthetaJet_signal",
+      "scalarCoefDthetaJet_variance",
+      "scalarCoefDthetaJet_variance_pos",
+      "scalarCoefBJet_signal",
+      "scalarCoefBJet_variance",
+      "scalarCoefBJet_variance_pos",
+      "scalarCoefA_signal_hasDerivAt",
+      "scalarCoefA_variance_hasDerivWithinAt",
+      "scalarCoefA_variance_hasDerivAt",
+      "scalarCoefA_second_derivatives",
+      "scalarCoefB_signal_hasDerivAt",
+      "scalarCoefB_variance_hasDerivWithinAt",
+      "scalarCoefB_variance_hasDerivAt",
+      "scalarCoefB_second_derivatives",
+      "scalarCoefD0_signal_hasDerivAt",
+      "scalarCoefD0_variance_hasDerivWithinAt",
+      "scalarCoefD0_variance_hasDerivAt",
+      "scalarCoefD0_second_derivatives",
+      "scalarCoefDtheta_signal_hasDerivAt",
+      "scalarCoefDtheta_variance_hasDerivWithinAt",
+      "scalarCoefDtheta_variance_hasDerivAt",
+      "scalarCoefDtheta_second_derivatives"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SigmoidBounds",
+    "file": "SparseSGD/Logistic/SigmoidBounds.lean",
+    "theorem_names": [
+      "sigma_le_exp",
+      "sigmaPrime_le_exp",
+      "sigmaPrime_exp_error",
+      "sigma_sq_le_exp",
+      "oneMinusSigma_sq_error",
+      "sigmaSqSecond_abs_le_exp",
+      "oneMinusSigmaSqSecond_abs_le_exp"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SigmoidDerivatives",
+    "file": "SparseSGD/Logistic/SigmoidDerivatives.lean",
+    "theorem_names": [
+      "sigmaDerivative_zero",
+      "sigmaSquareDerivative_zero",
+      "oneMinusSigmaSquareDerivative_zero",
+      "sigmaDerivative_continuous",
+      "sigmaSquareDerivative_continuous",
+      "oneMinusSigmaSquareDerivative_continuous",
+      "hasDerivAt_sigmaDerivative",
+      "hasDerivAt_sigmaSquareDerivative",
+      "hasDerivAt_oneMinusSigmaSquareDerivative",
+      "sigmaDerivative_one",
+      "sigmaDerivative_two",
+      "sigmaSquareDerivative_two",
+      "oneMinusSigmaSquareDerivative_two",
+      "polynomial_sigma_bounded",
+      "sigma_exp_error",
+      "sigmaDerivative_bounds",
+      "sigmaSquareDerivative_bounds",
+      "sigmaSquareDerivative_exp_bound",
+      "oneMinusSigmaSquareDerivative_bounded",
+      "oneMinusSigmaSquareDerivative_exp_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowContraction",
+    "file": "SparseSGD/Logistic/SlowContraction.lean",
+    "theorem_names": [
+      "sqrtBulk_alpha_lower",
+      "sqrtBulk_radial_monotone",
+      "sqrtBulk_slow_dissipation",
+      "sqrtBulk_zero_slow_dissipation",
+      "scalar_dissipation_bound",
+      "slowSqrtDistance_nonneg",
+      "slow_sqrt_hasDerivAt",
+      "slow_positive_contraction",
+      "slow_positive_tendsto"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowGlobal",
+    "file": "SparseSGD/Logistic/SlowGlobal.lean",
+    "theorem_names": [
+      "scalar_dissipation_tendsto",
+      "slow_zero_tendsto",
+      "positiveRoot_zero_load",
+      "slow_global_convergence"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowInvariant",
+    "file": "SparseSGD/Logistic/SlowInvariant.lean",
+    "theorem_names": [
+      "scalar_dissipation_max_bound",
+      "slow_signal_nonnegative",
+      "slow_invariant_rectangle"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowLimitConvergence",
+    "file": "SparseSGD/Logistic/SlowLimitConvergence.lean",
+    "theorem_names": [
+      "slow_grid_error_of_tracking"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowLimitEuler",
+    "file": "SparseSGD/Logistic/SlowLimitEuler.lean",
+    "theorem_names": [
+      "contDiff_slowVectorField",
+      "slowVectorField_compact_bounds",
+      "slow_ode_euler_error",
+      "slow_one_step_error",
+      "slow_discrete_gronwall_initial_layer"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowLimitExistence",
+    "file": "SparseSGD/Logistic/SlowLimitExistence.lean",
+    "theorem_names": [
+      "bounded_lipschitz_ode_finite",
+      "bounded_lipschitz_ode_global",
+      "scalar_upper_barrier_global"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowLimitGlobalExistence",
+    "file": "SparseSGD/Logistic/SlowLimitGlobalExistence.lean",
+    "theorem_names": [
+      "slowBoxClamp_lipschitz",
+      "slowBoxClamp_bounds",
+      "slowBoxClamp_norm",
+      "slowBoxClamp_eq",
+      "slow_global_solution_exists",
+      "slow_global_solution_exists_at",
+      "slow_global_solution_exists_and_converges"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowLimitSource",
+    "file": "SparseSGD/Logistic/SlowLimitSource.lean",
+    "theorem_names": [
+      "slow_cold_start_tracking",
+      "slow_LR2_on_compact",
+      "prop_LR2"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowPositivity",
+    "file": "SparseSGD/Logistic/SlowPositivity.lean",
+    "theorem_names": [
+      "scalarIntegratingFactor_pos",
+      "scalarIntegratingFactor_initial",
+      "scalarIntegratingFactor_hasDerivAt",
+      "scalarIntegratingFactor_product_derivative",
+      "scalar_linear_nonneg_pos",
+      "extendedSlowCurvature_continuous",
+      "slow_bulk_nonnegative"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowTracking",
+    "file": "SparseSGD/Logistic/SlowTracking.lean",
+    "theorem_names": [
+      "slowCoefficientStep_eq_dynamic",
+      "slowFastLinear_contract",
+      "slowFastNorm_add",
+      "slowDriftMap_eq_dynamic",
+      "slow_tracking_geometric",
+      "slow_initial_layer_sum",
+      "slowDriftMap_eq_integral",
+      "slow_bulk_residual_identity",
+      "slow_signal_residual_identity"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowTrackingActual",
+    "file": "SparseSGD/Logistic/SlowTrackingActual.lean",
+    "theorem_names": [
+      "slowDriftMap_compact_bounds"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowTrackingBounds",
+    "file": "SparseSGD/Logistic/SlowTrackingBounds.lean",
+    "theorem_names": [
+      "slowFastStep_target_error",
+      "slowFastStep_sub",
+      "slowFastStep_tracking",
+      "slow_mixed_noise_tame",
+      "slowFastStep_target_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowTrackingCompact",
+    "file": "SparseSGD/Logistic/SlowTrackingCompact.lean",
+    "theorem_names": [
+      "alpha_le_slowPosition_ball",
+      "slowCoefficientStep_compact_bounds"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowTrackingCoupled",
+    "file": "SparseSGD/Logistic/SlowTrackingCoupled.lean",
+    "theorem_names": [
+      "slowTargetMap_contDiff",
+      "slowTargetMap_lipschitz_closedBall",
+      "slowCoefficientStep_tracking",
+      "slowFastStep_target_tame_bound",
+      "slowTrackingError_nonneg",
+      "slowCoefficientStep_position_increment",
+      "slowCoefficientStep_tracking_absorb"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SlowTrackingResidual",
+    "file": "SparseSGD/Logistic/SlowTrackingResidual.lean",
+    "theorem_names": [
+      "slowCoefficientStep_slow_residual"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SourceAssumptions",
+    "file": "SparseSGD/Logistic/SourceAssumptions.lean",
+    "theorem_names": [
+      "dynamicCanonicalEquilibrium_is_stationary"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.SquareRemainderConvex",
+    "file": "SparseSGD/Logistic/SquareRemainderConvex.lean",
+    "theorem_names": [
+      "squareExpRemainder_hasDerivAt",
+      "squareExpRemainder_deriv",
+      "squareExpRemainder_deriv_hasDerivAt",
+      "squareExpRemainder_deriv2",
+      "squareExpRemainder_continuous",
+      "squareExpRemainder_nonneg",
+      "squareExpRemainder_convex"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.StoppedFluid",
+    "file": "SparseSGD/Logistic/StoppedFluid.lean",
+    "theorem_names": [
+      "martingale_stoppedProcess",
+      "propagatedSum_succ",
+      "recurrence_eq_propagatedSum",
+      "stoppedIncrement_eq_of_not_alive",
+      "jacobianResponse_new",
+      "jacobianResponse_old",
+      "vector_recurrence_unroll"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.TameCoefficientDerivatives",
+    "file": "SparseSGD/Logistic/TameCoefficientDerivatives.lean",
+    "theorem_names": [
+      "scalarJetFactor_nonneg",
+      "scalarJetFactor_le",
+      "factor_abs_bound",
+      "tame_scalarCoefA_variance_jet",
+      "tame_scalarCoefA_signal_jet",
+      "tame_scalarCoefB_jet",
+      "tame_scalarSquareJet",
+      "tame_scalarCoefD0_jet",
+      "tame_scalarCoefDtheta_jet",
+      "tame_A_jet_all",
+      "tameJetBounds_mono",
+      "tame_scalarJets",
+      "tame_scalarJets_first_second"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.TameCoefficients",
+    "file": "SparseSGD/Logistic/TameCoefficients.lean",
+    "theorem_names": [
+      "gaussianAlpha_pos",
+      "tameError_source_formula",
+      "tameError_ge_probability",
+      "bias_first_exponential",
+      "bias_second_exponential",
+      "coefA_exponential_error",
+      "coefB_exponential_error",
+      "coefD0_exponential_error",
+      "coefDtheta_exponential_bound",
+      "tame_exponential_controls_of_probability_le_half",
+      "tame_exponential_controls",
+      "tame_coefficients_of_probability_le_half",
+      "tame_coefficients"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.TameDerivativeBounds",
+    "file": "SparseSGD/Logistic/TameDerivativeBounds.lean",
+    "theorem_names": [
+      "tame_sigma_mixture_derivative",
+      "tame_sigma_positive_derivative",
+      "tame_square_mixture_derivative",
+      "tame_square_positive_derivative"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.VarianceTaylor",
+    "file": "SparseSGD/Logistic/VarianceTaylor.lean",
+    "theorem_names": [
+      "variance_lift_taylor_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.WarmCoordinates",
+    "file": "SparseSGD/Logistic/WarmCoordinates.lean",
+    "theorem_names": [
+      "matchedEffectiveSlow_free",
+      "matchedEffectiveSlow_bulk_nonneg",
+      "matchedEffectiveSlow_norm_bound",
+      "matchedEffectiveSlow_coefficient_step",
+      "matchedColdEffective_physical",
+      "matchedColdEffective_effective",
+      "matchedColdEffective_free_decay"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.WarmDriftBounds",
+    "file": "SparseSGD/Logistic/WarmDriftBounds.lean",
+    "theorem_names": [
+      "matchedDriftMap_uniform_free_lipschitz"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.Batch",
+    "file": "SparseSGD/Probability/Batch.lean",
+    "theorem_names": [
+      "orthogonal_sum_norm_sq",
+      "batch_average_norm_sq"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.Covariance",
+    "file": "SparseSGD/Probability/Covariance.lean",
+    "theorem_names": [
+      "gramMoments_cov_eq_gram",
+      "gramMoments_psd"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.GaussianBounds",
+    "file": "SparseSGD/Probability/GaussianBounds.lean",
+    "theorem_names": [
+      "gaussianAverage_exponential",
+      "gaussianAverage_exponential_bound",
+      "gaussianAverage_exponential_error"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.GaussianCalculus",
+    "file": "SparseSGD/Probability/GaussianCalculus.lean",
+    "theorem_names": [
+      "gaussian_integrable_bounded",
+      "gaussianAverage_mean_hasDerivAt",
+      "gaussian_scale_hasDerivAt",
+      "gaussian_scalar_stein",
+      "gaussianAverage_variance_hasDerivAt",
+      "gaussianAverage_continuous",
+      "gaussianAverage_zero",
+      "gaussianAverage_variance_hasDerivWithinAt"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.GaussianExponential",
+    "file": "SparseSGD/Probability/GaussianExponential.lean",
+    "theorem_names": [
+      "gaussian_exp_sum_integrable",
+      "gaussian_exp_sum_integral",
+      "gaussian_exp_inner_integrable",
+      "gaussian_exp_inner_integral"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.GaussianMoments",
+    "file": "SparseSGD/Probability/GaussianMoments.lean",
+    "theorem_names": [
+      "gaussianReal_integrable_pow",
+      "gaussianReal_standard_second_moment",
+      "standard_mgf_fourth_derivative",
+      "gaussianReal_standard_fourth_moment",
+      "gaussianReal_standard_fourth_integrable"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.GaussianNorm",
+    "file": "SparseSGD/Probability/GaussianNorm.lean",
+    "theorem_names": [
+      "standardGaussianProduct_norm_inner_sq"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.GaussianProduct",
+    "file": "SparseSGD/Probability/GaussianProduct.lean",
+    "theorem_names": [
+      "standardGaussianProduct_monomial_integrable",
+      "standardGaussianProduct_integral_monomial",
+      "standardGaussianProduct_covariance",
+      "standardGaussianProduct_mixed_fourth",
+      "standardGaussianProduct_mixed_offDiagonal",
+      "standardGaussianProduct_mixed_integrable",
+      "standardGaussianProduct_mixed_moment"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.GaussianProjection",
+    "file": "SparseSGD/Probability/GaussianProjection.lean",
+    "theorem_names": [
+      "gaussian_inner_map",
+      "gaussian_inner_add_map",
+      "gaussian_sqrt_add_map",
+      "gaussianAverage_eq_integral",
+      "gaussian_projected_average"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.GramStep",
+    "file": "SparseSGD/Probability/GramStep.lean",
+    "theorem_names": [
+      "gramMoments_step"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.BatchOracle",
+    "file": "SparseSGD/Probability/LeastSquares/BatchOracle.lean",
+    "theorem_names": [
+      "residual_eq_average_centered",
+      "batchOracle"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.BoundaryCases",
+    "file": "SparseSGD/Probability/LeastSquares/BoundaryCases.lean",
+    "theorem_names": [
+      "batchGradient_mean_p_zero",
+      "batchGradient_norm_sq_p_zero",
+      "centered_variance_p_one",
+      "centered_variance_p_one_batch_one",
+      "labelVariance_dirac_zero",
+      "label_memLp_dirac_zero",
+      "label_mean_dirac_zero",
+      "dirac_zero_batchOracle"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.ConditionalProduct",
+    "file": "SparseSGD/Probability/LeastSquares/ConditionalProduct.lean",
+    "theorem_names": [
+      "condExp_of_joint_product"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.Dynamic",
+    "file": "SparseSGD/Probability/LeastSquares/Dynamic.lean",
+    "theorem_names": [
+      "fresh_kernel_facts",
+      "process_memLp",
+      "process_oracle_facts",
+      "process_gradient_condExp"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.Freshness",
+    "file": "SparseSGD/Probability/LeastSquares/Freshness.lean",
+    "theorem_names": [
+      "measurable_past",
+      "measurable_fresh",
+      "pastSigma_le_ambient",
+      "pastSigma_mono",
+      "stream_past_indep_fresh",
+      "stream_past_fresh_jointLaw",
+      "pastLaw_eq_prod",
+      "past_fresh_jointLaw",
+      "past_indep_fresh"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.GaussianVector",
+    "file": "SparseSGD/Probability/LeastSquares/GaussianVector.lean",
+    "theorem_names": [
+      "euclidean_norm_sq_eq_sum",
+      "euclidean_inner_eq_sum",
+      "gaussian_coord_memLp",
+      "gaussian_inner_memLp",
+      "gaussian_norm_sq_memLp_two",
+      "gaussian_norm_sq_integral",
+      "standardGaussianProduct_euclidean_norm_inner_sq"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.IndependentBatch",
+    "file": "SparseSGD/Probability/LeastSquares/IndependentBatch.lean",
+    "theorem_names": [
+      "integral_inner_iid_centered",
+      "iid_batch_average_memLp",
+      "iid_batch_average_mean",
+      "iid_batch_average_variance",
+      "integral_norm_sq_sub_mean"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.KernelL2",
+    "file": "SparseSGD/Probability/LeastSquares/KernelL2.lean",
+    "theorem_names": [
+      "kernel_memLp_of_second_moment"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.Measurability",
+    "file": "SparseSGD/Probability/LeastSquares/Measurability.lean",
+    "theorem_names": [
+      "measurable_feature",
+      "measurable_gradient",
+      "measurable_batchGradient",
+      "measurable_update",
+      "measurable_process"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.Model",
+    "file": "SparseSGD/Probability/LeastSquares/Model.lean",
+    "theorem_names": []
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.OracleInterface",
+    "file": "SparseSGD/Probability/LeastSquares/OracleInterface.lean",
+    "theorem_names": []
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.Process",
+    "file": "SparseSGD/Probability/LeastSquares/Process.lean",
+    "theorem_names": [
+      "measurable_historyState",
+      "process_eq_historyState",
+      "process_past_measurable",
+      "empty_batch_gradient",
+      "empty_batch_update",
+      "params_explicit"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.Public",
+    "file": "SparseSGD/Probability/LeastSquares/Public.lean",
+    "theorem_names": [
+      "leastSquares_process_memLp",
+      "leastSquares_conditional_oracle",
+      "leastSquares_conditional_gradient"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.SingleSample",
+    "file": "SparseSGD/Probability/LeastSquares/SingleSample.lean",
+    "theorem_names": [
+      "measurable_fullGradient",
+      "memLp_mul_prod_two",
+      "fullGradient_memLp",
+      "fullGradient_integral",
+      "fullGradient_norm_sq_integral",
+      "gradient_eq_gate",
+      "gate_integrable",
+      "gate_integral",
+      "gradient_memLp",
+      "gradient_integral",
+      "gradient_norm_sq_integral",
+      "gradient_centered_memLp",
+      "gradient_centered_integral",
+      "gradient_centered_norm_sq_integral"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.SourceFiltration",
+    "file": "SparseSGD/Probability/LeastSquares/SourceFiltration.lean",
+    "theorem_names": [
+      "sourcePast_pastSigma_measurable",
+      "measurable_sourcePast",
+      "sourceSigma_le_pastSigma",
+      "measurable_sourceState",
+      "process_eq_sourceState",
+      "process_sourceSigma_measurable"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.SourceOracle",
+    "file": "SparseSGD/Probability/LeastSquares/SourceOracle.lean",
+    "theorem_names": [
+      "source_condExp_of_past",
+      "process_source_oracle_facts",
+      "process_source_gradient_condExp"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.Stability",
+    "file": "SparseSGD/Probability/LeastSquares/Stability.lean",
+    "theorem_names": [
+      "params_totalLoad",
+      "inverseCriticalRate_pos",
+      "totalLoad_lt_one_iff_eta_lt_critical",
+      "params_additive",
+      "leastSquares_floor_formula"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.LeastSquares.Trajectory",
+    "file": "SparseSGD/Probability/LeastSquares/Trajectory.lean",
+    "theorem_names": [
+      "gramMoments_toLp",
+      "integrated_trajectory_of_oracle",
+      "leastSquares_moment_trajectory"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.MomentReduction",
+    "file": "SparseSGD/Probability/MomentReduction.lean",
+    "theorem_names": [
+      "l2_norm_sq",
+      "conditional_moment_step",
+      "oracleParams_scale",
+      "oracle_moment_step",
+      "oracle_moment_trajectory"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.Orthogonality",
+    "file": "SparseSGD/Probability/Orthogonality.lean",
+    "theorem_names": [
+      "integral_mul_noise_eq_zero",
+      "integral_inner_noise_eq_zero"
+    ]
+  },
+  {
+    "module": "SparseSGD.Probability.RawOracle",
+    "file": "SparseSGD/Probability/RawOracle.lean",
+    "theorem_names": [
+      "memLp_of_condLExp_sq",
+      "condExp_sq_of_condLExp",
+      "raw_noise_memLp",
+      "raw_oracle_memLp",
+      "raw_oracle_moment_trajectory",
+      "raw_oracle_moment_step",
+      "raw_oracle_covariance_step"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ActivityClock",
+    "file": "SparseSGD/Scaling/ActivityClock.lean",
+    "theorem_names": [
+      "sparse_activity_retention_clock"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ActivityCritical",
+    "file": "SparseSGD/Scaling/ActivityCritical.lean",
+    "theorem_names": [
+      "batchActivity_tendsto_of_product_tendsto_pos",
+      "activity_over_retention_tendsto_atTop",
+      "actual_critical_activity_tendsto",
+      "scaled_critical_activity_tendsto",
+      "scaled_fixed_activity_tendsto",
+      "scaled_critical_memory_ratio_tendsto_atTop",
+      "scaled_dense_memory_ratio_tendsto_atTop",
+      "scaled_fixed_memory_ratio_tendsto_atTop"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ActivityFamily",
+    "file": "SparseSGD/Scaling/ActivityFamily.lean",
+    "theorem_names": [
+      "scaledBatch_realized_ratio_tendsto",
+      "actual_batch_product_ratio",
+      "actual_sparse_activity_ratio",
+      "actual_dense_activity_tendsto_one",
+      "actual_sparse_activity_clock_ratio"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.BatchActivity",
+    "file": "SparseSGD/Scaling/BatchActivity.lean",
+    "theorem_names": [
+      "batchActivity_union_bound",
+      "batchActivity_bounds",
+      "batchActivity_ratio_tendsto_one",
+      "batchActivity_tendsto_one_of_product_atTop",
+      "scaled_batch_probability_product_ratio_tendsto_one",
+      "scaled_batch_activity_sparse_ratio_tendsto_one",
+      "batchActivity_lower_comparable"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.BatchActivityLaw",
+    "file": "SparseSGD/Scaling/BatchActivityLaw.lean",
+    "theorem_names": [
+      "sampleLaw_inactive_real",
+      "batchLaw_someMaskActive_real"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.BoundaryClassification",
+    "file": "SparseSGD/Scaling/BoundaryClassification.lean",
+    "theorem_names": [
+      "critical_plane_cell_classification",
+      "apparent_line_intersections"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ColdMatching",
+    "file": "SparseSGD/Scaling/ColdMatching.lean",
+    "theorem_names": [
+      "continuumMeanFlow_joint_continuous",
+      "continuumMeanFlow_quadratic_bound",
+      "matrix_two_entry_le_norm",
+      "continuumMeanFlow_first_row_quadratic",
+      "Params.cold_matchedMoments",
+      "cold_matching_ratio_bound",
+      "cold_matching_initial_bounds"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ColdOscillator",
+    "file": "SparseSGD/Scaling/ColdOscillator.lean",
+    "theorem_names": [
+      "coldMean_entry_hasDerivAt",
+      "coldOscillatorX_derivative",
+      "coldOscillatorY_derivative",
+      "coldOscillator_equation",
+      "coldOscillator_initial",
+      "continuum_cold_zero_loads_square"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ColdRegular",
+    "file": "SparseSGD/Scaling/ColdRegular.lean",
+    "theorem_names": [
+      "coldMoments_psd",
+      "regular_cold_raw_rate"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ContinuumNeighbors",
+    "file": "SparseSGD/Scaling/ContinuumNeighbors.lean",
+    "theorem_names": [
+      "continuum_largeDelta_cold_two_scale",
+      "continuum_largeDelta_error_tendsto",
+      "cor_resonance_neighbor_small",
+      "cor_resonance_neighbor_large",
+      "continuum_largeDelta_cold_uniform_errors",
+      "continuum_largeDelta_cold_risk",
+      "continuum_largeDelta_cold_risk_uniform",
+      "cor_resonance_neighboring_limits"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ContinuumSmallDelta",
+    "file": "SparseSGD/Scaling/ContinuumSmallDelta.lean",
+    "theorem_names": [
+      "continuumAux_risk_tendsto",
+      "continuum_smallDelta_learningProfile",
+      "continuum_smallDelta_uniform_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ContinuumSmallDeltaAuxiliary",
+    "file": "SparseSGD/Scaling/ContinuumSmallDeltaAuxiliary.lean",
+    "theorem_names": [
+      "continuumAux_step_clock",
+      "continuumAux_beta_lt_one",
+      "continuumAux_raw_delta",
+      "continuumAux_renorm",
+      "continuumAux_step_tendsto_zero",
+      "continuumAux_beta_tendsto_one",
+      "continuumAux_learning_clock_tendsto",
+      "continuumAux_conditions"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ContinuumSmallDeltaUniform",
+    "file": "SparseSGD/Scaling/ContinuumSmallDeltaUniform.lean",
+    "theorem_names": [
+      "continuum_smallDelta_tendstoUniformlyOn_learningClock"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.CurvatureLimit",
+    "file": "SparseSGD/Scaling/CurvatureLimit.lean",
+    "theorem_names": [
+      "curvature_matchedStep_tendsto",
+      "curvature_traceCosine_tendsto",
+      "curvature_foldedAngle_tendsto",
+      "curvature_load_tendsto",
+      "curvature_noise_tendsto",
+      "curvature_eventually_underdamped",
+      "curvature_angle_limit_pos",
+      "curvature_scaledDelta_tendsto",
+      "curvature_matchedDelta_tendsto_atTop",
+      "Params.inverse_sqrt_matchedDelta_le",
+      "curvature_window_error_factor",
+      "curvature_angle_margin",
+      "curvature_perronRate_tendsto"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.CurvatureWindow",
+    "file": "SparseSGD/Scaling/CurvatureWindow.lean",
+    "theorem_names": [
+      "curvature_eventually_window",
+      "curvature_window_comparison",
+      "curvature_window_local_average",
+      "curvature_profile_rates_tendsto",
+      "curvature_switch_rate",
+      "curvature_only_rate",
+      "noise_only_rate"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.Exponents",
+    "file": "SparseSGD/Scaling/Exponents.lean",
+    "theorem_names": [
+      "eCurvature_eq_eDelta_sub_two_gamma",
+      "load_exponents_nonpos_iff",
+      "eight_cells_exhaustive",
+      "critical_noise_limited",
+      "critical_curvature_limited",
+      "critical_switch"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.FixedParameters",
+    "file": "SparseSGD/Scaling/FixedParameters.lean",
+    "theorem_names": [
+      "scaledRetention_gamma_zero",
+      "scaledMomentum_gamma_zero",
+      "lsCurvature_gamma_zero_power_ratio",
+      "lsDelta_gamma_zero_power_ratio",
+      "scaledBatch_zero_eq_fixed",
+      "fixedRealizedBatch_pos",
+      "lsNoise_sigma_zero_ratio_eq",
+      "lsNoise_sigma_zero_ratio_tendsto",
+      "lsNoise_sigma_zero_power_tendsto",
+      "lsAdditive_sigma_zero_power_eq",
+      "lsAdditive_sigma_zero_power_tendsto"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.FluidGrid",
+    "file": "SparseSGD/Scaling/FluidGrid.lean",
+    "theorem_names": [
+      "tendsto_min_zero_of_tendsto_zero",
+      "fluid_grid_floor_le",
+      "floor_horizon_eventually_pos",
+      "actual_fluidClock_tendsto_zero",
+      "actual_fluidGridHorizon_eventually_pos",
+      "actual_fluidGridHorizon_le"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.FluidHorizon",
+    "file": "SparseSGD/Scaling/FluidHorizon.lean",
+    "theorem_names": [
+      "fluidClock_lower_bound_eventually",
+      "fluidGridHorizon_eventually_le_polynomial",
+      "fluidClock_tendsto_zero"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.FluidHorizonDegree",
+    "file": "SparseSGD/Scaling/FluidHorizonDegree.lean",
+    "theorem_names": [
+      "fluidGridHorizon_eventually_le_degree"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.FluidPowerParameters",
+    "file": "SparseSGD/Scaling/FluidPowerParameters.lean",
+    "theorem_names": [
+      "scaledBatch_over_dimension_power_tendsto",
+      "actual_fluid_sparse_limits",
+      "actual_fluid_phi_ratio_tendsto",
+      "actual_fluid_phi_tendsto_zero",
+      "actual_fluid_phi_tendsto_critical",
+      "lsDelta_eq_power_eventually",
+      "actualLSParams_rawDelta_eq_lsDelta_eventually",
+      "actual_rawDelta_tendsto_zero",
+      "actual_rawDelta_tendsto_critical",
+      "actual_fluid_beta_eventually_valid",
+      "actual_fluid_power_parameter_limits"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.FluidPowerTameParameters",
+    "file": "SparseSGD/Scaling/FluidPowerTameParameters.lean",
+    "theorem_names": [
+      "actual_fluid_fixed_sparsity_parameter_limits"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.GeometricKernel",
+    "file": "SparseSGD/Scaling/GeometricKernel.lean",
+    "theorem_names": [
+      "geomLag_nonneg",
+      "geomLag_hasSum_one",
+      "geomLag_summable",
+      "pow_sub_le_of_unit_interval",
+      "geomMajor_nonneg",
+      "geomMajor_hasSum",
+      "geomLag_tv_bound_ordered",
+      "geomLag_tv_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.GeometricRenewal",
+    "file": "SparseSGD/Scaling/GeometricRenewal.lean",
+    "theorem_names": [
+      "geometricResponse_zero",
+      "geometricResponse_step",
+      "geometricResponse_renewal",
+      "geometricResponse_bounds",
+      "geometric_learning_power_bound",
+      "learningProfile_initial",
+      "learningProfile_hasDerivAt",
+      "geometricResponse_learningProfile_error"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.IntegerFamilies",
+    "file": "SparseSGD/Scaling/IntegerFamilies.lean",
+    "theorem_names": [
+      "integerBatch_pos",
+      "powerLaw_tendsto_atTop",
+      "integerBatch_eventually_floor",
+      "integerBatch_ratio_tendsto",
+      "integerBatch_tendsto_atTop",
+      "fixedBatch_ratio",
+      "no_positive_integer_batch_negative_exponent",
+      "gridHorizon_le",
+      "gridHorizon_gap"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.IntegerRounding",
+    "file": "SparseSGD/Scaling/IntegerRounding.lean",
+    "theorem_names": [
+      "integerBatch_eq_floor_of_one_le",
+      "integerBatch_floor_error",
+      "integerBatch_relative_error",
+      "integerBatch_inverse_relative_error",
+      "integerBatch_rounding_eventually",
+      "integerBatch_relative_error_isBigO",
+      "integerBatch_zero_exponent_eq_fixed"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.LSCurvatureCells",
+    "file": "SparseSGD/Scaling/LSCurvatureCells.lean",
+    "theorem_names": [
+      "ls_curvature_cells_parameters",
+      "ls_curvature_cells_risk",
+      "ls_curvature_cells_energy"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.LSFamily",
+    "file": "SparseSGD/Scaling/LSFamily.lean",
+    "theorem_names": [
+      "labelVariance_nonneg",
+      "actualLSFamily_algebra_of_retention_bound",
+      "actualLSFamily_algebra",
+      "lsDelta_tendsto_zero",
+      "renorm_nonneg_of_curvature_lt_one",
+      "actualLSParams_learningClock"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.LSLearningCells",
+    "file": "SparseSGD/Scaling/LSLearningCells.lean",
+    "theorem_names": [
+      "ls_learning_cells_uniform",
+      "learningProfile_zero_loads"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.LSLearningFamily",
+    "file": "SparseSGD/Scaling/LSLearningFamily.lean",
+    "theorem_names": [
+      "ls_learning_family_uniform",
+      "ls_fixed_batch_load_limits",
+      "realizedBatchScale_pos",
+      "ls_power_load_limits",
+      "ls_learning_cells_all_batches",
+      "learningProfile_excess",
+      "learningProfile_excess_grid"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.LSLoadLimits",
+    "file": "SparseSGD/Scaling/LSLoadLimits.lean",
+    "theorem_names": [
+      "actualLSFamily_load_limits",
+      "actualLSFamily_w_power",
+      "actualLSFamily_w_tendsto_zero",
+      "actualLSFamily_w_tendsto_critical",
+      "lsDelta_tendsto_atTop"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.LSRegularCells",
+    "file": "SparseSGD/Scaling/LSRegularCells.lean",
+    "theorem_names": [
+      "ls_regular_cells_all_batches"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.LSWindowCells",
+    "file": "SparseSGD/Scaling/LSWindowCells.lean",
+    "theorem_names": [
+      "ls_small_curvature_window_parameters",
+      "ls_window_cells_risk",
+      "ls_window_cells_energy"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.LearningLimit",
+    "file": "SparseSGD/Scaling/LearningLimit.lean",
+    "theorem_names": [
+      "learning_chain_uniform_convergence"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.LearningProfileLimits",
+    "file": "SparseSGD/Scaling/LearningProfileLimits.lean",
+    "theorem_names": [
+      "expNeg_rate_difference_bound_ordered",
+      "expNeg_rate_difference_bound",
+      "learningProfile_uniform_parameter_perturbation"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.LeastSquaresParameters",
+    "file": "SparseSGD/Scaling/LeastSquaresParameters.lean",
+    "theorem_names": [
+      "scaledSparsity_pos_of_pos",
+      "actualLSParams_eq_lsPowerParams",
+      "actualLSParams_eps",
+      "actualLSParams_rawDelta",
+      "actualLSParams_curvature",
+      "actualLSParams_beta_tendsto_one",
+      "actualLSParams_noise_ratio_tendsto",
+      "actualLSParams_additive_ratio_tendsto",
+      "actualLSParams_curvature_ratio_tendsto"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.MatchingApproximation",
+    "file": "SparseSGD/Scaling/MatchingApproximation.lean",
+    "theorem_names": [
+      "matching_trace_coefficients",
+      "Params.small_step_linear_delta",
+      "Params.small_step_delta_remainder",
+      "Params.small_step_matchedDelta",
+      "Params.small_step_matchedDelta_sharp",
+      "Params.small_step_matchedDelta_relative"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.MatchingLimits",
+    "file": "SparseSGD/Scaling/MatchingLimits.lean",
+    "theorem_names": [
+      "small_step_matchedDelta_tendsto_finite",
+      "small_step_matchedDelta_relative_tendsto_one",
+      "small_step_matchedDelta_tendsto_atTop",
+      "small_step_matchedStep_tendsto_zero"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.MatchingTaylor",
+    "file": "SparseSGD/Scaling/MatchingTaylor.lean",
+    "theorem_names": [
+      "complex_exp_cubic_remainder",
+      "cos_quadratic_remainder",
+      "real_exp_cubic_remainder",
+      "cosh_quadratic_remainder"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.MemoryClock",
+    "file": "SparseSGD/Scaling/MemoryClock.lean",
+    "theorem_names": [
+      "power_ratio_sign_limits",
+      "actual_sparse_memory_threshold"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.NonBoundaryRatios",
+    "file": "SparseSGD/Scaling/NonBoundaryRatios.lean",
+    "theorem_names": [
+      "ls_signal_to_increment_ratio",
+      "actual_ls_curvature_to_noise_ratio",
+      "actual_dimension_correction_tendsto_one",
+      "actual_signal_increment_ratio_tendsto",
+      "actual_ls_curvature_noise_ratio",
+      "actual_curvature_noise_ratio_tendsto"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.PhaseClocks",
+    "file": "SparseSGD/Scaling/PhaseClocks.lean",
+    "theorem_names": [
+      "windowSlow_excess_grid",
+      "actual_window_rate_ratio",
+      "sample_retention_clock_ratio",
+      "ls_window_cells_envelope_rate",
+      "ls_curvature_cells_envelope_rate",
+      "regular_envelope_rate_retention_ratio"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.PowerLimits",
+    "file": "SparseSGD/Scaling/PowerLimits.lean",
+    "theorem_names": [
+      "powerScale_tendsto_zero",
+      "powerScale_tendsto_const",
+      "powerScale_tendsto_atTop",
+      "tendsto_product_zero",
+      "product_limit_congr",
+      "product_atTop_congr",
+      "product_to_zero",
+      "product_to_finite",
+      "product_to_atTop",
+      "lsNoiseLoad_tendsto_zero",
+      "lsNoiseLoad_tendsto_critical",
+      "lsNoiseLoad_tendsto_atTop",
+      "lsAdditiveLoad_tendsto_zero",
+      "lsAdditiveLoad_tendsto_critical",
+      "lsAdditiveLoad_tendsto_atTop",
+      "actualLSParams_curvature_tendsto_zero",
+      "actualLSParams_curvature_tendsto_critical",
+      "actualLSParams_curvature_tendsto_atTop"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.PowerParameters",
+    "file": "SparseSGD/Scaling/PowerParameters.lean",
+    "theorem_names": [
+      "lsCurvature_power_ratio",
+      "lsDelta_power_ratio",
+      "scaledBatch_ratio_tendsto",
+      "scaledRetention_tendsto_zero",
+      "scaledMomentum_tendsto_one",
+      "scaledSparsity_over_dimension_tendsto_zero",
+      "lsNoise_dimension_correction_tendsto_one",
+      "lsNoise_batch_correction_tendsto_one",
+      "lsNoise_power_ratio_eq",
+      "lsNoise_power_ratio_tendsto",
+      "lsAdditive_power_ratio_eq",
+      "lsAdditive_power_ratio_tendsto",
+      "lsCurvatureLoad_power_ratio_tendsto"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ProbabilityFamily",
+    "file": "SparseSGD/Scaling/ProbabilityFamily.lean",
+    "theorem_names": [
+      "scaledProbabilityFamily_pos",
+      "scaledProbabilityFamily_eq_eventually",
+      "scaledProbabilityFamily_eq_eventually_fixed"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.RegularLimit",
+    "file": "SparseSGD/Scaling/RegularLimit.lean",
+    "theorem_names": [
+      "regularFlowVector_continuousAt",
+      "regularFlowVector_tendstoUniformlyOn",
+      "continuumFlow_tendstoUniformlyOn",
+      "continuumFlow_risk_tendstoUniformlyOn",
+      "regular_chain_grid_convergence",
+      "continuumFlow_tendstoUniformlyOn_nonneg",
+      "continuumFlow_risk_tendstoUniformlyOn_nonneg",
+      "regular_chain_uniform_convergence",
+      "regularVectorSize_le_three_norm",
+      "regular_chain_uniform_rate_interval",
+      "regular_chain_uniform_rate_compact",
+      "regular_matrix_entry_bound",
+      "regularMomentVector_sub_norm_le_cov",
+      "cor_regular"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.RegularPerturbation",
+    "file": "SparseSGD/Scaling/RegularPerturbation.lean",
+    "theorem_names": [
+      "regular_mulVec_hasDerivAt",
+      "regularSemigroup_flow",
+      "regular_vector_duhamel",
+      "regularVectorMoments_roundtrip",
+      "regularVector_norm_le_size",
+      "regularSemigroup_norm_decay",
+      "regular_exp_integral_bound",
+      "regular_duhamel_uniform_bound",
+      "regularFlowDifference_hasDerivAt",
+      "regularParameterForcing_continuous",
+      "regularFlow_coordinate_bound",
+      "regularParameterForcing_bound",
+      "continuumFlow_uniform_perturbation_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.RegularUniformConstants",
+    "file": "SparseSGD/Scaling/RegularUniformConstants.lean",
+    "theorem_names": [
+      "regular_psd_norm_energy",
+      "regular_psd_semigroup_decay",
+      "regularSemigroup_explicit_decay",
+      "regularSemigroup_uniform_decay",
+      "regular_ratio_difference_bound",
+      "regular_energy_margin_bound",
+      "continuumFlow_regular_uniform_rate"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.RenewalComparison",
+    "file": "SparseSGD/Scaling/RenewalComparison.lean",
+    "theorem_names": [
+      "reversed_lag_sum_le_tsum",
+      "renewal_comparison"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.RenormalizedLimits",
+    "file": "SparseSGD/Scaling/RenormalizedLimits.lean",
+    "theorem_names": [
+      "renorm_load_difference_bound",
+      "renorm_load_tendsto",
+      "actualLSParams_renormNoise_tendsto",
+      "actualLSParams_renormAdditive_tendsto"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.Resonance",
+    "file": "SparseSGD/Scaling/Resonance.lean",
+    "theorem_names": [
+      "lsDelta_resonant_constant",
+      "cor_resonance_rate",
+      "resonance_power_sum_bound",
+      "cor_resonance_rate_min"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ResonanceFixed",
+    "file": "SparseSGD/Scaling/ResonanceFixed.lean",
+    "theorem_names": [
+      "resonantFixed_noise_identity",
+      "resonantFixed_noise_error",
+      "resonantFixed_additive_identity",
+      "cor_resonance_fixed_rate",
+      "cor_resonance_fixed_rate_min"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ResonanceParameters",
+    "file": "SparseSGD/Scaling/ResonanceParameters.lean",
+    "theorem_names": [
+      "actualLSParams_resonant_noise_eq",
+      "actualLSParams_resonant_additive_eq",
+      "resonantNoiseLoad_ratio_identity",
+      "resonantAdditiveLoad_ratio_identity",
+      "resonantNoiseLoad_error_bound",
+      "resonantAdditiveLoad_error_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.ResonanceRank",
+    "file": "SparseSGD/Scaling/ResonanceRank.lean",
+    "theorem_names": [
+      "continuumFlow_nonzeroRisk_of_positive_forcing",
+      "cor_resonance_rank"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.RetentionClock",
+    "file": "SparseSGD/Scaling/RetentionClock.lean",
+    "theorem_names": [
+      "retentionClock_bounds",
+      "scaledRetentionClock_bounds_eventually",
+      "scaledRetentionClock_ratio_tendsto_one",
+      "scaledRetentionClock_error_isBigO",
+      "actualLSParams_matchedStep_eq_retentionClock",
+      "actualLSParams_matchedStep_over_retention_tendsto_one",
+      "actualLSParams_matchedStep_error_isBigO"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.SmallDeltaApproximation",
+    "file": "SparseSGD/Scaling/SmallDeltaApproximation.lean",
+    "theorem_names": [
+      "smallDelta_kernel_geometric",
+      "smallDelta_freeRisk_geometric"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.SmallDeltaExponential",
+    "file": "SparseSGD/Scaling/SmallDeltaExponential.lean",
+    "theorem_names": [
+      "smallDelta_slow_location",
+      "exp_neg_linear_remainder",
+      "smallDelta_slow_kernel_bounds",
+      "smallDelta_slow_power_error",
+      "smallDelta_slow_geom_tv"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.SmallDeltaForcing",
+    "file": "SparseSGD/Scaling/SmallDeltaForcing.lean",
+    "theorem_names": [
+      "smallDelta_freeRisk_slow"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.SmallDeltaFormulas",
+    "file": "SparseSGD/Scaling/SmallDeltaFormulas.lean",
+    "theorem_names": [
+      "kickResponse_distinct_roots",
+      "Params.meanPower_entry_recurrence",
+      "Params.meanPower00_distinct_roots",
+      "cold_freeRisk",
+      "cold_freeRisk_distinct_roots",
+      "normalizedKernelLag_distinct_roots",
+      "smallDelta_actual_roots"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.SmallDeltaKernel",
+    "file": "SparseSGD/Scaling/SmallDeltaKernel.lean",
+    "theorem_names": [
+      "weighted_geomLag",
+      "normalizedKernelLag_geometric",
+      "smallDelta_kernel_parameters",
+      "smallDelta_fast_weights",
+      "signed_geom_mixture_bound",
+      "smallDelta_kernel_slow_geometric"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.SmallDeltaSpectrum",
+    "file": "SparseSGD/Scaling/SmallDeltaSpectrum.lean",
+    "theorem_names": [
+      "smallDeltaSpectrum_strong",
+      "smallDeltaSpectrum"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.SmallStepGeometry",
+    "file": "SparseSGD/Scaling/SmallStepGeometry.lean",
+    "theorem_names": [
+      "Params.small_step_bounds",
+      "Params.small_step_trace",
+      "Params.small_step_angle",
+      "Params.small_step_trace_identity"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.Tikhonov",
+    "file": "SparseSGD/Scaling/Tikhonov.lean",
+    "theorem_names": [
+      "smallDelta_trajectory_learningProfile",
+      "cor_tikhonov"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.Window",
+    "file": "SparseSGD/Scaling/Window.lean",
+    "theorem_names": [
+      "window_chain_local_average"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.WindowAverages",
+    "file": "SparseSGD/Scaling/WindowAverages.lean",
+    "theorem_names": [
+      "window_geometric_denominator",
+      "window_geometric_sum_bound",
+      "windowSlowProfile_increment",
+      "window_average_transfer",
+      "windowOscillatoryProfile_power",
+      "window_multiplier_bounds",
+      "windowSlowProfile_initial",
+      "windowSlowProfile_derivative"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.WindowChain",
+    "file": "SparseSGD/Scaling/WindowChain.lean",
+    "theorem_names": [
+      "windowOscillatoryProfile_grid",
+      "window_chain_energy_comparison",
+      "Params.windowOsc_grid"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.WindowEstimates",
+    "file": "SparseSGD/Scaling/WindowEstimates.lean",
+    "theorem_names": [
+      "damped_mode_norm_le_one",
+      "modal_dominant_approximation",
+      "largeModeRates_fast_gap",
+      "largeModeRates_osc_gap",
+      "windowSlowFactor_fast_bound",
+      "windowOscFactor_wrong_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.WindowFlow",
+    "file": "SparseSGD/Scaling/WindowFlow.lean",
+    "theorem_names": [
+      "windowWeights_functional",
+      "window_initial_centered_bound",
+      "window_clean_exponential_bound",
+      "continuum_window_centered_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.WindowInitialBounds",
+    "file": "SparseSGD/Scaling/WindowInitialBounds.lean",
+    "theorem_names": [
+      "oscillatoryRoot_norm",
+      "window_initial_slow_bound",
+      "window_initial_osc_bound",
+      "windowEquilibrium_slow",
+      "windowEquilibrium_osc",
+      "windowEquilibrium_osc_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.WindowModes",
+    "file": "SparseSGD/Scaling/WindowModes.lean",
+    "theorem_names": [
+      "windowLinearFunctional_slow",
+      "windowLinearFunctional_osc",
+      "window_re_decomposition",
+      "window_modeCoordinate_star",
+      "window_exp_star",
+      "continuumFlow_window_coordinates",
+      "continuumFlow_window_functional",
+      "largeModeRates_is_root",
+      "windowSlowFactor_eigenrelation",
+      "windowOscFactor_eigenrelation"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.WindowProfiles",
+    "file": "SparseSGD/Scaling/WindowProfiles.lean",
+    "theorem_names": [
+      "continuum_window_slow_bound",
+      "continuum_window_osc_bound",
+      "windowSize_margin_bound",
+      "window_inverse_frequency_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.WindowRate",
+    "file": "SparseSGD/Scaling/WindowRate.lean",
+    "theorem_names": [
+      "continuumPerronRate_largeMode",
+      "window_continuum_rate_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.WindowReconstruction",
+    "file": "SparseSGD/Scaling/WindowReconstruction.lean",
+    "theorem_names": [
+      "window_risk_coefficients",
+      "window_profile_bounds",
+      "window_risk_reconstruction_error"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.WindowRisk",
+    "file": "SparseSGD/Scaling/WindowRisk.lean",
+    "theorem_names": [
+      "window_chain_risk_comparison"
+    ]
+  },
+  {
+    "module": "SparseSGD.Scaling.WindowScalars",
+    "file": "SparseSGD/Scaling/WindowScalars.lean",
+    "theorem_names": [
+      "damped_exponential_difference",
+      "largeMode_parameter_shift",
+      "largeMode_parameter_margin",
+      "largeMode_oscillatory_rate_error"
+    ]
+  }
+]

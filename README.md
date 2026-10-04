@@ -4,6 +4,11 @@ Symbolic verification of the algebraic and asymptotic claims in the
 Everett & Paquette 2026 paper on Routh--Hurwitz stability of the
 second-moment ODE.
 
+The repository also contains, in [`lean/`](lean/), a Lean 4 formalization of
+a companion note in preparation, *Scaling limits of sparse heavy-ball SGD*.
+It is independent of the SymPy scripts below; see
+[Lean formalization](#lean-formalization) at the end.
+
 ## Setup
 
 ```bash
@@ -152,3 +157,21 @@ chain:
 
 Together they mechanize the chain from the full-ODE matrix entries
 through the per-region `eta_max` rows of the paper's phase diagram.
+
+## Lean formalization
+
+The [`lean/`](lean/) directory is a Lean 4 / Mathlib formalization of a
+companion note in preparation, *Scaling limits of sparse heavy-ball SGD: one
+moment comparison for least squares and logistic regression*. The note derives
+every scaling limit of the second moments of sparse mini-batch SGD with
+momentum from a single moment comparison theorem. It also treats logistic
+regression through a fluid limit and an equilibrium analysis.
+
+All 27 results of the note are formalized and kernel-checked. Standard results
+that the note cites enter as explicit hypotheses, not axioms. The code was
+written by an automated LLM agent pipeline, and four central statements have
+been audited separately against the note.
+
+[`lean/README.md`](lean/README.md) explains what is formalized, the trust
+boundary, where the formal statements differ from the note, how the code was
+produced, and how to build and verify it.

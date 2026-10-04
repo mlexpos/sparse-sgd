@@ -1,0 +1,1238 @@
+[
+  {
+    "label": "ass:G",
+    "kind": "assumption",
+    "title": "Second-order oracle",
+    "source": "chunks/01_master_reduction.tex",
+    "subclaims": [
+      {
+        "id": "oracle_interface",
+        "status": "assumption",
+        "declarations": [
+          "SparseSGD.RawOracleHypotheses"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "lem:L1",
+    "kind": "lemma",
+    "title": "Exact reduction",
+    "source": "chunks/01_master_reduction.tex",
+    "subclaims": [
+      {
+        "id": "integrability",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.raw_oracle_memLp"
+        ]
+      },
+      {
+        "id": "covariance_step",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.raw_oracle_covariance_step"
+        ]
+      },
+      {
+        "id": "trajectory",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.raw_oracle_moment_trajectory"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "lem:L2",
+    "kind": "lemma",
+    "title": "Discrete renewal",
+    "source": "chunks/02_renewal.tex",
+    "subclaims": [
+      {
+        "id": "mean_stability",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.External.mean_powers_tendsto_zero"
+        ]
+      },
+      {
+        "id": "renewal",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Params.trajectory_cov_unroll",
+          "SparseSGD.Params.trajectory_R_renewal"
+        ]
+      },
+      {
+        "id": "chebyshev_kernel",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.kickResponse_eq_chebyshev",
+          "SparseSGD.Params.renewal_kernel_nonneg"
+        ]
+      },
+      {
+        "id": "kernel_masses",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.stable_kernel_masses"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "cor:stab",
+    "kind": "corollary",
+    "title": "Stability, floor, a priori bound",
+    "source": "chunks/02_renewal.tex",
+    "subclaims": [
+      {
+        "id": "threshold",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.renormNoise_lt_one_iff",
+          "SparseSGD.Probability.LeastSquares.totalLoad_lt_one_iff_eta_lt_critical"
+        ]
+      },
+      {
+        "id": "uniform_bound",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.trajectory_risk_uniform_bound"
+        ]
+      },
+      {
+        "id": "geometric_convergence",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.trajectory_risk_geometric_convergence",
+          "SparseSGD.trajectory_risk_tendsto_floor",
+          "SparseSGD.floor_identity"
+        ]
+      },
+      {
+        "id": "necessity",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.trajectory_risk_not_summable",
+          "SparseSGD.trajectory_risk_not_geometrically_decaying"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "lem:L3",
+    "kind": "lemma",
+    "title": "Structure of \\eqref{eq:L3}",
+    "source": "chunks/02_renewal.tex",
+    "subclaims": [
+      {
+        "id": "existence_uniqueness",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.continuum_solution_exists",
+          "SparseSGD.continuum_solution_unique"
+        ]
+      },
+      {
+        "id": "renewal",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.continuumCovarianceFlow_variation_of_constants",
+          "SparseSGD.continuumFlow_renewal"
+        ]
+      },
+      {
+        "id": "laplace_transform",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.continuumKernelLaplace_integrable",
+          "SparseSGD.continuumKernelLaplace_eq"
+        ]
+      },
+      {
+        "id": "kernel_mass",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.continuumRenewalKernel_integrableOn",
+          "SparseSGD.continuumRenewalKernel_mass"
+        ]
+      },
+      {
+        "id": "kernel_variation",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.continuumKernelTotalVariation_le",
+          "SparseSGD.continuumRenewalKernel_eVariationOn_le"
+        ]
+      },
+      {
+        "id": "energy",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.free_oscillator_energy_bound",
+          "SparseSGD.continuumFreeRisk_le_initial_energy"
+        ]
+      },
+      {
+        "id": "stability_rate",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.continuumFlow_exponentially_stable_iff",
+          "SparseSGD.continuumFlow_equilibrium_exponential_bound",
+          "SparseSGD.continuumPerronRate_attained",
+          "SparseSGD.continuumPerronRate_pos",
+          "SparseSGD.continuumPerronRate_lt_one_sub_load"
+        ]
+      },
+      {
+        "id": "eigenfunctionals",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.slowEnergy_hasDerivAt",
+          "SparseSGD.oscillatoryEnergy_hasDerivAt"
+        ]
+      },
+      {
+        "id": "modal_inversion",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.risk_modal_inversion"
+        ]
+      },
+      {
+        "id": "rank_growth",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.continuumFlow_psd",
+          "SparseSGD.continuumFlow_rankDefect_pos",
+          "SparseSGD.continuumFlow_cov_posDef"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "def:matched",
+    "kind": "definition",
+    "title": "Matched parameters",
+    "source": "chunks/03_master_theorem.tex",
+    "subclaims": [
+      {
+        "id": "matched_parameters",
+        "status": "defined",
+        "declarations": [
+          "SparseSGD.Params.matchedStep",
+          "SparseSGD.Params.matchingSign",
+          "SparseSGD.Params.foldedAngle",
+          "SparseSGD.Params.matchedDelta",
+          "SparseSGD.Params.matchedMeanFlow",
+          "SparseSGD.Params.matchingMatrix"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "lem:match",
+    "kind": "lemma",
+    "title": "Matching",
+    "source": "chunks/03_master_theorem.tex",
+    "subclaims": [
+      {
+        "id": "exponential_invariants",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Params.matchedDelta_pos",
+          "SparseSGD.Params.matchedMeanFlow_invariants"
+        ]
+      },
+      {
+        "id": "similarity",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Params.exact_matching_similarity"
+        ]
+      },
+      {
+        "id": "uniqueness",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Params.exact_matching_existsUnique"
+        ]
+      },
+      {
+        "id": "kick_relation",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Params.exact_matching_kick"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "lem:embed",
+    "kind": "lemma",
+    "title": "Exact embedding: impulses on a grid",
+    "source": "chunks/03_master_theorem.tex",
+    "subclaims": [
+      {
+        "id": "covariance_embedding",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Params.exact_embedding_step",
+          "SparseSGD.Params.matchedCovariance_first_entry"
+        ]
+      },
+      {
+        "id": "normalization",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Params.gridImpulseFactor_eq",
+          "SparseSGD.Params.normalizedKernelLag_eq_continuum_sampling",
+          "SparseSGD.Params.sampled_continuum_kernel_normalized_hasSum"
+        ]
+      },
+      {
+        "id": "renewal",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Params.exact_embedding_renewal"
+        ]
+      },
+      {
+        "id": "noise_free_exactness",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Params.noiseFree_risk_eq_matched_grid"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "lem:quad",
+    "kind": "lemma",
+    "title": "Quadrature of exponential pairs",
+    "source": "chunks/03_master_theorem.tex",
+    "subclaims": [
+      {
+        "id": "finite_identity",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.sampled_pair_sum_quadrature"
+        ]
+      },
+      {
+        "id": "infinite_identity",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.hasSum_sampled_exp"
+        ]
+      },
+      {
+        "id": "compact_strip",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.quadrature_factor_bound"
+        ]
+      },
+      {
+        "id": "uniform_error",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.exponential_pair_quadrature_bound",
+          "SparseSGD.exponential_pair_quadrature_bound_stable"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "lem:modes",
+    "kind": "lemma",
+    "title": "Modes for large $\\Delta$",
+    "source": "chunks/03_master_theorem.tex",
+    "subclaims": [
+      {
+        "id": "eigenvalue_locations",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.exists_largeMode_parameter",
+          "SparseSGD.largeMode_cubic_factor",
+          "SparseSGD.largeModeRates_real_parts",
+          "SparseSGD.largeModeRootPlus_deviation"
+        ]
+      },
+      {
+        "id": "frequency_error",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.largeModeFrequency_deviation",
+          "SparseSGD.largeModeRootPlus_deviation"
+        ]
+      },
+      {
+        "id": "modal_coefficients",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.continuumFlow_largeMode_sum",
+          "SparseSGD.continuumFlow_largeMode_sum_coefficients_bound"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "thm:M",
+    "kind": "theorem",
+    "title": "Moment comparison theorem",
+    "source": "chunks/03_master_theorem.tex",
+    "subclaims": [
+      {
+        "id": "risk",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.moment_comparison"
+        ]
+      },
+      {
+        "id": "eigenfunctionals",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.moment_comparison"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "cor:tikhonov",
+    "kind": "corollary",
+    "title": "Small $\\Delta$: one-dimensional SGD with floor",
+    "source": "chunks/04_cor_tikhonov.tex",
+    "subclaims": [
+      {
+        "id": "uniform_small_ratio",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.cor_tikhonov",
+          "SparseSGD.smallDelta_trajectory_learningProfile",
+          "SparseSGD.Scaling.learningProfile_initial",
+          "SparseSGD.Scaling.learningProfile_hasDerivAt"
+        ]
+      },
+      {
+        "id": "fixed_momentum",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.cor_tikhonov",
+          "SparseSGD.smallDelta_trajectory_learningProfile",
+          "SparseSGD.Scaling.learningProfile_initial",
+          "SparseSGD.Scaling.learningProfile_hasDerivAt"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "cor:regular",
+    "kind": "corollary",
+    "title": "Fixed $\\Delta$: the three-dimensional limit",
+    "source": "chunks/05_cor_regular.tex",
+    "subclaims": [
+      {
+        "id": "compact_parameter_limit",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.cor_regular",
+          "SparseSGD.regular_chain_uniform_convergence",
+          "SparseSGD.continuumFlow_tendstoUniformlyOn_nonneg"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "cor:resonance",
+    "kind": "corollary",
+    "title": "Boundary 1: the resonance line",
+    "source": "chunks/05_cor_regular.tex",
+    "subclaims": [
+      {
+        "id": "scaling_rate",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Scaling.cor_resonance_rate",
+          "SparseSGD.Scaling.cor_resonance_rate_min",
+          "SparseSGD.Scaling.cor_resonance_fixed_rate",
+          "SparseSGD.Scaling.cor_resonance_fixed_rate_min"
+        ],
+        "correction": "CORRECTIONS.md: positive batch rounding retains d^(-sigma); sigma=0 uses the realized integer batch."
+      },
+      {
+        "id": "rank",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.cor_resonance_rank"
+        ]
+      },
+      {
+        "id": "neighboring_limits",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.cor_resonance_neighboring_limits",
+          "SparseSGD.continuum_smallDelta_tendstoUniformlyOn_learningClock",
+          "SparseSGD.continuum_largeDelta_cold_risk_uniform"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "cor:window",
+    "kind": "corollary",
+    "title": "Large $\\Delta$: the long-oscillation window",
+    "source": "chunks/06_cor_window.tex",
+    "subclaims": [
+      {
+        "id": "slow_energy",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.window_chain_energy_comparison",
+          "SparseSGD.windowSlowProfile_initial",
+          "SparseSGD.windowSlowProfile_derivative"
+        ]
+      },
+      {
+        "id": "oscillatory_amplitude",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.window_chain_energy_comparison",
+          "SparseSGD.Params.windowOsc_grid"
+        ]
+      },
+      {
+        "id": "averaging",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.window_chain_risk_comparison",
+          "SparseSGD.window_chain_local_average"
+        ]
+      },
+      {
+        "id": "envelope_rate",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.window_continuum_rate_bound"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "cor:lift",
+    "kind": "corollary",
+    "title": "Square-root lift and its defect",
+    "source": "chunks/07_cor_lift.tex",
+    "subclaims": [
+      {
+        "id": "matched_oscillator",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Params.squareRootLift_initial",
+          "SparseSGD.Params.squareRootLiftX_hasDerivAt",
+          "SparseSGD.Params.squareRootLiftY_hasDerivAt",
+          "SparseSGD.Params.squareRootLiftX_second_hasDerivAt",
+          "SparseSGD.Params.noiseFree_risk_squareRootLift_grid",
+          "SparseSGD.Params.noiseFree_rankOne_rank",
+          "SparseSGD.Params.comparisonFlow_squareRootLift_R",
+          "SparseSGD.Params.comparisonFlow_squareRootLift_rank"
+        ]
+      },
+      {
+        "id": "defect",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Params.squareRootLift_oscillator_defect"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "cor:curv",
+    "kind": "corollary",
+    "title": "Curvature ceiling and boundary 2: the noise/curvature switch",
+    "source": "chunks/08_cor_curvature.tex",
+    "subclaims": [
+      {
+        "id": "curvature_limit",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.curvature_foldedAngle_tendsto",
+          "SparseSGD.curvature_scaledDelta_tendsto",
+          "SparseSGD.curvature_eventually_window",
+          "SparseSGD.curvature_window_comparison",
+          "SparseSGD.curvature_window_local_average"
+        ],
+        "correction": "CORRECTIONS.md: curvature error retains initial-energy and forcing size."
+      },
+      {
+        "id": "switch_limit",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.curvature_load_tendsto",
+          "SparseSGD.curvature_noise_tendsto",
+          "SparseSGD.curvature_perronRate_tendsto",
+          "SparseSGD.curvature_profile_rates_tendsto"
+        ]
+      },
+      {
+        "id": "rate_ordering",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.curvature_switch_rate",
+          "SparseSGD.curvature_only_rate",
+          "SparseSGD.noise_only_rate"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "lem:nonboundary",
+    "kind": "lemma",
+    "title": "Non-boundaries",
+    "source": "chunks/10_non_boundary.tex",
+    "subclaims": [
+      {
+        "id": "batch_activity",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Scaling.batchLaw_someMaskActive_real",
+          "SparseSGD.Scaling.actual_sparse_activity_ratio",
+          "SparseSGD.Scaling.actual_dense_activity_tendsto_one",
+          "SparseSGD.Scaling.actual_critical_activity_tendsto",
+          "SparseSGD.Scaling.scaled_critical_activity_tendsto",
+          "SparseSGD.Scaling.scaled_fixed_activity_tendsto",
+          "SparseSGD.Scaling.scaled_dense_memory_ratio_tendsto_atTop",
+          "SparseSGD.Scaling.scaled_critical_memory_ratio_tendsto_atTop",
+          "SparseSGD.Scaling.scaled_fixed_memory_ratio_tendsto_atTop"
+        ],
+        "correction": "Rounded integer batches are used throughout. On kappa=sigma>0, activity tends to 1-exp(-bStar*pStar); at sigma=kappa=0 it tends to the exact realized fixed-batch probability. Dense and critical activity divided by retention diverges for gamma>0."
+      },
+      {
+        "id": "equal_load_exponents",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Scaling.ls_signal_to_increment_ratio",
+          "SparseSGD.Scaling.actual_ls_curvature_to_noise_ratio",
+          "SparseSGD.Scaling.actual_signal_increment_ratio_tendsto",
+          "SparseSGD.Scaling.actual_curvature_noise_ratio_tendsto",
+          "SparseSGD.Scaling.actual_dimension_correction_tendsto_one"
+        ],
+        "correction": "Exact ratios are p*B/(d+2-p) and (1-beta)*p*B/((1+beta)*(d+2-p)); the limiting constants use realizedBatchScale (the positive real scale for sigma>0 and the realized integer batch for sigma=0)."
+      },
+      {
+        "id": "memoryless_edge",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Scaling.actual_sparse_memory_threshold",
+          "SparseSGD.Scaling.scaled_dense_memory_ratio_tendsto_atTop",
+          "SparseSGD.Scaling.scaled_critical_memory_ratio_tendsto_atTop",
+          "SparseSGD.Scaling.scaled_fixed_memory_ratio_tendsto_atTop",
+          "SparseSGD.Scaling.scaledRetention_gamma_zero"
+        ],
+        "correction": "The memoryless sign threshold is asserted on the sparse side kappa>sigma; the bookkeeping cuts introduce no extra phase boundary, though they can intersect resonance or switch boundaries. The gamma=0 edge has fixed retention, and sigma=0 uses the realized fixed integer batch."
+      }
+    ]
+  },
+  {
+    "label": "lem:LR0",
+    "kind": "lemma",
+    "title": "Exact Markov reduction",
+    "source": "chunks/11_lr_markov.tex",
+    "subclaims": [
+      {
+        "id": "sampling_process",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.sampleLaw",
+          "SparseSGD.Logistic.batchLaw",
+          "SparseSGD.Logistic.worldLaw",
+          "SparseSGD.Logistic.process"
+        ]
+      },
+      {
+        "id": "orbit_classification",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.summary_eq_iff_rotation",
+          "SparseSGD.Logistic.gaussian_rotation_invariant",
+          "SparseSGD.Logistic.summary_transition_eq"
+        ]
+      },
+      {
+        "id": "markov_kernel",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.reducedKernel",
+          "SparseSGD.Logistic.reducedKernel_apply_reduceState",
+          "SparseSGD.Logistic.reducedProcess_markov"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "lem:LRdrift",
+    "kind": "lemma",
+    "title": "Exact conditional drift: the bulk is the moment recursion",
+    "source": "chunks/11_lr_markov.tex",
+    "subclaims": [
+      {
+        "id": "mean_gradient",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.gradient_integral",
+          "SparseSGD.Logistic.batchGradient_integral"
+        ]
+      },
+      {
+        "id": "bulk_second_moment",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.bulkGradient_norm_sq_integral",
+          "SparseSGD.Logistic.bulkResidual_norm_sq_integral",
+          "SparseSGD.Logistic.bulkBatchGradient_norm_sq_integral"
+        ]
+      },
+      {
+        "id": "conditional_drift",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.process_conditional_signal_drift",
+          "SparseSGD.Logistic.process_conditional_bulk_drift",
+          "SparseSGD.Logistic.process_source_conditional_signal_drift",
+          "SparseSGD.Logistic.process_source_conditional_bulk_drift",
+          "SparseSGD.Logistic.reducedKernel_drift"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "lem:B",
+    "kind": "lemma",
+    "title": "Tame coefficients",
+    "source": "chunks/12_lr_tame.tex",
+    "subclaims": [
+      {
+        "id": "coefficients",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.tameError_source_formula",
+          "SparseSGD.Logistic.tame_coefficients"
+        ]
+      },
+      {
+        "id": "first_derivatives",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.tame_scalarJets_first_second",
+          "SparseSGD.Logistic.scalarJetFactor_le",
+          "SparseSGD.Logistic.scalarCoefA_signal_hasDerivAt",
+          "SparseSGD.Logistic.scalarCoefA_variance_hasDerivWithinAt",
+          "SparseSGD.Logistic.scalarCoefB_signal_hasDerivAt",
+          "SparseSGD.Logistic.scalarCoefB_variance_hasDerivWithinAt",
+          "SparseSGD.Logistic.scalarCoefD0_signal_hasDerivAt",
+          "SparseSGD.Logistic.scalarCoefD0_variance_hasDerivWithinAt",
+          "SparseSGD.Logistic.scalarCoefDtheta_signal_hasDerivAt",
+          "SparseSGD.Logistic.scalarCoefDtheta_variance_hasDerivWithinAt"
+        ],
+        "correction": "CORRECTIONS.md: Gaussian variance derivatives at zero are derivatives within the closed nonnegative half-line."
+      },
+      {
+        "id": "second_derivatives",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.tame_scalarJets_first_second",
+          "SparseSGD.Logistic.scalarCoefA_second_derivatives",
+          "SparseSGD.Logistic.scalarCoefB_second_derivatives",
+          "SparseSGD.Logistic.scalarCoefD0_second_derivatives",
+          "SparseSGD.Logistic.scalarCoefDtheta_second_derivatives"
+        ],
+        "correction": "CORRECTIONS.md: the pure second variance derivative of A retains its (1/4)*p*alpha main term, with right derivatives at zero."
+      }
+    ]
+  },
+  {
+    "label": "thm:A",
+    "kind": "theorem",
+    "title": "Fluid limit",
+    "source": "chunks/13_lr_fluid.tex",
+    "subclaims": [
+      {
+        "id": "stopped_convolution",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.martingale_stoppedProcess",
+          "SparseSGD.Logistic.condLExp_predictable_indicator",
+          "SparseSGD.Logistic.stopped_condLExp_exp_le",
+          "SparseSGD.Logistic.fluid_error_unroll"
+        ]
+      },
+      {
+        "id": "bernstein_tail",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.fluidBernstein_of_unit",
+          "SparseSGD.Logistic.fluidStoppedSum_dual_tail",
+          "SparseSGD.Logistic.fluidStoppedSum_family_union_bound"
+        ]
+      },
+      {
+        "id": "bootstrap",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.fluid_pathwise_bootstrap"
+        ]
+      },
+      {
+        "id": "fluid_bound",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.fluid_limit_supNorm",
+          "SparseSGD.Logistic.fluid_limit_normingFamily"
+        ],
+        "correction": "CORRECTIONS.md: deterministic reference initialization is almost surely shared, and Taylor/increment hypotheses cover closed neighborhoods for the non-strict radius condition."
+      }
+    ]
+  },
+  {
+    "label": "lem:LRinc",
+    "kind": "lemma",
+    "title": "LR increments",
+    "source": "chunks/13_lr_fluid.tex",
+    "subclaims": [
+      {
+        "id": "linear_increments",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.tame_unit_gradient_projection_moments",
+          "SparseSGD.Logistic.tame_batch_projection_mgf",
+          "SparseSGD.Logistic.process_tame_projection_condLExp"
+        ]
+      },
+      {
+        "id": "quadratic_increments",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.logistic_full_state_frame",
+          "SparseSGD.Logistic.tame_bulk_square_mgf"
+        ]
+      },
+      {
+        "id": "conditional_mgf",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.process_tame_matchedIncrement_dual_condLExp",
+          "SparseSGD.Logistic.lrIncrementVariance_le_source",
+          "SparseSGD.Logistic.lrIncrementScale_le_source"
+        ],
+        "correction": "CORRECTIONS.md: bounded stopped state and effective learning step are explicit."
+      }
+    ]
+  },
+  {
+    "label": "cor:fluid",
+    "kind": "corollary",
+    "title": "Fluid limit in cells 2--4",
+    "source": "chunks/13_lr_fluid.tex",
+    "subclaims": [
+      {
+        "id": "containment",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.matched_warm_slow_small_probability_eventually_bounded",
+          "SparseSGD.Logistic.matched_regular_small_probability_eventually_bounded",
+          "SparseSGD.Logistic.dynamicPhysical_preserved",
+          "SparseSGD.Logistic.dynamic_solution_exists_on_finite_horizon",
+          "SparseSGD.Logistic.matchedColdEffective_free_decay"
+        ],
+        "correction": "CORRECTIONS.md: fixed teacher/load and common controlled initial data; a positive rarity cap is proved before choosing the actual family, including fixed small probabilities."
+      },
+      {
+        "id": "jacobian_products",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.matchedPopulationJacobian_uniform_controls",
+          "SparseSGD.Logistic.matchedFreeOperator_pow_norm_le_four",
+          "SparseSGD.Logistic.matchedJacobianResponse_bound",
+          "SparseSGD.Logistic.actual_matched_fluid_uniform_constants"
+        ]
+      },
+      {
+        "id": "finite_horizon_bound",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.cor_fluid_tame_cell_two_warm",
+          "SparseSGD.Logistic.cor_fluid_tame_cells_three_four",
+          "SparseSGD.Logistic.cor_fluid_cell_two_warm",
+          "SparseSGD.Logistic.cor_fluid_cells_three_four_initial",
+          "SparseSGD.Logistic.actual_fluid_power_cell_two",
+          "SparseSGD.Logistic.actual_fluid_power_cells_three_four",
+          "SparseSGD.Logistic.actual_matched_fluid_source_radius",
+          "SparseSGD.Logistic.fluid_power_learning_absorption",
+          "SparseSGD.Scaling.fluidGridHorizon_eventually_le_polynomial",
+          "SparseSGD.Scaling.actual_fluid_fixed_sparsity_parameter_limits",
+          "SparseSGD.Logistic.actual_fluid_power_tame_cell_two",
+          "SparseSGD.Logistic.actual_fluid_power_tame_cells_three_four"
+        ],
+        "correction": "CORRECTIONS.md: retains the finite Bernstein linear term; the square-root corollary requires step-size absorption and a polynomial horizon. The final small-probability cap is independent of the actual family. Common controlled initial data and dependence of constants are explicit."
+      }
+    ]
+  },
+  {
+    "label": "prop:LR34",
+    "kind": "proposition",
+    "title": "Cells 3--4: dynamic-$\\alpha$ limit",
+    "source": "chunks/14_lr_mechanisms.tex",
+    "subclaims": [
+      {
+        "id": "ode_limit",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.prop_LR34",
+          "SparseSGD.Logistic.dynamicDriftMap_eq_integral"
+        ],
+        "correction": "CORRECTIONS.md: the quantitative comparison uses common normalized initial data; an initial discrepancy would otherwise enter the error bound."
+      },
+      {
+        "id": "rank_one_bulk",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.dynamic_rank_one_preserved",
+          "SparseSGD.Logistic.dynamic_rank_one_full_interval_oscillator",
+          "SparseSGD.Logistic.dynamic_rank_one_full_interval_coordinates"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "prop:LR2",
+    "kind": "proposition",
+    "title": "Cell 2: slow system, globally stable",
+    "source": "chunks/14_lr_mechanisms.tex",
+    "subclaims": [
+      {
+        "id": "slow_limit",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.prop_LR2",
+          "SparseSGD.Logistic.slowDriftMap_eq_integral",
+          "SparseSGD.Logistic.slow_grid_error_of_tracking"
+        ]
+      },
+      {
+        "id": "global_convergence",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.slow_global_convergence",
+          "SparseSGD.Logistic.slow_invariant_rectangle"
+        ]
+      },
+      {
+        "id": "global_existence",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.slow_global_solution_exists_at",
+          "SparseSGD.Logistic.slow_global_solution_exists_and_converges"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "ass:S",
+    "kind": "assumption",
+    "title": "Global stability",
+    "source": "chunks/14_lr_mechanisms.tex",
+    "subclaims": [
+      {
+        "id": "global_stability_hypothesis",
+        "status": "assumption",
+        "declarations": [
+          "SparseSGD.Logistic.SourceAssumptionS"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "ass:W",
+    "kind": "assumption",
+    "title": "Window averaging",
+    "source": "chunks/14_lr_mechanisms.tex",
+    "subclaims": [
+      {
+        "id": "window_averaging_hypothesis",
+        "status": "assumption",
+        "declarations": [
+          "SparseSGD.Logistic.LRWindowInput",
+          "SparseSGD.Logistic.SourceAssumptionW"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "prop:D",
+    "kind": "proposition",
+    "title": "Equilibrium and floor",
+    "source": "chunks/15_lr_equilibrium.tex",
+    "subclaims": [
+      {
+        "id": "exact_fixed_point",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.actual_drift_fixedPoint_signal",
+          "SparseSGD.Logistic.actual_drift_fixedPoint_bulk",
+          "SparseSGD.Logistic.logistic_fixedPoint_normalized_covariance",
+          "SparseSGD.Logistic.actual_tame_fixedPoint_signal",
+          "SparseSGD.Logistic.actual_tame_fixedPoint_bulk",
+          "SparseSGD.Logistic.tame_fixedPoint_covariance_tendsto"
+        ],
+        "correction": "CORRECTIONS.md: the raw covariance limit uses vanishing rare-class probability and bounded curvature-weighted bulk energy; exact finite fixed-point identities retain their full error terms."
+      },
+      {
+        "id": "limiting_root",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.exists_unique_positive_root",
+          "SparseSGD.Logistic.slowField_zero_iff",
+          "SparseSGD.Logistic.equilibrium_alpha"
+        ]
+      },
+      {
+        "id": "bias",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.positive_root_lt_r"
+        ]
+      },
+      {
+        "id": "small_load_expansion",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.equilibrium_log_alpha_bulk_error",
+          "SparseSGD.Logistic.equilibriumLogAlpha_bulk_isBigO",
+          "SparseSGD.Logistic.equilibriumLogAlpha_load_isBigO"
+        ]
+      },
+      {
+        "id": "momentum_dependence",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.driftParams_loads",
+          "SparseSGD.Logistic.driftParams_equilibrium_R",
+          "SparseSGD.Logistic.logistic_moment_fixedPoint"
+        ]
+      },
+      {
+        "id": "kl_expansion",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.populationLoss_equilibrium_floor",
+          "SparseSGD.Logistic.populationLoss_equilibrium_alpha_floor",
+          "SparseSGD.Logistic.populationLoss_canonical_equilibrium_floor",
+          "SparseSGD.Logistic.populationLoss_canonical_equilibrium_relative_error"
+        ],
+        "correction": "CORRECTIONS.md: population-loss remainder retains epsilon_B + Phi at fixed r."
+      },
+      {
+        "id": "scaling_comparability",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.equilibriumBulk_integerBatch_comparable",
+          "SparseSGD.Logistic.equilibriumBulk_fixedBatch_comparable"
+        ],
+        "correction": "CORRECTIONS.md: two-sided equilibrium bulk comparability is uniform for an eventual bounded load Phi\u2264P, not unrestricted loads."
+      },
+      {
+        "id": "jacobian",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.hasFDerivAt_slowField",
+          "SparseSGD.Logistic.equilibriumJacobianMatrix_columns",
+          "SparseSGD.Logistic.equilibriumJacobianMatrix_trace_neg",
+          "SparseSGD.Logistic.equilibriumJacobianMatrix_det_pos"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "eq:LSoracle",
+    "kind": "unnumbered",
+    "title": "Sparse Gaussian minibatch oracle",
+    "subclaims": [
+      {
+        "id": "static_oracle",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Probability.LeastSquares.batchOracle"
+        ]
+      },
+      {
+        "id": "conditional_oracle",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Probability.LeastSquares.leastSquares_conditional_oracle",
+          "SparseSGD.Probability.LeastSquares.leastSquares_conditional_gradient"
+        ]
+      },
+      {
+        "id": "integrability",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Probability.LeastSquares.leastSquares_process_memLp"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "phase-dictionary",
+    "kind": "unnumbered",
+    "title": "Scaling limits, rates, cells and boundaries",
+    "subclaims": [
+      {
+        "id": "admissible_integer_families",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.integerBatch_pos",
+          "SparseSGD.Scaling.integerBatch_ratio_tendsto",
+          "SparseSGD.Scaling.fixedBatch_ratio",
+          "SparseSGD.Scaling.no_positive_integer_batch_negative_exponent",
+          "SparseSGD.Scaling.gridHorizon_le",
+          "SparseSGD.Scaling.gridHorizon_gap"
+        ]
+      },
+      {
+        "id": "exponent_classification",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.load_exponents_nonpos_iff",
+          "SparseSGD.eight_cells_exhaustive"
+        ]
+      },
+      {
+        "id": "cell_1",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.ls_learning_cells_all_batches",
+          "SparseSGD.Scaling.learningProfile_hasDerivAt",
+          "SparseSGD.Scaling.learningProfile_excess_grid",
+          "SparseSGD.Scaling.actualLSParams_learningClock"
+        ]
+      },
+      {
+        "id": "cell_2",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Scaling.ls_learning_cells_all_batches",
+          "SparseSGD.Scaling.learningProfile_hasDerivAt",
+          "SparseSGD.Scaling.learningProfile_excess_grid",
+          "SparseSGD.Scaling.actualLSParams_learningClock"
+        ],
+        "correction": "CORRECTIONS.md: sigma=0 uses the realized integer batch constant."
+      },
+      {
+        "id": "cell_3",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.ls_regular_cells_all_batches",
+          "SparseSGD.Scaling.continuum_cold_zero_loads_square",
+          "SparseSGD.Scaling.coldOscillator_equation",
+          "SparseSGD.Scaling.coldOscillator_initial"
+        ]
+      },
+      {
+        "id": "cell_4",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Scaling.ls_regular_cells_all_batches",
+          "SparseSGD.Scaling.cor_resonance_rate_min",
+          "SparseSGD.Scaling.cor_resonance_fixed_rate_min",
+          "SparseSGD.cor_resonance_rank"
+        ],
+        "correction": "CORRECTIONS.md: positive batch rounding rate and realized fixed-batch constant."
+      },
+      {
+        "id": "cell_5",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Scaling.ls_small_curvature_window_parameters",
+          "SparseSGD.Scaling.ls_window_cells_risk",
+          "SparseSGD.Scaling.ls_window_cells_energy",
+          "SparseSGD.Scaling.ls_window_cells_envelope_rate",
+          "SparseSGD.Scaling.actual_window_rate_ratio"
+        ],
+        "correction": "Actual integer-batch families are covered; all-time energy/risk errors retain comparison initial size and additive forcing. The envelope rate is stated via matchedStep/retention, with the realized batch constant."
+      },
+      {
+        "id": "cell_6",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Scaling.ls_small_curvature_window_parameters",
+          "SparseSGD.Scaling.ls_window_cells_risk",
+          "SparseSGD.Scaling.ls_window_cells_energy",
+          "SparseSGD.Scaling.ls_window_cells_envelope_rate",
+          "SparseSGD.Scaling.actual_window_rate_ratio"
+        ],
+        "correction": "Actual integer-batch families are covered; all-time energy/risk errors retain comparison initial size and additive forcing. The envelope rate is stated via matchedStep/retention, with the realized batch constant."
+      },
+      {
+        "id": "cell_7",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Scaling.ls_curvature_cells_parameters",
+          "SparseSGD.Scaling.ls_curvature_cells_risk",
+          "SparseSGD.Scaling.ls_curvature_cells_energy",
+          "SparseSGD.Scaling.ls_curvature_cells_envelope_rate",
+          "SparseSGD.Scaling.actual_window_rate_ratio"
+        ],
+        "correction": "Actual integer-batch families are covered under explicit stability, load, and Nyquist margins; all-time errors retain comparison initial size and additive forcing. The table rate is the curvature-renormalized limit per retention time, with realized batch constants."
+      },
+      {
+        "id": "cell_8",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Scaling.ls_curvature_cells_parameters",
+          "SparseSGD.Scaling.ls_curvature_cells_risk",
+          "SparseSGD.Scaling.ls_curvature_cells_energy",
+          "SparseSGD.Scaling.ls_curvature_cells_envelope_rate",
+          "SparseSGD.Scaling.actual_window_rate_ratio"
+        ],
+        "correction": "Actual integer-batch families are covered under explicit stability, load, and Nyquist margins; all-time errors retain comparison initial size and additive forcing. The table rate is the curvature-renormalized limit per retention time, with realized batch constants."
+      },
+      {
+        "id": "cell_9",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.scaledMomentum_gamma_zero",
+          "SparseSGD.Scaling.ls_learning_cells_all_batches",
+          "SparseSGD.Scaling.learningProfile_excess_grid"
+        ]
+      },
+      {
+        "id": "critical_boundaries",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.critical_plane_cell_classification",
+          "SparseSGD.apparent_line_intersections"
+        ],
+        "correction": "CORRECTIONS.md: apparent bookkeeping lines are not additional boundaries; intersections with genuine boundaries are retained."
+      },
+      {
+        "id": "clocks",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Scaling.actualLSParams_matchedStep_over_retention_tendsto_one",
+          "SparseSGD.Scaling.actual_sparse_activity_clock_ratio",
+          "SparseSGD.Scaling.batchLaw_someMaskActive_real",
+          "SparseSGD.Scaling.sample_retention_clock_ratio",
+          "SparseSGD.Scaling.actual_sparse_memory_threshold",
+          "SparseSGD.Scaling.scaled_critical_memory_ratio_tendsto_atTop",
+          "SparseSGD.Scaling.scaled_dense_memory_ratio_tendsto_atTop",
+          "SparseSGD.Scaling.scaled_fixed_memory_ratio_tendsto_atTop"
+        ],
+        "correction": "Active-update conversions retain the sparse, critical Poisson, dense, and fixed-batch cases; sample conversion uses the actual rounded integer batch. Memoryless thresholds apply in the sparse regime."
+      }
+    ]
+  }
+]
