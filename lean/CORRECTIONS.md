@@ -453,7 +453,7 @@ for the coverage table.
   fixed (equivalently, with the total load tending to $u$)". The limit
   $r_c(\Delta,u)/(2\Delta(1-u))$ and parts (i), (ii) are unchanged. Lean:
   `fixed_floor_limit_noise` (fixed `u_n in [0,1)`, `u_n = 0` included) and
-  `fixed_floor_limit_total` (total load held at `u in (0,1)`). Status: to apply.
+  `fixed_floor_limit_total` (total load held at `u in (0,1)`). Status: applied to the tex on 2026-10-05.
 - **MF-2, paragraph after the proof of `prop:fixed_floor` (the exact counterpart).** "For
   every $\beta$, every $u_n$ and $4\eta p<1$, ... So the ratio is at most
   $2/((1-u)(1-4\eta p))$" needs the SGD load $u=u_n+\eta p/2<1$. For $u\ge1$ the SGD rate
@@ -461,7 +461,7 @@ for the coverage table.
   expression (whose denominator is then $\le0$): with $u_n<1\le u_n+\eta p/2$ and
   $u_n+u_c<1$ the momentum chain is stable and SGD is not. Replace "every $u_n$" by "every
   $u_n$ with $u=u_n+\eta p/2<1$". Lean: `fixed_floor_exact_counterpart` (hypothesis
-  `u_n + eps Delta/2 < 1`). Status: to apply.
+  `u_n + eps Delta/2 < 1`). Status: applied to the tex on 2026-10-05.
 
 `MH-2` (above) is applied: the harmonized `prop:fixed_floor` (i) reads "at most $2$, with
 equality only if $u=0$ and $\Delta=\frac14$", which Lean proves for all `u in [0,1)`
