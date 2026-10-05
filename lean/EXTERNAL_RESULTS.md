@@ -6,6 +6,37 @@ form: the three inequalities imply that matrix powers tend to zero. The theorem
 `mean_powers_tendsto_zero` verifies those inequalities for the paper's mean matrix.
 It takes the interface as an argument; there is no global axiom asserting it.
 
+The V2 momentum-helps stability statements also consume `External.JuryStability`
+as an explicit argument `jury`, never as an axiom. In `Scaling/Helps/Stability.lean`
+these are `kickSq_hasSum_of_stable`, `kickSq_hasSum_mul`, `kickSq_charPoly_ne_zero`,
+`kickSq_generating_function`, `stepRadius_lt_one_of_totalLoad_lt_one`,
+`stepRadius_lt_one_iff`, `perStepRate_pos_iff` and `perStepRate_pos_iff_of_beta_pos`.
+Through them it reaches `copy_stable_iff_lt_critical` and `all_stable_iff_lt_min` in
+`Scaling/Helps/Vocabulary.lean`, which is the `if` direction of `lem:helps-vocab` (i). The
+interface is used only for the mean 2x2 block `F`, to turn the Jury inequalities into
+`F^n -> 0`. That gives summability of the squared kick response and hence `u < 1 =>
+rho(L) < 1` (`lem:helps-rate`, a supporting entry since the 2026-10-05 tex merge, and
+`rem:stab-large-w`). The converse directions, and
+`Scaling/Helps/CriticalBatch.lean` (`lem:helps-twocurv`, `prop:helps-critical`), do not use
+it. There, admissibility is the definition `stepRadius < 1`, and the admissible sets are
+nonempty because of the explicit point `(1/(d+2), 0)` (`sgd_point_mem`).
+
+Additions of the V2 merged appendix (2026-10-05), all with `jury` as an explicit argument:
+- `Discrete/General/Renewal.lean` and `Discrete/General/Tikhonov.lean`: the `_v2` forms of
+  `lem:L2`, `cor:stab`, `cor:lift` (ii) and `cor:tikhonov` for `beta in [0,1)`, exactly
+  where the v1 forms used it. `mean_powers_tendsto_zero_beta_zero` proves the `beta = 0`
+  case of `F^n -> 0` directly, without the interface.
+- `Scaling/Helps/Vocabulary.lean`: `lem_helps_vocab_v2` (through `all_stable_iff_lt_min`).
+- `Scaling/Helps/SampleCostAbove.lean`: `lsLamStar_pos`, hence `lsNfold_ge_retention`
+  (`cor:sample_cost` (i)): some learning rate is stable, so `Lambda* > 0`.
+- `Scaling/Helps/CriticalBatch.lean` (v2 additions): `admSet_fixed_nonempty`,
+  `Sfun_fixed_ge`, `Sinf_fixed_eq`, `prop_helps_critical_v2`: the
+  fixed-`beta` admissible set is nonempty at every `B`, the tex's appeal to
+  `lem:helps-vocab` (i). The limit `Sfun_fixed_tendsto` does not use it.
+- `Scaling/Helps/VocabFull.lean` (`vocab_full_Sinf_le_fixed`, `vocab_full_tendsto_fixed`,
+  `vocab_full_remark`, `prop_vocab_full`) and `vocab_full_i_coscaling` in
+  `Scaling/Helps/SampleCost.lean`, for the same nonemptiness.
+
 `SparseSGD.External.GaussianSteinCertificate d` is an explicit hypothesis for
 the cited standard Gaussian Stein identities. It is quantified over arbitrary
 scalar test functions, shifts, vectors, and coordinates of the actual standard
@@ -22,7 +53,7 @@ The manuscript's claims are not substitutes for these generic external results.
 
 | Citation in snapshot | Permitted role | Interface status |
 |---|---|---|
-| Elaydi (2005), Theorem 2.37 | Jury criterion for discrete linear stability | `SparseSGD.External.JuryStability`; explicit hypothesis |
+| Elaydi (2005), Theorem 2.37 | Jury criterion for discrete linear stability | `SparseSGD.External.JuryStability`; explicit hypothesis (also consumed by `Scaling/Helps/Stability`, `lem:helps-vocab` (i), the fixed-`beta` parts of `prop:helps-critical` (iv) and `prop:vocab_full`, `cor:sample_cost` (i), and the `_v2` renewal statements of `Discrete/General`) |
 | Horn–Johnson (2013), Theorem 6.1.1 and §6.1 | Gershgorin localization and component eigenvalue counts | Proved directly in the project; no external interface used |
 | Stein (1981) | First and second Gaussian integration-by-parts identities | `SparseSGD.External.GaussianSteinCertificate`; explicit hypothesis |
 | Boucheron–Lugosi–Massart (2013), §2.4, Corollary 2.11, Theorem 2.10 | Precisely stated concentration and moment-to-MGF bounds | `SparseSGD.External.MartingaleBernsteinCertificate`; conditional MGF-to-tail; `SparseSGD.External.BernsteinMomentsCertificate` supplies scalar raw-moments to centered-MGF |

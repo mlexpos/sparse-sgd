@@ -181,3 +181,6 @@ import SparseSGD.Examples.LogisticTeacher
 import SparseSGD.Scaling.FluidHorizonDegree
 import SparseSGD.Examples.LogisticFluid
 import SparseSGD.Examples.LogisticFixedProbability
+import SparseSGD.Logistic.V2.All
+import SparseSGD.Scaling.Helps.All
+import SparseSGD.Discrete.General.All

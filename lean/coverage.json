@@ -23,7 +23,7 @@
     "label": "lem:L1",
     "kind": "lemma",
     "title": "Exact reduction",
-    "source": "chunks/01_master_reduction.tex",
+    "source": "v2/chunks/01_master_reduction.tex",
     "status": "complete",
     "declarations": [
       "SparseSGD.raw_oracle_memLp",
@@ -68,28 +68,39 @@
           "SparseSGD.raw_oracle_moment_trajectory"
         ]
       }
-    ]
+    ],
+    "v1_source": "chunks/01_master_reduction.tex",
+    "beta_range": "Live tex: beta in [0,1) (eps in (0,1], beta = 0 is plain SGD). The raw-oracle declarations take an arbitrary real beta, so the v1 proofs already cover the live statement; no new declaration is needed."
   },
   {
     "label": "lem:L2",
     "kind": "lemma",
     "title": "Discrete renewal",
-    "source": "chunks/02_renewal.tex",
+    "source": "v2/chunks/02_renewal.tex",
     "status": "complete",
     "declarations": [
       "SparseSGD.External.mean_powers_tendsto_zero",
+      "SparseSGD.mean_powers_tendsto_zero_beta_zero",
       "SparseSGD.Params.trajectory_cov_unroll",
       "SparseSGD.Params.trajectory_R_renewal",
       "SparseSGD.kickResponse_eq_chebyshev",
       "SparseSGD.Params.renewal_kernel_nonneg",
-      "SparseSGD.stable_kernel_masses"
+      "SparseSGD.kickResponse_beta_zero",
+      "SparseSGD.kickResponse_sq_beta_zero",
+      "SparseSGD.stable_kernel_masses_v2",
+      "SparseSGD.one_sub_curvature_pos_v2",
+      "SparseSGD.normalized_kernel_lag_nonneg_v2",
+      "SparseSGD.normalized_kernel_lag_hasSum_v2",
+      "SparseSGD.normalized_trajectory_recurrence_v2",
+      "SparseSGD.normalized_kernel_partial_mass_le_one_v2"
     ],
     "component_modules": [
       "SparseSGD.Discrete.Renewal",
       "SparseSGD.Discrete.Chebyshev",
       "SparseSGD.Discrete.Lyapunov",
       "SparseSGD.Discrete.KernelMass",
-      "SparseSGD.Discrete.StableKernel"
+      "SparseSGD.Discrete.StableKernel",
+      "SparseSGD.Discrete.General.Renewal"
     ],
     "remaining": "",
     "subclaims": [
@@ -97,8 +108,10 @@
         "id": "mean_stability",
         "status": "complete",
         "declarations": [
-          "SparseSGD.External.mean_powers_tendsto_zero"
-        ]
+          "SparseSGD.External.mean_powers_tendsto_zero",
+          "SparseSGD.mean_powers_tendsto_zero_beta_zero"
+        ],
+        "note": "mean_powers_tendsto_zero has no lower bound on beta (Jury criterion as the explicit cited hypothesis); mean_powers_tendsto_zero_beta_zero proves the beta = 0 case from F^(n+1) = (1-w)^n F without Jury."
       },
       {
         "id": "renewal",
@@ -106,40 +119,69 @@
         "declarations": [
           "SparseSGD.Params.trajectory_cov_unroll",
           "SparseSGD.Params.trajectory_R_renewal"
-        ]
+        ],
+        "note": "Exact unrolling, valid for every beta."
       },
       {
         "id": "chebyshev_kernel",
         "status": "complete",
         "declarations": [
           "SparseSGD.kickResponse_eq_chebyshev",
-          "SparseSGD.Params.renewal_kernel_nonneg"
-        ]
+          "SparseSGD.Params.renewal_kernel_nonneg",
+          "SparseSGD.kickResponse_beta_zero",
+          "SparseSGD.kickResponse_sq_beta_zero"
+        ],
+        "relaxed_by": [
+          "SparseSGD.kickResponse_beta_zero",
+          "SparseSGD.kickResponse_sq_beta_zero"
+        ],
+        "v1_declarations": [
+          "SparseSGD.kickResponse_eq_chebyshev"
+        ],
+        "note": "x_n = e_1^T F^n b is kickResponse; the trigonometric (Chebyshev) form for beta > 0 is kickResponse_eq_chebyshev (hypothesis 0 < beta, already the full live range), and x_n = -(1-w)^n at beta = 0 is kickResponse_beta_zero."
       },
       {
         "id": "kernel_masses",
         "status": "complete",
         "declarations": [
+          "SparseSGD.stable_kernel_masses_v2",
+          "SparseSGD.one_sub_curvature_pos_v2",
+          "SparseSGD.normalized_kernel_lag_nonneg_v2",
+          "SparseSGD.normalized_kernel_lag_hasSum_v2",
+          "SparseSGD.normalized_trajectory_recurrence_v2",
+          "SparseSGD.normalized_kernel_partial_mass_le_one_v2"
+        ],
+        "relaxed_by": [
+          "SparseSGD.stable_kernel_masses_v2"
+        ],
+        "v1_declarations": [
           "SparseSGD.stable_kernel_masses"
-        ]
+        ],
+        "note": "Masses u-tilde and phi-tilde for 0 <= beta < 1, 0 < w < 2(1+beta) (Jury explicit). The v1 stable_kernel_masses takes 1/2 <= beta."
       }
-    ]
+    ],
+    "v1_source": "chunks/02_renewal.tex",
+    "beta_range": "Live tex: beta in [0,1), with x_n = e_1^T F^n b, the trigonometric form for beta > 0 and x_n = -(1-w)^n at beta = 0, and the Jury conditions on [0,1). Proved for beta in [0,1) by the _v2 declarations of Discrete/General/Renewal; the v1 stable_kernel_masses (1/2 <= beta) is kept unchanged."
   },
   {
     "label": "cor:stab",
     "kind": "corollary",
     "title": "Stability, floor, a priori bound",
-    "source": "chunks/02_renewal.tex",
+    "source": "v2/chunks/02_renewal.tex",
     "status": "complete",
     "declarations": [
       "SparseSGD.renormNoise_lt_one_iff",
       "SparseSGD.Probability.LeastSquares.totalLoad_lt_one_iff_eta_lt_critical",
-      "SparseSGD.trajectory_risk_uniform_bound",
-      "SparseSGD.trajectory_risk_geometric_convergence",
-      "SparseSGD.trajectory_risk_tendsto_floor",
+      "SparseSGD.trajectory_risk_uniform_bound_v2",
+      "SparseSGD.trajectory_risk_geometric_convergence_v2",
+      "SparseSGD.trajectory_risk_tendsto_floor_v2",
+      "SparseSGD.exists_weighted_kernel_gain_v2",
+      "SparseSGD.normalized_kernel_geometric_bound_v2",
       "SparseSGD.floor_identity",
-      "SparseSGD.trajectory_risk_not_summable",
-      "SparseSGD.trajectory_risk_not_geometrically_decaying"
+      "SparseSGD.freeRisk_pos_v2",
+      "SparseSGD.trajectory_risk_not_summable_v2",
+      "SparseSGD.trajectory_risk_not_geometrically_decaying_v2",
+      "SparseSGD.beta_zero_dark_start"
     ],
     "component_modules": [
       "SparseSGD.Discrete.Loads",
@@ -147,7 +189,9 @@
       "SparseSGD.Discrete.Positivity",
       "SparseSGD.Discrete.RenewalBounds",
       "SparseSGD.Discrete.RiskBound",
-      "SparseSGD.Discrete.FreeRisk"
+      "SparseSGD.Discrete.FreeRisk",
+      "SparseSGD.Discrete.Stability",
+      "SparseSGD.Discrete.General.Renewal"
     ],
     "remaining": "",
     "subclaims": [
@@ -157,12 +201,19 @@
         "declarations": [
           "SparseSGD.renormNoise_lt_one_iff",
           "SparseSGD.Probability.LeastSquares.totalLoad_lt_one_iff_eta_lt_critical"
-        ]
+        ],
+        "note": "renormNoise_lt_one_iff needs only u_c < 1; totalLoad_lt_one_iff_eta_lt_critical takes 0 <= beta < 1."
       },
       {
         "id": "uniform_bound",
         "status": "complete",
         "declarations": [
+          "SparseSGD.trajectory_risk_uniform_bound_v2"
+        ],
+        "relaxed_by": [
+          "SparseSGD.trajectory_risk_uniform_bound_v2"
+        ],
+        "v1_declarations": [
           "SparseSGD.trajectory_risk_uniform_bound"
         ]
       },
@@ -170,20 +221,43 @@
         "id": "geometric_convergence",
         "status": "complete",
         "declarations": [
-          "SparseSGD.trajectory_risk_geometric_convergence",
-          "SparseSGD.trajectory_risk_tendsto_floor",
+          "SparseSGD.trajectory_risk_geometric_convergence_v2",
+          "SparseSGD.trajectory_risk_tendsto_floor_v2",
+          "SparseSGD.exists_weighted_kernel_gain_v2",
+          "SparseSGD.normalized_kernel_geometric_bound_v2",
           "SparseSGD.floor_identity"
+        ],
+        "relaxed_by": [
+          "SparseSGD.trajectory_risk_geometric_convergence_v2",
+          "SparseSGD.trajectory_risk_tendsto_floor_v2"
+        ],
+        "v1_declarations": [
+          "SparseSGD.trajectory_risk_geometric_convergence",
+          "SparseSGD.trajectory_risk_tendsto_floor"
         ]
       },
       {
         "id": "necessity",
         "status": "complete",
         "declarations": [
+          "SparseSGD.freeRisk_pos_v2",
+          "SparseSGD.trajectory_risk_not_summable_v2",
+          "SparseSGD.trajectory_risk_not_geometrically_decaying_v2",
+          "SparseSGD.beta_zero_dark_start"
+        ],
+        "relaxed_by": [
+          "SparseSGD.trajectory_risk_not_summable_v2",
+          "SparseSGD.trajectory_risk_not_geometrically_decaying_v2"
+        ],
+        "v1_declarations": [
           "SparseSGD.trajectory_risk_not_summable",
           "SparseSGD.trajectory_risk_not_geometrically_decaying"
-        ]
+        ],
+        "note": "The live hypothesis '(Sigma_0)_11 > 0, or beta > 0 and Sigma_0 != 0' is hpos : 0 < s.R or (0 < beta and s != 0), with s positive semidefinite. beta_zero_dark_start is the tex's remark that the hypothesis is needed at beta = 0 (from e_0 = 0 and phi = 0 the error stays zero). The v1 forms assume 1/2 <= beta and s != 0."
       }
-    ]
+    ],
+    "v1_source": "chunks/02_renewal.tex",
+    "beta_range": "Live tex: beta in [0,1), and (iii) assumes (Sigma_0)_11 > 0, or beta > 0 and Sigma_0 != 0. Proved for beta in [0,1) by the _v2 declarations of Discrete/General/Renewal; the v1 declarations (1/2 <= beta) are kept because the comparison theorem and its corollaries build on them."
   },
   {
     "label": "lem:L3",
@@ -570,11 +644,11 @@
     "label": "cor:tikhonov",
     "kind": "corollary",
     "title": "Small $\\Delta$: one-dimensional SGD with floor",
-    "source": "chunks/04_cor_tikhonov.tex",
+    "source": "v2/chunks/04_cor_tikhonov.tex",
     "status": "complete",
     "declarations": [
-      "SparseSGD.cor_tikhonov",
-      "SparseSGD.smallDelta_trajectory_learningProfile",
+      "SparseSGD.cor_tikhonov_v2",
+      "SparseSGD.smallDelta_trajectory_learningProfile_v2",
       "SparseSGD.Scaling.learningProfile_initial",
       "SparseSGD.Scaling.learningProfile_hasDerivAt"
     ],
@@ -583,24 +657,50 @@
         "id": "uniform_small_ratio",
         "status": "complete",
         "declarations": [
-          "SparseSGD.cor_tikhonov",
-          "SparseSGD.smallDelta_trajectory_learningProfile",
+          "SparseSGD.cor_tikhonov_v2",
+          "SparseSGD.smallDelta_trajectory_learningProfile_v2",
           "SparseSGD.Scaling.learningProfile_initial",
           "SparseSGD.Scaling.learningProfile_hasDerivAt"
+        ],
+        "relaxed_by": [
+          "SparseSGD.cor_tikhonov_v2",
+          "SparseSGD.smallDelta_trajectory_learningProfile_v2"
+        ],
+        "v1_declarations": [
+          "SparseSGD.cor_tikhonov",
+          "SparseSGD.smallDelta_trajectory_learningProfile"
         ]
       },
       {
         "id": "fixed_momentum",
         "status": "complete",
         "declarations": [
-          "SparseSGD.cor_tikhonov",
-          "SparseSGD.smallDelta_trajectory_learningProfile",
+          "SparseSGD.cor_tikhonov_v2",
+          "SparseSGD.smallDelta_trajectory_learningProfile_v2",
           "SparseSGD.Scaling.learningProfile_initial",
           "SparseSGD.Scaling.learningProfile_hasDerivAt"
-        ]
+        ],
+        "relaxed_by": [
+          "SparseSGD.cor_tikhonov_v2",
+          "SparseSGD.smallDelta_trajectory_learningProfile_v2"
+        ],
+        "v1_declarations": [
+          "SparseSGD.cor_tikhonov",
+          "SparseSGD.smallDelta_trajectory_learningProfile"
+        ],
+        "note": "The live remark: a fixed beta in [0,1), plain SGD included, where thm:M gives nothing."
       }
     ],
-    "remaining": ""
+    "remaining": "",
+    "component_modules": [
+      "SparseSGD.Scaling.SmallDeltaKernel",
+      "SparseSGD.Scaling.SmallDeltaForcing",
+      "SparseSGD.Scaling.SmallDeltaExponential",
+      "SparseSGD.Scaling.Tikhonov",
+      "SparseSGD.Discrete.General.Tikhonov"
+    ],
+    "v1_source": "chunks/04_cor_tikhonov.tex",
+    "beta_range": "Live tex: every eps in (0,1], i.e. beta in [0,1), plain SGD included. Proved by cor_tikhonov_v2 (Discrete/General/Tikhonov, Delta_1 = 1/8, C = 538/margin + 8); the v1 cor_tikhonov (1/2 <= beta) is kept unchanged."
   },
   {
     "label": "cor:regular",
@@ -735,49 +835,135 @@
     "label": "cor:lift",
     "kind": "corollary",
     "title": "Square-root lift and its defect",
-    "source": "chunks/07_cor_lift.tex",
-    "status": "complete",
+    "source": "v2/chunks/07_cor_lift.tex",
+    "status": "v1_restricted",
     "declarations": [
+      "SparseSGD.Params.trajectory_cov_noiseFree",
+      "SparseSGD.Params.det_trajectory_cov_noiseFree",
+      "SparseSGD.Params.trajectory_cov_rankOne_noiseFree",
+      "SparseSGD.Params.trajectory_R_rankOne_noiseFree",
+      "SparseSGD.noiseFree_rankOne_rank_le_one",
+      "SparseSGD.Params.noiseFree_rankOne_rank",
       "SparseSGD.Params.squareRootLift_initial",
       "SparseSGD.Params.squareRootLiftX_hasDerivAt",
       "SparseSGD.Params.squareRootLiftY_hasDerivAt",
       "SparseSGD.Params.squareRootLiftX_second_hasDerivAt",
       "SparseSGD.Params.noiseFree_risk_squareRootLift_grid",
-      "SparseSGD.Params.noiseFree_rankOne_rank",
       "SparseSGD.Params.comparisonFlow_squareRootLift_R",
       "SparseSGD.Params.comparisonFlow_squareRootLift_rank",
-      "SparseSGD.Params.squareRootLift_oscillator_defect"
+      "SparseSGD.trajectory_risk_defect_sup_bound_v2",
+      "SparseSGD.trajectory_risk_defect_bound_v2",
+      "SparseSGD.freeRisk_tendsto_zero_v2"
     ],
     "component_modules": [
       "SparseSGD.Discrete.Algebra",
       "SparseSGD.Discrete.RenewalBounds",
       "SparseSGD.Discrete.RiskBound",
-      "SparseSGD.Discrete.FreeRisk"
+      "SparseSGD.Discrete.FreeRisk",
+      "SparseSGD.Comparison.SquareRootLift",
+      "SparseSGD.Discrete.General.Renewal"
     ],
-    "remaining": "",
+    "remaining": "cor:lift (i), matched form: R_k = X(k ebar)^2 with X'' + X' + Dbar X = 0 is proved only for 1/2 <= beta (noiseFree_risk_squareRootLift_grid, through noiseFree_risk_eq_matched_grid of Comparison/ExactEmbedding, whose section hypothesis is 1/2 <= beta). The live tex states it for every beta in (0,1), since def:matched now takes beta in (0,1). No relaxed declaration: the matched-coordinate layer (Comparison/ExactMatching, ExactEmbedding) is shared with thm:M and keeps 1/2 <= beta.",
     "subclaims": [
       {
-        "id": "matched_oscillator",
+        "id": "noise_free_identities",
         "status": "complete",
+        "declarations": [
+          "SparseSGD.Params.trajectory_cov_noiseFree",
+          "SparseSGD.Params.det_trajectory_cov_noiseFree",
+          "SparseSGD.Params.trajectory_cov_rankOne_noiseFree",
+          "SparseSGD.Params.trajectory_R_rankOne_noiseFree",
+          "SparseSGD.noiseFree_rankOne_rank_le_one",
+          "SparseSGD.Params.noiseFree_rankOne_rank"
+        ],
+        "note": "Sigma_k = F^k Sigma_0 F^kT, det Sigma_k = beta^(2k) det Sigma_0, R_k = (e_1^T F^k x_0)^2 and rank at most one hold for every beta (noiseFree_rankOne_rank_le_one covers beta = 0); exact rank one needs beta != 0 (noiseFree_rankOne_rank)."
+      },
+      {
+        "id": "matched_oscillator",
+        "status": "v1_restricted",
         "declarations": [
           "SparseSGD.Params.squareRootLift_initial",
           "SparseSGD.Params.squareRootLiftX_hasDerivAt",
           "SparseSGD.Params.squareRootLiftY_hasDerivAt",
           "SparseSGD.Params.squareRootLiftX_second_hasDerivAt",
           "SparseSGD.Params.noiseFree_risk_squareRootLift_grid",
-          "SparseSGD.Params.noiseFree_rankOne_rank",
           "SparseSGD.Params.comparisonFlow_squareRootLift_R",
           "SparseSGD.Params.comparisonFlow_squareRootLift_rank"
-        ]
+        ],
+        "remaining": "cor:lift (i), matched form: R_k = X(k ebar)^2 with X'' + X' + Dbar X = 0 is proved only for 1/2 <= beta (noiseFree_risk_squareRootLift_grid, through noiseFree_risk_eq_matched_grid of Comparison/ExactEmbedding, whose section hypothesis is 1/2 <= beta). The live tex states it for every beta in (0,1), since def:matched now takes beta in (0,1). No relaxed declaration: the matched-coordinate layer (Comparison/ExactMatching, ExactEmbedding) is shared with thm:M and keeps 1/2 <= beta."
       },
       {
         "id": "defect",
         "status": "complete",
         "declarations": [
+          "SparseSGD.trajectory_risk_defect_sup_bound_v2",
+          "SparseSGD.trajectory_risk_defect_bound_v2",
+          "SparseSGD.freeRisk_tendsto_zero_v2"
+        ],
+        "relaxed_by": [
+          "SparseSGD.trajectory_risk_defect_sup_bound_v2"
+        ],
+        "v1_declarations": [
           "SparseSGD.Params.squareRootLift_oscillator_defect"
-        ]
+        ],
+        "note": "Live (ii): 0 <= R_k - a_k <= (u-tilde sup_j a_j + phi-tilde)/(1 - u-tilde) with a_k the noise-free solution (freeRisk), for beta in [0,1). The v1 form measures a_k as the squared matched oscillator and assumes 1/2 <= beta."
       }
-    ]
+    ],
+    "v1_source": "chunks/07_cor_lift.tex",
+    "beta_range": "Live tex: (i) rank at most one for every beta (rank one if beta > 0) and the matched form for beta > 0; (ii) for beta in [0,1). The noise-free identities and (ii) hold in Lean for beta in [0,1); the matched-oscillator form of (i) is proved only for 1/2 <= beta (v1_restricted)."
+  },
+  {
+    "label": "rem:retention-cap",
+    "kind": "remark",
+    "title": "The retention cap is exact",
+    "source": "v2/chunks/07_cor_lift.tex",
+    "status": "partial",
+    "subclaims": [
+      {
+        "id": "a_radius_bounds",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.meanRoots",
+          "SparseSGD.Scaling.Helps.meanRadius",
+          "SparseSGD.Scaling.Helps.meanRadius_attained",
+          "SparseSGD.Scaling.Helps.beta_le_meanRadius_sq",
+          "SparseSGD.Scaling.Helps.meanRadius_sq_le_stepRadius",
+          "SparseSGD.Scaling.Helps.meanRadius_sq_eq_beta_iff",
+          "SparseSGD.Scaling.Helps.stepRadius_noiseFree_eq_beta_iff_of_nonneg"
+        ],
+        "note": "rho(F) = meanRadius beta w (maximal modulus of a root of z^2 - (1+beta-w) z + beta), rho(L) = stepRadius. beta <= rho(F)^2 <= rho(L) for 0 <= beta < 1, w >= 0, u_n >= 0; rho(F)^2 = beta iff (1+beta-w)^2 <= 4 beta (0 <= beta)."
+      },
+      {
+        "id": "rate_cap",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.perStepRate_le_neg_log_beta"
+        ],
+        "note": "-log rho(L) <= -log beta for 0 < beta < 1; at beta = 0 the bound is vacuous, as the tex says (Lean's Real.log 0 = 0 cannot express +infinity)."
+      },
+      {
+        "id": "b_limsup",
+        "status": "pending",
+        "declarations": [],
+        "remaining": "rem:retention-cap (b), limsup_k R_k^(1/k) >= rho(F)^2 >= beta from the cold start with phi = 0 (Cauchy-Hadamard on the generating function of x_k = e_1^T F^k e_1 and R_k >= a_k), is not formalized."
+      }
+    ],
+    "declarations": [
+      "SparseSGD.Scaling.Helps.meanRoots",
+      "SparseSGD.Scaling.Helps.meanRadius",
+      "SparseSGD.Scaling.Helps.meanRadius_attained",
+      "SparseSGD.Scaling.Helps.beta_le_meanRadius_sq",
+      "SparseSGD.Scaling.Helps.meanRadius_sq_le_stepRadius",
+      "SparseSGD.Scaling.Helps.meanRadius_sq_eq_beta_iff",
+      "SparseSGD.Scaling.Helps.stepRadius_noiseFree_eq_beta_iff_of_nonneg",
+      "SparseSGD.Scaling.Helps.perStepRate_le_neg_log_beta"
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.ExactRate",
+      "SparseSGD.Scaling.Helps.StepSpeed"
+    ],
+    "remaining": "rem:retention-cap (b), limsup_k R_k^(1/k) >= rho(F)^2 >= beta from the cold start with phi = 0 (Cauchy-Hadamard on the generating function of x_k = e_1^T F^k e_1 and R_k >= a_k), is not formalized.",
+    "beta_range": "Live tex: (a) for beta in [0,1) (draft block beta-range-retention); the cap -log beta is vacuous at beta = 0. Proved for beta in [0,1) in Scaling/Helps/StepSpeed."
   },
   {
     "label": "cor:curv",
@@ -1344,27 +1530,32 @@
     "kind": "assumption",
     "title": "Global stability",
     "source": "chunks/14_lr_mechanisms.tex",
-    "status": "assumption",
+    "status": "v1_superseded",
     "declarations": [
       "SparseSGD.Logistic.SourceAssumptionS"
     ],
     "subclaims": [
       {
         "id": "global_stability_hypothesis",
-        "status": "assumption",
+        "status": "v1_superseded",
         "declarations": [
           "SparseSGD.Logistic.SourceAssumptionS"
         ]
       }
     ],
-    "remaining": ""
+    "remaining": "",
+    "superseded_by": [
+      "prop:S",
+      "cor:recursion"
+    ],
+    "v1_note": "v1 source assumption, kept as a Lean declaration; not consumed by any theorem. v2 proves the compact-initial-data form (prop_S_iii_proportional), not the all-physical-states uniform form."
   },
   {
     "label": "ass:W",
     "kind": "assumption",
     "title": "Window averaging",
     "source": "chunks/14_lr_mechanisms.tex",
-    "status": "assumption",
+    "status": "v1_superseded",
     "declarations": [
       "SparseSGD.Logistic.LRWindowInput",
       "SparseSGD.Logistic.SourceAssumptionW"
@@ -1372,14 +1563,21 @@
     "subclaims": [
       {
         "id": "window_averaging_hypothesis",
-        "status": "assumption",
+        "status": "v1_superseded",
         "declarations": [
           "SparseSGD.Logistic.LRWindowInput",
           "SparseSGD.Logistic.SourceAssumptionW"
         ]
       }
     ],
-    "remaining": ""
+    "remaining": "",
+    "superseded_by": [
+      "prop:W1",
+      "cor:recursion",
+      "prop:W2",
+      "ass:W2"
+    ],
+    "v1_note": "v1 source assumption, kept as a Lean declaration; not consumed by any theorem. v2 replaces it by prop:W1, cor:recursion, prop:W2 and the narrowed assumption ass:W2."
   },
   {
     "label": "prop:D",
@@ -1747,5 +1945,2311 @@
         "correction": "Active-update conversions retain the sparse, critical Poisson, dense, and fixed-batch cases; sample conversion uses the actual rounded integer batch. Memoryless thresholds apply in the sparse regime."
       }
     ]
+  },
+  {
+    "label": "prop:S",
+    "kind": "proposition",
+    "title": "Cells 3--4: global stability (v2)",
+    "source": "v2/lr5_global_stability.tex",
+    "subclaims": [
+      {
+        "id": "lyapunov_identity",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.V2.lyapunov",
+          "SparseSGD.Logistic.V2.dissipation",
+          "SparseSGD.Logistic.V2.hasDerivAt_lyapunov",
+          "SparseSGD.Logistic.V2.hasDerivAt_lyapunov_zero_load",
+          "SparseSGD.Logistic.V2.dissipation_zero_load",
+          "SparseSGD.Logistic.V2.v2_determinant_derivative",
+          "SparseSGD.Logistic.V2.dissipation_nonneg",
+          "SparseSGD.Logistic.V2.dissipation_eq_zero_iff",
+          "SparseSGD.Logistic.V2.potential_hessian_det",
+          "SparseSGD.Logistic.V2.lyapunov_lower_bound",
+          "SparseSGD.Logistic.V2.lyapunov_sublevel_bounds",
+          "SparseSGD.Logistic.V2.logdet_hessian_sos",
+          "SparseSGD.Logistic.V2.strictConvexOn_lyapunov"
+        ],
+        "correction": "CORRECTIONS.md (V2-1): the dissipation identity eq:LR5-dissipation is stated on {Q>0} (where V>0 follows); at Phi*=0 it reads L'=-Y^2-V on all physical states."
+      },
+      {
+        "id": "physical_invariance",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.V2.determinant_integrating_factor_monotone",
+          "SparseSGD.Logistic.V2.determinant_lower_bound",
+          "SparseSGD.Logistic.V2.determinant_pos_of_pos_time",
+          "SparseSGD.Logistic.V2.determinant_pos_of_pos_initial"
+        ]
+      },
+      {
+        "id": "global_convergence",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.V2.tendsto_zero_of_hasDerivAt_of_tendsto",
+          "SparseSGD.Logistic.V2.tendsto_of_compact_unique_cluster",
+          "SparseSGD.Logistic.V2.global_solution_exists",
+          "SparseSGD.Logistic.V2.solution_bounded",
+          "SparseSGD.Logistic.V2.dissipation_tendsto_zero",
+          "SparseSGD.Logistic.V2.slow_residuals_tendsto_zero",
+          "SparseSGD.Logistic.V2.equilibrium_of_limits",
+          "SparseSGD.Logistic.V2.solution_tendsto_equilibrium",
+          "SparseSGD.Logistic.V2.prop_S_i"
+        ]
+      },
+      {
+        "id": "hurwitz",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.V2.lyapunov_matrix_equation",
+          "SparseSGD.Logistic.V2.eigen_re_identity",
+          "SparseSGD.Logistic.V2.hessian_pos",
+          "SparseSGD.Logistic.V2.observability",
+          "SparseSGD.Logistic.V2.jacobian_hurwitz_pos_load",
+          "SparseSGD.Logistic.V2.det_zeroLoadBulkBlock",
+          "SparseSGD.Logistic.V2.jacobian_hurwitz_zero_load",
+          "SparseSGD.Logistic.V2.hasFDerivAt_dynamicField_equilibrium",
+          "SparseSGD.Logistic.V2.prop_S_ii"
+        ]
+      },
+      {
+        "id": "uniform_rate",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.V2.exists_lyapunov_certificate",
+          "SparseSGD.Logistic.V2.certificate_robust",
+          "SparseSGD.Logistic.V2.local_exponential_stability",
+          "SparseSGD.Logistic.V2.local_exponential_stability_uniform_o",
+          "SparseSGD.Logistic.V2.positiveRoot_continuousOn",
+          "SparseSGD.Logistic.V2.canonicalEquilibrium_continuousOn",
+          "SparseSGD.Logistic.V2.dynamicField_remainder_uniform",
+          "SparseSGD.Logistic.V2.prop_S_iii_proportional",
+          "SparseSGD.Logistic.V2.prop_S_iii",
+          "SparseSGD.Logistic.V2.dynamicField_uniformEntry",
+          "SparseSGD.Logistic.V2.prop_S"
+        ],
+        "correction": "CORRECTIONS.md (V2-2): the proof of (iii) needs continuity of y* in the parameters and robustness of a quadratic Lyapunov certificate, not only continuity of the eigenvalues."
+      }
+    ],
+    "status": "complete_corrected",
+    "declarations": [
+      "SparseSGD.Logistic.V2.lyapunov",
+      "SparseSGD.Logistic.V2.dissipation",
+      "SparseSGD.Logistic.V2.hasDerivAt_lyapunov",
+      "SparseSGD.Logistic.V2.hasDerivAt_lyapunov_zero_load",
+      "SparseSGD.Logistic.V2.dissipation_zero_load",
+      "SparseSGD.Logistic.V2.v2_determinant_derivative",
+      "SparseSGD.Logistic.V2.dissipation_nonneg",
+      "SparseSGD.Logistic.V2.dissipation_eq_zero_iff",
+      "SparseSGD.Logistic.V2.potential_hessian_det",
+      "SparseSGD.Logistic.V2.lyapunov_lower_bound",
+      "SparseSGD.Logistic.V2.lyapunov_sublevel_bounds",
+      "SparseSGD.Logistic.V2.logdet_hessian_sos",
+      "SparseSGD.Logistic.V2.strictConvexOn_lyapunov",
+      "SparseSGD.Logistic.V2.determinant_integrating_factor_monotone",
+      "SparseSGD.Logistic.V2.determinant_lower_bound",
+      "SparseSGD.Logistic.V2.determinant_pos_of_pos_time",
+      "SparseSGD.Logistic.V2.determinant_pos_of_pos_initial",
+      "SparseSGD.Logistic.V2.tendsto_zero_of_hasDerivAt_of_tendsto",
+      "SparseSGD.Logistic.V2.tendsto_of_compact_unique_cluster",
+      "SparseSGD.Logistic.V2.global_solution_exists",
+      "SparseSGD.Logistic.V2.solution_bounded",
+      "SparseSGD.Logistic.V2.dissipation_tendsto_zero",
+      "SparseSGD.Logistic.V2.slow_residuals_tendsto_zero",
+      "SparseSGD.Logistic.V2.equilibrium_of_limits",
+      "SparseSGD.Logistic.V2.solution_tendsto_equilibrium",
+      "SparseSGD.Logistic.V2.prop_S_i",
+      "SparseSGD.Logistic.V2.lyapunov_matrix_equation",
+      "SparseSGD.Logistic.V2.eigen_re_identity",
+      "SparseSGD.Logistic.V2.hessian_pos",
+      "SparseSGD.Logistic.V2.observability",
+      "SparseSGD.Logistic.V2.jacobian_hurwitz_pos_load",
+      "SparseSGD.Logistic.V2.det_zeroLoadBulkBlock",
+      "SparseSGD.Logistic.V2.jacobian_hurwitz_zero_load",
+      "SparseSGD.Logistic.V2.hasFDerivAt_dynamicField_equilibrium",
+      "SparseSGD.Logistic.V2.prop_S_ii",
+      "SparseSGD.Logistic.V2.exists_lyapunov_certificate",
+      "SparseSGD.Logistic.V2.certificate_robust",
+      "SparseSGD.Logistic.V2.local_exponential_stability",
+      "SparseSGD.Logistic.V2.local_exponential_stability_uniform_o",
+      "SparseSGD.Logistic.V2.positiveRoot_continuousOn",
+      "SparseSGD.Logistic.V2.canonicalEquilibrium_continuousOn",
+      "SparseSGD.Logistic.V2.dynamicField_remainder_uniform",
+      "SparseSGD.Logistic.V2.prop_S_iii_proportional",
+      "SparseSGD.Logistic.V2.prop_S_iii",
+      "SparseSGD.Logistic.V2.dynamicField_uniformEntry",
+      "SparseSGD.Logistic.V2.prop_S"
+    ],
+    "component_modules": [
+      "SparseSGD.Logistic.V2.Lyapunov",
+      "SparseSGD.Logistic.V2.PositiveDeterminant",
+      "SparseSGD.Logistic.V2.Barbalat",
+      "SparseSGD.Logistic.V2.GlobalConvergence",
+      "SparseSGD.Logistic.V2.Hurwitz",
+      "SparseSGD.Logistic.V2.LyapunovCertificate",
+      "SparseSGD.Logistic.V2.UniformRate",
+      "SparseSGD.Logistic.V2.All"
+    ],
+    "remaining": ""
+  },
+  {
+    "label": "prop:W1",
+    "kind": "proposition",
+    "title": "Cell 6: rates in the noisy window (v2)",
+    "source": "v2/lr_windows.tex",
+    "subclaims": [
+      {
+        "id": "algebraic_identities",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.V2.omega_skew",
+          "SparseSGD.Logistic.V2.damping_lyapunov",
+          "SparseSGD.Logistic.V2.hessian_damping_comm",
+          "SparseSGD.Logistic.V2.fastHessian_pos",
+          "SparseSGD.Logistic.V2.trace_omega",
+          "SparseSGD.Logistic.V2.trace_damping",
+          "SparseSGD.Logistic.V2.omega_charpoly",
+          "SparseSGD.Logistic.V2.frequency_discriminant",
+          "SparseSGD.Logistic.V2.freqDisc_pos",
+          "SparseSGD.Logistic.V2.frequency_roots",
+          "SparseSGD.Logistic.V2.frequency_quartic_R_zero",
+          "SparseSGD.Logistic.V2.omega_null_right",
+          "SparseSGD.Logistic.V2.omega_null_left",
+          "SparseSGD.Logistic.V2.lambda_zero_eq",
+          "SparseSGD.Logistic.V2.freqQuartic_signal",
+          "SparseSGD.Logistic.V2.omega_oscillatory_eigenvector",
+          "SparseSGD.Logistic.V2.rayleigh_generic",
+          "SparseSGD.Logistic.V2.rayleigh_shift",
+          "SparseSGD.Logistic.V2.rayleigh_shift_neg",
+          "SparseSGD.Logistic.V2.lambda_mu_trace"
+        ],
+        "correction": "CORRECTIONS.md (V2-3, V2-4): needs r>0 (so theta*>0) for the oscillatory eigenvectors; with det(lambda I - Omega) the prefactor is +i nu."
+      },
+      {
+        "id": "eigenvalue_asymptotics",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.V2.fast_conjugation",
+          "SparseSGD.Logistic.V2.real_eigenvalue_asymptotics_sharp",
+          "SparseSGD.Logistic.V2.real_eigenvalue_asymptotics",
+          "SparseSGD.Logistic.V2.oscillatory_eigenvalue_asymptotics",
+          "SparseSGD.Logistic.V2.five_eigenvalues",
+          "SparseSGD.Logistic.V2.trace_corollary",
+          "SparseSGD.Logistic.V2.prop_W1_jacobian",
+          "SparseSGD.Logistic.V2.equilibrium_real_eigenvalue",
+          "SparseSGD.Logistic.V2.equilibrium_five_eigenvalues"
+        ]
+      }
+    ],
+    "status": "complete_corrected",
+    "declarations": [
+      "SparseSGD.Logistic.V2.omega_skew",
+      "SparseSGD.Logistic.V2.damping_lyapunov",
+      "SparseSGD.Logistic.V2.hessian_damping_comm",
+      "SparseSGD.Logistic.V2.fastHessian_pos",
+      "SparseSGD.Logistic.V2.trace_omega",
+      "SparseSGD.Logistic.V2.trace_damping",
+      "SparseSGD.Logistic.V2.omega_charpoly",
+      "SparseSGD.Logistic.V2.frequency_discriminant",
+      "SparseSGD.Logistic.V2.freqDisc_pos",
+      "SparseSGD.Logistic.V2.frequency_roots",
+      "SparseSGD.Logistic.V2.frequency_quartic_R_zero",
+      "SparseSGD.Logistic.V2.omega_null_right",
+      "SparseSGD.Logistic.V2.omega_null_left",
+      "SparseSGD.Logistic.V2.lambda_zero_eq",
+      "SparseSGD.Logistic.V2.freqQuartic_signal",
+      "SparseSGD.Logistic.V2.omega_oscillatory_eigenvector",
+      "SparseSGD.Logistic.V2.rayleigh_generic",
+      "SparseSGD.Logistic.V2.rayleigh_shift",
+      "SparseSGD.Logistic.V2.rayleigh_shift_neg",
+      "SparseSGD.Logistic.V2.lambda_mu_trace",
+      "SparseSGD.Logistic.V2.fast_conjugation",
+      "SparseSGD.Logistic.V2.real_eigenvalue_asymptotics_sharp",
+      "SparseSGD.Logistic.V2.real_eigenvalue_asymptotics",
+      "SparseSGD.Logistic.V2.oscillatory_eigenvalue_asymptotics",
+      "SparseSGD.Logistic.V2.five_eigenvalues",
+      "SparseSGD.Logistic.V2.trace_corollary",
+      "SparseSGD.Logistic.V2.prop_W1_jacobian",
+      "SparseSGD.Logistic.V2.equilibrium_real_eigenvalue",
+      "SparseSGD.Logistic.V2.equilibrium_five_eigenvalues"
+    ],
+    "component_modules": [
+      "SparseSGD.Logistic.V2.LargeDeltaAlgebra",
+      "SparseSGD.Logistic.V2.LargeDeltaPerturbation"
+    ],
+    "remaining": ""
+  },
+  {
+    "label": "cor:recursion",
+    "kind": "corollary",
+    "title": "The drift recursion converges (v2)",
+    "source": "v2/lr_windows.tex",
+    "subclaims": [
+      {
+        "id": "abstract",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.V2.local_fixed_point",
+          "SparseSGD.Logistic.V2.drift_recursion_converges",
+          "SparseSGD.Logistic.V2.jacobian_products"
+        ]
+      },
+      {
+        "id": "tame_instantiation",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.V2.tameDriftMap_decomposition",
+          "SparseSGD.Logistic.V2.tameDriftMap_tracking",
+          "SparseSGD.Logistic.V2.tame_base_certificate",
+          "SparseSGD.Logistic.V2.cor_recursion_tame",
+          "SparseSGD.Logistic.V2.cor_recursion_tame'"
+        ],
+        "correction": "CORRECTIONS.md (V2-5): uniqueness holds in a fixed ball around y*, of radius independent of delta_eps; constants are for a fixed base point (r, Delta*, Phi*)."
+      },
+      {
+        "id": "parameter_uniformity",
+        "status": "pending",
+        "declarations": [],
+        "remaining": "Uniformity of M, c, Gamma over compact sets of (Delta*, Phi*, r) is not formalized: cor_recursion_tame fixes (r, Delta*, Phi*) and is uniform only over the parameter tube around it (CORRECTIONS.md V2-6)."
+      },
+      {
+        "id": "actual_coefficients",
+        "status": "pending",
+        "declarations": [],
+        "remaining": "Instantiation with the actual Gaussian-coefficient drift recursion of prop:LR34 (non-autonomous through theta in R^d, with epsilon_B errors) is not formalized; only the tame coefficients of lem:B are covered."
+      }
+    ],
+    "status": "partial",
+    "declarations": [
+      "SparseSGD.Logistic.V2.local_fixed_point",
+      "SparseSGD.Logistic.V2.drift_recursion_converges",
+      "SparseSGD.Logistic.V2.jacobian_products",
+      "SparseSGD.Logistic.V2.tameDriftMap_decomposition",
+      "SparseSGD.Logistic.V2.tameDriftMap_tracking",
+      "SparseSGD.Logistic.V2.tame_base_certificate",
+      "SparseSGD.Logistic.V2.cor_recursion_tame",
+      "SparseSGD.Logistic.V2.cor_recursion_tame'"
+    ],
+    "component_modules": [
+      "SparseSGD.Logistic.V2.RecursionContraction",
+      "SparseSGD.Logistic.V2.RecursionTame",
+      "SparseSGD.Logistic.V2.All"
+    ],
+    "remaining": "Uniformity of M, c, Gamma over compact sets of (Delta*, Phi*, r) is not formalized: cor_recursion_tame fixes (r, Delta*, Phi*) and is uniform only over the parameter tube around it (CORRECTIONS.md V2-6). Instantiation with the actual Gaussian-coefficient drift recursion of prop:LR34 (non-autonomous through theta in R^d, with epsilon_B errors) is not formalized; only the tame coefficients of lem:B are covered."
+  },
+  {
+    "label": "prop:W2",
+    "kind": "proposition",
+    "title": "Cells 7--8: the LR curvature ceiling (v2)",
+    "source": "v2/lr_windows.tex",
+    "subclaims": [
+      {
+        "id": "determinants_charpoly",
+        "status": "complete_corrected",
+        "declarations": [
+          "SparseSGD.Logistic.V2.windowMap_fixed",
+          "SparseSGD.Logistic.V2.hasFDerivAt_windowMap",
+          "SparseSGD.Logistic.V2.windowJacobian_det",
+          "SparseSGD.Logistic.V2.windowJacobian_det_sub_one",
+          "SparseSGD.Logistic.V2.windowJacobian_det_add_one",
+          "SparseSGD.Logistic.V2.window_charpoly",
+          "SparseSGD.Logistic.V2.windowP_neg_two",
+          "SparseSGD.Logistic.V2.windowP_two",
+          "SparseSGD.Logistic.V2.window_discriminant",
+          "SparseSGD.Logistic.V2.windowD_pos",
+          "SparseSGD.Logistic.V2.windowP_two_pos",
+          "SparseSGD.Logistic.V2.windowQ_two",
+          "SparseSGD.Logistic.V2.windowCritical_pos",
+          "SparseSGD.Logistic.V2.windowCritical_lt_two",
+          "SparseSGD.Logistic.V2.windowQ_pos_of_lt",
+          "SparseSGD.Logistic.V2.w_c_limit"
+        ],
+        "correction": "CORRECTIONS.md (V2-7): (ii) and (iii) need R*>0, which the statement attaches only to 0<w_c<2."
+      },
+      {
+        "id": "unit_circle",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.V2.palindromic_factor",
+          "SparseSGD.Logistic.V2.quadratic_unit_roots",
+          "SparseSGD.Logistic.V2.windowCoefB_lt_four",
+          "SparseSGD.Logistic.V2.window_roots_inside",
+          "SparseSGD.Logistic.V2.prop_W2_ii"
+        ]
+      },
+      {
+        "id": "period_doubling_fixed_map",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.V2.windowQ_critical",
+          "SparseSGD.Logistic.V2.windowQ_neg_above",
+          "SparseSGD.Logistic.V2.prop_W2_iii_critical",
+          "SparseSGD.Logistic.V2.prop_W2_iii_above"
+        ]
+      },
+      {
+        "id": "drift_recursion_instability",
+        "status": "partial",
+        "declarations": [
+          "SparseSGD.Logistic.V2.real_eigenvalue_persistence_of_sign_change",
+          "SparseSGD.Logistic.V2.real_eigenvalue_persistence",
+          "SparseSGD.Logistic.V2.prop_W2_iii"
+        ],
+        "remaining": "The persistence step is proved for any Jacobian family J_eps -> J0 entrywise; that the Jacobian of the drift recursion at its fixed point converges to J0 as eps -> 0 is a hypothesis, not derived from lem:LRdrift/lem:B. (CORRECTIONS.md V2-8)"
+      }
+    ],
+    "status": "partial",
+    "declarations": [
+      "SparseSGD.Logistic.V2.windowMap_fixed",
+      "SparseSGD.Logistic.V2.hasFDerivAt_windowMap",
+      "SparseSGD.Logistic.V2.windowJacobian_det",
+      "SparseSGD.Logistic.V2.windowJacobian_det_sub_one",
+      "SparseSGD.Logistic.V2.windowJacobian_det_add_one",
+      "SparseSGD.Logistic.V2.window_charpoly",
+      "SparseSGD.Logistic.V2.windowP_neg_two",
+      "SparseSGD.Logistic.V2.windowP_two",
+      "SparseSGD.Logistic.V2.window_discriminant",
+      "SparseSGD.Logistic.V2.windowD_pos",
+      "SparseSGD.Logistic.V2.windowP_two_pos",
+      "SparseSGD.Logistic.V2.windowQ_two",
+      "SparseSGD.Logistic.V2.windowCritical_pos",
+      "SparseSGD.Logistic.V2.windowCritical_lt_two",
+      "SparseSGD.Logistic.V2.windowQ_pos_of_lt",
+      "SparseSGD.Logistic.V2.w_c_limit",
+      "SparseSGD.Logistic.V2.palindromic_factor",
+      "SparseSGD.Logistic.V2.quadratic_unit_roots",
+      "SparseSGD.Logistic.V2.windowCoefB_lt_four",
+      "SparseSGD.Logistic.V2.window_roots_inside",
+      "SparseSGD.Logistic.V2.prop_W2_ii",
+      "SparseSGD.Logistic.V2.windowQ_critical",
+      "SparseSGD.Logistic.V2.windowQ_neg_above",
+      "SparseSGD.Logistic.V2.prop_W2_iii_critical",
+      "SparseSGD.Logistic.V2.prop_W2_iii_above",
+      "SparseSGD.Logistic.V2.real_eigenvalue_persistence_of_sign_change",
+      "SparseSGD.Logistic.V2.real_eigenvalue_persistence",
+      "SparseSGD.Logistic.V2.prop_W2_iii"
+    ],
+    "component_modules": [
+      "SparseSGD.Logistic.V2.WindowMapAlgebra",
+      "SparseSGD.Logistic.V2.WindowUnitCircle"
+    ],
+    "remaining": "The persistence step is proved for any Jacobian family J_eps -> J0 entrywise; that the Jacobian of the drift recursion at its fixed point converges to J0 as eps -> 0 is a hypothesis, not derived from lem:LRdrift/lem:B. (CORRECTIONS.md V2-8)"
+  },
+  {
+    "label": "ass:W2",
+    "kind": "assumption",
+    "title": "Curvature window and switch (v2)",
+    "source": "v2/lr_windows.tex",
+    "subclaims": [
+      {
+        "id": "curvature_window_hypothesis",
+        "status": "assumption",
+        "declarations": [
+          "SparseSGD.Logistic.V2.AssumptionW2"
+        ]
+      }
+    ],
+    "status": "assumption",
+    "declarations": [
+      "SparseSGD.Logistic.V2.AssumptionW2"
+    ],
+    "component_modules": [
+      "SparseSGD.Logistic.V2.All"
+    ],
+    "remaining": ""
+  },
+  {
+    "label": "app:rates",
+    "kind": "definition",
+    "title": "Decay rate per step (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "defined",
+    "subclaims": [
+      {
+        "id": "decay_rate",
+        "status": "defined",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.stepLinearMatrix",
+          "SparseSGD.Scaling.Helps.det_stepLinearMatrix",
+          "SparseSGD.Scaling.Helps.stepRoots",
+          "SparseSGD.Scaling.Helps.stepRadius",
+          "SparseSGD.Scaling.Helps.stepRadius_attained",
+          "SparseSGD.Scaling.Helps.norm_le_stepRadius",
+          "SparseSGD.Scaling.Helps.perStepRate"
+        ],
+        "note": "T is stepLinearMatrix (the linear part of eq:L1 on symmetric 2x2 matrices, coordinates (R, V, C)); rho(T) = stepRadius is the maximal modulus of a root of its characteristic polynomial (det_stepLinearMatrix); Lambda = perStepRate = -log stepRadius. Lean's Real.log 0 = 0, so Lambda = +infinity (rho(T) = 0) is not encoded; statements that need Lambda finite carry a hypothesis forcing a positive radius."
+      },
+      {
+        "id": "retention_clock_rate",
+        "status": "defined",
+        "declarations": [
+          "SparseSGD.spectrumPolynomial",
+          "SparseSGD.continuumPerronRate",
+          "SparseSGD.Scaling.Helps.chiC"
+        ],
+        "note": "r_c = continuumPerronRate = -max Re over the roots of chi = spectrumPolynomial (chiC over a commutative ring)."
+      },
+      {
+        "id": "eps_limit",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.helps_transfer",
+          "SparseSGD.Scaling.Helps.helps_transfer_compact",
+          "SparseSGD.Scaling.Helps.momentum_rate_div_eps_tendsto"
+        ],
+        "note": "'Lambda = eps r_c(Delta,u)(1+o(1)) as eps -> 0 at fixed (Delta,u)': helps_transfer gives |Lambda - eps r_c(Delta, u_n + u_c)| <= C eps^(4/3) uniformly for Delta in (0,D], u_n in [0,c Delta]; helps_transfer_compact the relative C eps^(1/3) form on compacts of (0,infty) x [0,1)."
+      }
+    ],
+    "declarations": [
+      "SparseSGD.Scaling.Helps.stepLinearMatrix",
+      "SparseSGD.Scaling.Helps.det_stepLinearMatrix",
+      "SparseSGD.Scaling.Helps.stepRoots",
+      "SparseSGD.Scaling.Helps.stepRadius",
+      "SparseSGD.Scaling.Helps.stepRadius_attained",
+      "SparseSGD.Scaling.Helps.norm_le_stepRadius",
+      "SparseSGD.Scaling.Helps.perStepRate",
+      "SparseSGD.spectrumPolynomial",
+      "SparseSGD.continuumPerronRate",
+      "SparseSGD.Scaling.Helps.chiC",
+      "SparseSGD.Scaling.Helps.helps_transfer",
+      "SparseSGD.Scaling.Helps.helps_transfer_compact",
+      "SparseSGD.Scaling.Helps.momentum_rate_div_eps_tendsto"
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.StepMatrix",
+      "SparseSGD.Scaling.Helps.Transfer",
+      "SparseSGD.Scaling.Helps.FixedFloor"
+    ],
+    "remaining": "",
+    "tex_labels": "app:rates, opening paragraph (the definition Lambda := -ln rho(T) of the harmonized section has no label of its own)"
+  },
+  {
+    "label": "lem:chi_roots",
+    "kind": "lemma",
+    "title": "Roots of the characteristic polynomial (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "subclaims": [
+      {
+        "id": "a",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.chi_roots_a",
+          "SparseSGD.Scaling.Helps.chi_roots_a_eq_iff"
+        ]
+      },
+      {
+        "id": "b",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.chi_roots_b_le",
+          "SparseSGD.Scaling.Helps.chi_roots_b_ge"
+        ]
+      },
+      {
+        "id": "c",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.chi_roots_c"
+        ],
+        "note": "Includes u = 0."
+      },
+      {
+        "id": "d",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.chiA0",
+          "SparseSGD.Scaling.Helps.chiA1",
+          "SparseSGD.Scaling.Helps.chiTplus",
+          "SparseSGD.Scaling.Helps.chiTminus",
+          "SparseSGD.Scaling.Helps.chi_roots_d_bracket",
+          "SparseSGD.Scaling.Helps.chi_roots_d"
+        ],
+        "note": "Uniform in u in [0,1): |r_c - 2 Delta (1-u)| <= 18 Delta (2 Delta (1-u)) for Delta in (0,1/50], an explicit O(Delta). Proved by the intermediate value theorem on the cubic, not by the implicit function theorem."
+      },
+      {
+        "id": "e",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.chi_roots_e",
+          "SparseSGD.Scaling.Helps.chi_roots_e_zero_le",
+          "SparseSGD.Scaling.Helps.chi_roots_e_zero_eq_iff"
+        ]
+      },
+      {
+        "id": "bundle",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.lem_chi_roots"
+        ]
+      }
+    ],
+    "declarations": [
+      "SparseSGD.Scaling.Helps.chi_roots_a",
+      "SparseSGD.Scaling.Helps.chi_roots_a_eq_iff",
+      "SparseSGD.Scaling.Helps.chi_roots_b_le",
+      "SparseSGD.Scaling.Helps.chi_roots_b_ge",
+      "SparseSGD.Scaling.Helps.chi_roots_c",
+      "SparseSGD.Scaling.Helps.chiA0",
+      "SparseSGD.Scaling.Helps.chiA1",
+      "SparseSGD.Scaling.Helps.chiTplus",
+      "SparseSGD.Scaling.Helps.chiTminus",
+      "SparseSGD.Scaling.Helps.chi_roots_d_bracket",
+      "SparseSGD.Scaling.Helps.chi_roots_d",
+      "SparseSGD.Scaling.Helps.chi_roots_e",
+      "SparseSGD.Scaling.Helps.chi_roots_e_zero_le",
+      "SparseSGD.Scaling.Helps.chi_roots_e_zero_eq_iff",
+      "SparseSGD.Scaling.Helps.lem_chi_roots"
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.CubicRoots",
+      "SparseSGD.Scaling.Helps.ChiRoots"
+    ],
+    "remaining": ""
+  },
+  {
+    "label": "lem:step_spectrum",
+    "kind": "lemma",
+    "title": "Spectrum of the per-step map (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "subclaims": [
+      {
+        "id": "coefficients",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.spectrumB1",
+          "SparseSGD.Scaling.Helps.spectrumB2",
+          "SparseSGD.Scaling.Helps.spectrumQ",
+          "SparseSGD.Scaling.Helps.spectrumQR",
+          "SparseSGD.Scaling.Helps.spectrumQ_ofReal",
+          "SparseSGD.Scaling.Helps.spectrumB2_eq",
+          "SparseSGD.Scaling.Helps.spectrumB1_eq",
+          "SparseSGD.Scaling.Helps.spectrumQ0_eq",
+          "SparseSGD.Scaling.Helps.spectrumQ0_eq_totalLoad"
+        ],
+        "note": "The explicit b_1, b_2 of the proof and the constant term 2 Delta (2-eps)(1-u), u = u_n + u_c, identified with the transfer cubic (transferR1, transferR2, transferQ0); eps != 2, automatic for beta in [0,1)."
+      },
+      {
+        "id": "eigenvalues",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.mem_stepRoots_iff_spectrumQ"
+        ],
+        "note": "The eigenvalues of T at beta = 1 - eps, w = eps^2 Delta are 1 + eps z over the roots z of q (eps != 0, 2; any additive load)."
+      },
+      {
+        "id": "coefficient_bounds",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.abs_spectrumB1_le",
+          "SparseSGD.Scaling.Helps.abs_spectrumB2_le",
+          "SparseSGD.Scaling.Helps.abs_spectrumB_le",
+          "SparseSGD.Scaling.Helps.abs_spectrumB_le_small"
+        ],
+        "note": "|b_1|, |b_2| <= 1 + (16/3) Delta + eps Delta^2 for 0 < eps <= 1/2, Delta >= 0, u in [0,1]; |b_i| <= 1.17 for eps, Delta <= 1/50 (used by lem:small_delta)."
+      },
+      {
+        "id": "chi_difference",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.spectrumQ_sub_chi",
+          "SparseSGD.Scaling.Helps.spectrumQR_sub_chi"
+        ],
+        "note": "q - chi = eps (b_2 z^2 + b_1 z - 2 Delta (1-u)), over C and over R."
+      }
+    ],
+    "declarations": [
+      "SparseSGD.Scaling.Helps.spectrumB1",
+      "SparseSGD.Scaling.Helps.spectrumB2",
+      "SparseSGD.Scaling.Helps.spectrumQ",
+      "SparseSGD.Scaling.Helps.spectrumQR",
+      "SparseSGD.Scaling.Helps.spectrumQ_ofReal",
+      "SparseSGD.Scaling.Helps.spectrumB2_eq",
+      "SparseSGD.Scaling.Helps.spectrumB1_eq",
+      "SparseSGD.Scaling.Helps.spectrumQ0_eq",
+      "SparseSGD.Scaling.Helps.spectrumQ0_eq_totalLoad",
+      "SparseSGD.Scaling.Helps.mem_stepRoots_iff_spectrumQ",
+      "SparseSGD.Scaling.Helps.abs_spectrumB1_le",
+      "SparseSGD.Scaling.Helps.abs_spectrumB2_le",
+      "SparseSGD.Scaling.Helps.abs_spectrumB_le",
+      "SparseSGD.Scaling.Helps.abs_spectrumB_le_small",
+      "SparseSGD.Scaling.Helps.spectrumQ_sub_chi",
+      "SparseSGD.Scaling.Helps.spectrumQR_sub_chi"
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.Transfer",
+      "SparseSGD.Scaling.Helps.StepSpectrum"
+    ],
+    "remaining": ""
+  },
+  {
+    "label": "lem:small_delta",
+    "kind": "lemma",
+    "title": "Small Delta: the per-step rate of SGD (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "subclaims": [
+      {
+        "id": "coefficient_ranges",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.smallA2",
+          "SparseSGD.Scaling.Helps.smallA1",
+          "SparseSGD.Scaling.Helps.smallA0",
+          "SparseSGD.Scaling.Helps.spectrumQ_eq_small",
+          "SparseSGD.Scaling.Helps.small_coeff_bounds"
+        ],
+        "note": "|a_2 - 3| <= 0.024, a_1 in [1.97, 2.11], 0 < a_0 <= 4 Delta <= 0.08."
+      },
+      {
+        "id": "slow_root",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.slowCubic",
+          "SparseSGD.Scaling.Helps.slowTm",
+          "SparseSGD.Scaling.Helps.slowTp",
+          "SparseSGD.Scaling.Helps.slowRoot_bracket",
+          "SparseSGD.Scaling.Helps.exists_slowRoot",
+          "SparseSGD.Scaling.Helps.exists_slowRoot_full",
+          "SparseSGD.Scaling.Helps.small_delta_root"
+        ],
+        "note": "q(-t_+) < 0 < q(-t_-), z_s = -(a_0/a_1)(1 + theta_1), |theta_1| <= 4 a_0, |z_s| <= 0.06. The sign of q(-t_+) uses the cruder t_+ <= 0.68 a_0 in place of the tex's a_2(1+4a_0)^2/a_1^2 < 1.5."
+      },
+      {
+        "id": "other_roots",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.slowFactorB",
+          "SparseSGD.Scaling.Helps.slowFactorC",
+          "SparseSGD.Scaling.Helps.cubic_factor_slow",
+          "SparseSGD.Scaling.Helps.quad_fast_root_bound",
+          "SparseSGD.Scaling.Helps.fast_roots_bound",
+          "SparseSGD.Scaling.Helps.norm_one_add_sq_le_of_fast",
+          "SparseSGD.Scaling.Helps.eigenvalue_max",
+          "SparseSGD.Scaling.Helps.eigenvalue_max_isGreatest"
+        ],
+        "note": "q = (z - z_s)(z^2 + bz + c), b in [2.9, 3.03], c in [1.78, 2.11]; the fast roots have Re <= -0.7, modulus <= 3.1 and |1 + eps z|^2 <= 1 - eps; 1 + eps z_s sets the spectral radius."
+      },
+      {
+        "id": "constant",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.small_delta_theta2",
+          "SparseSGD.Scaling.Helps.small_delta_ratio",
+          "SparseSGD.Scaling.Helps.small_delta_prod_bound",
+          "SparseSGD.Scaling.Helps.lem_small_delta_theta2",
+          "SparseSGD.Scaling.Helps.lem_small_delta_ratio"
+        ],
+        "note": "Lambda = eps |z_s| (1 + theta_2), 0 <= theta_2 <= eps; a_0/a_1 = 2 Delta (1-u)(1 + theta_3), |theta_3| <= 3(eps + Delta); the product bound 25(eps + Delta)."
+      },
+      {
+        "id": "statement",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.lem_small_delta",
+          "SparseSGD.Scaling.Helps.lsRate_small_delta"
+        ],
+        "note": "For 0 < eps <= 1/50, 0 < Delta <= 1/50, u_n >= 0 and u = u_n + u_c < 1: Lambda = 2 eps Delta (1-u)(1+theta) = 2 eta p (1-u)(1+theta), |theta| <= 25(eps + Delta); lsRate_small_delta is the LS form (u = eta/eta_+)."
+      }
+    ],
+    "declarations": [
+      "SparseSGD.Scaling.Helps.smallA2",
+      "SparseSGD.Scaling.Helps.smallA1",
+      "SparseSGD.Scaling.Helps.smallA0",
+      "SparseSGD.Scaling.Helps.spectrumQ_eq_small",
+      "SparseSGD.Scaling.Helps.small_coeff_bounds",
+      "SparseSGD.Scaling.Helps.slowCubic",
+      "SparseSGD.Scaling.Helps.slowTm",
+      "SparseSGD.Scaling.Helps.slowTp",
+      "SparseSGD.Scaling.Helps.slowRoot_bracket",
+      "SparseSGD.Scaling.Helps.exists_slowRoot",
+      "SparseSGD.Scaling.Helps.exists_slowRoot_full",
+      "SparseSGD.Scaling.Helps.small_delta_root",
+      "SparseSGD.Scaling.Helps.slowFactorB",
+      "SparseSGD.Scaling.Helps.slowFactorC",
+      "SparseSGD.Scaling.Helps.cubic_factor_slow",
+      "SparseSGD.Scaling.Helps.quad_fast_root_bound",
+      "SparseSGD.Scaling.Helps.fast_roots_bound",
+      "SparseSGD.Scaling.Helps.norm_one_add_sq_le_of_fast",
+      "SparseSGD.Scaling.Helps.eigenvalue_max",
+      "SparseSGD.Scaling.Helps.eigenvalue_max_isGreatest",
+      "SparseSGD.Scaling.Helps.small_delta_theta2",
+      "SparseSGD.Scaling.Helps.small_delta_ratio",
+      "SparseSGD.Scaling.Helps.small_delta_prod_bound",
+      "SparseSGD.Scaling.Helps.lem_small_delta_theta2",
+      "SparseSGD.Scaling.Helps.lem_small_delta_ratio",
+      "SparseSGD.Scaling.Helps.lem_small_delta",
+      "SparseSGD.Scaling.Helps.lsRate_small_delta"
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.SmallDeltaSlowRoot",
+      "SparseSGD.Scaling.Helps.SmallDeltaFactor",
+      "SparseSGD.Scaling.Helps.SmallDelta"
+    ],
+    "remaining": ""
+  },
+  {
+    "label": "lem:helps-sgd",
+    "kind": "lemma",
+    "title": "Plain SGD (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "declarations": [
+      "SparseSGD.Scaling.Helps.stepCharPoly_beta_zero",
+      "SparseSGD.Scaling.Helps.step_R_beta_zero",
+      "SparseSGD.Scaling.Helps.totalLoad_beta_zero",
+      "SparseSGD.Scaling.Helps.stepRadius_beta_zero",
+      "SparseSGD.Scaling.Helps.sgd_load_bound",
+      "SparseSGD.Scaling.Helps.w_mul_one_sub_load_le_half",
+      "SparseSGD.Scaling.Helps.stepRadius_lt_one_iff_beta_zero",
+      "SparseSGD.Scaling.Helps.sgd_coeff_bounds",
+      "SparseSGD.Scaling.Helps.lem_helps_sgd",
+      "SparseSGD.Scaling.Helps.ls_params_w_beta_zero",
+      "SparseSGD.Scaling.Helps.ls_params_noise_beta_zero",
+      "SparseSGD.Scaling.Helps.ls_totalLoad_beta_zero",
+      "SparseSGD.Scaling.Helps.ls_two_w_one_sub_load",
+      "SparseSGD.Scaling.Helps.ls_beta_zero_sup"
+    ],
+    "subclaims": [
+      {
+        "id": "moment_recursion",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.stepCharPoly_beta_zero",
+          "SparseSGD.Scaling.Helps.step_R_beta_zero",
+          "SparseSGD.Scaling.Helps.totalLoad_beta_zero"
+        ]
+      },
+      {
+        "id": "radius_and_threshold",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.stepRadius_beta_zero",
+          "SparseSGD.Scaling.Helps.sgd_load_bound",
+          "SparseSGD.Scaling.Helps.w_mul_one_sub_load_le_half",
+          "SparseSGD.Scaling.Helps.stepRadius_lt_one_iff_beta_zero",
+          "SparseSGD.Scaling.Helps.sgd_coeff_bounds",
+          "SparseSGD.Scaling.Helps.lem_helps_sgd"
+        ]
+      },
+      {
+        "id": "ls_supremum",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.ls_params_w_beta_zero",
+          "SparseSGD.Scaling.Helps.ls_params_noise_beta_zero",
+          "SparseSGD.Scaling.Helps.ls_totalLoad_beta_zero",
+          "SparseSGD.Scaling.Helps.ls_two_w_one_sub_load",
+          "SparseSGD.Scaling.Helps.ls_beta_zero_sup"
+        ]
+      }
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.StepMatrix",
+      "SparseSGD.Scaling.Helps.ExactRate",
+      "SparseSGD.Scaling.Helps.All"
+    ],
+    "remaining": ""
+  },
+  {
+    "label": "lem:helps-rate",
+    "kind": "lemma",
+    "title": "Per-step rate and excess risk (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "supporting",
+    "declarations": [
+      "SparseSGD.Scaling.Helps.stepLinearMatrix",
+      "SparseSGD.Scaling.Helps.stepLinearMatrix_mulVec",
+      "SparseSGD.Scaling.Helps.det_stepLinearMatrix",
+      "SparseSGD.Scaling.Helps.stepRadius_attained",
+      "SparseSGD.Scaling.Helps.norm_le_stepRadius",
+      "SparseSGD.Scaling.Helps.perStepRate",
+      "SparseSGD.Scaling.Helps.one_le_stepRadius_of_one_le_totalLoad",
+      "SparseSGD.Scaling.Helps.stepRadius_lt_one_of_totalLoad_lt_one",
+      "SparseSGD.Scaling.Helps.stepRadius_lt_one_iff",
+      "SparseSGD.Scaling.Helps.perStepRate_pos_iff",
+      "SparseSGD.Scaling.Helps.perStepRate_pos_iff_of_beta_pos",
+      "SparseSGD.Scaling.Helps.kickSq_generating_function"
+    ],
+    "subclaims": [
+      {
+        "id": "spectral_setup",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.stepLinearMatrix",
+          "SparseSGD.Scaling.Helps.stepLinearMatrix_mulVec",
+          "SparseSGD.Scaling.Helps.det_stepLinearMatrix",
+          "SparseSGD.Scaling.Helps.stepRadius_attained",
+          "SparseSGD.Scaling.Helps.norm_le_stepRadius",
+          "SparseSGD.Scaling.Helps.perStepRate"
+        ]
+      },
+      {
+        "id": "positive_rate",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.one_le_stepRadius_of_one_le_totalLoad",
+          "SparseSGD.Scaling.Helps.stepRadius_lt_one_of_totalLoad_lt_one",
+          "SparseSGD.Scaling.Helps.stepRadius_lt_one_iff",
+          "SparseSGD.Scaling.Helps.perStepRate_pos_iff",
+          "SparseSGD.Scaling.Helps.perStepRate_pos_iff_of_beta_pos",
+          "SparseSGD.Scaling.Helps.kickSq_generating_function"
+        ]
+      },
+      {
+        "id": "fixed_point_and_limsup",
+        "status": "pending",
+        "declarations": [],
+        "remaining": "The unique fixed point Sigma_infty of the affine map, the bound limsup |R_k-R_infty|^(1/k) <= e^(-Lambda) (Gelfand) and its equality case for Sigma_0-Sigma_infty positive definite are not formalized in the Helps modules."
+      }
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.StepMatrix",
+      "SparseSGD.Scaling.Helps.Stability"
+    ],
+    "remaining": "",
+    "lean_status": "partial",
+    "lean_remaining": "The unique fixed point Sigma_infty of the affine map, the bound limsup |R_k-R_infty|^(1/k) <= e^(-Lambda) (Gelfand) and its equality case for Sigma_0-Sigma_infty positive definite are not formalized in the Helps modules.",
+    "supporting_note": "Statement dropped from the tex in the 2026-10-05 merge; the Lean proofs are kept as supporting results. Nearest surviving tex: the definition Lambda := -ln rho(T) at the opening of app:rates (registered as the definition entry app:rates); the stability equivalence u < 1 <=> rho(T) < 1 (positive_rate) is what lem:helps-vocab (i) uses through rem:stab-large-w (live chunk 02_renewal, not registered). The fixed point / limsup clause (Lean-pending) has no counterpart in the merged tex; its nearest relative is rem:retention-cap (b), registered pending."
+  },
+  {
+    "label": "lem:helps-roots",
+    "kind": "lemma",
+    "title": "Roots of nearby polynomials (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "supporting",
+    "declarations": [
+      "SparseSGD.Scaling.Helps.cubicRoots_norm_le",
+      "SparseSGD.Scaling.Helps.cubicRoots_norm_le_sum",
+      "SparseSGD.Scaling.Helps.exists_factor_close",
+      "SparseSGD.Scaling.Helps.cubicRoots_match",
+      "SparseSGD.Scaling.Helps.cubicRoots_match_coeff",
+      "SparseSGD.Scaling.Helps.maxRe_cubicRoots_close",
+      "SparseSGD.Scaling.Helps.maxNorm_cubicRoots_close",
+      "SparseSGD.Scaling.Helps.maxRe_cubicRoots_close_coeff",
+      "SparseSGD.Scaling.Helps.maxNorm_cubicRoots_close_coeff"
+    ],
+    "subclaims": [
+      {
+        "id": "cubic_case",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.cubicRoots_norm_le",
+          "SparseSGD.Scaling.Helps.cubicRoots_norm_le_sum",
+          "SparseSGD.Scaling.Helps.exists_factor_close",
+          "SparseSGD.Scaling.Helps.cubicRoots_match",
+          "SparseSGD.Scaling.Helps.cubicRoots_match_coeff",
+          "SparseSGD.Scaling.Helps.maxRe_cubicRoots_close",
+          "SparseSGD.Scaling.Helps.maxNorm_cubicRoots_close",
+          "SparseSGD.Scaling.Helps.maxRe_cubicRoots_close_coeff",
+          "SparseSGD.Scaling.Helps.maxNorm_cubicRoots_close_coeff"
+        ]
+      },
+      {
+        "id": "general_degree",
+        "status": "pending",
+        "declarations": [],
+        "remaining": "Only the monic cubic case (n = 3) is formalized, which is the case used by lem:helps-transfer and the large-batch clause of lem:helps-vocab; the general monic degree-n statement is not."
+      }
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.RootPerturbation"
+    ],
+    "remaining": "",
+    "lean_status": "partial",
+    "lean_remaining": "Only the monic cubic case (n = 3) is formalized, which is the case used by lem:helps-transfer and the large-batch clause of lem:helps-vocab; the general monic degree-n statement is not.",
+    "supporting_note": "Statement dropped from the tex in the 2026-10-05 merge; the Lean proofs are kept as supporting results. Nearest surviving tex: the inline root-continuity steps in the proof of cor:sample_cost (ii) ('the roots converge uniformly') and in the large-batch paragraph of the proof of lem:helps-vocab ('the roots of a monic polynomial depend continuously on its coefficients'); the cubic case formalized here is what the Lean large-batch clause of lem:helps-vocab uses."
+  },
+  {
+    "label": "lem:helps-transfer",
+    "kind": "lemma",
+    "title": "Per-step rate as eps -> 0 (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "supporting",
+    "declarations": [
+      "SparseSGD.Scaling.Helps.stepLinearMatrix_conj",
+      "SparseSGD.Scaling.Helps.transferG",
+      "SparseSGD.Scaling.Helps.stepCharPoly_retention_clock",
+      "SparseSGD.Scaling.Helps.transferRemainder_eq",
+      "SparseSGD.Scaling.Helps.stepCharPoly_transfer",
+      "SparseSGD.Scaling.Helps.mem_stepRoots_transfer_iff",
+      "SparseSGD.Scaling.Helps.perStepRate_close_maxRe",
+      "SparseSGD.Scaling.Helps.abs_log_norm_one_add_le",
+      "SparseSGD.Scaling.Helps.transfer_total_load_close",
+      "SparseSGD.Scaling.Helps.helps_transfer_box",
+      "SparseSGD.Scaling.Helps.helps_transfer",
+      "SparseSGD.Scaling.Helps.lem_helps_transfer",
+      "SparseSGD.Scaling.Helps.continuous_continuumPerronRate",
+      "SparseSGD.Scaling.Helps.continuumPerronRate_pos_lower_bound",
+      "SparseSGD.Scaling.Helps.helps_transfer_compact"
+    ],
+    "subclaims": [
+      {
+        "id": "coordinates_and_cubic",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.stepLinearMatrix_conj",
+          "SparseSGD.Scaling.Helps.transferG",
+          "SparseSGD.Scaling.Helps.stepCharPoly_retention_clock",
+          "SparseSGD.Scaling.Helps.transferRemainder_eq",
+          "SparseSGD.Scaling.Helps.stepCharPoly_transfer",
+          "SparseSGD.Scaling.Helps.mem_stepRoots_transfer_iff"
+        ]
+      },
+      {
+        "id": "uniform_bounds",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.perStepRate_close_maxRe",
+          "SparseSGD.Scaling.Helps.abs_log_norm_one_add_le",
+          "SparseSGD.Scaling.Helps.transfer_total_load_close",
+          "SparseSGD.Scaling.Helps.helps_transfer_box",
+          "SparseSGD.Scaling.Helps.helps_transfer",
+          "SparseSGD.Scaling.Helps.lem_helps_transfer"
+        ]
+      },
+      {
+        "id": "compact_relative",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.continuous_continuumPerronRate",
+          "SparseSGD.Scaling.Helps.continuumPerronRate_pos_lower_bound",
+          "SparseSGD.Scaling.Helps.helps_transfer_compact"
+        ]
+      }
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.StepMatrix",
+      "SparseSGD.Scaling.Helps.RootPerturbation",
+      "SparseSGD.Scaling.Helps.Transfer",
+      "SparseSGD.Scaling.Helps.All"
+    ],
+    "remaining": "",
+    "lean_status": "complete",
+    "lean_remaining": "",
+    "supporting_note": "Statement dropped from the tex in the 2026-10-05 merge; the Lean proofs are kept as supporting results. Nearest surviving tex: lem:step_spectrum (the eigenvalues of T are 1 + eps z over the roots of q = chi + eps(...)) and its use 'r/eps = r_c(Delta,u) + o(1) uniformly on compacts' in the proofs of cor:sample_cost (ii) and the lead-in of prop:fixed_floor. The Lean transfer is the quantitative C eps^(4/3) form of that use and is the engine of the Lean proofs registered under app:rates (eps_limit), cor:samplecost, lem:speedup (= prop:fixed_floor) and lem:helps-vocab (iii). lem:step_spectrum itself (explicit cubic q and |b_i| <= 1 + (16/3) Delta + eps Delta^2) is now registered separately (Scaling/Helps/StepSpectrum, built on transferR1, transferR2, transferQ0 and mem_stepRoots_transfer_iff of Scaling/Helps/Transfer)."
+  },
+  {
+    "label": "lem:ray",
+    "kind": "lemma",
+    "title": "Fastest decay along a ray (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "declarations": [
+      "SparseSGD.Scaling.Helps.spectrumPolynomial_ray",
+      "SparseSGD.Scaling.Helps.spectrumPolynomial_ray_vertex",
+      "SparseSGD.Scaling.Helps.spectrumPolynomial_ray_le",
+      "SparseSGD.Scaling.Helps.rayRate_eq",
+      "SparseSGD.Scaling.Helps.ray_quadratic_factor",
+      "SparseSGD.Scaling.Helps.spectrumPolynomial_ray_at_rayRate",
+      "SparseSGD.Scaling.Helps.continuumPerronRate_ray_le",
+      "SparseSGD.Scaling.Helps.continuumPerronRate_ray_lt",
+      "SparseSGD.Scaling.Helps.one_sub_two_rayDelta",
+      "SparseSGD.Scaling.Helps.ray_deriv_at_rayRate",
+      "SparseSGD.Scaling.Helps.ray_deriv_at_rayRate_pos",
+      "SparseSGD.Scaling.Helps.continuumPerronRate_ray_at_rayDelta",
+      "SparseSGD.Scaling.Helps.lem_ray",
+      "SparseSGD.Scaling.Helps.lem_ray_unique",
+      "SparseSGD.Scaling.Helps.lem_ray_sSup",
+      "SparseSGD.Scaling.Helps.inv_rayRate",
+      "SparseSGD.Scaling.Helps.lem_ray_bundle"
+    ],
+    "subclaims": [
+      {
+        "id": "upper_bound",
+        "status": "complete",
+        "note": "KE's lem:ray: sup_{0<Delta<2/s} r_c(Delta, s Delta/2) = mu*(s) = 1 - e*, e* = s/(1+sqrt(1+s^2)). Lean: s = nu, rayRate nu = 1 - nu * rayDelta nu with rayDelta nu = 1/(1+sqrt(1+nu^2)), so rayRate = mu* and nu * rayDelta = e*; continuumPerronRate is -max Re over the roots of spectrumPolynomial = chi. IsGreatest gives both the supremum and its attainment.",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.spectrumPolynomial_ray",
+          "SparseSGD.Scaling.Helps.spectrumPolynomial_ray_vertex",
+          "SparseSGD.Scaling.Helps.spectrumPolynomial_ray_le",
+          "SparseSGD.Scaling.Helps.rayRate_eq",
+          "SparseSGD.Scaling.Helps.ray_quadratic_factor",
+          "SparseSGD.Scaling.Helps.spectrumPolynomial_ray_at_rayRate",
+          "SparseSGD.Scaling.Helps.continuumPerronRate_ray_le",
+          "SparseSGD.Scaling.Helps.continuumPerronRate_ray_lt"
+        ]
+      },
+      {
+        "id": "attainment_and_uniqueness",
+        "status": "complete",
+        "note": "'attained only at Delta* = (1 - e*^2)/2 = 1/(1+sqrt(1+s^2))': lem_ray_unique gives uniqueness of the maximizer rayDelta nu = 1/(1+sqrt(1+nu^2)), and one_sub_two_rayDelta (1 - 2 rayDelta = (nu rayDelta)^2) is the identity Delta* = (1 - e*^2)/2.",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.one_sub_two_rayDelta",
+          "SparseSGD.Scaling.Helps.ray_deriv_at_rayRate",
+          "SparseSGD.Scaling.Helps.ray_deriv_at_rayRate_pos",
+          "SparseSGD.Scaling.Helps.continuumPerronRate_ray_at_rayDelta",
+          "SparseSGD.Scaling.Helps.lem_ray",
+          "SparseSGD.Scaling.Helps.lem_ray_unique",
+          "SparseSGD.Scaling.Helps.lem_ray_sSup"
+        ]
+      },
+      {
+        "id": "inverse_formula",
+        "status": "complete",
+        "note": "Not in KE's statement; 1/mu*(s) = (1+s+sqrt(1+s^2))/2 is the identity used in the proof of cor:sample_cost (ii) (equivalent to her (1+s+sqrt(1+s^2))(1+sqrt(1+s^2)-s) = 2(1+sqrt(1+s^2))).",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.inv_rayRate",
+          "SparseSGD.Scaling.Helps.lem_ray_bundle"
+        ]
+      }
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.CubicRoots",
+      "SparseSGD.Scaling.Helps.Ray",
+      "SparseSGD.Scaling.Helps.All"
+    ],
+    "remaining": "",
+    "tex_labels": "lem:ray (KE's statement since the 2026-10-05 merge)"
+  },
+  {
+    "label": "cor:samplecost",
+    "kind": "corollary",
+    "title": "Sample cost (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "declarations": [
+      "SparseSGD.Scaling.Helps.beta_le_stepRadius",
+      "SparseSGD.Scaling.Helps.perStepRate_le_neg_log_beta",
+      "SparseSGD.Scaling.Helps.lsRate_le_neg_log_beta",
+      "SparseSGD.Scaling.Helps.lsLamStar_le_neg_log_beta",
+      "SparseSGD.Scaling.Helps.lsLamStar_pos",
+      "SparseSGD.Scaling.Helps.lsNfold_ge_retention",
+      "SparseSGD.Scaling.Helps.params_w_eq",
+      "SparseSGD.Scaling.Helps.params_totalLoad_ray",
+      "SparseSGD.Scaling.Helps.params_noise_ray",
+      "SparseSGD.Scaling.Helps.lsNuNoise_eq",
+      "SparseSGD.Scaling.Helps.lsNuNoise_pos",
+      "SparseSGD.Scaling.Helps.lsNuNoise_lt",
+      "SparseSGD.Scaling.Helps.ls_Delta_image",
+      "SparseSGD.Scaling.Helps.lsNstab_eq_nu_mul",
+      "SparseSGD.Scaling.Helps.lsNstab_eq_explicit",
+      "SparseSGD.Scaling.Helps.lsRate_close",
+      "SparseSGD.Scaling.Helps.lsLamStar_close",
+      "SparseSGD.Scaling.Helps.rayRate_ge",
+      "SparseSGD.Scaling.Helps.hyperbolaN",
+      "SparseSGD.Scaling.Helps.hyperbola_eq",
+      "SparseSGD.Scaling.Helps.samplecost_real",
+      "SparseSGD.Scaling.Helps.cor_samplecost",
+      "SparseSGD.Scaling.Helps.lsRate_ray_approx",
+      "SparseSGD.Scaling.Helps.ray_quad_bounds",
+      "SparseSGD.Scaling.Helps.lsLamStar_bounds_large_nu",
+      "SparseSGD.Scaling.Helps.lsNfold_div_hyperbola",
+      "SparseSGD.Scaling.Helps.rayRate_le_inv",
+      "SparseSGD.Scaling.Helps.samplecost_below",
+      "SparseSGD.Scaling.Helps.rayDelta_le_half",
+      "SparseSGD.Scaling.Helps.rayRate_ge_one_sub_half",
+      "SparseSGD.Scaling.Helps.lsLamStar_lower_small_nu",
+      "SparseSGD.Scaling.Helps.samplecost_above",
+      "SparseSGD.Scaling.Helps.samplecost_window",
+      "SparseSGD.Scaling.Helps.samplecost_chain",
+      "SparseSGD.Scaling.Helps.cor_sample_cost_uniform",
+      "SparseSGD.Scaling.Helps.cor_sample_cost_tendsto"
+    ],
+    "subclaims": [
+      {
+        "id": "i_speed_limit",
+        "status": "complete",
+        "note": "(i): N_1 >= Bp/ln(1/beta) for every d, for 0 < beta < 1 (at beta = 0 the bound is vacuous). lsNfold_ge_retention states it; Lambda* > 0 (lsLamStar_pos) uses the explicit Jury hypothesis. The rate bound is perStepRate_le_neg_log_beta (lem:step_speed (i)).",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.beta_le_stepRadius",
+          "SparseSGD.Scaling.Helps.perStepRate_le_neg_log_beta",
+          "SparseSGD.Scaling.Helps.lsRate_le_neg_log_beta",
+          "SparseSGD.Scaling.Helps.lsLamStar_le_neg_log_beta",
+          "SparseSGD.Scaling.Helps.lsLamStar_pos",
+          "SparseSGD.Scaling.Helps.lsNfold_ge_retention"
+        ]
+      },
+      {
+        "id": "ray_parametrization",
+        "status": "complete",
+        "note": "The setup paragraph of app:sample_cost: u = eta/eta_+ and Delta = eta p/eps move along 2u = s Delta, 0 < Delta < 2/s, with s = nu = lsNu, and s N_mem = N_stab exactly (lsNstab_eq_nu_mul); N_stab = d+2-p+Bp(1-beta)/(1+beta) (lsNstab_eq_explicit, with eps/(2-eps) = (1-beta)/(1+beta)).",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.params_w_eq",
+          "SparseSGD.Scaling.Helps.params_totalLoad_ray",
+          "SparseSGD.Scaling.Helps.params_noise_ray",
+          "SparseSGD.Scaling.Helps.lsNuNoise_eq",
+          "SparseSGD.Scaling.Helps.lsNuNoise_pos",
+          "SparseSGD.Scaling.Helps.lsNuNoise_lt",
+          "SparseSGD.Scaling.Helps.ls_Delta_image",
+          "SparseSGD.Scaling.Helps.lsNstab_eq_nu_mul",
+          "SparseSGD.Scaling.Helps.lsNstab_eq_explicit"
+        ]
+      },
+      {
+        "id": "ii_on_resonance_line",
+        "status": "complete",
+        "note": "KE's (ii) in the case s -> s0 in (0,infty) of her proof. cor_samplecost (nu0 := s0) gives, uniformly on {0 < eps <= eps0, lsNu in [s0/2, 2 s0]}, |N_1/N - 1| <= C eps^(1/3) with N = (N_stab + N_mem + sqrt(N_stab^2 + N_mem^2))/2 (and |Lambda* - eps mu*(s)| <= C eps^(4/3)). Along a co-scaling ray with gamma > 0 and s -> s0, eventually eps <= eps0 and s in [s0/2, 2 s0], so this implies N_1 = N(1+o(1)). The transfer behind it needs only u_n <= nu Delta/2 on the ray (and helps_transfer_box drops even that).",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.lsRate_close",
+          "SparseSGD.Scaling.Helps.lsLamStar_close",
+          "SparseSGD.Scaling.Helps.rayRate_ge",
+          "SparseSGD.Scaling.Helps.hyperbolaN",
+          "SparseSGD.Scaling.Helps.hyperbola_eq",
+          "SparseSGD.Scaling.Helps.samplecost_real",
+          "SparseSGD.Scaling.Helps.cor_samplecost"
+        ]
+      },
+      {
+        "id": "ii_below_resonance_line",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.lsRate_ray_approx",
+          "SparseSGD.Scaling.Helps.ray_quad_bounds",
+          "SparseSGD.Scaling.Helps.lsLamStar_bounds_large_nu",
+          "SparseSGD.Scaling.Helps.lsNfold_div_hyperbola",
+          "SparseSGD.Scaling.Helps.rayRate_le_inv",
+          "SparseSGD.Scaling.Helps.samplecost_below"
+        ],
+        "note": "Case s -> infinity, in quantitative form: one absolute C = 408 such that for eps <= 1/50 and s >= 100, |Lambda* - eps mu*(s)| <= C (eps + 1/s) eps mu*(s) and |N_1/N - 1| <= C (eps + 1/s). From lsRate_small_delta (lem:small_delta); no Jury hypothesis."
+      },
+      {
+        "id": "ii_above_resonance_line",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.rayDelta_le_half",
+          "SparseSGD.Scaling.Helps.rayRate_ge_one_sub_half",
+          "SparseSGD.Scaling.Helps.lsLamStar_lower_small_nu",
+          "SparseSGD.Scaling.Helps.samplecost_above"
+        ],
+        "note": "Case s -> 0, in quantitative form: for eps <= eps0 and s <= 1, |Lambda*/eps - 1| and |N_1/N - 1| are at most C (eps^(1/3) + s^(1/3)). Through helps_transfer_box at Delta = 1/2 and continuumPerronRate_close; no Jury hypothesis."
+      },
+      {
+        "id": "ii_uniform_and_coscaling",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.samplecost_window",
+          "SparseSGD.Scaling.Helps.samplecost_chain",
+          "SparseSGD.Scaling.Helps.cor_sample_cost_uniform",
+          "SparseSGD.Scaling.Helps.cor_sample_cost_tendsto"
+        ],
+        "note": "(ii) as stated: for every delta > 0 there is eps0(delta), depending on nothing else, with |N_1/N - 1| <= delta whenever 0 < eps <= eps0, for all s in (0,infty), d, B, p and nu (cor_sample_cost_uniform); hence N_1/N -> 1 along every sequence with eps -> 0+ (cor_sample_cost_tendsto), in particular along every co-scaling ray with gamma > 0, without assuming that s converges."
+      }
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.ExactRate",
+      "SparseSGD.Scaling.Helps.Ray",
+      "SparseSGD.Scaling.Helps.Limits",
+      "SparseSGD.Scaling.Helps.SampleCostAbove",
+      "SparseSGD.Scaling.Helps.SampleCost"
+    ],
+    "remaining": "",
+    "tex_labels": "cor:sample_cost, alias cor:samplecost (KE's statement since the 2026-10-05 merge)"
+  },
+  {
+    "label": "rem:sgd_cost",
+    "kind": "remark",
+    "title": "SGD's sample cost (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "subclaims": [
+      {
+        "id": "exact_sgd_cost",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.ls_beta_zero_sup",
+          "SparseSGD.Scaling.Helps.lsRate_zero_isGreatest",
+          "SparseSGD.Scaling.Helps.criticalRate_zero_eq",
+          "SparseSGD.Scaling.Helps.lsLamStar_zero_eq",
+          "SparseSGD.Scaling.Helps.lsLamStar_zero_ge",
+          "SparseSGD.Scaling.Helps.lsNfoldSGD_eq",
+          "SparseSGD.Scaling.Helps.lsNfoldSGD_le"
+        ],
+        "note": "Best contraction 1 - Bp/N_stab,0 at u = 1/2; SGD's sample cost Bp/ln(1 + Bp/(d+2-p)) <= N_stab,0 = 2B/eta_+^SGD."
+      },
+      {
+        "id": "monotone_in_B",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.div_log_one_add_mono",
+          "SparseSGD.Scaling.Helps.lsNfoldSGD_mono"
+        ]
+      },
+      {
+        "id": "comparison_with_max",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.lsNstab_zero_sub_le",
+          "SparseSGD.Scaling.Helps.lsNfoldSGD_le_max",
+          "SparseSGD.Scaling.Helps.hyperbola_ge_max"
+        ],
+        "note": "N_stab,0 - N_stab <= eps N_mem, so SGD's cost <= N_stab + eps N_mem <= (1+eps) max(N_stab, N_mem), for 0 <= beta < 1; N >= max(N_stab, N_mem)."
+      },
+      {
+        "id": "momentum_not_lower",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.samplecost_ge_both",
+          "SparseSGD.Scaling.Helps.samplecost_ge_max_uniform",
+          "SparseSGD.Scaling.Helps.samplecost_ge_sgd_uniform"
+        ],
+        "note": "For eps <= eps0(delta): N_1 >= (1-delta) max(N_stab, N_mem) and N_1 >= (1-delta) N_1^SGD, uniformly in s, d, B, p, nu; so along every co-scaling ray with gamma > 0 momentum does not lower the sample cost to leading order."
+      }
+    ],
+    "declarations": [
+      "SparseSGD.Scaling.Helps.ls_beta_zero_sup",
+      "SparseSGD.Scaling.Helps.lsRate_zero_isGreatest",
+      "SparseSGD.Scaling.Helps.criticalRate_zero_eq",
+      "SparseSGD.Scaling.Helps.lsLamStar_zero_eq",
+      "SparseSGD.Scaling.Helps.lsLamStar_zero_ge",
+      "SparseSGD.Scaling.Helps.lsNfoldSGD_eq",
+      "SparseSGD.Scaling.Helps.lsNfoldSGD_le",
+      "SparseSGD.Scaling.Helps.div_log_one_add_mono",
+      "SparseSGD.Scaling.Helps.lsNfoldSGD_mono",
+      "SparseSGD.Scaling.Helps.lsNstab_zero_sub_le",
+      "SparseSGD.Scaling.Helps.lsNfoldSGD_le_max",
+      "SparseSGD.Scaling.Helps.hyperbola_ge_max",
+      "SparseSGD.Scaling.Helps.samplecost_ge_both",
+      "SparseSGD.Scaling.Helps.samplecost_ge_max_uniform",
+      "SparseSGD.Scaling.Helps.samplecost_ge_sgd_uniform"
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.Limits",
+      "SparseSGD.Scaling.Helps.SampleCostAbove",
+      "SparseSGD.Scaling.Helps.SampleCost"
+    ],
+    "remaining": ""
+  },
+  {
+    "label": "rem:crit_single",
+    "kind": "remark",
+    "title": "Critical batch size of a single feature (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "subclaims": [
+      {
+        "id": "hyperbola",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.hyperbolaN",
+          "SparseSGD.Scaling.Helps.hyperbola_eq",
+          "SparseSGD.Scaling.Helps.hyperbola_relation",
+          "SparseSGD.Scaling.Helps.hyperbola_perturb"
+        ],
+        "note": "(N_1 - N_stab)(N_1 - N_mem) = N_stab N_mem/2 for the leading-order N_1 (hyperbola_relation, exact), i.e. the McCandlish hyperbola with constant 1/2; hyperbola_perturb is its O(eps^(1/3)) perturbation on the resonance line. The other sentences of the remark (S approx max((d+2)/(Bp), 1/eps), halving with each doubling, B_crit = N_stab eps/p) are order-of-magnitude readings and definitions, not formal claims, and are not registered."
+      }
+    ],
+    "declarations": [
+      "SparseSGD.Scaling.Helps.hyperbolaN",
+      "SparseSGD.Scaling.Helps.hyperbola_eq",
+      "SparseSGD.Scaling.Helps.hyperbola_relation",
+      "SparseSGD.Scaling.Helps.hyperbola_perturb"
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.Ray",
+      "SparseSGD.Scaling.Helps.Limits"
+    ],
+    "remaining": ""
+  },
+  {
+    "label": "lem:speedup",
+    "kind": "proposition",
+    "title": "Speed at a fixed floor (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete_corrected",
+    "declarations": [
+      "SparseSGD.Scaling.Helps.momentumParams",
+      "SparseSGD.Scaling.Helps.sgdParams",
+      "SparseSGD.Scaling.Helps.speedup_pointwise",
+      "SparseSGD.Scaling.Helps.cor_helps_speedup",
+      "SparseSGD.Scaling.Helps.tendsto_of_abs_le_nhdsGT",
+      "SparseSGD.Scaling.Helps.tendsto_const_mul_rpow_third_nhdsGT",
+      "SparseSGD.Scaling.Helps.fixed_floor_limit_noise",
+      "SparseSGD.Scaling.Helps.fixedLoadNoise",
+      "SparseSGD.Scaling.Helps.momentumParams_totalLoad_fixedLoad",
+      "SparseSGD.Scaling.Helps.tendsto_fixedLoadNoise",
+      "SparseSGD.Scaling.Helps.fixed_floor_limit_total",
+      "SparseSGD.Scaling.Helps.speedupRatio",
+      "SparseSGD.Scaling.Helps.speedupRatio_lt_two",
+      "SparseSGD.Scaling.Helps.speedupRatio_le_two",
+      "SparseSGD.Scaling.Helps.speedupRatio_eq_two_iff",
+      "SparseSGD.Scaling.Helps.chi_roots_e_zero_eq_iff",
+      "SparseSGD.Scaling.Helps.continuumPerronRate_quarter_cube",
+      "SparseSGD.Scaling.Helps.speedupRatio_quarter_cube",
+      "SparseSGD.Scaling.Helps.speedupRatio_quarter",
+      "SparseSGD.Scaling.Helps.speedupRatio_quarter_all",
+      "SparseSGD.Scaling.Helps.tendsto_sSup_speedupRatio_zero",
+      "SparseSGD.Scaling.Helps.fixed_floor_exact_counterpart",
+      "SparseSGD.Scaling.Helps.momentum_rate_div_eps_tendsto",
+      "SparseSGD.Scaling.Helps.double_lr_sgd_rate_div_eps_tendsto",
+      "SparseSGD.Scaling.Helps.critical_damping_vs_double_lr",
+      "SparseSGD.Scaling.Helps.spectrumPolynomial_bracket",
+      "SparseSGD.Scaling.Helps.spectrumPolynomial_bracket_signs",
+      "SparseSGD.Scaling.Helps.continuumPerronRate_sub_expansionQ_le",
+      "SparseSGD.Scaling.Helps.speedup_expansion",
+      "SparseSGD.Scaling.Helps.speedupRatio_isBigO",
+      "SparseSGD.Scaling.Helps.speedupRatio_tendsto_one",
+      "SparseSGD.Scaling.Helps.speedup_expansion_fixed_floor",
+      "SparseSGD.Scaling.Helps.spectrumPolynomial_at_neg_two",
+      "SparseSGD.Scaling.Helps.speedupRatio_lt_one",
+      "SparseSGD.Scaling.Helps.sSup_speedupRatio_eq_one",
+      "SparseSGD.Scaling.Helps.speedupRatio_gt_one_eventually",
+      "SparseSGD.Scaling.Helps.momentum_helps_small_Delta",
+      "SparseSGD.Scaling.Helps.momentum_hurts_of_ge_third",
+      "SparseSGD.Scaling.Helps.lem_speedup"
+    ],
+    "subclaims": [
+      {
+        "id": "eps_limit_of_ratio",
+        "status": "complete_corrected",
+        "correction": "CORRECTIONS.md, V2 merged appendix (2026-10-05), MF-1: 'let eps -> 0 with (Delta,u) fixed' is empty at u = 0 (the total load is at least u_c = eps^2 Delta/(2(2-eps)) > 0); read it with the noise load u_n = u fixed, or with the total load held at u > 0.",
+        "note": "The lead-in and the limit clause of prop:fixed_floor. fixed_floor_limit_noise: at fixed Delta > 0 and noise load u_n in [0,1) (u_n = 0 included), Lambda(<1-eps, eps^2 Delta, u_n, phi>)/Lambda(<0, eps Delta, u_n, phi>) -> Gamma(Delta, u_n) = r_c/(2 Delta (1-u_n)) as eps -> 0+. fixed_floor_limit_total: the same limit with the momentum chain's total load held at u in (0,1) (u_n(eps) = u - u_c, fixedLoadNoise). Both from cor_helps_speedup (|ratio - Gamma| <= C eps^(1/3) on compacts).",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.momentumParams",
+          "SparseSGD.Scaling.Helps.sgdParams",
+          "SparseSGD.Scaling.Helps.speedup_pointwise",
+          "SparseSGD.Scaling.Helps.cor_helps_speedup",
+          "SparseSGD.Scaling.Helps.tendsto_of_abs_le_nhdsGT",
+          "SparseSGD.Scaling.Helps.tendsto_const_mul_rpow_third_nhdsGT",
+          "SparseSGD.Scaling.Helps.fixed_floor_limit_noise",
+          "SparseSGD.Scaling.Helps.fixedLoadNoise",
+          "SparseSGD.Scaling.Helps.momentumParams_totalLoad_fixedLoad",
+          "SparseSGD.Scaling.Helps.tendsto_fixedLoadNoise",
+          "SparseSGD.Scaling.Helps.fixed_floor_limit_total"
+        ]
+      },
+      {
+        "id": "upper_bound_two",
+        "status": "complete",
+        "note": "(i): Gamma(Delta,u) <= 2 for Delta > 0, u in [0,1), with equality iff u = 0 and Delta = 1/4 (speedupRatio_le_two, speedupRatio_eq_two_iff, from lem:chi_roots (b), (e)). This supersedes the pre-merge Gamma < 2 for u in (0,1) (speedupRatio_lt_two) and the correction MH-2.",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.speedupRatio",
+          "SparseSGD.Scaling.Helps.speedupRatio_lt_two",
+          "SparseSGD.Scaling.Helps.speedupRatio_le_two",
+          "SparseSGD.Scaling.Helps.speedupRatio_eq_two_iff",
+          "SparseSGD.Scaling.Helps.chi_roots_e_zero_eq_iff"
+        ]
+      },
+      {
+        "id": "critical_damping",
+        "status": "complete",
+        "note": "(ii): Gamma(1/4, u) = 2/(1+a+a^2), a = u^(1/3), for every u in [0,1), u = 0 included (speedupRatio_quarter_all).",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.continuumPerronRate_quarter_cube",
+          "SparseSGD.Scaling.Helps.speedupRatio_quarter_cube",
+          "SparseSGD.Scaling.Helps.speedupRatio_quarter",
+          "SparseSGD.Scaling.Helps.speedupRatio_quarter_all",
+          "SparseSGD.Scaling.Helps.tendsto_sSup_speedupRatio_zero"
+        ]
+      },
+      {
+        "id": "exact_counterpart",
+        "status": "complete_corrected",
+        "correction": "CORRECTIONS.md, V2 merged appendix (2026-10-05), MF-2: the exact counterpart needs the SGD load u = u_n + eta p/2 < 1.",
+        "note": "Paragraph after the proof: for beta = 1 - eps in [0,1), w = eps^2 Delta > 0, u_n >= 0, 4 eps Delta < 1 and u = u_n + eps Delta/2 < 1, momentum's rate over SGD's at the same learning rate is at most 2/((1-u)(1-4 eps Delta)), with no limit taken (eps Delta = eta p).",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.fixed_floor_exact_counterpart"
+        ]
+      },
+      {
+        "id": "critical_damping_vs_double_lr",
+        "status": "complete",
+        "note": "Paragraph after the proof: for u in [0,1/2), critically damped momentum at eta over SGD at 2 eta tends to (1-a)/(1-2a^3) >= 1-a, and the floors tend to phi/(1-u) (SGD at eta) and 2 phi/(1-2u) (SGD at 2 eta).",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.momentum_rate_div_eps_tendsto",
+          "SparseSGD.Scaling.Helps.double_lr_sgd_rate_div_eps_tendsto",
+          "SparseSGD.Scaling.Helps.critical_damping_vs_double_lr"
+        ]
+      },
+      {
+        "id": "small_delta_expansion",
+        "status": "complete",
+        "note": "Paragraph after the proof: the ratio is 1 + Delta(1-3u) + O(Delta^2) as Delta -> 0.",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.spectrumPolynomial_bracket",
+          "SparseSGD.Scaling.Helps.spectrumPolynomial_bracket_signs",
+          "SparseSGD.Scaling.Helps.continuumPerronRate_sub_expansionQ_le",
+          "SparseSGD.Scaling.Helps.speedup_expansion",
+          "SparseSGD.Scaling.Helps.speedupRatio_isBigO",
+          "SparseSGD.Scaling.Helps.speedupRatio_tendsto_one",
+          "SparseSGD.Scaling.Helps.speedup_expansion_fixed_floor"
+        ]
+      },
+      {
+        "id": "one_third_dichotomy",
+        "status": "complete",
+        "note": "Paragraph after the proof: 'for fixed u != 1/3 and small Delta, momentum helps exactly when u < 1/3'. Gamma > 1 for small Delta if u in [0,1/3) (u = 0 included); Gamma < 1 for every Delta > 0 if u in [1/3,1).",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.spectrumPolynomial_at_neg_two",
+          "SparseSGD.Scaling.Helps.speedupRatio_lt_one",
+          "SparseSGD.Scaling.Helps.sSup_speedupRatio_eq_one",
+          "SparseSGD.Scaling.Helps.speedupRatio_gt_one_eventually",
+          "SparseSGD.Scaling.Helps.momentum_helps_small_Delta",
+          "SparseSGD.Scaling.Helps.momentum_hurts_of_ge_third",
+          "SparseSGD.Scaling.Helps.lem_speedup"
+        ]
+      }
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.CubicRoots",
+      "SparseSGD.Scaling.Helps.SpeedupExpansion",
+      "SparseSGD.Scaling.Helps.Limits",
+      "SparseSGD.Scaling.Helps.ChiRoots",
+      "SparseSGD.Scaling.Helps.FixedFloor",
+      "SparseSGD.Scaling.Helps.All"
+    ],
+    "remaining": "",
+    "tex_labels": "prop:fixed_floor, alias lem:speedup (KE's statement since the 2026-10-05 merge)"
+  },
+  {
+    "label": "cor:helps-speedup",
+    "kind": "corollary",
+    "title": "Momentum against SGD at one learning rate (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "supporting",
+    "declarations": [
+      "SparseSGD.Scaling.Helps.momentumParams",
+      "SparseSGD.Scaling.Helps.sgdParams",
+      "SparseSGD.Scaling.Helps.sgd_rate_close",
+      "SparseSGD.Scaling.Helps.ratio_perturb",
+      "SparseSGD.Scaling.Helps.stepRadius_lt_one_of_rate_pos",
+      "SparseSGD.Scaling.Helps.speedup_pointwise",
+      "SparseSGD.Scaling.Helps.cor_helps_speedup",
+      "SparseSGD.Scaling.Helps.floorOf",
+      "SparseSGD.Scaling.Helps.floor_chain"
+    ],
+    "subclaims": [
+      {
+        "id": "stability_and_ratio",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.momentumParams",
+          "SparseSGD.Scaling.Helps.sgdParams",
+          "SparseSGD.Scaling.Helps.sgd_rate_close",
+          "SparseSGD.Scaling.Helps.ratio_perturb",
+          "SparseSGD.Scaling.Helps.stepRadius_lt_one_of_rate_pos",
+          "SparseSGD.Scaling.Helps.speedup_pointwise",
+          "SparseSGD.Scaling.Helps.cor_helps_speedup"
+        ]
+      },
+      {
+        "id": "floors",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.floorOf",
+          "SparseSGD.Scaling.Helps.floor_chain",
+          "SparseSGD.Scaling.Helps.cor_helps_speedup"
+        ]
+      }
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.Limits"
+    ],
+    "remaining": "",
+    "lean_status": "complete",
+    "lean_remaining": "",
+    "supporting_note": "Statement dropped from the tex in the 2026-10-05 merge; the Lean proofs are kept as supporting results. Nearest surviving tex: prop:fixed_floor (alias lem:speedup) and its lead-in paragraph (the eps -> 0 ratio r_c/(2 Delta (1-u)) of the two rates at one learning rate) and the sentence after it on the floor phi/(1-u). cor_helps_speedup is the engine of fixed_floor_limit_noise and fixed_floor_limit_total (Scaling/Helps/FixedFloor), registered under lem:speedup (subclaim eps_limit_of_ratio)."
+  },
+  {
+    "label": "lem:helps-onecopy",
+    "kind": "lemma",
+    "title": "Per-step speed limit (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "declarations": [
+      "SparseSGD.Scaling.Helps.meanRoots",
+      "SparseSGD.Scaling.Helps.meanRadius",
+      "SparseSGD.Scaling.Helps.meanRadius_attained",
+      "SparseSGD.Scaling.Helps.norm_le_meanRadius",
+      "SparseSGD.Scaling.Helps.beta_le_meanRadius_sq",
+      "SparseSGD.Scaling.Helps.sq_le_stepRadius_of_meanEig",
+      "SparseSGD.Scaling.Helps.beta_le_stepRadius",
+      "SparseSGD.Scaling.Helps.meanRadius_sq_le_stepRadius",
+      "SparseSGD.Scaling.Helps.stepRadius_noiseFree_eq_meanRadius_sq",
+      "SparseSGD.Scaling.Helps.lem_step_speed",
+      "SparseSGD.Scaling.Helps.perStepRate_le_neg_log_beta",
+      "SparseSGD.Scaling.Helps.perStepRate_le_neg_log_beta'",
+      "SparseSGD.Scaling.Helps.meanChar_at_one_sub",
+      "SparseSGD.Scaling.Helps.exists_real_meanEig_Ioo",
+      "SparseSGD.Scaling.Helps.one_sub_four_le_stepRadius",
+      "SparseSGD.Scaling.Helps.perStepRate_le_onecopy",
+      "SparseSGD.Scaling.Helps.perStepRate_le_curvature_cap"
+    ],
+    "subclaims": [
+      {
+        "id": "i_radius_chain",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.meanRoots",
+          "SparseSGD.Scaling.Helps.meanRadius",
+          "SparseSGD.Scaling.Helps.meanRadius_attained",
+          "SparseSGD.Scaling.Helps.norm_le_meanRadius",
+          "SparseSGD.Scaling.Helps.beta_le_meanRadius_sq",
+          "SparseSGD.Scaling.Helps.sq_le_stepRadius_of_meanEig",
+          "SparseSGD.Scaling.Helps.beta_le_stepRadius",
+          "SparseSGD.Scaling.Helps.meanRadius_sq_le_stepRadius",
+          "SparseSGD.Scaling.Helps.stepRadius_noiseFree_eq_meanRadius_sq",
+          "SparseSGD.Scaling.Helps.lem_step_speed"
+        ],
+        "note": "(i): rho(T) >= rho(F)^2 >= beta for 0 <= beta < 1, w > 0, u_n >= 0 (rho(F) = meanRadius), with rho(T) = rho(F)^2 when u_n = 0 (stepRadius_noiseFree_eq_meanRadius_sq, valid for every beta >= 0)."
+      },
+      {
+        "id": "i_retention_cap",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.perStepRate_le_neg_log_beta",
+          "SparseSGD.Scaling.Helps.perStepRate_le_neg_log_beta'",
+          "SparseSGD.Scaling.Helps.lem_step_speed"
+        ],
+        "note": "Lambda <= ebar = ln(1/beta) for 0 < beta < 1. At beta = 0 the tex bound is ln(1/0) = +infinity, which is vacuous; Lean's Real.log 0 = 0 cannot express it, so this clause is stated for beta > 0."
+      },
+      {
+        "id": "ii_curvature_cap",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.meanChar_at_one_sub",
+          "SparseSGD.Scaling.Helps.exists_real_meanEig_Ioo",
+          "SparseSGD.Scaling.Helps.one_sub_four_le_stepRadius",
+          "SparseSGD.Scaling.Helps.perStepRate_le_onecopy",
+          "SparseSGD.Scaling.Helps.perStepRate_le_curvature_cap",
+          "SparseSGD.Scaling.Helps.lem_step_speed"
+        ],
+        "note": "(ii): 1 - 4 eps Delta <= rho(T) and Lambda <= -ln(1 - 4 eps Delta) when 4 eps Delta < 1, w = eps^2 Delta, for 0 <= beta < 1 (perStepRate_le_curvature_cap; beta = 0 handled directly, eps = 1, Delta = w). The pre-merge perStepRate_le_onecopy covers beta in (0,1)."
+      }
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.ExactRate",
+      "SparseSGD.Scaling.Helps.StepSpeed"
+    ],
+    "remaining": "",
+    "tex_labels": "lem:step_speed, alias lem:helps-onecopy (KE's lem:step_speed and EP's lem:helps-onecopy merged in the 2026-10-05 harmonization pass; beta in [0,1))"
+  },
+  {
+    "label": "rem:schedule",
+    "kind": "remark",
+    "title": "A decaying learning rate (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "partial",
+    "subclaims": [
+      {
+        "id": "chung_lemma",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.chung_abstract",
+          "SparseSGD.Scaling.Helps.chung_tendsto"
+        ],
+        "note": "a_(k+1) = (1 - c/k + O(k^-2)) a_k + D/k^2 with c > 1 gives k a_k -> D/(c-1)."
+      },
+      {
+        "id": "scheduled_recursion",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.schedule_params",
+          "SparseSGD.Scaling.Helps.schedule_step_R"
+        ],
+        "note": "At beta = 0, eta_k = 1/(pk): w_k = 1/k, u_(n,k) = (d+2-p)/(2Bpk), phi_k = varsigma^2 d/(2Bpk), and R_(k+1) = (1 - 2/k + K/k^2) R_k + varsigma^2 d/(Bpk^2) with K = (d+2-p)/(Bp) + 1."
+      },
+      {
+        "id": "risk_asymptotic",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.schedule_risk_asymptotic"
+        ],
+        "note": "k R_k -> varsigma^2 d/(Bp), i.e. R_k N_k -> varsigma^2 d with N_k = Bpk."
+      },
+      {
+        "id": "statistical_interpretation",
+        "status": "pending",
+        "declarations": [],
+        "remaining": "rem:schedule, last sentence: varsigma^2 d/N is to leading order the risk of least squares on the N active samples, the Cramer-Rao bound for Gaussian label noise and asymptotically the minimax risk. This imported statistics claim (no citation in the tex) is not formalized. The numerical check R_k N_k/(varsigma^2 d) = 1.0028 is a numerical remark and is not registered."
+      }
+    ],
+    "declarations": [
+      "SparseSGD.Scaling.Helps.chung_abstract",
+      "SparseSGD.Scaling.Helps.chung_tendsto",
+      "SparseSGD.Scaling.Helps.schedule_params",
+      "SparseSGD.Scaling.Helps.schedule_step_R",
+      "SparseSGD.Scaling.Helps.schedule_risk_asymptotic"
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.Schedule"
+    ],
+    "remaining": "rem:schedule, last sentence: varsigma^2 d/N is to leading order the risk of least squares on the N active samples, the Cramer-Rao bound for Gaussian label noise and asymptotically the minimax risk. This imported statistics claim (no citation in the tex) is not formalized. The numerical check R_k N_k/(varsigma^2 d) = 1.0028 is a numerical remark and is not registered."
+  },
+  {
+    "label": "lem:vocab_rows",
+    "kind": "lemma",
+    "title": "The rows decouple (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "subclaims": [
+      {
+        "id": "deterministic_decoupling",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.VocabRows.vocab_row_gradient",
+          "SparseSGD.Scaling.Helps.VocabRows.vocab_row_update",
+          "SparseSGD.Scaling.Helps.VocabRows.vocab_row_process"
+        ],
+        "note": "Row j of the minibatch gradient is the gated single-feature gradient; the shared (beta, eta) update acts row by row, so the row-j process is the single-feature process run on the row-j world."
+      },
+      {
+        "id": "row_law",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.VocabRows.tokenLaw_isProbabilityMeasure",
+          "SparseSGD.Scaling.Helps.VocabRows.tokenLaw_map_indicator",
+          "SparseSGD.Scaling.Helps.VocabRows.measurable_rowSample",
+          "SparseSGD.Scaling.Helps.VocabRows.map_rowSample",
+          "SparseSGD.Scaling.Helps.VocabRows.map_rowBatch",
+          "SparseSGD.Scaling.Helps.VocabRows.map_rowWorld",
+          "SparseSGD.Scaling.Helps.VocabRows.measurable_rowState",
+          "SparseSGD.Scaling.Helps.VocabRows.measurable_rowWorld"
+        ],
+        "note": "The law of the row-j samples is the single-feature law with p = p_j (Bernoulli(p_j) gate independent of the Gaussian input and the label noise). Only the marginal law of each row is claimed and proved; the rows are dependent."
+      },
+      {
+        "id": "row_recursion",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.VocabRows.integratedMoments_map",
+          "SparseSGD.Scaling.Helps.VocabRows.vocab_row_moment_trajectory",
+          "SparseSGD.Scaling.Helps.VocabRows.vocab_row_moment_trajectory_explicit"
+        ],
+        "note": "R_(j,k) satisfies eq:L1 with (beta, eta eps p_j, eta (d+2-p_j)/(2B), eta varsigma^2 d/(2B)); hypotheses: sum_j p_j = 1 (the tex setup), p_j > 0, L^2 initial row."
+      },
+      {
+        "id": "excess_loss",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.VocabRows.tokenLaw_integral",
+          "SparseSGD.Scaling.Helps.VocabRows.gaussian_inner_sq_integral",
+          "SparseSGD.Scaling.Helps.VocabRows.vocab_excess_loss_sample",
+          "SparseSGD.Scaling.Helps.VocabRows.vocab_row_memLp",
+          "SparseSGD.Scaling.Helps.VocabRows.vocab_excess_loss_expectation"
+        ],
+        "note": "Excess loss on a fresh sample (1/2) sum_j p_j |theta_j - theta_star,j|^2, with expectation (1/2) sum_j p_j R_(j,k)."
+      }
+    ],
+    "declarations": [
+      "SparseSGD.Scaling.Helps.VocabRows.vocab_row_gradient",
+      "SparseSGD.Scaling.Helps.VocabRows.vocab_row_update",
+      "SparseSGD.Scaling.Helps.VocabRows.vocab_row_process",
+      "SparseSGD.Scaling.Helps.VocabRows.tokenLaw_isProbabilityMeasure",
+      "SparseSGD.Scaling.Helps.VocabRows.tokenLaw_map_indicator",
+      "SparseSGD.Scaling.Helps.VocabRows.measurable_rowSample",
+      "SparseSGD.Scaling.Helps.VocabRows.map_rowSample",
+      "SparseSGD.Scaling.Helps.VocabRows.map_rowBatch",
+      "SparseSGD.Scaling.Helps.VocabRows.map_rowWorld",
+      "SparseSGD.Scaling.Helps.VocabRows.measurable_rowState",
+      "SparseSGD.Scaling.Helps.VocabRows.measurable_rowWorld",
+      "SparseSGD.Scaling.Helps.VocabRows.integratedMoments_map",
+      "SparseSGD.Scaling.Helps.VocabRows.vocab_row_moment_trajectory",
+      "SparseSGD.Scaling.Helps.VocabRows.vocab_row_moment_trajectory_explicit",
+      "SparseSGD.Scaling.Helps.VocabRows.tokenLaw_integral",
+      "SparseSGD.Scaling.Helps.VocabRows.gaussian_inner_sq_integral",
+      "SparseSGD.Scaling.Helps.VocabRows.vocab_excess_loss_sample",
+      "SparseSGD.Scaling.Helps.VocabRows.vocab_row_memLp",
+      "SparseSGD.Scaling.Helps.VocabRows.vocab_excess_loss_expectation"
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.VocabRows"
+    ],
+    "remaining": ""
+  },
+  {
+    "label": "lem:helps-vocab",
+    "kind": "lemma",
+    "title": "One learning rate for a vocabulary (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "declarations": [
+      "SparseSGD.Scaling.Helps.inverseCriticalRate_affine",
+      "SparseSGD.Scaling.Helps.copy_stable_iff_lt_critical",
+      "SparseSGD.Scaling.Helps.all_stable_iff_lt_min",
+      "SparseSGD.Scaling.Helps.min_critical_eq_first",
+      "SparseSGD.Scaling.Helps.sgd_radius_eq",
+      "SparseSGD.Scaling.Helps.sgd_one_sub_le_rhoMax",
+      "SparseSGD.Scaling.Helps.sgd_inv_Lmin_ge_first",
+      "SparseSGD.Scaling.Helps.sgd_one_sub_four_div_le_rhoMax",
+      "SparseSGD.Scaling.Helps.sgd_inv_Lmin_ge_second",
+      "SparseSGD.Scaling.Helps.sgd_inv_Lmin_ge_first_v2",
+      "SparseSGD.Scaling.Helps.momentum_radius_lower",
+      "SparseSGD.Scaling.Helps.mom_one_sub_le_rhoMax",
+      "SparseSGD.Scaling.Helps.mom_inv_Lmin_ge_first",
+      "SparseSGD.Scaling.Helps.mom_one_sub_four_div_sqrt_le_rhoMax",
+      "SparseSGD.Scaling.Helps.mom_inv_Lmin_ge_second",
+      "SparseSGD.Scaling.Helps.mom_one_sub_le_rhoMax_v2",
+      "SparseSGD.Scaling.Helps.mom_inv_Lmin_ge_first_v2",
+      "SparseSGD.Scaling.Helps.mom_inv_Lmin_ge_second_v2",
+      "SparseSGD.Scaling.Helps.helps_vocab_asymptotic",
+      "SparseSGD.Scaling.Helps.nfold_div_le_inv_Lmin",
+      "SparseSGD.Scaling.Helps.helps_vocab_iii_coscaling",
+      "SparseSGD.Scaling.Helps.copy0_radius_beta_zero",
+      "SparseSGD.Scaling.Helps.sgd_rhoMax0",
+      "SparseSGD.Scaling.Helps.sgd_Lmin0",
+      "SparseSGD.Scaling.Helps.copy0_radius_ge_beta",
+      "SparseSGD.Scaling.Helps.copy0_radius_eq_beta_iff",
+      "SparseSGD.Scaling.Helps.stepRadius_noiseFree_eq_beta_iff",
+      "SparseSGD.Scaling.Helps.copy0_perStepRate_le",
+      "SparseSGD.Scaling.Helps.mom_rhoMax0",
+      "SparseSGD.Scaling.Helps.tendsto_stepRadius_noise",
+      "SparseSGD.Scaling.Helps.tendsto_stepRadius_copy",
+      "SparseSGD.Scaling.Helps.tendsto_rhoMax",
+      "SparseSGD.Scaling.Helps.eventually_stable",
+      "SparseSGD.Scaling.Helps.largeBatch_sgd",
+      "SparseSGD.Scaling.Helps.largeBatch_momentum",
+      "SparseSGD.Scaling.Helps.etaStar",
+      "SparseSGD.Scaling.Helps.DB",
+      "SparseSGD.Scaling.Helps.sgdGain",
+      "SparseSGD.Scaling.Helps.sgdLminSet",
+      "SparseSGD.Scaling.Helps.copy_stable_iff_gain_pos",
+      "SparseSGD.Scaling.Helps.rhoMax_sgd_eq_one_sub_min",
+      "SparseSGD.Scaling.Helps.helps_vocab_v_case1",
+      "SparseSGD.Scaling.Helps.helps_vocab_v_case2",
+      "SparseSGD.Scaling.Helps.helps_vocab_v_threshold",
+      "SparseSGD.Scaling.Helps.lem_helps_vocab_v2"
+    ],
+    "subclaims": [
+      {
+        "id": "stability_window",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.inverseCriticalRate_affine",
+          "SparseSGD.Scaling.Helps.copy_stable_iff_lt_critical",
+          "SparseSGD.Scaling.Helps.all_stable_iff_lt_min",
+          "SparseSGD.Scaling.Helps.min_critical_eq_first"
+        ]
+      },
+      {
+        "id": "sgd_bounds",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.sgd_radius_eq",
+          "SparseSGD.Scaling.Helps.sgd_one_sub_le_rhoMax",
+          "SparseSGD.Scaling.Helps.sgd_inv_Lmin_ge_first",
+          "SparseSGD.Scaling.Helps.sgd_one_sub_four_div_le_rhoMax",
+          "SparseSGD.Scaling.Helps.sgd_inv_Lmin_ge_second",
+          "SparseSGD.Scaling.Helps.sgd_inv_Lmin_ge_first_v2"
+        ],
+        "note": "(ii); sgd_inv_Lmin_ge_first_v2 is the first bound (d+2-p_min)/(B p_min) - 1 without the hypothesis y < 1."
+      },
+      {
+        "id": "momentum_bounds",
+        "status": "complete",
+        "note": "(iii) as harmonized: for beta in [0,1) and every row stable, 1/Lambda_min >= (d+2-p_min)/(8 B p_min) - 1 and, for kappa_V > 16, >= sqrt(kappa_V)/4 - 1 (the _v2 declarations; beta = 0 through the SGD bound and sqrt(kappa) <= kappa). The pre-merge forms (beta in (0,1), constant (d+1)/(8 B p_min)) are kept.",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.momentum_radius_lower",
+          "SparseSGD.Scaling.Helps.mom_one_sub_le_rhoMax",
+          "SparseSGD.Scaling.Helps.mom_inv_Lmin_ge_first",
+          "SparseSGD.Scaling.Helps.mom_one_sub_four_div_sqrt_le_rhoMax",
+          "SparseSGD.Scaling.Helps.mom_inv_Lmin_ge_second",
+          "SparseSGD.Scaling.Helps.mom_one_sub_le_rhoMax_v2",
+          "SparseSGD.Scaling.Helps.mom_inv_Lmin_ge_first_v2",
+          "SparseSGD.Scaling.Helps.mom_inv_Lmin_ge_second_v2"
+        ]
+      },
+      {
+        "id": "coscaling_ray",
+        "status": "complete",
+        "note": "(iii), last claim: for every delta > 0 there is eps0(delta) (independent of kappa, d, B, nu and the vocabulary) such that 0 < eps <= eps0 and all rows stable give 1/Lambda_min >= (1-delta) max(N_stab, N_mem)/(B p_min) and >= (1-delta)(d+2-p_min)/(B p_min), for every s (helps_vocab_iii_coscaling, through cor:sample_cost (ii) and nfold_div_le_inv_Lmin); so the claim holds along every co-scaling ray with gamma > 0. helps_vocab_asymptotic is the earlier resonance-line form with rate C eps^(1/3).",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.helps_vocab_asymptotic",
+          "SparseSGD.Scaling.Helps.nfold_div_le_inv_Lmin",
+          "SparseSGD.Scaling.Helps.helps_vocab_iii_coscaling"
+        ]
+      },
+      {
+        "id": "noise_free_attainment",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.copy0_radius_beta_zero",
+          "SparseSGD.Scaling.Helps.sgd_rhoMax0",
+          "SparseSGD.Scaling.Helps.sgd_Lmin0",
+          "SparseSGD.Scaling.Helps.copy0_radius_ge_beta",
+          "SparseSGD.Scaling.Helps.copy0_radius_eq_beta_iff",
+          "SparseSGD.Scaling.Helps.stepRadius_noiseFree_eq_beta_iff",
+          "SparseSGD.Scaling.Helps.copy0_perStepRate_le",
+          "SparseSGD.Scaling.Helps.mom_rhoMax0"
+        ]
+      },
+      {
+        "id": "large_batch",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.tendsto_stepRadius_noise",
+          "SparseSGD.Scaling.Helps.tendsto_stepRadius_copy",
+          "SparseSGD.Scaling.Helps.tendsto_rhoMax",
+          "SparseSGD.Scaling.Helps.eventually_stable",
+          "SparseSGD.Scaling.Helps.largeBatch_sgd",
+          "SparseSGD.Scaling.Helps.largeBatch_momentum"
+        ]
+      },
+      {
+        "id": "v_sgd_optimum",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.etaStar",
+          "SparseSGD.Scaling.Helps.DB",
+          "SparseSGD.Scaling.Helps.sgdGain",
+          "SparseSGD.Scaling.Helps.sgdLminSet",
+          "SparseSGD.Scaling.Helps.copy_stable_iff_gain_pos",
+          "SparseSGD.Scaling.Helps.rhoMax_sgd_eq_one_sub_min",
+          "SparseSGD.Scaling.Helps.helps_vocab_v_case1",
+          "SparseSGD.Scaling.Helps.helps_vocab_v_case2",
+          "SparseSGD.Scaling.Helps.helps_vocab_v_threshold"
+        ],
+        "note": "(v), beta = 0: if (B-1)(p_max - p_min) <= d+2, max_eta Lambda_min = ln(1 + B p_min/D) at eta*_|V|, with eta*_|V|/eta*_j in [1,2); otherwise -ln(1 - 4B(B-1) p_max p_min/D_B^2) at eta = 2B/D_B. Each case returns IsGreatest of sgdLminSet together with the attainment facts."
+      },
+      {
+        "id": "bundle",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.lem_helps_vocab_v2"
+        ],
+        "note": "(i), (ii), (iii) (beta in [0,1)), (iv) and (v); the stability window (i) uses the explicit Jury hypothesis. 'The proofs use only the per-row parameters': the statements need only antitone ps with every p_j in (0,1], not sum_j p_j = 1."
+      }
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.Vocabulary",
+      "SparseSGD.Scaling.Helps.Limits",
+      "SparseSGD.Scaling.Helps.SampleCost"
+    ],
+    "remaining": ""
+  },
+  {
+    "label": "lem:helps-twocurv",
+    "kind": "lemma",
+    "title": "One step size for two curvatures (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "subclaims": [
+      {
+        "id": "real_core",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.quad_pm_nonneg",
+          "SparseSGD.Scaling.Helps.twocurv_real"
+        ],
+        "note": "r := max(rho(F_1), rho(F_V)) enters through its defining properties: beta <= r^2 and every real eigenvalue of F_j has modulus <= r; the tex reduction 'we may assume r < 1' is the hypothesis r < 1."
+      },
+      {
+        "id": "radius_of_L_form",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.rhoMax_ge_twocurv"
+        ],
+        "note": "Stated through rho(L_j) >= rho(F_j)^2 (rem:retention-cap(a), lem:step_speed (i)): rhoMax >= ((sqrt k-1)/(sqrt k+1))^2, and ((k-1)/(k+1))^2 if beta = 0. rho(F) is now a Lean definition (meanRadius, Scaling/Helps/StepSpeed); the tex form max(rho(F_1), rho(F_V)) >= q is twocurv_real applied with r := max of the two meanRadius values (beta <= r^2 by beta_le_meanRadius_sq, |real eigenvalue| <= r by norm_le_meanRadius), which is not restated as a separate declaration."
+      }
+    ],
+    "declarations": [
+      "SparseSGD.Scaling.Helps.quad_pm_nonneg",
+      "SparseSGD.Scaling.Helps.twocurv_real",
+      "SparseSGD.Scaling.Helps.rhoMax_ge_twocurv"
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.CriticalBatch",
+      "SparseSGD.Scaling.Helps.StepSpeed"
+    ],
+    "remaining": ""
+  },
+  {
+    "label": "prop:helps-critical",
+    "kind": "proposition",
+    "title": "Critical batch size of a vocabulary (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "subclaims": [
+      {
+        "id": "definitions",
+        "status": "defined",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.sgdClass",
+          "SparseSGD.Scaling.Helps.momClass",
+          "SparseSGD.Scaling.Helps.admSet",
+          "SparseSGD.Scaling.Helps.Sfun",
+          "SparseSGD.Scaling.Helps.Efun",
+          "SparseSGD.Scaling.Helps.Sinf",
+          "SparseSGD.Scaling.Helps.Einf",
+          "SparseSGD.Scaling.Helps.Bcrit",
+          "SparseSGD.Scaling.Helps.lamSGD",
+          "SparseSGD.Scaling.Helps.lamMom",
+          "SparseSGD.Scaling.Helps.wStar",
+          "SparseSGD.Scaling.Helps.rhoBetaR",
+          "SparseSGD.Scaling.Helps.rhoBeta",
+          "SparseSGD.Scaling.Helps.SbR",
+          "SparseSGD.Scaling.Helps.Sbeta",
+          "SparseSGD.Scaling.Helps.kappaBeta",
+          "SparseSGD.Scaling.Helps.DeltaBeta",
+          "SparseSGD.Scaling.Helps.ABeta",
+          "SparseSGD.Scaling.Helps.betaPolyak",
+          "SparseSGD.Scaling.Helps.etaFixedBeta"
+        ],
+        "note": "A_O(B) = admSet (eta > 0, beta in the class, every stepRadius < 1); S_O(B), E_O(B), S_O, E_O are sInf over sets of reals (B : Nat, B >= 1), nonempty by sgd_point_mem for the SGD and momentum classes. For (iv): the class {beta}, w_* = 2(1+beta)/(kappa+1), rho_beta, S_beta = -1/(2 ln rho_beta), kappa_beta, Delta_beta, A_beta, Polyak's beta_P and the balancing learning rate."
+      },
+      {
+        "id": "i_fewest_steps",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.rhoMax_pos_lt_one",
+          "SparseSGD.Scaling.Helps.Lmin_le_lamSGD",
+          "SparseSGD.Scaling.Helps.Lmin_le_lamMom",
+          "SparseSGD.Scaling.Helps.sgd_point_mem",
+          "SparseSGD.Scaling.Helps.Sfun_sgd_ge",
+          "SparseSGD.Scaling.Helps.Sfun_mom_ge",
+          "SparseSGD.Scaling.Helps.Sfun_tendsto_sgd",
+          "SparseSGD.Scaling.Helps.Sfun_tendsto_mom",
+          "SparseSGD.Scaling.Helps.Sinf_sgd",
+          "SparseSGD.Scaling.Helps.Sinf_mom",
+          "SparseSGD.Scaling.Helps.inv_two_log_bounds",
+          "SparseSGD.Scaling.Helps.helps_critical_i",
+          "SparseSGD.Scaling.Helps.Sfun_tendsto_Sinf_sgd",
+          "SparseSGD.Scaling.Helps.Sfun_tendsto_Sinf_mom"
+        ],
+        "note": "Holds for kappa_V > 1; the harmonized limit form S_O(B) -> S_O is Sfun_tendsto_Sinf_sgd, Sfun_tendsto_Sinf_mom."
+      },
+      {
+        "id": "ii_sgd_samples",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.Efun_sgd_ge",
+          "SparseSGD.Scaling.Helps.Efun_sgd_one",
+          "SparseSGD.Scaling.Helps.Einf_sgd",
+          "SparseSGD.Scaling.Helps.Esgd1_bounds",
+          "SparseSGD.Scaling.Helps.helps_critical_ii"
+        ],
+        "note": "E_SGD = E_SGD(1) = 1/log((d+2)/(d+2-p_V)) and its two-sided bounds; kappa_V > 1."
+      },
+      {
+        "id": "ii_mom_upper",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.admSet_sgd_sub_mom",
+          "SparseSGD.Scaling.Helps.Efun_mom_le_sgd",
+          "SparseSGD.Scaling.Helps.Einf_mom_le_sgd",
+          "SparseSGD.Scaling.Helps.helps_critical_ii"
+        ]
+      },
+      {
+        "id": "ii_mom_lower",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.neg_log_one_sub_le_div_sqrt",
+          "SparseSGD.Scaling.Helps.Mk_props",
+          "SparseSGD.Scaling.Helps.min_le_Mk",
+          "SparseSGD.Scaling.Helps.cK_le_sqrt_one_sub",
+          "SparseSGD.Scaling.Helps.mom_real_aux2",
+          "SparseSGD.Scaling.Helps.mom_B_div_Lmin'",
+          "SparseSGD.Scaling.Helps.Efun_mom_ge'",
+          "SparseSGD.Scaling.Helps.Einf_mom_ge'",
+          "SparseSGD.Scaling.Helps.helps_critical_ii_mom'"
+        ],
+        "note": "E_mom >= c_kappa (d+2-p_V)/(8 p_V) with c_kappa = max(1 - 4/sqrt(kappa_V), 1/sqrt 5), kappa_V > 16: phi(m) >= sqrt(1-m) from 2 log s <= s - 1/s (via the series bound log((1+x)/(1-x)) <= 2x/(1-x^2) at x = (1-t)/(1+t)), m <= m_kappa = 4/(1+sqrt(1+kappa_V)), 1 - m_kappa > 1/5 and m_kappa < 4/sqrt(kappa_V). The monotonicity of phi is not needed. The weaker forms mom_B_div_Lmin, Efun_mom_ge, Einf_mom_ge, helps_critical_ii_mom (factor 1 - 4/sqrt k only) remain as lemmas."
+      },
+      {
+        "id": "iii_sgd",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.kappa_mul_pLast",
+          "SparseSGD.Scaling.Helps.Bcrit_sgd_eq",
+          "SparseSGD.Scaling.Helps.Bcrit_sgd_bounds",
+          "SparseSGD.Scaling.Helps.helps_critical_iii_sgd"
+        ]
+      },
+      {
+        "id": "iii_ratio_upper",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.Bcrit_mom_eq",
+          "SparseSGD.Scaling.Helps.Bratio_le",
+          "SparseSGD.Scaling.Helps.helps_critical_iii_ratio'"
+        ]
+      },
+      {
+        "id": "iii_ratio_lower",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.ratio_identity_c",
+          "SparseSGD.Scaling.Helps.Bratio_ge'",
+          "SparseSGD.Scaling.Helps.Bratio_ge_div19",
+          "SparseSGD.Scaling.Helps.helps_critical_iii_ratio'"
+        ],
+        "note": "(c_kappa sqrt(k)/8)(1-k^-2)(1-p_V/(d+2)) <= B_mom/B_SGD with c_kappa = max(1 - 4/sqrt(kappa_V), 1/sqrt 5), and the left side is >= sqrt(kappa_V)/19 for kappa_V > 16 (p_1 <= 1 from unitInterval, d : Nat so d >= 0 only: (1/8)(0.447)(255/256)(31/32) > 1/19). The weaker forms Bratio_ge and helps_critical_iii_ratio (factor (sqrt k - 4)/8) remain as lemmas."
+      },
+      {
+        "id": "iii_bmom_absolute",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.lamMom_bounds",
+          "SparseSGD.Scaling.Helps.sqrt_mul_pLast",
+          "SparseSGD.Scaling.Helps.Bcrit_mom_le_abs",
+          "SparseSGD.Scaling.Helps.pLast_le_inv_of_kappa",
+          "SparseSGD.Scaling.Helps.Bcrit_mom_ge_abs"
+        ],
+        "note": "(iii), absolute bounds: B_mom <= (kappa/(kappa-1)) 4(d+2)/sqrt(p_max p_min) for kappa_V > 1, and B_mom >= c_kappa (d+2-p_min)/(2 sqrt(p_max p_min)) for kappa_V > 16."
+      },
+      {
+        "id": "iv_fixed_beta",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.rhoBetaR_root",
+          "SparseSGD.Scaling.Helps.real_root_sq_le_meanRadius",
+          "SparseSGD.Scaling.Helps.meanRadius_le_rhoBetaR",
+          "SparseSGD.Scaling.Helps.Sfun_fixed_ge_pointwise",
+          "SparseSGD.Scaling.Helps.Sfun_fixed_ge",
+          "SparseSGD.Scaling.Helps.admSet_fixed_nonempty",
+          "SparseSGD.Scaling.Helps.Sfun_fixed_tendsto",
+          "SparseSGD.Scaling.Helps.Sinf_fixed_eq",
+          "SparseSGD.Scaling.Helps.Sbeta_eq",
+          "SparseSGD.Scaling.Helps.rhoBeta_zero",
+          "SparseSGD.Scaling.Helps.rhoBeta_eq_sqrt_iff",
+          "SparseSGD.Scaling.Helps.rhoBeta_ge_polyak",
+          "SparseSGD.Scaling.Helps.rhoBeta_polyak",
+          "SparseSGD.Scaling.Helps.Sbeta_polyak",
+          "SparseSGD.Scaling.Helps.Sbeta_isLeast",
+          "SparseSGD.Scaling.Helps.Sbeta_inf_eq_Sinf_mom",
+          "SparseSGD.Scaling.Helps.Sbeta_le_A",
+          "SparseSGD.Scaling.Helps.Sbeta_ge"
+        ],
+        "note": "(iv), every fixed beta in [0,1) with kappa_V > 1: S_beta(B) -> S_beta = -1/(2 ln rho_beta) (Sfun_fixed_tendsto, no Jury) and S_beta = inf_B S_beta(B) (Sfun_fixed_ge, Sinf_fixed_eq, with the explicit Jury hypothesis for the nonemptiness of A_beta(B) at every B, since sInf of the empty set is 0 in Lean; the tex gets nonemptiness from lem:helps-vocab (i), whose 'if' direction is the Jury criterion); rho_0, rho_beta = sqrt(beta) iff kappa_V <= kappa_beta, min_beta rho_beta = rho_(beta_P) recovering (i), S_beta <= A_beta for kappa_V >= kappa_beta and the two-sided bound for Delta_beta <= 1/4."
+      },
+      {
+        "id": "bundle",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.prop_helps_critical",
+          "SparseSGD.Scaling.Helps.prop_helps_critical_v2"
+        ],
+        "note": "prop_helps_critical bundles the pre-merge (i)-(iii) at kappa_V > 16; prop_helps_critical_v2 bundles the harmonized (i)-(iv) (Jury explicit, for (iv) only)."
+      },
+      {
+        "id": "discussion_finite_B_and_equal_E",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.helps_critical_finiteB",
+          "SparseSGD.Scaling.Helps.Bratio_of_Einf_eq",
+          "SparseSGD.Scaling.Helps.Bratio_lower_gt_one",
+          "SparseSGD.Scaling.Helps.Einf_ratio_lt_19",
+          "SparseSGD.Scaling.Helps.Sfun_sgd_eq_of_isGreatest",
+          "SparseSGD.Scaling.Helps.Sfun_sgd_eq_of_le_Bx",
+          "SparseSGD.Scaling.Helps.Sfun_sgd_eq_of_gt_Bx"
+        ],
+        "note": "Discussion after the proposition: S_O(B) >= 1/lambda_O at every B and the limits; if E_mom = E_SGD then B_mom/B_SGD = lambda_mom/lambda_SGD in [sqrt k (1-k^-2), k sqrt k/(k-1)]; the lower bound in (iii) exceeds 1 for kappa_V >= 150 (d >= 1); momentum divides the fewest samples by at most 8(d+2)/(c_kappa(d+2-p_min)) < 19 (kappa_V > 16, d >= 1); S_SGD(B) at every batch size from lem:helps-vocab (v). The floor sentence (u_j = 1/2, R_infinity = varsigma^2 d/(d+2) at the parameters attaining E_SGD) is not registered."
+      }
+    ],
+    "declarations": [
+      "SparseSGD.Scaling.Helps.sgdClass",
+      "SparseSGD.Scaling.Helps.momClass",
+      "SparseSGD.Scaling.Helps.admSet",
+      "SparseSGD.Scaling.Helps.Sfun",
+      "SparseSGD.Scaling.Helps.Efun",
+      "SparseSGD.Scaling.Helps.Sinf",
+      "SparseSGD.Scaling.Helps.Einf",
+      "SparseSGD.Scaling.Helps.Bcrit",
+      "SparseSGD.Scaling.Helps.lamSGD",
+      "SparseSGD.Scaling.Helps.lamMom",
+      "SparseSGD.Scaling.Helps.wStar",
+      "SparseSGD.Scaling.Helps.rhoBetaR",
+      "SparseSGD.Scaling.Helps.rhoBeta",
+      "SparseSGD.Scaling.Helps.SbR",
+      "SparseSGD.Scaling.Helps.Sbeta",
+      "SparseSGD.Scaling.Helps.kappaBeta",
+      "SparseSGD.Scaling.Helps.DeltaBeta",
+      "SparseSGD.Scaling.Helps.ABeta",
+      "SparseSGD.Scaling.Helps.betaPolyak",
+      "SparseSGD.Scaling.Helps.etaFixedBeta",
+      "SparseSGD.Scaling.Helps.rhoMax_pos_lt_one",
+      "SparseSGD.Scaling.Helps.Lmin_le_lamSGD",
+      "SparseSGD.Scaling.Helps.Lmin_le_lamMom",
+      "SparseSGD.Scaling.Helps.sgd_point_mem",
+      "SparseSGD.Scaling.Helps.Sfun_sgd_ge",
+      "SparseSGD.Scaling.Helps.Sfun_mom_ge",
+      "SparseSGD.Scaling.Helps.Sfun_tendsto_sgd",
+      "SparseSGD.Scaling.Helps.Sfun_tendsto_mom",
+      "SparseSGD.Scaling.Helps.Sinf_sgd",
+      "SparseSGD.Scaling.Helps.Sinf_mom",
+      "SparseSGD.Scaling.Helps.inv_two_log_bounds",
+      "SparseSGD.Scaling.Helps.helps_critical_i",
+      "SparseSGD.Scaling.Helps.Sfun_tendsto_Sinf_sgd",
+      "SparseSGD.Scaling.Helps.Sfun_tendsto_Sinf_mom",
+      "SparseSGD.Scaling.Helps.Efun_sgd_ge",
+      "SparseSGD.Scaling.Helps.Efun_sgd_one",
+      "SparseSGD.Scaling.Helps.Einf_sgd",
+      "SparseSGD.Scaling.Helps.Esgd1_bounds",
+      "SparseSGD.Scaling.Helps.helps_critical_ii",
+      "SparseSGD.Scaling.Helps.admSet_sgd_sub_mom",
+      "SparseSGD.Scaling.Helps.Efun_mom_le_sgd",
+      "SparseSGD.Scaling.Helps.Einf_mom_le_sgd",
+      "SparseSGD.Scaling.Helps.neg_log_one_sub_le_div_sqrt",
+      "SparseSGD.Scaling.Helps.Mk_props",
+      "SparseSGD.Scaling.Helps.min_le_Mk",
+      "SparseSGD.Scaling.Helps.cK_le_sqrt_one_sub",
+      "SparseSGD.Scaling.Helps.mom_real_aux2",
+      "SparseSGD.Scaling.Helps.mom_B_div_Lmin'",
+      "SparseSGD.Scaling.Helps.Efun_mom_ge'",
+      "SparseSGD.Scaling.Helps.Einf_mom_ge'",
+      "SparseSGD.Scaling.Helps.helps_critical_ii_mom'",
+      "SparseSGD.Scaling.Helps.kappa_mul_pLast",
+      "SparseSGD.Scaling.Helps.Bcrit_sgd_eq",
+      "SparseSGD.Scaling.Helps.Bcrit_sgd_bounds",
+      "SparseSGD.Scaling.Helps.helps_critical_iii_sgd",
+      "SparseSGD.Scaling.Helps.Bcrit_mom_eq",
+      "SparseSGD.Scaling.Helps.Bratio_le",
+      "SparseSGD.Scaling.Helps.helps_critical_iii_ratio'",
+      "SparseSGD.Scaling.Helps.ratio_identity_c",
+      "SparseSGD.Scaling.Helps.Bratio_ge'",
+      "SparseSGD.Scaling.Helps.Bratio_ge_div19",
+      "SparseSGD.Scaling.Helps.lamMom_bounds",
+      "SparseSGD.Scaling.Helps.sqrt_mul_pLast",
+      "SparseSGD.Scaling.Helps.Bcrit_mom_le_abs",
+      "SparseSGD.Scaling.Helps.pLast_le_inv_of_kappa",
+      "SparseSGD.Scaling.Helps.Bcrit_mom_ge_abs",
+      "SparseSGD.Scaling.Helps.rhoBetaR_root",
+      "SparseSGD.Scaling.Helps.real_root_sq_le_meanRadius",
+      "SparseSGD.Scaling.Helps.meanRadius_le_rhoBetaR",
+      "SparseSGD.Scaling.Helps.Sfun_fixed_ge_pointwise",
+      "SparseSGD.Scaling.Helps.Sfun_fixed_ge",
+      "SparseSGD.Scaling.Helps.admSet_fixed_nonempty",
+      "SparseSGD.Scaling.Helps.Sfun_fixed_tendsto",
+      "SparseSGD.Scaling.Helps.Sinf_fixed_eq",
+      "SparseSGD.Scaling.Helps.Sbeta_eq",
+      "SparseSGD.Scaling.Helps.rhoBeta_zero",
+      "SparseSGD.Scaling.Helps.rhoBeta_eq_sqrt_iff",
+      "SparseSGD.Scaling.Helps.rhoBeta_ge_polyak",
+      "SparseSGD.Scaling.Helps.rhoBeta_polyak",
+      "SparseSGD.Scaling.Helps.Sbeta_polyak",
+      "SparseSGD.Scaling.Helps.Sbeta_isLeast",
+      "SparseSGD.Scaling.Helps.Sbeta_inf_eq_Sinf_mom",
+      "SparseSGD.Scaling.Helps.Sbeta_le_A",
+      "SparseSGD.Scaling.Helps.Sbeta_ge",
+      "SparseSGD.Scaling.Helps.prop_helps_critical",
+      "SparseSGD.Scaling.Helps.prop_helps_critical_v2",
+      "SparseSGD.Scaling.Helps.helps_critical_finiteB",
+      "SparseSGD.Scaling.Helps.Bratio_of_Einf_eq",
+      "SparseSGD.Scaling.Helps.Bratio_lower_gt_one",
+      "SparseSGD.Scaling.Helps.Einf_ratio_lt_19",
+      "SparseSGD.Scaling.Helps.Sfun_sgd_eq_of_isGreatest",
+      "SparseSGD.Scaling.Helps.Sfun_sgd_eq_of_le_Bx",
+      "SparseSGD.Scaling.Helps.Sfun_sgd_eq_of_gt_Bx"
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.CriticalBatch",
+      "SparseSGD.Scaling.Helps.Vocabulary",
+      "SparseSGD.Scaling.Helps.StepSpeed",
+      "SparseSGD.Scaling.Helps.All"
+    ],
+    "remaining": ""
+  },
+  {
+    "label": "prop:vocab_full",
+    "kind": "proposition",
+    "title": "Full statement of the vocabulary proposition (v2 momentum-helps)",
+    "source": "v2/momentum_helps.tex",
+    "status": "complete",
+    "subclaims": [
+      {
+        "id": "i_sgd",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.vocabBx",
+          "SparseSGD.Scaling.Helps.le_vocabBx_iff",
+          "SparseSGD.Scaling.Helps.vocab_full_sgd_iff",
+          "SparseSGD.Scaling.Helps.vocab_full_sgd_S"
+        ],
+        "note": "SGD runs the rarest token at its own fastest learning rate (Lmin at eta*_|V| is the maximum over the learning rates at which every row is stable) iff B - 1 <= B_x; then S = 1/ln(1 + B p_min/(d+2-p_min)). kappa_V > 1."
+      },
+      {
+        "id": "i_per_token",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.vocab_full_per_token",
+          "SparseSGD.Scaling.Helps.vocab_full_per_token_Lambda"
+        ],
+        "note": "Per-token learning rates do not lower S: whatever eta_|V| > 0 the slowest row has radius >= (d+2-p_min)/(d+2+(B-1)p_min), i.e. min_j Lambda_j <= ln(1 + B p_min/(d+2-p_min)); this holds for every B >= 1 with no stability hypothesis."
+      },
+      {
+        "id": "i_momentum",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.vocab_full_momentum"
+        ],
+        "note": "kappa_V > 16 and B - 1 <= B_x: S_mom(B) >= c_kappa (kappa-1)(d+2-p_min)/(8 kappa (d+2)) S_SGD(B)."
+      },
+      {
+        "id": "i_coscaling",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.vocab_full_i_coscaling"
+        ],
+        "note": "For every delta > 0 there is eps0(delta) with (1-delta) S_SGD(B) <= S_beta(B) for B - 1 <= B_x and 0 < 1 - beta <= eps0, uniformly in d, B, nu and the vocabulary (hence along every co-scaling ray with gamma > 0). Jury is used only for the nonemptiness of the fixed-beta admissible set."
+      },
+      {
+        "id": "ii_fewest_steps",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.vocab_full_Sinf_le_sgd",
+          "SparseSGD.Scaling.Helps.vocab_full_Sinf_le_mom",
+          "SparseSGD.Scaling.Helps.vocab_full_Sinf_le_fixed",
+          "SparseSGD.Scaling.Helps.vocab_full_tendsto_fixed",
+          "SparseSGD.Scaling.Helps.Sfun_tendsto_Sinf_sgd",
+          "SparseSGD.Scaling.Helps.Sfun_tendsto_Sinf_mom",
+          "SparseSGD.Scaling.Helps.kappaBeta_zero",
+          "SparseSGD.Scaling.Helps.vocab_full_Sbeta_retention",
+          "SparseSGD.Scaling.Helps.kappaBeta_le_of_delta",
+          "SparseSGD.Scaling.Helps.vocab_full_Sbeta_two_sided",
+          "SparseSGD.Scaling.Helps.vocab_full_Sinf_mom_min"
+        ],
+        "note": "S >= S_infinity at every B and S -> S_infinity, for SGD, fixed beta and tuned beta; S_beta = 1/ln(1/beta) for kappa_V <= kappa_beta; the two-sided bound for Delta_beta <= 1/4 (the upper bound S_beta <= A_beta uses Delta_beta <= 1/4 => kappa_V >= kappa_beta, kappaBeta_le_of_delta); S_mom = min_beta S_beta at Polyak's beta_P."
+      },
+      {
+        "id": "iii_critical_batch",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.Bcrit_sgd_bounds",
+          "SparseSGD.Scaling.Helps.Bcrit_mom_le_abs",
+          "SparseSGD.Scaling.Helps.Bcrit_mom_ge_abs"
+        ]
+      },
+      {
+        "id": "remark_after",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.vocab_full_remark"
+        ],
+        "note": "At fixed beta with kappa_V >= kappa_beta: E_min/S_beta >= 4(d+2-p_min)(1+beta)/((1-beta)(p_max+p_min))."
+      },
+      {
+        "id": "bundle",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.prop_vocab_full"
+        ],
+        "note": "Bundles (i) (without the co-scaling clause, which lives in Scaling/Helps/SampleCost), (ii), (iii) and the remark, at kappa_V > 16 with the explicit Jury hypothesis."
+      }
+    ],
+    "declarations": [
+      "SparseSGD.Scaling.Helps.vocabBx",
+      "SparseSGD.Scaling.Helps.le_vocabBx_iff",
+      "SparseSGD.Scaling.Helps.vocab_full_sgd_iff",
+      "SparseSGD.Scaling.Helps.vocab_full_sgd_S",
+      "SparseSGD.Scaling.Helps.vocab_full_per_token",
+      "SparseSGD.Scaling.Helps.vocab_full_per_token_Lambda",
+      "SparseSGD.Scaling.Helps.vocab_full_momentum",
+      "SparseSGD.Scaling.Helps.vocab_full_i_coscaling",
+      "SparseSGD.Scaling.Helps.vocab_full_Sinf_le_sgd",
+      "SparseSGD.Scaling.Helps.vocab_full_Sinf_le_mom",
+      "SparseSGD.Scaling.Helps.vocab_full_Sinf_le_fixed",
+      "SparseSGD.Scaling.Helps.vocab_full_tendsto_fixed",
+      "SparseSGD.Scaling.Helps.Sfun_tendsto_Sinf_sgd",
+      "SparseSGD.Scaling.Helps.Sfun_tendsto_Sinf_mom",
+      "SparseSGD.Scaling.Helps.kappaBeta_zero",
+      "SparseSGD.Scaling.Helps.vocab_full_Sbeta_retention",
+      "SparseSGD.Scaling.Helps.kappaBeta_le_of_delta",
+      "SparseSGD.Scaling.Helps.vocab_full_Sbeta_two_sided",
+      "SparseSGD.Scaling.Helps.vocab_full_Sinf_mom_min",
+      "SparseSGD.Scaling.Helps.Bcrit_sgd_bounds",
+      "SparseSGD.Scaling.Helps.Bcrit_mom_le_abs",
+      "SparseSGD.Scaling.Helps.Bcrit_mom_ge_abs",
+      "SparseSGD.Scaling.Helps.vocab_full_remark",
+      "SparseSGD.Scaling.Helps.prop_vocab_full"
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.CriticalBatch",
+      "SparseSGD.Scaling.Helps.VocabFull",
+      "SparseSGD.Scaling.Helps.SampleCost"
+    ],
+    "remaining": "",
+    "tex_labels": "prop:vocab_full, alias rem:vocab (KE's statement, harmonized 2026-10-05 to follow and cite prop:helps-critical)"
   }
 ]

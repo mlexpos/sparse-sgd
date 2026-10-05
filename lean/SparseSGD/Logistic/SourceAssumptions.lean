@@ -49,7 +49,15 @@ def physicallyAdmissibleDynamicState (y : DynamicState) : Prop :=
 
 /-- Source Assumption S: the actual dynamic-alpha ODE has a global solution
 from every physically admissible Gram state and converges exponentially to its
-canonical equilibrium. The constants are uniform on compact parameter sets. -/
+canonical equilibrium. The constants are uniform on compact parameter sets.
+
+v1 assumption (frozen manuscript `ass:S`); superseded in v2 by the theorems
+`SparseSGD.Logistic.V2.prop_S_i`, `prop_S_ii`, `prop_S_iii` (bundled as
+`SparseSGD.Logistic.V2.prop_S`) and `SparseSGD.Logistic.V2.cor_recursion_tame'`.
+v2 proves the compact-initial-data form (`prop_S_iii_proportional`: the constant `C`
+depends on a compact set `K` of initial states), not the form stated here, which is
+uniform over all physically admissible initial states. No theorem in the package
+consumes this structure. -/
 structure SourceAssumptionS : Prop where
   compact_uniform_exponential_stability :
     ∀ K : Set (ℝ × ℝ × ℝ), IsCompact K →
@@ -75,7 +83,10 @@ def averagedWindowSlowField (phiPath : ℝ → ℝ) (t S : ℝ) : ℝ := -S+2*ph
 /-- A family of actual logistic LR drift recursions in the large matched-Delta
     window. The state sequence is the exact five-coordinate summary recurrence
     `dynamicDriftMap`; `alphaPath` and `phiPath` record its local curvature and
-    renormalized additive load on the retention grid. -/
+    renormalized additive load on the retention grid.
+
+    v1 input data for the frozen manuscript `ass:W`; superseded in v2 together with
+    `SourceAssumptionW` (see its docstring). -/
 structure LRWindowInput where
   dim : ℕ → ℕ
   batch : ℕ → ℕ
@@ -167,7 +178,14 @@ structure LRWindowInput where
     internal 2:1 resonance and under the explicit load/Nyquist margins, the
     actual excess-risk envelope has the retention rate; and the bulk slow
     energy and signal are uniformly approximated at all retention-grid times
-    by the time-dependent averaged equations below. -/
+    by the time-dependent averaged equations below.
+
+    v1 assumption (frozen manuscript `ass:W`); superseded in v2 by v2 `prop:W1`
+    (`SparseSGD.Logistic.V2.five_eigenvalues`, `equilibrium_five_eigenvalues`,
+    `lambda_mu_trace`), v2 `cor:recursion` (`SparseSGD.Logistic.V2.cor_recursion_tame'`),
+    v2 `prop:W2` (`SparseSGD.Logistic.V2.prop_W2_ii`, `prop_W2_iii`) and the narrowed v2
+    assumption `ass:W2` (`SparseSGD.Logistic.V2.AssumptionW2`). No theorem in the package
+    consumes this structure. -/
 structure SourceAssumptionW : Prop where
   actual_window_and_envelope : ∀ F : LRWindowInput,
     ∃ err rate envelope : ℕ → ℝ,
