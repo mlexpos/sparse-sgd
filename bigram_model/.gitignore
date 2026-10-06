@@ -1,0 +1,4 @@
+data/
+results/
+analysis.npy
+__pycache__/
