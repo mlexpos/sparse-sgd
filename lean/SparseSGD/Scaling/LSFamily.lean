@@ -98,7 +98,7 @@ theorem lsDelta_tendsto_zero
     exact (mul_pos (by positivity) (Real.rpow_pos_of_pos hdR _)).ne'
   exact ((div_eq_one_iff_eq hn).mp Hr).symm
 
-/-- The renormalized loads remain nonnegative once the curvature denominator
+/-- The renormalized feedback and temperature remain nonnegative once the curvature denominator
 is positive. -/
 theorem renorm_nonneg_of_curvature_lt_one (p : SparseSGD.Params)
     (hn : 0 ≤ p.noise) (hp : 0 ≤ p.additive) (hc : p.curvature < 1) :

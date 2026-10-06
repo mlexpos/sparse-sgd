@@ -83,7 +83,7 @@ def averagedWindowSlowField (phiPath : ℝ → ℝ) (t S : ℝ) : ℝ := -S+2*ph
 /-- A family of actual logistic LR drift recursions in the large matched-Delta
     window. The state sequence is the exact five-coordinate summary recurrence
     `dynamicDriftMap`; `alphaPath` and `phiPath` record its local curvature and
-    renormalized additive load on the retention grid.
+    renormalized ambient temperature on the retention grid.
 
     v1 input data for the frozen manuscript `ass:W`; superseded in v2 together with
     `SourceAssumptionW` (see its docstring). -/
@@ -175,7 +175,7 @@ structure LRWindowInput where
       ((state j k).1)).foldedAngle ≤ Real.pi/2-window_margin
 
 /-- Source Assumption W. On actual high-Delta LR drift families away from the
-    internal 2:1 resonance and under the explicit load/Nyquist margins, the
+    internal 2:1 resonance and under the explicit feedback/Nyquist margins, the
     actual excess-risk envelope has the retention rate; and the bulk slow
     energy and signal are uniformly approximated at all retention-grid times
     by the time-dependent averaged equations below.

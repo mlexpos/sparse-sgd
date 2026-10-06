@@ -11,7 +11,7 @@ def largeModeFrequency (delta a : ℝ) : ℝ := Real.sqrt (4*delta-1+3*a^2/4)
 def largeModeRootPlus (delta a : ℝ) : ℂ := -(1+a/2) + Complex.I*largeModeFrequency delta a
 
 /-- Shifting the continuum cubic by one leaves a monotone depressed cubic;
-its real root lies between zero and one for every subcritical load. -/
+its real root lies between zero and one for every subcritical feedback. -/
 theorem exists_largeMode_parameter (delta u : ℝ) (hd : 0 < delta)
     (hu0 : 0 ≤ u) (hu1 : u < 1) :
     ∃ a : ℝ, 0 ≤ a ∧ a < 1 ∧ a^3+(4*delta-1)*a-4*delta*u = 0 := by

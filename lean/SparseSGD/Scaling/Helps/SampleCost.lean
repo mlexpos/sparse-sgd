@@ -33,7 +33,7 @@ section C1
 variable {d B : ℕ} {p : unitInterval} {beta : ℝ}
 
 /-- `lem:small_delta` along the ray, for `s ≥ 100`: for every `η ∈ (0, η_+)`, `Δ = η p/ε` lies in
-`(0, 2/s)`, the total load is `s Δ/2`, and
+`(0, 2/s)`, the total feedback is `s Δ/2`, and
 `|Λ(η) - ε (2Δ - sΔ²)| ≤ 25 (ε + Δ) · ε (2Δ - sΔ²)`. -/
 theorem lsRate_ray_approx (ν : Measure ℝ) (hB : 0 < B) (hp : 0 < (p : ℝ)) (he : 0 < 1 - beta)
     (he50 : 1 - beta ≤ 1 / 50) (hs : 100 ≤ lsNu d B p beta) {eta : ℝ}

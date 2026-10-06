@@ -4,7 +4,7 @@ import SparseSGD.Scaling.LeastSquaresParameters
 namespace SparseSGD.Scaling
 noncomputable section
 
-/-- Actual least-squares noise load on the critical noise exponent alpha=1-sigma. -/
+/-- Actual least-squares noise feedback on the critical noise exponent alpha=1-sigma. -/
 def resonantNoiseLoad (etaStar bStar sigma : ℝ) (p : ℕ → unitInterval) (d : ℕ) : ℝ :=
   scaledLearningRate etaStar (1-sigma) d * ((d:ℝ)+2-(p d:ℝ)) /
     (2*(scaledBatch bStar sigma d:ℝ))

@@ -1,5 +1,10 @@
 # Full-paper implementation
 
+> **Notation (2026-10-05).** Entries here record corrections in the manuscript notation of
+> their date: `Δ` (now the stiffness `ω²`), `w` (now `λ`), `u`, `u_n`, `u_c`, "load" (now the
+> feedback `H`, `H_n`, `H_c`), "additive load" (now the ambient temperature `φ`), and the LR
+> curvature factor `α` (now `ϱ`). See `NOTATION.md`.
+
 Scope: every numbered result in the frozen active manuscript, the actual
 least-squares oracle, and the phase dictionary. The approved completion contract
 allows documented corrections and explicit assumptions for cited standard

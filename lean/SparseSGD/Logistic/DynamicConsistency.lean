@@ -105,7 +105,7 @@ theorem dynamicAlpha_summary {d : ℕ} (p : unitInterval) (mu : Vec d) (s : Stat
   rw [div_pow]
   linarith
 
-/-- The batch-noise coefficient has the source load normalization. -/
+/-- The batch-noise coefficient has the source temperature normalization. -/
 def dynamicNoiseRate (d B : ℕ) (h p : ℝ) : ℝ := h*(d-1:ℝ)/((B:ℝ)*p)
 
 def dynamicSourceLoad (d B : ℕ) (eta : ℝ) : ℝ := eta*(d-1:ℝ)/(2*(B:ℝ))

@@ -7,7 +7,7 @@ open scoped Topology
 namespace SparseSGD
 noncomputable section
 
-/-- A covariance Lyapunov functional adapted to the subcritical feedback load. -/
+/-- A covariance Lyapunov functional adapted to the subcritical feedback. -/
 def continuumStabilityEnergy (delta u : ℝ) (s : Moments) : ℝ :=
   (1 / (1 + u) + 1 / (2 * delta)) * s.R + delta / (1 + u) * s.V - s.C
 
@@ -373,7 +373,7 @@ private theorem realEigenTrajectory_isMomentSolution {delta u x : ℝ} (hd : del
   · convert he.const_mul (realEigenMoments delta x).C using 1 <;>
       (first | rfl | (dsimp [realEigenTrajectory, continuumField]; nlinarith [congrArg (fun z : ℝ => z * Real.exp (x * t)) hC]))
 
-/-- At and above the critical load there is an actual nondecaying trajectory. -/
+/-- At and above the critical feedback there is an actual nondecaying trajectory. -/
 theorem continuumFlow_not_exponentially_stable {delta u : ℝ}
     (hd : 0 < delta) (hu : 1 ≤ u) :
     ¬ ∃ A lambda : ℝ, 0 < A ∧ 0 < lambda ∧ ∀ s : Moments, ∀ t : ℝ, 0 ≤ t →

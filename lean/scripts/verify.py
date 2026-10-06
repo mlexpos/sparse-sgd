@@ -9,11 +9,27 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def check_snapshot(base, hashes, label):
+    """Check a frozen manuscript snapshot against its recorded hashes; return the count checked.
+
+    Public copies of this project carry the manifests but not the manuscript text. A snapshot
+    with none of its files present counts as not distributed; a partial or changed one fails."""
+    if not any((base / name).is_file() for name in hashes):
+        print(f"The {label} manuscript snapshot is not present; skipping its provenance hashes.")
+        return 0
+    for name, expected in hashes.items():
+        path = base / name
+        if not path.is_file():
+            raise SystemExit(f"Missing frozen {label} source: {name}")
+        if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+            raise SystemExit(f"Frozen {label} source changed: {name}")
+    return len(hashes)
+
+
 manifest = json.loads((ROOT / "source/manifest.json").read_text())
-for filename, expected in manifest["sha256"].items():
-    actual = hashlib.sha256((ROOT / "source" / filename).read_bytes()).hexdigest()
-    if actual != expected:
-        raise SystemExit(f"Frozen source changed: {filename}")
+v1_checked = check_snapshot(ROOT / "source", manifest["sha256"], "v1")
 # The v2 (revised appendix) drafts are frozen separately, so the v1
 # manifest above stays untouched.
 v2_manifest_path = ROOT / "source/v2/manifest.json"
@@ -23,13 +39,7 @@ v2_manifest = json.loads(v2_manifest_path.read_text()) if v2_manifest_path.is_fi
 for filename in v2_manifest.get("required_live_chunks", []):
     if filename not in v2_manifest["sha256"]:
         raise SystemExit(f"Live v2 chunk without a frozen hash: v2/{filename}")
-for filename, expected in v2_manifest["sha256"].items():
-    path = ROOT / "source/v2" / filename
-    if not path.is_file():
-        raise SystemExit(f"Missing frozen v2 source: v2/{filename}")
-    actual = hashlib.sha256(path.read_bytes()).hexdigest()
-    if actual != expected:
-        raise SystemExit(f"Frozen v2 source changed: v2/{filename}")
+v2_checked = check_snapshot(ROOT / "source/v2", v2_manifest["sha256"], "v2")
 v2_chunk_count = sum(name.startswith("chunks/") for name in v2_manifest["sha256"])
 
 # The root target must reach every project module; a draft outside the import
@@ -70,12 +80,13 @@ for name in required:
     if not re.fullmatch(r"SparseSGD(?:\.[A-Za-z_][A-Za-z_0-9']*)+", name):
         raise SystemExit(f"Invalid declaration name: {name}")
 checks = "import SparseSGD\n" + "\n".join(f"#check {name}" for name in required) + "\n"
+(ROOT / ".lake").mkdir(exist_ok=True)
 with tempfile.NamedTemporaryFile(mode="w", suffix=".lean", prefix="obligation-check-",
                                  dir=ROOT / ".lake", delete=False) as declaration_file:
     declaration_file.write(checks)
     declaration_path = Path(declaration_file.name)
 commands = [[lake, "build"], [lake, "env", "lean", "Audit.lean"],
-            [lake, "env", "lean", str(declaration_path)],
+            [lake, "env", "lean", os.path.relpath(declaration_path, ROOT)],
             [sys.executable, "scripts/coverage.py"]]
 try:
     with (ROOT / "verification.log").open("w") as log:
@@ -93,10 +104,14 @@ try:
                 print(f"Verified {len(required)} source-obligation declaration references.")
             else:
                 print(result.stdout, end="\n")
+        def hashes_checked(count, total, label):
+            return (f"{count} frozen {label} source hashes" if count else
+                    f"0 of {total} frozen {label} source hashes (snapshot not distributed)")
         summary = (f"Verified {len(all_modules)} imported modules and "
-                   f"{len(manifest['sha256'])} frozen v1 source hashes and "
-                   f"{len(v2_manifest['sha256'])} frozen v2 source hashes "
-                   f"({v2_chunk_count} of them live appendix chunks).\n")
+                   f"{hashes_checked(v1_checked, len(manifest['sha256']), 'v1')} and "
+                   f"{hashes_checked(v2_checked, len(v2_manifest['sha256']), 'v2')}"
+                   + (f" ({v2_chunk_count} of them live appendix chunks)" if v2_checked else "")
+                   + ".\n")
         log.write(summary)
         print(summary, end="")
 finally:

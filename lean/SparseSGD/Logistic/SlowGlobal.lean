@@ -25,7 +25,7 @@ theorem scalar_dissipation_tendsto (D D' : ℝ → ℝ) (c a : ℝ) (hc : 0 < c)
     exact scalar_dissipation_bound D D' c a t
       (fun s hs => hderiv s hs.1) (fun s hs => hdiss s hs.1) ht
 
-/-- Zero-load convergence includes solutions starting on the zero-bulk boundary. -/
+/-- Zero-temperature convergence includes solutions starting on the zero-bulk boundary. -/
 theorem slow_zero_tendsto (r a : ℝ) (y : ℝ → ℝ × ℝ) (hy0 : 0 ≤ (y a).2)
     (hy : ∀ t, a ≤ t → HasDerivAt y (slowField r 0 (y t).1 (y t).2) t) :
     Tendsto y atTop (𝓝 (r,0)) := by
@@ -75,7 +75,7 @@ theorem positiveRoot_zero_load (r : ℝ) (hr : 0 < r) : positiveRoot r 0=r := by
   linarith
 
 /-- Global convergence of every actual slow trajectory from nonnegative bulk,
-including positive forcing from zero bulk and the zero-load boundary. -/
+including positive forcing from zero bulk and the zero-temperature boundary. -/
 theorem slow_global_convergence (r Phi a : ℝ) (y : ℝ → ℝ × ℝ)
     (hr : 0 < r) (hPhi : 0 ≤ Phi) (hy0 : 0 ≤ (y a).2)
     (hy : ∀ t, a ≤ t → HasDerivAt y (slowField r Phi (y t).1 (y t).2) t) :

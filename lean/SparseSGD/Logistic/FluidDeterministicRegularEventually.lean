@@ -7,7 +7,7 @@ set_option maxHeartbeats 2000000
 
 /-- Actual dimension-indexed regular-cell mean paths have a uniform compact
 bound on the manuscript's min clock. Parameter convergence and integer-batch
-load discrepancies are allowed; numerical containment is not a premise. -/
+temperature discrepancies are allowed; numerical containment is not a premise. -/
 theorem matched_regular_eventually_bounded (r0 delta Phi M T : ℝ)
     (hdelta : 0<delta) (hPhi : 0≤Phi) (hM : 1≤M) (hT : 0≤T)
     (v : ℝ→DynamicState)

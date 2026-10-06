@@ -141,7 +141,7 @@ theorem lem_helps_sgd (p : Params) (hb : p.beta = 0) (hw : 0 < p.w) (hun : 0 ≤
 
 /-- `v2 lem:helps-transfer`, both forms.  For `D, c > 0` there are `ε₀ ∈ (0,1/2]` and `C`
 such that, for `ε ∈ (0,ε₀]`, `Δ ∈ (0,D]`, `u_n ∈ [0,cΔ]`, the per-step rate of the chain at
-`β = 1-ε`, `w = ε²Δ`, noise load `u_n` (`transferParams`) is within `C ε^{4/3}` of
+`β = 1-ε`, `w = ε²Δ`, noise feedback `u_n` (`transferParams`) is within `C ε^{4/3}` of
 `ε r_c(Δ,u_n)` and of `ε r_c(Δ,u)` with `u = u_n + u_c`.  On a compact
 `K ⊆ (0,∞) × [0,1)` the relative error is `C ε^{1/3}`. -/
 theorem lem_helps_transfer (D c : ℝ) (hD : 0 < D) (hc : 0 < c) :

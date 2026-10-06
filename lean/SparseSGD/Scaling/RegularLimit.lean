@@ -395,7 +395,7 @@ theorem regular_chain_uniform_rate_interval (a b margin : ℝ)
       linarith only [heq,hn]
 
 /-- Source `cor:regular`: one constant for a compact subset of positive matched
-parameters, a fixed load margin, and every time index. -/
+parameters, a fixed feedback margin, and every time index. -/
 theorem regular_chain_uniform_rate_compact (K : Set ℝ) (hK : IsCompact K)
     (hKpos : K ⊆ Set.Ioi 0) (margin : ℝ) (hm : 0 < margin) :
     ∃ C ≥ 0, ∀ (p : Params) (s : Moments) (delta₀ u₀ phi₀ : ℝ) (s₀ : Moments),

@@ -135,7 +135,7 @@ theorem continuumPerronRate_eq_of_rightmost {delta u x : ℝ}
   unfold continuumPerronRate
   rw [hgreat.csSup_eq]
 
-/-- `helps-intro`: the rate at zero load, `r_c(Δ,0) = 1 - √(max 0 (1-4Δ))`. -/
+/-- `helps-intro`: the rate at zero feedback, `r_c(Δ,0) = 1 - √(max 0 (1-4Δ))`. -/
 theorem continuumPerronRate_zero_load {delta : ℝ} (_hd : 0 < delta) :
     continuumPerronRate delta 0 = 1 - Real.sqrt (max 0 (1 - 4*delta)) := by
   rcases lt_or_ge delta (1/4) with h | h

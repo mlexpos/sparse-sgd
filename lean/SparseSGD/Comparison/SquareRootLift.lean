@@ -187,7 +187,7 @@ theorem Params.continuumFreeFlow_squareRootLift_cov (p : Params) (s : Moments) (
     Matrix.mul_vecMulVec, Matrix.vecMulVec_mul, Matrix.vecMul_transpose] at h
   exact h
 
-/-- With both loads zero, the actual comparison flow has the deterministic lifted covariance. -/
+/-- With zero feedback and temperature, the actual comparison flow has the deterministic lifted covariance. -/
 theorem Params.comparisonFlow_squareRootLift_cov (p : Params) (s : Moments) (x : Fin 2 → ℝ)
     (hx : s.cov = Matrix.vecMulVec x x) (hnoise : p.noise = 0) (hadd : p.additive = 0)
     (t : ℝ) : (p.comparisonFlow s t).cov =

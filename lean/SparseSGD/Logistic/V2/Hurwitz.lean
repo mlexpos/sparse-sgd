@@ -9,7 +9,7 @@ Coordinates are `(theta, Y, R, V, C)`, as in `DynamicState`.  With
 the Lyapunov matrix equation `A^T H + H A = -S` with `H` the Hessian of the
 v2 Lyapunov function and `S` the Hessian of the dissipation (`b > 0`).  An
 observability argument upgrades the semi-definite dissipation to strict
-Hurwitz stability.  The zero-load case `Phi* = 0` is treated by reducing the
+Hurwitz stability.  The zero-temperature case `Phi* = 0` is treated by reducing the
 `(R,V,C)` block to the continuum cubic of `Continuum/Hurwitz.lean`.
 -/
 
@@ -280,7 +280,7 @@ theorem jacobian_hurwitz_pos_load (a theta R delta b : ℝ) (ha : 0 < a) (hd : 0
   simp at hpos
 
 
-/-- The `(R,V,C)` block of the Jacobian at zero load. -/
+/-- The `(R,V,C)` block of the Jacobian at zero temperature. -/
 def zeroLoadBulkBlock (a delta : ℝ) : Matrix (Fin 3) (Fin 3) ℝ :=
   !![0, 0, -2 * delta; 0, -2, 2 * a; a, -delta, -1]
 
@@ -462,7 +462,7 @@ theorem hasFDerivAt_dynamicField_equilibrium (r delta Phi : ℝ) :
 
 /-- v2 prop:S (ii): the Jacobian of eq:LR5 at `y*` is Hurwitz, for every
 `r > 0`, `delta > 0`, `Phi >= 0`.  Combines the Frechet derivative with the
-positive-load (`A^T H + H A = -S` plus observability) and zero-load
+positive-temperature (`A^T H + H A = -S` plus observability) and zero-temperature
 (continuum cubic) arguments. -/
 theorem prop_S_ii (r delta Phi : ℝ) (hr : 0 < r) (hdelta : 0 < delta) (hPhi : 0 ≤ Phi) :
     HasFDerivAt (dynamicField r delta Phi)

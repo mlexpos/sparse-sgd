@@ -3165,9 +3165,9 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 Build completed successfully (9298 jobs).
 
 $ lake env lean Audit.lean
-Audited 6584 SparseSGD declarations (5585 theorems); only standard Lean axioms.
+Audited 6586 SparseSGD declarations (5587 theorems); only standard Lean axioms.
 
-$ lake env lean .lake/obligation-check-0hz0w562.lean
+$ lake env lean .lake/obligation-check-2qo2scrt.lean
 SparseSGD.External.mean_powers_tendsto_zero (jury : SparseSGD.External.JuryStability) (p : SparseSGD.Params)
   (hb : p.beta < 1) (hw : 0 < p.w) (hceiling : p.w < 2 * (1 + p.beta)) :
   Filter.Tendsto (fun n => p.meanMatrix ^ n) Filter.atTop (nhds 0)
@@ -6653,6 +6653,14 @@ SparseSGD.Scaling.Helps.lem_speedup :
                   (u < 1 / 3 → ∀ᶠ (D : ℝ) in nhdsWithin 0 (Set.Ioi 0), 1 < SparseSGD.Scaling.Helps.speedupRatio D u)) ∧
     Filter.Tendsto (fun u => sSup ((fun D => SparseSGD.Scaling.Helps.speedupRatio D u) '' Set.Ioi 0))
       (nhdsWithin 0 (Set.Ioo 0 1)) (nhds 2)
+SparseSGD.Scaling.Helps.lem_stab_all (jury : SparseSGD.External.JuryStability) (p : SparseSGD.Params) (hb0 : 0 ≤ p.beta)
+  (hb1 : p.beta < 1) (hw : 0 < p.w) (hun : 0 ≤ p.noise) :
+  (2 * (1 + p.beta) ≤ p.w →
+      1 ≤ p.curvature ∧ p.curvature ≤ p.totalLoad ∧ 1 ≤ p.totalLoad ∧ 1 ≤ SparseSGD.Scaling.Helps.stepRadius p) ∧
+    (SparseSGD.Scaling.Helps.stepRadius p < 1 ↔ p.totalLoad < 1)
+SparseSGD.Scaling.Helps.lem_stab_all_large_w (p : SparseSGD.Params) (hb0 : 0 ≤ p.beta) (hb1 : p.beta < 1)
+  (hun : 0 ≤ p.noise) (hw : 2 * (1 + p.beta) ≤ p.w) :
+  1 ≤ p.curvature ∧ p.curvature ≤ p.totalLoad ∧ 1 ≤ p.totalLoad ∧ 1 ≤ SparseSGD.Scaling.Helps.stepRadius p
 SparseSGD.Scaling.Helps.lem_step_speed (p : SparseSGD.Params) (Delta : ℝ) (hb0 : 0 ≤ p.beta) (hb1 : p.beta < 1)
   (hw : 0 < p.w) (hun : 0 ≤ p.noise) (hDelta : p.w = p.eps ^ 2 * Delta) :
   (p.beta ≤ SparseSGD.Scaling.Helps.meanRadius p.beta p.w ^ 2 ∧
@@ -8994,8 +9002,9 @@ SparseSGD.window_chain_risk_comparison (margin : ℝ) (hm : 0 < margin) :
 SparseSGD.window_continuum_rate_bound (delta u : ℝ) (hd : 1 ≤ delta) (hu0 : 0 ≤ u) (hu1 : u < 1) :
   0 ≤ 1 - u - SparseSGD.continuumPerronRate delta u ∧ 1 - u - SparseSGD.continuumPerronRate delta u ≤ 1 / (4 * delta)
 
-$ /opt/homebrew/opt/python@3.14/bin/python3.14 scripts/coverage.py
-373 modules; 2864 authored theorem declarations.
-43 complete (including corrected statements) and 4 partial source entries; 0 pending; 1 v1-restricted (proved only for 1/2 <= beta where the live tex has beta in [0,1)); 2 v1 assumptions superseded in v2; 4 supporting entries (dropped from the frozen tex, Lean proofs kept). Source assumptions remain explicit.
+$ python3 scripts/coverage.py
+373 modules; 2866 authored theorem declarations.
+44 complete numbered results (including corrected statements) and 2 partial numbered results; 0 pending; 1 v1-restricted (proved only for 1/2 <= beta where the live tex has beta in [0,1)); 2 v1 assumptions superseded in v2; 4 supporting entries (dropped from the frozen tex, Lean proofs kept). Source assumptions remain explicit.
+3 remarks (discussion, not required): 1 fully proved, 2 recorded as not required (proved parts listed, the rest not formalized).
 
 Verified 373 imported modules and 29 frozen v1 source hashes and 10 frozen v2 source hashes (7 of them live appendix chunks).

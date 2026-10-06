@@ -4273,6 +4273,8 @@
       "stepCharPoly_noise_split",
       "stepRadius_lt_one_of_totalLoad_lt_one",
       "stepRadius_lt_one_iff",
+      "lem_stab_all_large_w",
+      "lem_stab_all",
       "perStepRate_pos_iff",
       "perStepRate_pos_iff_of_beta_pos"
     ]

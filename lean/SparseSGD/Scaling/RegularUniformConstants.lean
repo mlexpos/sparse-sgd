@@ -216,7 +216,7 @@ private theorem regular_energy_margin_bound (delta u phi : ℝ) (s : Moments)
   linarith [abs_nonneg s.C]
 
 /-- Uniform Lipschitz dependence of the flow on a compact positive delta interval.
-The error is uniform over all `t ≥ 0` and has the source corollary's load weights. -/
+The error is uniform over all `t ≥ 0` and has the source corollary's feedback and temperature weights. -/
 theorem continuumFlow_regular_uniform_rate (a b margin : ℝ) (ha : 0 < a)
     (hab : a ≤ b) (hm : 0 < margin) :
     ∃ C : ℝ, 0 ≤ C ∧ ∀ (delta u phi delta₀ u₀ phi₀ : ℝ) (s s₀ : Moments),

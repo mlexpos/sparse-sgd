@@ -5,11 +5,11 @@ import SparseSGD.Scaling.Helps.Transfer
 # Explicit step-spectrum cubic (v2 `lem:step_spectrum`)
 
 Formalizes `lem:step_spectrum` of `paper/appendix/momentum_helps.tex`.
-For `β = 1 - ε`, `w = ε² Δ`, noise load `u_n` and total load `u = u_n + u_c` with
+For `β = 1 - ε`, `w = ε² Δ`, noise feedback `u_n` and total feedback `u = u_n + u_c` with
 `u_c = ε²Δ/(2(2-ε))` (the curvature of `⟨1-ε, ε²Δ, u_n, a⟩`), the eigenvalues of the step map
 are `1 + ε μ` with `μ` a root of the explicit monic cubic
 `q(z) = z³ + (3 + ε b₂) z² + (2 + 4Δ + ε b₁) z + 2Δ(2-ε)(1-u)`.
-The coefficients `b₁, b₂` are `transferR1, transferR2` rewritten in terms of the total load `u`,
+The coefficients `b₁, b₂` are `transferR1, transferR2` rewritten in terms of the total feedback `u`,
 and satisfy `|b_i| ≤ 1 + (16/3)Δ + εΔ²` for `ε ≤ 1/2`.
 
 Complex-variable versions (`spectrumQ`) are used for the eigenvalue statements, and real-variable
@@ -26,12 +26,12 @@ open SparseSGD
 
 noncomputable section
 
-/-- The coefficient `b₁` of `lem:step_spectrum` (total-load form). -/
+/-- The coefficient `b₁` of `lem:step_spectrum` (total-feedback form). -/
 def spectrumB1 (eps Delta u : ℝ) : ℝ :=
   (-(2 - eps) - Delta * (12 * u - 4 + eps * (6 - 10 * u) + eps ^ 2 * (2 * u - 2))
     - 2 * eps * (1 - eps) * Delta ^ 2) / (2 - eps)
 
-/-- The coefficient `b₂` of `lem:step_spectrum` (total-load form). -/
+/-- The coefficient `b₂` of `lem:step_spectrum` (total-feedback form). -/
 def spectrumB2 (eps Delta u : ℝ) : ℝ :=
   (-(2 - eps) + Delta * (8 - eps * (8 + 4 * u) + eps ^ 2 * (2 + 2 * u))
     - 2 * eps ^ 2 * (1 - eps) * Delta ^ 2) / (2 - eps)
@@ -94,7 +94,7 @@ theorem spectrumQ0_eq_totalLoad (eps Delta un a : ℝ) (he : eps ≠ 2) :
 
 /-- v2 `lem:step_spectrum` (S2): for `ε ≠ 0`, `ε ≠ 2`, `z` is an eigenvalue of the step map of
 `⟨1-ε, ε²Δ, u_n, a⟩` (any additive part `a`) iff `z = 1 + ε μ` with `q(μ) = 0`,
-where `q` is built from the total load `u = u_n + u_c`. -/
+where `q` is built from the total feedback `u = u_n + u_c`. -/
 theorem mem_stepRoots_iff_spectrumQ (eps Delta un a u : ℝ) (he : eps ≠ 0) (he2 : eps ≠ 2)
     (hu : u = un + eps ^ 2 * Delta / (2 * (2 - eps))) (z : ℂ) :
     z ∈ stepRoots (⟨1 - eps, eps ^ 2 * Delta, un, a⟩ : Params) ↔

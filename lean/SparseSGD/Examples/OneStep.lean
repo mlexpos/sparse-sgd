@@ -6,7 +6,7 @@ namespace SparseSGD.Examples
 noncomputable section
 
 /-- A concrete autoformalization task: start with unit error and zero momentum,
-retention 3/4, curvature step 1/4, noise load 1/8 and additive load 1/16.
+retention 3/4, curvature step 1/4, noise feedback 1/8 and ambient temperature 1/16.
 The next risk is 75/128 and the covariance determinant is strictly positive. -/
 def sampleParams : Params := ⟨3/4, 1/4, 1/8, 1/16⟩
 def coldStart : Moments := ⟨1, 0, 0⟩

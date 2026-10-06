@@ -18,7 +18,7 @@ def boundedFluidRateConstant (rr Q Km L T P Gamma q a : ℝ) : ℝ :=
     2*boundedFluidScaleConstant rr Q Km L P*(q+14)*(1+a))
 
 /-- All factors in this square-root dimension bound are uniform once signal,
-load, horizon, stopped neighborhood and the step-size absorption are bounded. -/
+temperature, horizon, stopped neighborhood and the step-size absorption are bounded. -/
 theorem actual_fluid_radius_sqrt_dimension {d B : ℕ}
     (eta : ℝ) (p : unitInterval) (mu : Vec d) (Q Km L T P Gamma q a : ℝ) (N : ℕ)
     (hd : 2 ≤ d) (hB : 0 < B) (hp : 0 < (p : ℝ)) (heta : 0 ≤ eta)

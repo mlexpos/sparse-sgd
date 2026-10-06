@@ -59,7 +59,7 @@ theorem moment_fixedPoint_eq_equilibrium (P : SparseSGD.Params) (s : SparseSGD.M
   · simpa only [SparseSGD.Params.equilibrium, ← hR] using hV
   · simpa only [SparseSGD.Params.equilibrium, ← hR] using hC
 
-/-- The frozen logistic noise and additive loads do not involve momentum. -/
+/-- The frozen logistic noise and ambient temperatures do not involve momentum. -/
 theorem driftParams_loads {d B : ℕ} (eta beta : ℝ) (p : unitInterval) (mu theta : Vec d) :
     (driftParams (B := B) eta beta p mu theta).noise =
       eta * (coefDtheta p mu theta - coefA p mu theta ^ 2) / (2 * (B : ℝ) * coefA p mu theta) ∧
@@ -70,7 +70,7 @@ theorem driftParams_loads {d B : ℕ} (eta beta : ℝ) (p : unitInterval) (mu th
   rw [driftParams_explicit]
   exact ⟨rfl, rfl, rfl⟩
 
-/-- The exact floor as a function of a separately supplied curvature load. -/
+/-- The exact floor as a function of a separately supplied curvature feedback. -/
 def frozenLogisticFloor (d B : ℕ) (eta A Dtheta D0 curvatureLoad : ℝ) : ℝ :=
   (eta * (d - 1 : ℝ) * D0 / (2 * (B : ℝ) * A)) /
     (1 - (eta * (Dtheta - A ^ 2) / (2 * (B : ℝ) * A) + curvatureLoad))

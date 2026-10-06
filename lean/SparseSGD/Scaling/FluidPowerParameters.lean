@@ -62,7 +62,7 @@ theorem actual_fluid_sparse_limits
     ring
   exact ⟨hprob,hstepformal.congr' hstepEq.symm⟩
 
-/-- Exact equilibrium-load scale for a rounded power batch, including fixed
+/-- Exact equilibrium-temperature scale for a rounded power batch, including fixed
 integer batches at sigma=0. -/
 theorem actual_fluid_phi_ratio_tendsto
     (etaStar alpha b sigma : ℝ) (hb : 0 < b) (hs : 0 ≤ sigma) :
@@ -84,7 +84,7 @@ theorem actual_fluid_phi_ratio_tendsto
     simp [SparseSGD.Logistic.familyPhi, scaledLearningRate]
   exact hphi.congr' heq
 
-/-- If alpha is strictly above the noise threshold, the actual logistic load
+/-- If alpha is strictly above the noise threshold, the actual logistic temperature
 vanishes (with the realized rounded-batch prefactor). -/
 theorem actual_fluid_phi_tendsto_zero
     (etaStar alpha b sigma : ℝ) (heta : 0 < etaStar) (hb : 0 < b) (hs : 0 ≤ sigma)
@@ -115,7 +115,7 @@ theorem actual_fluid_phi_tendsto_zero
     rw [div_mul_cancel₀ _ (Real.rpow_pos_of_pos hdR _).ne']
   simpa [q,s] using (hq.mul hs0).congr' heq
 
-/-- At the critical load exponent, actual logistic Phi converges to the
+/-- At the critical temperature exponent, actual logistic Phi converges to the
 realized batch prefactor. -/
 theorem actual_fluid_phi_tendsto_critical
     (etaStar alpha b sigma : ℝ) (heta : 0 < etaStar) (hb : 0 < b) (hs : 0 ≤ sigma)
@@ -239,7 +239,7 @@ theorem actual_fluid_beta_eventually_valid
   exact ⟨by linarith, by linarith⟩
 
 /-- Bundled actual-family endpoint for the fluid theorem: sparse masks and
-learning increments vanish, while logistic load and raw Delta take their
+learning increments vanish, while logistic temperature and raw Delta take their
 strict/critical power-law limits with the realized integer-batch constant. -/
 theorem actual_fluid_power_parameter_limits
     (pStar kappa b sigma epsStar gamma etaStar alpha : ℝ)

@@ -30,7 +30,7 @@ private theorem regular_mulVec_hasDerivAt
   · simp only [Matrix.mulVec, dotProduct, Fin.sum_univ_three, Pi.add_apply]
     ring
 
-/-- The three-dimensional semigroup is the actual zero-additive-load flow. -/
+/-- The three-dimensional semigroup is the actual zero-ambient-temperature flow. -/
 theorem regularSemigroup_flow (delta u : ℝ) (s : Moments) {t : ℝ} (ht : 0 ≤ t) :
     regularMomentVector (continuumFlow delta u 0 s t) =
       (regularSemigroup delta u t).mulVec (regularMomentVector s) := by

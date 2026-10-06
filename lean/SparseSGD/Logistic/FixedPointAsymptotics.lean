@@ -52,7 +52,7 @@ theorem tame_signal_fixedPoint {d : ℕ} (p : unitInterval) (mu theta : Vec d)
   dsimp [e] at hh
   nlinarith
 
-/-- The bulk fixed-point expansion retains the total-load error, including a
+/-- The bulk fixed-point expansion retains the total-feedback error, including a
 possibly signed noise coefficient. -/
 theorem tame_bulk_fixedPoint {d : ℕ} (p : unitInterval) (mu theta : Vec d)
     (Phi R u : ℝ) (hp : 0 < (p : ℝ)) (ht : tameError p mu theta ≤ 1/12)
@@ -102,7 +102,7 @@ theorem actual_tame_fixedPoint_signal {d B : ℕ}
   tame_signal_fixedPoint p mu s.1 hp ht
     (actual_drift_fixedPoint_signal H hB eta beta p mu s hr heta hbeta hsignal hmomentum).2
 
-/-- Source additive load before division by curvature. -/
+/-- Source ambient temperature before division by curvature. -/
 def logisticPhi (d B : ℕ) (eta : ℝ) : ℝ := eta*((d : ℝ)-1)/(2*(B : ℝ))
 
 theorem logisticPhi_nonneg (d B : ℕ) (eta : ℝ) (hd : 1 ≤ d) (heta : 0 ≤ eta) :

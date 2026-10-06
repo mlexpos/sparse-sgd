@@ -913,11 +913,80 @@
     "beta_range": "Live tex: (i) rank at most one for every beta (rank one if beta > 0) and the matched form for beta > 0; (ii) for beta in [0,1). The noise-free identities and (ii) hold in Lean for beta in [0,1); the matched-oscillator form of (i) is proved only for 1/2 <= beta (v1_restricted)."
   },
   {
-    "label": "rem:retention-cap",
+    "label": "lem:stab-all",
+    "kind": "lemma",
+    "declarations": [
+      "SparseSGD.Scaling.Helps.lem_stab_all_large_w",
+      "SparseSGD.Scaling.Helps.one_le_stepRadius_of_one_le_totalLoad",
+      "SparseSGD.Scaling.Helps.lem_stab_all",
+      "SparseSGD.Scaling.Helps.stepRadius_lt_one_iff",
+      "SparseSGD.Scaling.Helps.stepRadius_lt_one_of_totalLoad_lt_one"
+    ],
+    "status": "complete",
+    "subclaims": [
+      {
+        "id": "large_w_not_stable",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.lem_stab_all_large_w",
+          "SparseSGD.Scaling.Helps.one_le_stepRadius_of_one_le_totalLoad"
+        ],
+        "note": "If w >= 2(1+beta) then H >= H_c >= 1 and rho(L) >= 1, so L is not exponentially stable (0 <= beta < 1, u_n >= 0)."
+      },
+      {
+        "id": "iff_every_w",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.lem_stab_all",
+          "SparseSGD.Scaling.Helps.stepRadius_lt_one_iff",
+          "SparseSGD.Scaling.Helps.stepRadius_lt_one_of_totalLoad_lt_one"
+        ],
+        "note": "For every w > 0 (0 <= beta < 1, u_n >= 0): rho(L) < 1 iff H < 1. Only-if direction: one_le_stepRadius_of_one_le_totalLoad; if direction: the kick-response series argument of Helps/Stability, with the explicit Jury hypothesis."
+      }
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.StepMatrix",
+      "SparseSGD.Scaling.Helps.Stability"
+    ],
+    "remaining": "",
+    "title": "Stability of the linear part for every curvature",
+    "source": "v2/chunks/02_renewal.tex",
+    "tex_labels": "lem:stab-all, alias rem:stab-large-w (promoted from a remark on 2026-10-05; used by lem:helps-vocab (i) and prop:helps-critical)",
+    "beta_range": "beta in [0,1), lambda = w > 0, H_n >= 0. rho(L) = stepRadius (L is the linear part of (L1) on the three second-moment coordinates); the 2x2 Jury hypothesis External.JuryStability is explicit in the if direction."
+  },
+  {
+    "label": "rem:retention-cold",
     "kind": "remark",
+    "declarations": [
+      "SparseSGD.Scaling.Helps.meanRadius_sq_le_stepRadius",
+      "SparseSGD.Scaling.Helps.beta_le_meanRadius_sq"
+    ],
+    "status": "remark_not_required",
+    "subclaims": [
+      {
+        "id": "limsup_cold_start",
+        "status": "remark_not_required",
+        "declarations": [
+          "SparseSGD.Scaling.Helps.meanRadius_sq_le_stepRadius",
+          "SparseSGD.Scaling.Helps.beta_le_meanRadius_sq"
+        ],
+        "note": "Remark: discussion, formalization not required (no numbered result relies on it). If phi = 0 and Sigma_0 = diag(R_0, 0), R_0 > 0, then limsup_k R_k^(1/k) >= rho(F)^2 >= beta. The limsup statement (Cauchy-Hadamard on the generating function of x_k = e_1^T F^k e_1, R_k >= a_k) is not formalized; the declarations listed are the proved ingredient rho(F)^2 >= beta and rho(F)^2 <= rho(L)."
+      }
+    ],
+    "component_modules": [
+      "SparseSGD.Scaling.Helps.StepSpeed"
+    ],
+    "remaining": "",
+    "title": "The retention cap from a cold start",
+    "source": "v2/chunks/07_cor_lift.tex",
+    "tex_labels": "rem:retention-cold (part (b) of the former rem:retention-cap)"
+  },
+  {
+    "label": "lem:retention-cap",
+    "kind": "lemma",
     "title": "The retention cap is exact",
     "source": "v2/chunks/07_cor_lift.tex",
-    "status": "partial",
+    "status": "complete",
     "subclaims": [
       {
         "id": "a_radius_bounds",
@@ -940,12 +1009,6 @@
           "SparseSGD.Scaling.Helps.perStepRate_le_neg_log_beta"
         ],
         "note": "-log rho(L) <= -log beta for 0 < beta < 1; at beta = 0 the bound is vacuous, as the tex says (Lean's Real.log 0 = 0 cannot express +infinity)."
-      },
-      {
-        "id": "b_limsup",
-        "status": "pending",
-        "declarations": [],
-        "remaining": "rem:retention-cap (b), limsup_k R_k^(1/k) >= rho(F)^2 >= beta from the cold start with phi = 0 (Cauchy-Hadamard on the generating function of x_k = e_1^T F^k e_1 and R_k >= a_k), is not formalized."
       }
     ],
     "declarations": [
@@ -962,8 +1025,9 @@
       "SparseSGD.Scaling.Helps.ExactRate",
       "SparseSGD.Scaling.Helps.StepSpeed"
     ],
-    "remaining": "rem:retention-cap (b), limsup_k R_k^(1/k) >= rho(F)^2 >= beta from the cold start with phi = 0 (Cauchy-Hadamard on the generating function of x_k = e_1^T F^k e_1 and R_k >= a_k), is not formalized.",
-    "beta_range": "Live tex: (a) for beta in [0,1) (draft block beta-range-retention); the cap -log beta is vacuous at beta = 0. Proved for beta in [0,1) in Scaling/Helps/StepSpeed."
+    "remaining": "",
+    "tex_labels": "lem:retention-cap, alias rem:retention-cap (promoted from a remark on 2026-10-05)",
+    "beta_range": "Live tex: beta in [0,1) (draft block beta-range-retention); the cap -log beta is vacuous at beta = 0. Proved for beta in [0,1) in Scaling/Helps/StepSpeed. Promoted from rem:retention-cap (a) on 2026-10-05 (old label kept as an alias); part (b) is now the remark rem:retention-cold."
   },
   {
     "label": "cor:curv",
@@ -1684,7 +1748,7 @@
           "SparseSGD.Logistic.equilibriumBulk_integerBatch_comparable",
           "SparseSGD.Logistic.equilibriumBulk_fixedBatch_comparable"
         ],
-        "correction": "CORRECTIONS.md: two-sided equilibrium bulk comparability is uniform for an eventual bounded load Phi\u2264P, not unrestricted loads."
+        "correction": "CORRECTIONS.md: two-sided equilibrium bulk comparability is uniform for an eventual bounded temperature Phi\u2264P, not unrestricted temperatures."
       },
       {
         "id": "jacobian",
@@ -1897,7 +1961,7 @@
           "SparseSGD.Scaling.ls_curvature_cells_envelope_rate",
           "SparseSGD.Scaling.actual_window_rate_ratio"
         ],
-        "correction": "Actual integer-batch families are covered under explicit stability, load, and Nyquist margins; all-time errors retain comparison initial size and additive forcing. The table rate is the curvature-renormalized limit per retention time, with realized batch constants."
+        "correction": "Actual integer-batch families are covered under explicit stability, feedback, and Nyquist margins; all-time errors retain comparison initial size and additive forcing. The table rate is the curvature-renormalized limit per retention time, with realized batch constants."
       },
       {
         "id": "cell_8",
@@ -1909,7 +1973,7 @@
           "SparseSGD.Scaling.ls_curvature_cells_envelope_rate",
           "SparseSGD.Scaling.actual_window_rate_ratio"
         ],
-        "correction": "Actual integer-batch families are covered under explicit stability, load, and Nyquist margins; all-time errors retain comparison initial size and additive forcing. The table rate is the curvature-renormalized limit per retention time, with realized batch constants."
+        "correction": "Actual integer-batch families are covered under explicit stability, feedback, and Nyquist margins; all-time errors retain comparison initial size and additive forcing. The table rate is the curvature-renormalized limit per retention time, with realized batch constants."
       },
       {
         "id": "cell_9",
@@ -2536,7 +2600,7 @@
         "declarations": [
           "SparseSGD.Scaling.Helps.mem_stepRoots_iff_spectrumQ"
         ],
-        "note": "The eigenvalues of T at beta = 1 - eps, w = eps^2 Delta are 1 + eps z over the roots z of q (eps != 0, 2; any additive load)."
+        "note": "The eigenvalues of T at beta = 1 - eps, w = eps^2 Delta are 1 + eps z over the roots z of q (eps != 0, 2; any ambient temperature)."
       },
       {
         "id": "coefficient_bounds",
@@ -2811,7 +2875,7 @@
     "remaining": "",
     "lean_status": "partial",
     "lean_remaining": "The unique fixed point Sigma_infty of the affine map, the bound limsup |R_k-R_infty|^(1/k) <= e^(-Lambda) (Gelfand) and its equality case for Sigma_0-Sigma_infty positive definite are not formalized in the Helps modules.",
-    "supporting_note": "Statement dropped from the tex in the 2026-10-05 merge; the Lean proofs are kept as supporting results. Nearest surviving tex: the definition Lambda := -ln rho(T) at the opening of app:rates (registered as the definition entry app:rates); the stability equivalence u < 1 <=> rho(T) < 1 (positive_rate) is what lem:helps-vocab (i) uses through rem:stab-large-w (live chunk 02_renewal, not registered). The fixed point / limsup clause (Lean-pending) has no counterpart in the merged tex; its nearest relative is rem:retention-cap (b), registered pending."
+    "supporting_note": "Statement dropped from the tex in the 2026-10-05 merge; the Lean proofs are kept as supporting results. Nearest surviving tex: the definition Lambda := -ln rho(T) at the opening of app:rates (registered as the definition entry app:rates); the stability equivalence u < 1 <=> rho(T) < 1 (positive_rate) is what lem:helps-vocab (i) uses through lem:stab-all (alias rem:stab-large-w; live chunk 02_renewal, registered). The fixed point / limsup clause (Lean-pending) has no counterpart in the merged tex; its nearest relative is the remark rem:retention-cold (the limsup statement), registered as a remark not required."
   },
   {
     "label": "lem:helps-roots",
@@ -3138,8 +3202,8 @@
     "tex_labels": "cor:sample_cost, alias cor:samplecost (KE's statement since the 2026-10-05 merge)"
   },
   {
-    "label": "rem:sgd_cost",
-    "kind": "remark",
+    "label": "lem:sgd-cost",
+    "kind": "lemma",
     "title": "SGD's sample cost (v2 momentum-helps)",
     "source": "v2/momentum_helps.tex",
     "status": "complete",
@@ -3209,7 +3273,8 @@
       "SparseSGD.Scaling.Helps.SampleCostAbove",
       "SparseSGD.Scaling.Helps.SampleCost"
     ],
-    "remaining": ""
+    "remaining": "",
+    "tex_labels": "lem:sgd-cost, alias rem:sgd_cost (promoted from a remark on 2026-10-05)"
   },
   {
     "label": "rem:crit_single",
@@ -3293,8 +3358,8 @@
       {
         "id": "eps_limit_of_ratio",
         "status": "complete_corrected",
-        "correction": "CORRECTIONS.md, V2 merged appendix (2026-10-05), MF-1: 'let eps -> 0 with (Delta,u) fixed' is empty at u = 0 (the total load is at least u_c = eps^2 Delta/(2(2-eps)) > 0); read it with the noise load u_n = u fixed, or with the total load held at u > 0.",
-        "note": "The lead-in and the limit clause of prop:fixed_floor. fixed_floor_limit_noise: at fixed Delta > 0 and noise load u_n in [0,1) (u_n = 0 included), Lambda(<1-eps, eps^2 Delta, u_n, phi>)/Lambda(<0, eps Delta, u_n, phi>) -> Gamma(Delta, u_n) = r_c/(2 Delta (1-u_n)) as eps -> 0+. fixed_floor_limit_total: the same limit with the momentum chain's total load held at u in (0,1) (u_n(eps) = u - u_c, fixedLoadNoise). Both from cor_helps_speedup (|ratio - Gamma| <= C eps^(1/3) on compacts).",
+        "correction": "CORRECTIONS.md, V2 merged appendix (2026-10-05), MF-1: 'let eps -> 0 with (Delta,u) fixed' is empty at u = 0 (the total feedback is at least u_c = eps^2 Delta/(2(2-eps)) > 0); read it with the noise feedback u_n = u fixed, or with the total feedback held at u > 0.",
+        "note": "The lead-in and the limit clause of prop:fixed_floor. fixed_floor_limit_noise: at fixed Delta > 0 and noise feedback u_n in [0,1) (u_n = 0 included), Lambda(<1-eps, eps^2 Delta, u_n, phi>)/Lambda(<0, eps Delta, u_n, phi>) -> Gamma(Delta, u_n) = r_c/(2 Delta (1-u_n)) as eps -> 0+. fixed_floor_limit_total: the same limit with the momentum chain's total feedback held at u in (0,1) (u_n(eps) = u - u_c, fixedLoadNoise). Both from cor_helps_speedup (|ratio - Gamma| <= C eps^(1/3) on compacts).",
         "declarations": [
           "SparseSGD.Scaling.Helps.momentumParams",
           "SparseSGD.Scaling.Helps.sgdParams",
@@ -3336,7 +3401,7 @@
       {
         "id": "exact_counterpart",
         "status": "complete_corrected",
-        "correction": "CORRECTIONS.md, V2 merged appendix (2026-10-05), MF-2: the exact counterpart needs the SGD load u = u_n + eta p/2 < 1.",
+        "correction": "CORRECTIONS.md, V2 merged appendix (2026-10-05), MF-2: the exact counterpart needs the SGD total feedback u = u_n + eta p/2 < 1.",
         "note": "Paragraph after the proof: for beta = 1 - eps in [0,1), w = eps^2 Delta > 0, u_n >= 0, 4 eps Delta < 1 and u = u_n + eps Delta/2 < 1, momentum's rate over SGD's at the same learning rate is at most 2/((1-u)(1-4 eps Delta)), with no limit taken (eps Delta = eta p).",
         "declarations": [
           "SparseSGD.Scaling.Helps.fixed_floor_exact_counterpart"
@@ -3520,7 +3585,7 @@
     "kind": "remark",
     "title": "A decaying learning rate (v2 momentum-helps)",
     "source": "v2/momentum_helps.tex",
-    "status": "partial",
+    "status": "remark_not_required",
     "subclaims": [
       {
         "id": "chung_lemma",
@@ -3550,9 +3615,9 @@
       },
       {
         "id": "statistical_interpretation",
-        "status": "pending",
+        "status": "remark_not_required",
         "declarations": [],
-        "remaining": "rem:schedule, last sentence: varsigma^2 d/N is to leading order the risk of least squares on the N active samples, the Cramer-Rao bound for Gaussian label noise and asymptotically the minimax risk. This imported statistics claim (no citation in the tex) is not formalized. The numerical check R_k N_k/(varsigma^2 d) = 1.0028 is a numerical remark and is not registered."
+        "note": "Remark: discussion, formalization not required (rem:schedule feeds no numbered result). rem:schedule, last sentence: varsigma^2 d/N is to leading order the risk of least squares on the N active samples, the Cramer-Rao bound for Gaussian label noise and asymptotically the minimax risk. This imported statistics claim (no citation in the tex) is not formalized. The numerical check R_k N_k/(varsigma^2 d) = 1.0028 is a numerical remark and is not registered."
       }
     ],
     "declarations": [
@@ -3565,7 +3630,7 @@
     "component_modules": [
       "SparseSGD.Scaling.Helps.Schedule"
     ],
-    "remaining": "rem:schedule, last sentence: varsigma^2 d/N is to leading order the risk of least squares on the N active samples, the Cramer-Rao bound for Gaussian label noise and asymptotically the minimax risk. This imported statistics claim (no citation in the tex) is not formalized. The numerical check R_k N_k/(varsigma^2 d) = 1.0028 is a numerical remark and is not registered."
+    "remaining": ""
   },
   {
     "label": "lem:vocab_rows",

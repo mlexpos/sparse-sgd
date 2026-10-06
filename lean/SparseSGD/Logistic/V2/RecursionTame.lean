@@ -34,7 +34,7 @@ noncomputable section
 set_option maxHeartbeats 1800000
 
 /-- One-step map of the tame drift recursion (v2 `cor:recursion`, tame coefficients of `lem:B`:
-`a = alpha(y)`, `b = -1`, `d0 = 1`), with the noise load `kappa = 2 Phi / delta`. -/
+`a = alpha(y)`, `b = -1`, `d0 = 1`), with the temperature `kappa = 2 Phi / delta`. -/
 def tameDriftMap (r h delta Phi nu rho : ℝ) (y : DynamicState) : DynamicState :=
   y + h • dynamicIncrement r
     (dynamicIncrementData y h delta (2 * Phi / delta) (dynamicAlpha r y) (-1) 1 nu rho)

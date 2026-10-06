@@ -6,7 +6,7 @@ import SparseSGD.Scaling.Helps.StepMatrix
 # Per-step rate as `ε → 0` (v2 `lem:helps-transfer`)
 
 Formalizes `lem:helps-transfer` of `paper/appendix/momentum_helps.tex`:
-for `β = 1 - ε`, `w = ε² Δ` and noise load `u_n`, the per-step rate `Λ = perStepRate p`
+for `β = 1 - ε`, `w = ε² Δ` and noise feedback `u_n`, the per-step rate `Λ = perStepRate p`
 satisfies `Λ = ε r_c(Δ, u_n) + O(ε^{4/3})` and `Λ = ε r_c(Δ, u_n + u_c) + O(ε^{4/3})`,
 uniformly on `{ε ≤ ε₀, Δ ≤ D, u_n ≤ cΔ}`.
 
@@ -58,7 +58,7 @@ def transferQ2 (eps Delta un : ℝ) : ℝ := 3 + eps * transferR2 eps Delta un
 def transferQ1 (eps Delta un : ℝ) : ℝ := 2 + 4 * Delta + eps * transferR1 eps Delta un
 def transferQ0 (eps Delta un : ℝ) : ℝ := 4 * Delta * (1 - un) + eps * transferR0 eps Delta un
 
-/-- The step parameters `β = 1 - ε`, `w = ε² Δ`, noise load `u_n`, no additive noise. -/
+/-- The step parameters `β = 1 - ε`, `w = ε² Δ`, noise feedback `u_n`, no additive noise. -/
 abbrev transferParams (eps Delta un : ℝ) : Params := ⟨1 - eps, eps ^ 2 * Delta, un, 0⟩
 
 /-- `lem:helps-transfer`: `stepCharPoly (1-ε) (ε²Δ) u_n (1 + ε μ) = ε³ · Q_ε(μ)`. -/
@@ -240,7 +240,7 @@ theorem sq_le_rpow_four_thirds {eps : ℝ} (he : 0 < eps) (he1 : eps ≤ 1) :
   rw [h2, pow_two]
   exact mul_le_mul_of_nonneg_left h3 he.le
 
-/-- (Tr2, second bound) The total load `u = u_n + u_c` changes the Perron rate by at most
+/-- (Tr2, second bound) The total feedback `u = u_n + u_c` changes the Perron rate by at most
 `(4 D² ε)^(1/3)` for `Δ ≤ D`, `ε (1+D) ≤ 1` (`lem:helps-transfer`, Step 5). -/
 theorem transfer_total_load_close {D Lam eps Delta un C0 : ℝ} (hD : 0 < D) (he : 0 < eps)
     (heD' : eps * (1 + D) ≤ 1) (hΔ0 : 0 < Delta) (hΔD : Delta ≤ D)

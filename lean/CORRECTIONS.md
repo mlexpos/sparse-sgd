@@ -1,5 +1,10 @@
 # Statement audit
 
+> **Notation (2026-10-05).** Entries here record corrections in the manuscript notation of
+> their date: `Δ` (now the stiffness `ω²`), `w` (now `λ`), `u`, `u_n`, `u_c`, "load" (now the
+> feedback `H`, `H_n`, `H_c`), "additive load" (now the ambient temperature `φ`), and the LR
+> curvature factor `α` (now `ϱ`). See `NOTATION.md`.
+
 No corrected claim is considered proved until its declaration is recorded here.
 
 ## Obligations identified during planning

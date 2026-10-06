@@ -11,8 +11,8 @@ paragraph after it, and the critical-damping / small-`Δ` paragraph.  Notation:
 `Γ(Δ,u) = speedupRatio Δ u`, `momentumParams ε Δ u_n φ = ⟨1-ε, ε²Δ, u_n, φ⟩`,
 `sgdParams ε Δ u_n φ = ⟨0, εΔ, u_n, φ⟩`.
 
-* (P1) `fixed_floor_limit_noise`: the limit at fixed noise load `u_n`.
-* (P2) `fixed_floor_limit_total`: the limit with the momentum chain's *total* load held at `u`
+* (P1) `fixed_floor_limit_noise`: the limit at fixed noise feedback `u_n`.
+* (P2) `fixed_floor_limit_total`: the limit with the momentum chain's *total* feedback held at `u`
   (`fixedLoadNoise`, `momentumParams_totalLoad_fixedLoad`).
 * (P3) `speedupRatio_le_two`, `speedupRatio_eq_two_iff` (part (i)).
 * (P4) `speedupRatio_quarter_all` (part (ii), including `u = 0`).
@@ -20,11 +20,11 @@ paragraph after it, and the critical-damping / small-`Δ` paragraph.  Notation:
 * (P6) `speedup_expansion_fixed_floor`, `momentum_helps_small_Delta`, `momentum_hurts_of_ge_third`.
 * (P7) `critical_damping_vs_double_lr`.
 
-**Tex correction (prop:fixed_floor).**  For `ε > 0` the total load of the momentum chain satisfies
+**Tex correction (prop:fixed_floor).**  For `ε > 0` the total feedback of the momentum chain satisfies
 `u ≥ u_c = ε²Δ/(2(2-ε)) > 0`, so no chain has "`u = 0` fixed".  Proposed fix: replace
-"let `ε → 0` with `(Δ,u)` fixed" by "let `ε → 0` with `Δ` fixed and the noise load `u_n = u`
-fixed (equivalently, the total load `→ u`)".  (P1) is that form and covers `u_n = 0`; (P2) is the
-version with the total load exactly `u`.
+"let `ε → 0` with `(Δ,u)` fixed" by "let `ε → 0` with `Δ` fixed and the noise feedback `u_n = u`
+fixed (equivalently, the total feedback `→ u`)".  (P1) is that form and covers `u_n = 0`; (P2) is the
+version with the total feedback exactly `u`.
 -/
 
 namespace SparseSGD.Scaling.Helps
@@ -55,9 +55,9 @@ theorem tendsto_const_mul_rpow_third_nhdsGT (C : ℝ) :
   have := (h0.const_mul C).mono_left (nhdsWithin_le_nhds (s := Ioi (0 : ℝ)))
   simpa using this
 
-/-! ### (P1) the limit at fixed noise load -/
+/-! ### (P1) the limit at fixed noise feedback -/
 
-/-- (P1) `v2 prop:fixed_floor` (limit clause), fixed noise load: for `Δ > 0`, `u_n ∈ [0,1)`,
+/-- (P1) `v2 prop:fixed_floor` (limit clause), fixed noise feedback: for `Δ > 0`, `u_n ∈ [0,1)`,
 `φ ≥ 0`, the ratio of the momentum rate `Λ(⟨1-ε, ε²Δ, u_n, φ⟩)` to the SGD rate
 `Λ(⟨0, εΔ, u_n, φ⟩)` tends to `Γ(Δ,u_n) = r_c(Δ,u_n)/(2Δ(1-u_n))` as `ε → 0+`.
 This includes `u_n = 0`.  (Tex correction recorded in the module docstring.) -/
@@ -74,13 +74,13 @@ theorem fixed_floor_limit_noise {Delta un phi : ℝ} (hD : 0 < Delta) (hu0 : 0 �
   filter_upwards [Ioc_mem_nhdsGT h0] with e he
   exact (hC e he (Delta, un) (Set.mem_singleton _) phi hphi).2.2.1
 
-/-! ### (P2) the limit at fixed total load -/
+/-! ### (P2) the limit at fixed total feedback -/
 
-/-- The noise load for which the momentum chain `⟨1-ε, ε²Δ, ·, φ⟩` has total load exactly `u`:
-`u_n(ε) = u - ε²Δ/(2(2-ε))` (the curvature load is `u_c = ε²Δ/(2(2-ε))`). -/
+/-- The noise feedback for which the momentum chain `⟨1-ε, ε²Δ, ·, φ⟩` has total feedback exactly `u`:
+`u_n(ε) = u - ε²Δ/(2(2-ε))` (the curvature feedback is `u_c = ε²Δ/(2(2-ε))`). -/
 def fixedLoadNoise (eps Delta u : ℝ) : ℝ := u - eps ^ 2 * Delta / (2 * (2 - eps))
 
-/-- The total load of the momentum chain with noise load `fixedLoadNoise ε Δ u` is `u`. -/
+/-- The total feedback of the momentum chain with noise feedback `fixedLoadNoise ε Δ u` is `u`. -/
 theorem momentumParams_totalLoad_fixedLoad (eps Delta u phi : ℝ) :
     (momentumParams eps Delta (fixedLoadNoise eps Delta u) phi).totalLoad = u := by
   simp only [Params.totalLoad, Params.curvature, momentumParams, fixedLoadNoise]
@@ -100,7 +100,7 @@ theorem tendsto_fixedLoadNoise (Delta u : ℝ) :
   exact h.mono_left nhdsWithin_le_nhds
 
 /-- (P2) `v2 prop:fixed_floor` (limit clause), KE's `u` fixed: for `Δ > 0`, `u ∈ (0,1)` put
-`u_n(ε) = u - ε²Δ/(2(2-ε))` so that the momentum chain's total load is `u`
+`u_n(ε) = u - ε²Δ/(2(2-ε))` so that the momentum chain's total feedback is `u`
 (`momentumParams_totalLoad_fixedLoad`).  Then the ratio of the momentum rate to the SGD rate
 `Λ(⟨0, εΔ, u_n(ε), φ⟩)` tends to `Γ(Δ,u)` as `ε → 0+`. -/
 theorem fixed_floor_limit_total {Delta u phi : ℝ} (hD : 0 < Delta) (hu0 : 0 < u) (hu1 : u < 1)
@@ -220,7 +220,7 @@ theorem speedupRatio_quarter_all {u : ℝ} (hu0 : 0 ≤ u) (hu1 : u < 1) :
 
 /-- (P5) The exact counterpart of part (i), `v2 prop:fixed_floor` (paragraph after the proof,
 from `lem:step_speed (ii)` and `lem:helps-sgd`).  For `β = 1-ε ∈ [0,1)`, `w = ε²Δ > 0`,
-`u_n ≥ 0`, `4εΔ < 1` and SGD load `u = u_n + εΔ/2 < 1`, the ratio of the momentum rate to that of
+`u_n ≥ 0`, `4εΔ < 1` and SGD total feedback `u = u_n + εΔ/2 < 1`, the ratio of the momentum rate to that of
 the SGD chain `⟨0, εΔ, u_n, φ⟩` is at most `2/((1-u)(1-4εΔ))`, with no limit taken. -/
 theorem fixed_floor_exact_counterpart {eps Delta un phi : ℝ} (he0 : 0 < eps) (he1 : eps ≤ 1)
     (hD : 0 < Delta) (hun : 0 ≤ un) (h4 : 4 * eps * Delta < 1) (hu : un + eps * Delta / 2 < 1) :

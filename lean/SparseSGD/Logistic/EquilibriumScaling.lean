@@ -47,7 +47,7 @@ theorem familyPhi_integerBatch_ratio (eta alpha sigma scale : ℝ)
   familyPhi_ratio_tendsto eta alpha sigma scale _ hs
     (SparseSGD.Scaling.integerBatch_pos scale sigma) (integerBatch_power_ratio scale sigma hs hsigma)
 
-/-- Corrected source D(v): bounded loads supply a uniform positive comparison
+/-- Corrected source D(v): bounded temperatures supply a uniform positive comparison
 constant, even when the signal norm itself varies with dimension. -/
 theorem equilibriumBulk_family_comparable (eta alpha sigma scale P : ℝ)
     (B : ℕ → ℕ) (r : ℕ → ℝ) (heta : 0 < eta) (hs : 0 < scale)

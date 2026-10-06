@@ -6,7 +6,7 @@ open Filter
 set_option maxHeartbeats 2000000
 
 /-- Cell-2 actual mean-path containment for dimension-indexed families on the
-source min clock. Actual rounded-batch loads may converge to the fixed load. -/
+source min clock. Actual rounded-batch temperatures may converge to the fixed temperature. -/
 theorem matched_slow_eventually_bounded (r0 Phi M T : ℝ)
     (hPhi : 0≤Phi) (hM : 2≤M) (hT : 0≤T)
     (v : ℝ→ℝ×ℝ)

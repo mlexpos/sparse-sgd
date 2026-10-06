@@ -144,7 +144,7 @@ theorem lsNoise_power_ratio_tendsto (pStar kappa etaStar alpha bStar sigma : ℝ
     exact lsNoise_power_ratio_eq pStar kappa etaStar alpha bStar sigma d hd heta.ne' hb.ne'
   simpa using h.congr' hEq.symm
 
-/-- Additive load, including the zero-label-noise case. -/
+/-- Ambient temperature, including the zero-label-noise case. -/
 theorem lsAdditive_power_ratio_eq (etaStar alpha bStar sigma variance : ℝ)
     (d : ℕ) (hd : 0 < d) (heta : etaStar ≠ 0) (hb : bStar ≠ 0) :
     lsAdditiveLoad etaStar alpha bStar sigma variance d /

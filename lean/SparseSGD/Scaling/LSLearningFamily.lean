@@ -78,7 +78,7 @@ theorem ls_learning_family_uniform
   exact learning_chain_uniform_convergence P Delta R u (variance*u) jury hR hu0 hu1
     (mul_nonneg hvar hu0) hvalid hDelta hnu hphi
 
-/-- Actual fixed-batch load limits, using the realized integer batch. -/
+/-- Actual fixed-batch feedback and temperature limits, using the realized integer batch. -/
 theorem ls_fixed_batch_load_limits
     (pStar kappa etaStar alpha bStar variance u : ℝ) (hk : 0 ≤ kappa) (heta : 0 < etaStar)
     (hcell : (1-alpha<0 ∧ u=0) ∨ (1-alpha=0 ∧ u=etaStar/(2*(fixedRealizedBatch bStar : ℝ)))) :

@@ -224,7 +224,7 @@ theorem Params.risk_comparison_bounded (s : Moments) (hs : s.psd)
     exact (abs_nonneg _).trans h
   · exact p.comparison_quadrature_bound hb0 hb1 hw0 hw1 jury s hs hu0 hu1 hp
 
-/-- A constant uniform over every bounded delta interval and fixed load margin. -/
+/-- A constant uniform over every bounded delta interval and fixed feedback margin. -/
 theorem Params.risk_comparison_bounded_margin (s : Moments) (hs : s.psd)
     (hu0 : 0 ≤ p.renormNoise) (hp : 0 ≤ p.renormAdditive)
     (D0 margin : ℝ) (hm : 0 < margin) (hu : p.renormNoise ≤ 1-margin)

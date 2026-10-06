@@ -111,7 +111,7 @@ theorem slowField_divergence_neg (r Phi theta R : ℝ) (hR : 0 ≤ R) :
   convert h using 1
   ring
 
-/-- At a nonnegative-load equilibrium the logarithmic curvature is small. -/
+/-- At a nonnegative-temperature equilibrium the logarithmic curvature is small. -/
 theorem equilibrium_log_alpha_bounds (r Phi theta R : ℝ) (hr : 0 < r)
     (hPhi : 0 ≤ Phi) (htheta : 0 < theta)
     (hfield : slowField r Phi theta R = (0, 0)) :
@@ -180,7 +180,7 @@ theorem equilibrium_log_alpha_bulk_error (r Phi theta R : ℝ) (hr : 0 < r)
       nlinarith [hL.1, hL.2]
 
 
-/-- Bulk load differs from its input by at most a quadratic term. -/
+/-- Bulk temperature differs from its input by at most a quadratic term. -/
 theorem equilibrium_bulk_load_error (r Phi theta R : ℝ) (hr : 0 < r)
     (hPhi : 0 ≤ Phi) (htheta : 0 < theta)
     (hfield : slowField r Phi theta R = (0, 0)) :
@@ -202,7 +202,7 @@ theorem equilibrium_bulk_load_error (r Phi theta R : ℝ) (hr : 0 < r)
   have hl := mul_le_mul_of_nonneg_left hL.2 hPhi
   nlinarith
 
-/-- Equivalent expansion in terms of the input load, with a simple remainder constant. -/
+/-- Equivalent expansion in terms of the input temperature, with a simple remainder constant. -/
 theorem equilibrium_log_alpha_load_error (r Phi theta R : ℝ) (hr : 0 < r)
     (hPhi : 0 ≤ Phi) (hPhi1 : Phi ≤ 1) (htheta : 0 < theta)
     (hfield : slowField r Phi theta R = (0, 0)) :
@@ -259,7 +259,7 @@ theorem equilibriumLogAlpha_load_error (r Phi : ℝ) (hr : 0 < r)
     (positiveRoot_slowField_zero r Phi hr hPhi)
 
 
-/-- Proposition D(ii) as a one-sided asymptotic statement at zero load. -/
+/-- Proposition D(ii) as a one-sided asymptotic statement at zero temperature. -/
 theorem equilibriumLogAlpha_bulk_isBigO (r : ℝ) (hr : 0 < r) :
     Asymptotics.IsBigO (𝓝[Set.Ici 0] 0)
       (fun Phi : ℝ => equilibriumLogAlpha r Phi - equilibriumBulk r Phi / (2 * (1 + r ^ 2)))
@@ -274,7 +274,7 @@ theorem equilibriumLogAlpha_bulk_isBigO (r : ℝ) (hr : 0 < r) :
     hr hPhi hPhi1.le (positiveRoot_spec r Phi hr hPhi).1
     (positiveRoot_slowField_zero r Phi hr hPhi)
 
-/-- The input-load expansion is also uniform at zero. -/
+/-- The input-temperature expansion is also uniform at zero. -/
 theorem equilibriumLogAlpha_load_isBigO (r : ℝ) (hr : 0 < r) :
     Asymptotics.IsBigO (𝓝[Set.Ici 0] 0)
       (fun Phi : ℝ => equilibriumLogAlpha r Phi - Phi / (2 * (1 + r ^ 2)))

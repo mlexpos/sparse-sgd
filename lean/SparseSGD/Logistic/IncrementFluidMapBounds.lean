@@ -396,7 +396,7 @@ theorem matchedPopulationJacobian_uniform_controls
   exact matchedPopulationJacobian_control_from_inputs eta beta p mu T M heta hp.le (ne_of_gt hp) hT hM
     (matchedPerturbationInput_controls eta beta p mu T P Cc hT hP hCc hp hpHalf hpar hcoef)
 /-- Actual finite-batch parameters are uniformly bounded under a bounded
-load and effective learning step. This uses the actual Phi identity. -/
+temperature and effective learning step. This uses the actual Phi identity. -/
 theorem matchedDimensionlessParameters_norm_le {d B : ℕ} (eta beta : ℝ) (p : unitInterval) (mu : Vec d)
     (Load : ℝ) (hd : 2 ≤ d) (hB : 0 < B) (heta : 0 ≤ eta)
     (hb0 : 0 ≤ beta) (hb1 : beta ≤ 1) (hz : eta*(p : ℝ) ≤ 1)

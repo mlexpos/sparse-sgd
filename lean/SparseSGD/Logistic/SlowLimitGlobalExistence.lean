@@ -40,7 +40,7 @@ theorem slowBoxClamp_eq (A B : ℝ) (s : ℝ × ℝ)
 
 /-- The actual slow vector field admits a global forward solution for every
 physical bulk start. The bounded extension is proved to remain in a box on
-which it equals the actual field, including the zero-load/zero-bulk cases. -/
+which it equals the actual field, including the zero-temperature/zero-bulk cases. -/
 theorem slow_global_solution_exists (r Phi : ℝ) (s0 : ℝ × ℝ)
     (hr : 0 ≤ r) (hPhi : 0 ≤ Phi) (hR0 : 0 ≤ s0.2) :
     ∃ y : ℝ → ℝ × ℝ, y 0=s0 ∧ ∀ t, 0 ≤ t →

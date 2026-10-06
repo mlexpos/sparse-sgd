@@ -5,7 +5,7 @@ namespace SparseSGD.Scaling
 noncomputable section
 set_option maxHeartbeats 1200000
 
-/-- All window parameters and renormalized loads at the actual curvature ceiling. -/
+/-- All window parameters and renormalized feedback and temperature at the actual curvature ceiling. -/
 theorem ls_curvature_cells_parameters
     (pStar kappa bStar sigma epsStar gamma etaStar alpha u margin : ℝ)
     (p : ℕ → unitInterval) (ν : Measure ℝ)

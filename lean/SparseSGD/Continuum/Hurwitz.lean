@@ -15,7 +15,7 @@ theorem det_complex_scalar_one_sub_continuumGenerator (delta u : ℝ) (z : ℂ)
   <;> ring
 
 /-- All roots of the continuum characteristic polynomial lie in the open left
-half-plane for a subcritical nonnegative load. This is a direct cubic argument. -/
+half-plane for a subcritical nonnegative feedback. This is a direct cubic argument. -/
 theorem continuum_roots_re_neg (delta u : ℝ) (hd : 0 < delta)
     (hu0 : 0 ≤ u) (hu1 : u < 1) (z : ℂ)
     (hz : z ^ 3 + 3 * z ^ 2 + (2 + 4 * (delta : ℂ)) * z +

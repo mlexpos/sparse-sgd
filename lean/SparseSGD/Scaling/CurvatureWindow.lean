@@ -142,7 +142,7 @@ theorem curvature_window_local_average (p : ℕ → Params) (s : ℕ → Moments
           ((N : ℝ)*(p n).matchedStep+1/((N : ℝ)*(p n).foldedAngle)) := by gcongr
     _ = _ := by ring
 
-/-- The two limiting rates, before deciding which load vanishes. -/
+/-- The two limiting rates, before deciding which feedback vanishes. -/
 theorem curvature_profile_rates_tendsto (p : ℕ → Params) (w u : ℝ)
     (hb : Tendsto (fun n => (p n).beta) atTop (𝓝 1))
     (hw : Tendsto (fun n => (p n).w) atTop (𝓝 w))
@@ -153,7 +153,7 @@ theorem curvature_profile_rates_tendsto (p : ℕ → Params) (w u : ℝ)
   exact ⟨h.const_sub 1,(h.div_const 2).const_add 1⟩
 
 /-- At positive curvature and noise, the rate lies strictly between the
-ordinary load margin and one. -/
+ordinary feedback margin and one. -/
 theorem curvature_switch_rate (w u : ℝ) (hw0 : 0 < w) (hw4 : w < 4)
     (hu0 : 0 < u) (hu1 : u+w/4 < 1) :
     1-(u+w/4) < 1-u/(1-w/4) ∧ 1-u/(1-w/4) < 1 := by

@@ -16,7 +16,7 @@ theorem eta_div_batch_le_phi {d B : ℕ} (eta : ℝ) (hd : 2 ≤ d)
   nlinarith [mul_nonneg heta (show 0 ≤ (d : ℝ)-2 by linarith)]
 
 /-- The source variance accumulated on a finite learning horizon has the
-claimed cubic load factor, proved from the actual finite-batch Phi identity. -/
+claimed cubic temperature factor, proved from the actual finite-batch Phi identity. -/
 theorem lrSourceVariance_horizon_bound {d B : ℕ}
     (eta : ℝ) (p : unitInterval) (mu : Vec d) (N : ℕ) (T : ℝ)
     (hd : 2 ≤ d) (hB : 0 < B) (hp : 0 < (p : ℝ)) (heta : 0 ≤ eta)

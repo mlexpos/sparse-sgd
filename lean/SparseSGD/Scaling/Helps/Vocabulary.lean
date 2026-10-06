@@ -702,7 +702,7 @@ theorem copy0_perStepRate_le (hη : 0 < eta) (hb0 : 0 < beta) (hb1 : beta < 1)
 /-- (V5) `lem:helps-vocab` (iv)(b), second claim: for `kappa > 1`,
 `sqrt beta = (sqrt kappa - 1)/(sqrt kappa + 1)` and `eta (1-beta) p_1 = (1 + sqrt beta)^2`
 (that is `eta eps p_1 = (1 + sqrt beta)^2`), every noise-free copy has radius exactly `beta`,
-`rhoMax0 = beta`, every copy has curvature load `u_c < 1`, and `1/Lmin0 = 1/(-log beta) <=
+`rhoMax0 = beta`, every copy has curvature feedback `u_c < 1`, and `1/Lmin0 = 1/(-log beta) <=
 sqrt kappa / 4`. -/
 theorem mom_rhoMax0 (hp : ∀ j, 0 < (ps j : ℝ)) (hanti : Antitone ps) (hb0 : 0 < beta)
     (hb1 : beta < 1) (hκ : 1 < kappaV ps)

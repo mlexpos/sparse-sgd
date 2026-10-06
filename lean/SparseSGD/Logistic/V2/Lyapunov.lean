@@ -54,7 +54,7 @@ theorem hasDerivAt_lyapunov (r delta Phi : ℝ) (y : ℝ → DynamicState) (t : 
   field_simp
   linear_combination (-Phi ^ 2) * hQdef
 
-/-- v2 prop:S (zero load), `eq:LR5-dissipation` at `Phi = 0`: `L' = -(Y^2 + V)`
+/-- v2 prop:S (zero temperature), `eq:LR5-dissipation` at `Phi = 0`: `L' = -(Y^2 + V)`
 with no positivity hypotheses. -/
 theorem hasDerivAt_lyapunov_zero_load (r delta : ℝ) (y : ℝ → DynamicState) (t : ℝ)
     (hdelta : 0 < delta)

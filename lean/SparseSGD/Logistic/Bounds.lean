@@ -24,7 +24,7 @@ theorem root_lower_bound (r Phi theta : ℝ) (hr : 0 < r) (hPhi : 0 ≤ Phi)
     exact mul_le_mul_of_nonneg_left hexp (le_of_lt hθ)
   exact (div_le_iff₀ (Real.exp_pos _)).2 (by simpa [mul_comm] using hmul)
 
-/-- A uniform upper bound on the load gives a uniform root lower bound. -/
+/-- A uniform upper bound on the temperature gives a uniform root lower bound. -/
 theorem root_lower_bound_of_phi_le (r Phi theta P : ℝ) (hr : 0 < r)
     (hPhi : 0 ≤ Phi) (hθ : 0 < theta) (hroot : g r Phi theta = r)
     (hPhiP : Phi ≤ P) :
@@ -36,7 +36,7 @@ theorem root_lower_bound_of_phi_le (r Phi theta P : ℝ) (hr : 0 < r)
     exact div_le_div_of_nonneg_left hr.le (Real.exp_pos _) hexp
   exact le_trans hdiv hbase
 
-/-- The bulk coordinate is uniformly comparable when the load is bounded. -/
+/-- The bulk coordinate is uniformly comparable when the temperature is bounded. -/
 theorem bulk_bounds_of_phi_le (r Phi theta P : ℝ) (hr : 0 < r)
     (hPhi : 0 ≤ Phi) (hθ : 0 < theta) (hroot : g r Phi theta = r)
     (hPhiP : Phi ≤ P) :

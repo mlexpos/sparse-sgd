@@ -288,6 +288,32 @@ theorem stepRadius_lt_one_iff (jury : External.JuryStability) (p : Params)
     linarith
   · exact stepRadius_lt_one_of_totalLoad_lt_one jury p hb0 hb1 hw hun
 
+/-- (St1') `lem:stab-all` (first clause; old label `rem:stab-large-w`): if `w >= 2(1+beta)`
+then `1 <= H_c <= H` and `rho(L) >= 1`, i.e. `L` is not exponentially stable
+(`stepRadius p` is the spectral radius of `L`).  Hypotheses `0 <= beta < 1`, `u_n >= 0`. -/
+theorem lem_stab_all_large_w (p : Params) (hb0 : 0 ≤ p.beta) (hb1 : p.beta < 1)
+    (hun : 0 ≤ p.noise) (hw : 2 * (1 + p.beta) ≤ p.w) :
+    1 ≤ p.curvature ∧ p.curvature ≤ p.totalLoad ∧ 1 ≤ p.totalLoad ∧ 1 ≤ stepRadius p := by
+  have hpos : 0 < 2 * (1 + p.beta) := by linarith
+  have hc : 1 ≤ p.curvature := by
+    unfold Params.curvature
+    rw [le_div_iff₀ hpos]; linarith
+  have hct : p.curvature ≤ p.totalLoad := by
+    unfold Params.totalLoad; linarith
+  have hH : 1 ≤ p.totalLoad := hc.trans hct
+  exact ⟨hc, hct, hH,
+    one_le_stepRadius_of_one_le_totalLoad p (by linarith) hb1 (by linarith) hH⟩
+
+/-- (St1'') `lem:stab-all` (old label `rem:stab-large-w`): for every `w > 0`, `0 <= beta < 1`,
+`u_n >= 0`, `L` is exponentially stable (`rho(L) < 1`) if and only if `H < 1`; for
+`w >= 2(1+beta)` the right side fails and so does the left (`lem_stab_all_large_w`). -/
+theorem lem_stab_all (jury : External.JuryStability) (p : Params)
+    (hb0 : 0 ≤ p.beta) (hb1 : p.beta < 1) (hw : 0 < p.w) (hun : 0 ≤ p.noise) :
+    (2 * (1 + p.beta) ≤ p.w →
+      1 ≤ p.curvature ∧ p.curvature ≤ p.totalLoad ∧ 1 ≤ p.totalLoad ∧ 1 ≤ stepRadius p) ∧
+    (stepRadius p < 1 ↔ p.totalLoad < 1) :=
+  ⟨lem_stab_all_large_w p hb0 hb1 hun, stepRadius_lt_one_iff jury p hb0 hb1 hw hun⟩
+
 /-- (St2) `lem:helps-rate` (first clause): if the radius is positive, then
 `0 < Lambda` if and only if `u < 1`. -/
 theorem perStepRate_pos_iff (jury : External.JuryStability) (p : Params)

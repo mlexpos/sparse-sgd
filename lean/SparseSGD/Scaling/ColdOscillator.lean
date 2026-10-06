@@ -45,7 +45,7 @@ theorem coldOscillator_initial (delta R : ℝ) :
   rw [(coldOscillatorX_derivative delta R 0).deriv]
   simp [coldOscillatorX,coldOscillatorY,continuumMeanFlow_zero]
 
-/-- The actual continuum risk at zero loads is the square of the cold oscillator. -/
+/-- The actual continuum risk at zero feedback and temperature is the square of the cold oscillator. -/
 theorem continuum_cold_zero_loads_square (delta R t : ℝ) (hR : 0 ≤ R) :
     (continuumFlow delta 0 0 ⟨R,0,0⟩ t).R=(coldOscillatorX delta R t)^2 := by
   rw [continuumFlow_freeRisk]

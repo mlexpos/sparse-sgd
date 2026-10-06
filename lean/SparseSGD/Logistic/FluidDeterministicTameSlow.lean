@@ -5,7 +5,7 @@ open Filter
 set_option maxHeartbeats 2000000
 
 /-- A fixed positive rarity cap suffices for cold cell-2 containment. The
-load may vary and no rare-probability limit or path bound is assumed. -/
+temperature may vary and no rare-probability limit or path bound is assumed. -/
 theorem matched_slow_small_probability_eventually_bounded (r0 Phi M T : ℝ)
     (hPhi : 0≤Phi) (hM : 2≤M) (hT : 0≤T)
     (v : ℝ→ℝ×ℝ)

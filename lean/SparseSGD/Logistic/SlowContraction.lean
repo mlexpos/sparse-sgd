@@ -42,7 +42,7 @@ theorem sqrtBulk_radial_monotone (r theta X theta' X' : ℝ) :
     (show 0≤(theta-theta')^2+(X-X')^2 by positivity)
   nlinarith only [H,hprod]
 
-/-- Positive-load square-root slow dynamics contract toward their equilibrium. -/
+/-- Positive-temperature square-root slow dynamics contract toward their equilibrium. -/
 theorem sqrtBulk_slow_dissipation (r Phi theta X theta' X' : ℝ)
     (hPhi : 0 ≤ Phi) (hX : 0 < X) (hX' : 0 < X')
     (heq1 : alpha theta' (X'^2) r*theta'=r)
@@ -63,7 +63,7 @@ theorem sqrtBulk_slow_dissipation (r Phi theta X theta' X' : ℝ)
   rw [heq1,heq2'] at H
   nlinarith only [H,hlog]
 
-/-- At zero load the boundary X=0 is regular, and the same contraction holds. -/
+/-- At zero temperature the boundary X=0 is regular, and the same contraction holds. -/
 theorem sqrtBulk_zero_slow_dissipation (r theta X theta' : ℝ)
     (heq : alpha theta' 0 r*theta'=r) :
     2*(theta-theta')*(r-alpha theta (X^2) r*theta)+

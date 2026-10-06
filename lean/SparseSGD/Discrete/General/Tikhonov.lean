@@ -233,7 +233,7 @@ theorem smallDelta_trajectory_learningProfile_v2 (p : Params) (Delta R : ℝ)
   linarith
 
 /-- v2 `cor:tikhonov`, for every `ε ∈ (0,1]`: for `0 ≤ β < 1` (fixed momentum, plain SGD at
-`β = 0` included), `Δ ≤ 1/8`, `w = Δ ε²`, and renormalized load `ũ ≤ 1 - margin`, the exact risk
+`β = 0` included), `Δ ≤ 1/8`, `w = Δ ε²`, and renormalized feedback `ũ ≤ 1 - margin`, the exact risk
 trajectory stays within `C Δ (R + φ̃/(1-ũ))` of the learning profile on the clock `k w/ε`,
 uniformly in `k`.  Constant `C = 538/margin + 8`. -/
 theorem cor_tikhonov_v2 (margin : ℝ) (hm : 0 < margin) :

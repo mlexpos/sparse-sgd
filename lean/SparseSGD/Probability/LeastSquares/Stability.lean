@@ -6,7 +6,7 @@ open MeasureTheory
 namespace SparseSGD.Probability.LeastSquares
 noncomputable section
 
-/-- Reciprocal critical learning rate, including both noise and curvature loads. -/
+/-- Reciprocal critical learning rate, including both noise and curvature feedback. -/
 def inverseCriticalRate (d B : ℕ) (p : unitInterval) (beta : ℝ) : ℝ :=
   ((d : ℝ) + 2 - p) / (2 * B) + (p : ℝ) / 2 * ((1 - beta) / (1 + beta))
 
@@ -32,7 +32,7 @@ theorem inverseCriticalRate_pos (d B : ℕ) (hB : 0 < B) (p : unitInterval)
   have hsecond : 0 ≤ (p : ℝ) / 2 * ((1 - beta) / (1 + beta)) := by positivity
   linarith
 
-/-- For a nondegenerate sparse oracle, the exact load threshold is η < η₊. -/
+/-- For a nondegenerate sparse oracle, the exact feedback threshold is η < η₊. -/
 theorem totalLoad_lt_one_iff_eta_lt_critical (d B : ℕ) (hB : 0 < B)
     (p : unitInterval) (hp : 0 < (p : ℝ)) (ν : Measure ℝ)
     (beta eta : ℝ) (hb0 : 0 ≤ beta) (hb1 : beta < 1) :

@@ -15,8 +15,12 @@ components = {
         "Threshold, uniform bound, geometric convergence and necessity for beta in [0,1) (General/Renewal, the _v2 declarations)."),
     "cor:tikhonov": (["Scaling/SmallDeltaKernel", "Scaling/SmallDeltaForcing", "Scaling/SmallDeltaExponential", "Scaling/Tikhonov", "Discrete/General/Tikhonov"],
         "Uniform small-Delta comparison for every eps in (0,1] (cor_tikhonov_v2); the v1 cor_tikhonov keeps 1/2 <= beta."),
-    "rem:retention-cap": (["Scaling/Helps/ExactRate", "Scaling/Helps/StepSpeed"],
-        "v2 live chunk: (a) rho(L) >= rho(F)^2 >= beta with the equality case, beta in [0,1); (b) the limsup bound is pending."),
+    "lem:stab-all": (["Scaling/Helps/StepMatrix", "Scaling/Helps/Stability"],
+        "v2 live chunk: for beta in [0,1), w >= 2(1+beta) gives H >= H_c >= 1 and rho(L) >= 1; for every w > 0, rho(L) < 1 iff H < 1 (explicit Jury hypothesis)."),
+    "lem:retention-cap": (["Scaling/Helps/ExactRate", "Scaling/Helps/StepSpeed"],
+        "v2 live chunk: rho(L) >= rho(F)^2 >= beta with the equality case, and -log rho(L) <= -log beta, beta in [0,1)."),
+    "rem:retention-cold": (["Scaling/Helps/StepSpeed"],
+        "Remark (discussion, formalization not required): the cold-start limsup bound is not formalized; the ingredient rho(F)^2 >= beta is proved."),
     "lem:L3": (["Continuum/Algebra", "Continuum/Differential", "Continuum/Spectrum", "Continuum/Hurwitz", "Continuum/Eigenfunctionals", "Continuum/Energy", "Continuum/Flow"],
         "Explicit all-time ODE solution, field/derivative identities, exact characteristic-root threshold and energy bounds; renewal, kernel mass/variation, exponential decay, modal inversion and strict rank growth remain."),
     "lem:match": (["Comparison/Similarity"],
@@ -33,7 +37,7 @@ components = {
     "lem:B": (["Logistic/TameCoefficients", "Logistic/ScalarCoefficients", "Logistic/TameCoefficientDerivatives"], "Actual coefficients and every first/second derivative proved; variance-zero uses right derivatives and pure-variance A derivatives retain their exponential main terms."),
     "cor:regular": (["Scaling/RegularLimit", "Scaling/RegularUniformConstants"], "Full all-time quantitative rate over compact positive curvature sets; uniform semigroup decay and actual matrix covariance error."),
     "prop:D": (["Logistic/Equilibrium", "Logistic/Bounds"],
-        "Scalar root, quantitative actual fixed-point asymptotics, bounded-load integer-family comparability, small-load expansion and Jacobian proved. Corrected actual population-loss/KL expansion is proved at fixed r, retaining tameness and finite-load errors."),
+        "Scalar root, quantitative actual fixed-point asymptotics, bounded-temperature integer-family comparability, small-temperature expansion and Jacobian proved. Corrected actual population-loss/KL expansion is proved at fixed r, retaining tameness and finite-temperature errors."),
     "thm:A": (["Logistic/StoppedFluid", "Logistic/FluidTheorem", "External/MartingaleBernstein"],
         "Full arbitrary-norm finite-family fluid bound, using the explicit standard scalar Bernstein certificate. Deterministic reference and closed-neighborhood corrections are recorded."),
     # v2 (revised appendix, source/v2/).
@@ -58,12 +62,12 @@ components = {
         "v2: explicit cubic q, eigenvalues 1 + eps z, |b_i| <= 1 + (16/3) Delta + eps Delta^2, q - chi."),
     "lem:small_delta": (["Scaling/Helps/SmallDeltaSlowRoot", "Scaling/Helps/SmallDeltaFactor", "Scaling/Helps/SmallDelta"],
         "v2: Lambda = 2 eta p (1-u)(1+theta), |theta| <= 25(eps+Delta), for eps, Delta <= 1/50."),
-    "rem:sgd_cost": (["Scaling/Helps/Limits", "Scaling/Helps/SampleCostAbove", "Scaling/Helps/SampleCost"],
+    "lem:sgd-cost": (["Scaling/Helps/Limits", "Scaling/Helps/SampleCostAbove", "Scaling/Helps/SampleCost"],
         "v2: SGD's exact sample cost, monotone in B, <= (1+eps) max(N_stab, N_mem); momentum N_1 >= (1-delta) max."),
     "rem:crit_single": (["Scaling/Helps/Ray", "Scaling/Helps/Limits"],
         "v2: the hyperbola (N_1 - N_stab)(N_1 - N_mem) = N_stab N_mem / 2 for the leading-order N_1."),
     "rem:schedule": (["Scaling/Helps/Schedule"],
-        "v2: Chung's lemma and k R_k -> varsigma^2 d/(Bp) at beta = 0, eta_k = 1/(pk); the statistical interpretation is pending."),
+        "v2: Chung's lemma and k R_k -> varsigma^2 d/(Bp) at beta = 0, eta_k = 1/(pk); the statistical interpretation is a remark, not formalized (not required)."),
     "lem:vocab_rows": (["Scaling/Helps/VocabRows"],
         "v2: rows decouple in law, row recursion (L1) with p = p_j, excess loss (1/2) sum_j p_j R_j."),
     "prop:vocab_full": (["Scaling/Helps/CriticalBatch", "Scaling/Helps/VocabFull", "Scaling/Helps/SampleCost"],
@@ -98,6 +102,11 @@ components = {
 # "declarations" certify the live statement, "relaxed_by" names the relaxed declarations
 # and "v1_declarations" keeps the old 1/2 <= beta ones.
 RESTRICTED = "v1_restricted"
+# Status of a remark part that is discussion only: no numbered result relies on it, so
+# its formalization is not required (any declarations listed are the proved ingredients).
+NOT_REQUIRED = "remark_not_required"
+def claim_kind(entry):
+    return entry["kind"]
 inventory = []
 for path in sorted((ROOT / "SparseSGD").rglob("*.lean")):
     text = path.read_text()
@@ -128,7 +137,13 @@ for claim in claims:
                         or not subclaim.get("v1_declarations")):
             raise SystemExit(f"Inconsistent relaxed_by: {claim['label']}/{subclaim['id']}")
     statuses = {s["status"] for s in subclaims}
-    if "v1_superseded" in statuses:
+    if NOT_REQUIRED in statuses and claim_kind(entry) != "remark":
+        raise SystemExit(f"{NOT_REQUIRED} is only allowed for remarks: {claim['label']}")
+    if NOT_REQUIRED in statuses and statuses <= accepted | {NOT_REQUIRED}:
+        # A remark is discussion: the parts that are proved are listed, the others are
+        # recorded as not required (no numbered result relies on a remark).
+        claim["status"] = NOT_REQUIRED
+    elif "v1_superseded" in statuses:
         # v1 source assumptions replaced in v2; the kind stays "assumption".
         if statuses != {"v1_superseded"} or not claim.get("superseded_by"):
             raise SystemExit(f"Inconsistent v1_superseded entry: {claim['label']}")
@@ -153,8 +168,8 @@ for claim in claims:
         modules, note = components[claim["label"]]
         claim["component_modules"] = ["SparseSGD." + m.replace("/", ".")
             for m in modules if (ROOT / "SparseSGD" / (m + ".lean")).exists()]
-    claim["remaining"] = "" if claim["status"] in accepted else " ".join(
-        s.get("remaining", "") for s in subclaims if s["status"] not in accepted).strip()
+    claim["remaining"] = "" if claim["status"] in accepted | {NOT_REQUIRED} else " ".join(
+        s.get("remaining", "") for s in subclaims if s["status"] not in accepted | {NOT_REQUIRED}).strip()
     # Registry metadata kept in obligations.json is mirrored into coverage.json.
     for key in ("kind", "title"):
         claim[key] = entry[key]
@@ -180,4 +195,7 @@ for claim in claims:
 (ROOT / "coverage.json").write_text(json.dumps(claims, indent=2)+"\n")
 (ROOT / "declarations.json").write_text(json.dumps(inventory, indent=2)+"\n")
 print(f"{len(inventory)} modules; {sum(len(x['theorem_names']) for x in inventory)} authored theorem declarations.")
-print(f"{sum(c['status'] in {'complete', 'complete_corrected'} for c in claims)} complete (including corrected statements) and {sum(c['status']=='partial' for c in claims)} partial source entries; {sum(c['status']=='pending' for c in claims)} pending; {sum(c['status']==RESTRICTED for c in claims)} v1-restricted (proved only for 1/2 <= beta where the live tex has beta in [0,1)); {sum(c['status']=='v1_superseded' for c in claims)} v1 assumptions superseded in v2; {sum(c['status']=='supporting' for c in claims)} supporting entries (dropped from the frozen tex, Lean proofs kept). Source assumptions remain explicit.")
+results = [c for c in claims if c["kind"] != "remark"]
+remarks = [c for c in claims if c["kind"] == "remark"]
+print(f"{sum(c['status'] in {'complete', 'complete_corrected'} for c in results)} complete numbered results (including corrected statements) and {sum(c['status']=='partial' for c in results)} partial numbered results; {sum(c['status']=='pending' for c in results)} pending; {sum(c['status']==RESTRICTED for c in results)} v1-restricted (proved only for 1/2 <= beta where the live tex has beta in [0,1)); {sum(c['status']=='v1_superseded' for c in results)} v1 assumptions superseded in v2; {sum(c['status']=='supporting' for c in results)} supporting entries (dropped from the frozen tex, Lean proofs kept). Source assumptions remain explicit.")
+print(f"{len(remarks)} remarks (discussion, not required): {sum(c['status'] in {'complete', 'complete_corrected'} for c in remarks)} fully proved, {sum(c['status']==NOT_REQUIRED for c in remarks)} recorded as not required (proved parts listed, the rest not formalized).")
