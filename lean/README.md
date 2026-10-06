@@ -112,11 +112,13 @@ process include:
   counterpart needs SGD to be stable.
 
 The 13 results in which the formalization found such a gap are marked `complete*` in
-[`RESULTS.md`](RESULTS.md). For a few of them the text was left as it is, and the Lean
-statement spells out a condition that the paper leaves to its standing assumptions or to the
-constants in `O(·)`: one-sided derivatives at zero variance (Lemma G.3), a bounded effective
-step `ηp` (Lemma G.5), and a common initial state for the recursion and the limiting ODE
-(Proposition G.9). `CORRECTIONS.md` is the full log, in the notation of the time.
+[`RESULTS.md`](RESULTS.md). The last revision also wrote into the paper the conditions that
+the formal statements need but the text had left implicit: integer batch sizes
+(Appendix E), the dependence of the error of Corollary E.11 on the initial size, one-sided
+derivatives at zero variance (Lemma G.3), a deterministic initial state (Theorem G.4), a
+bounded effective step `η𝒜` (Lemma G.5), and a common initial state for the recursion and
+the limiting ODE (Proposition G.9). `CORRECTIONS.md` is the full log of the gaps, in the
+notation of the time.
 
 ## Statement fidelity
 
@@ -124,7 +126,8 @@ The rounds were run against frozen snapshots of the appendix source, the last of
 on 5 October 2026; the SHA-256 hashes are in [`source/manifest.json`](source/manifest.json)
 and [`source/v2/manifest.json`](source/v2/manifest.json), and the text itself is not
 distributed. Since then the appendix has changed its notation, some wording, figures and
-numerical tables, and three remarks have become lemmas; the registry uses the new labels.
+numerical tables, three remarks have become lemmas (the registry uses the new labels), and
+the conditions listed above have been written in.
 
 Separately from the pipeline that wrote the code, four central results were compared with
 the paper line by line, with every Lean definition they use traced back to the model:

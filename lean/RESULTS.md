@@ -62,9 +62,8 @@ subclaim. The statuses are explained in [`README.md`](README.md#status-of-each-r
 | Proposition H.15 | Critical batch size of a vocabulary | `prop:helps-critical` | complete | `Scaling.Helps.sgdClass`, `Scaling.Helps.momClass`, `Scaling.Helps.admSet` (+90 more) |
 | Proposition H.16 | Full statement of Proposition 2 | `prop:vocab_full` | complete | `Scaling.Helps.vocabBx`, `Scaling.Helps.le_vocabBx_iff`, `Scaling.Helps.vocab_full_sgd_iff` (+21 more) |
 
-\* The formalization of this result led to a revision of the written statement or proof,
-or the Lean statement spells out a condition that the paper leaves to its standing
-assumptions or to the constants in `O(·)`. [`CORRECTIONS.md`](CORRECTIONS.md) records which.
+\* The formalization of this result found a gap in the written statement or proof, and
+the paper was revised; [`CORRECTIONS.md`](CORRECTIONS.md) records the gap.
 
 ## What is not formalized
 
