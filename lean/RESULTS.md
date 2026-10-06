@@ -15,8 +15,8 @@ subclaim. The statuses are explained in [`README.md`](README.md#status-of-each-r
 | Lemma C.3 | Stability for every $\lambda >0$ | `lem:stab-all` | complete | `Scaling.Helps.lem_stab_all_large_w`, `Scaling.Helps.one_le_stepRadius_of_one_le_totalLoad`, `Scaling.Helps.lem_stab_all` (+2 more) |
 | Lemma C.5 | Structure of (16) | `lem:L3` | complete | `continuum_solution_exists`, `continuum_solution_unique`, `continuumCovarianceFlow_variation_of_constants` (+20 more) |
 | Definition D.1 | Matched parameters | `def:matched` | definition | `Params.matchedStep`, `Params.matchingSign`, `Params.foldedAngle` (+3 more) |
-| Lemma D.2 | Matching | `lem:match` | complete | `Params.matchedDelta_pos`, `Params.matchedMeanFlow_invariants`, `Params.exact_matching_similarity` (+2 more) |
-| Lemma D.3 | Exact embedding: impulses on a grid | `lem:embed` | complete | `Params.exact_embedding_step`, `Params.matchedCovariance_first_entry`, `Params.gridImpulseFactor_eq` (+4 more) |
+| Lemma D.2 | Matching | `lem:match` | complete | `Params.matchedDelta_pos`, `Params.matchedMeanFlow_invariants_v2`, `Params.exact_matching_similarity_v2` (+2 more) |
+| Lemma D.3 | Exact embedding: impulses on a grid | `lem:embed` | complete | `Params.exact_embedding_step_v2`, `Params.matchedCovariance_first_entry_v2`, `Params.gridImpulseFactor_eq_v2` (+4 more) |
 | Lemma D.4 | Quadrature of exponential pairs | `lem:quad` | complete | `sampled_pair_sum_quadrature`, `hasSum_sampled_exp`, `quadrature_factor_bound` (+2 more) |
 | Lemma D.5 | Modes for large $\omega^2$ | `lem:modes` | complete | `exists_largeMode_parameter`, `largeMode_cubic_factor`, `largeModeRates_real_parts` (+4 more) |
 | Theorem D.6 | Moment comparison theorem | `thm:M` | complete | `moment_comparison` |
@@ -24,7 +24,7 @@ subclaim. The statuses are explained in [`README.md`](README.md#status-of-each-r
 | Corollary E.3 | Fixed $\omega^2$: the three-dimensional limit | `cor:regular` | complete | `cor_regular`, `regular_chain_uniform_convergence`, `continuumFlow_tendstoUniformlyOn_nonneg` |
 | Corollary E.4 | Boundary 1: the resonance line | `cor:resonance` | complete\* | `Scaling.cor_resonance_rate`, `Scaling.cor_resonance_rate_min`, `Scaling.cor_resonance_fixed_rate` (+5 more) |
 | Corollary E.5 | Large $\omega^2$: the long-oscillation window | `cor:window` | complete | `window_chain_energy_comparison`, `windowSlowProfile_initial`, `windowSlowProfile_derivative` (+4 more) |
-| Corollary E.8 | Square-root lift and its defect | `cor:lift` | restricted | `Params.trajectory_cov_noiseFree`, `Params.det_trajectory_cov_noiseFree`, `Params.trajectory_cov_rankOne_noiseFree` (+13 more) |
+| Corollary E.8 | Square-root lift and its defect | `cor:lift` | complete | `Params.trajectory_cov_noiseFree`, `Params.det_trajectory_cov_noiseFree`, `Params.trajectory_cov_rankOne_noiseFree` (+13 more) |
 | Lemma E.9 | The retention cap is exact | `lem:retention-cap` | complete | `Scaling.Helps.meanRoots`, `Scaling.Helps.meanRadius`, `Scaling.Helps.meanRadius_attained` (+5 more) |
 | Remark E.10 | The cap along the cold start | `rem:retention-cold` | remark, partly formalized | `Scaling.Helps.meanRadius_sq_le_stepRadius`, `Scaling.Helps.beta_le_meanRadius_sq` |
 | Corollary E.11 | Curvature ceiling and boundary 2: the noise/curvature switch | `cor:curv` | complete\* | `curvature_foldedAngle_tendsto`, `curvature_scaledDelta_tendsto`, `curvature_eventually_window` (+9 more) |
@@ -69,7 +69,6 @@ the paper was revised; [`CORRECTIONS.md`](CORRECTIONS.md) records the gap.
 
 The registry's notes, in the Lean notation (see [`NOTATION.md`](NOTATION.md)).
 
-- **Corollary E.8** (`cor:lift`, restricted): cor:lift (i), matched form: R_k = X(k ebar)^2 with X'' + X' + Dbar X = 0 is proved only for 1/2 <= beta (noiseFree_risk_squareRootLift_grid, through noiseFree_risk_eq_matched_grid of Comparison/ExactEmbedding, whose section hypothesis is 1/2 <= beta). The live tex states it for every beta in (0,1), since def:matched now takes beta in (0,1). No relaxed declaration: the matched-coordinate layer (Comparison/ExactMatching, ExactEmbedding) is shared with thm:M and keeps 1/2 <= beta.
 - **Remark E.10** (`rem:retention-cold`, remark, partly formalized): If phi = 0 and Sigma_0 = diag(R_0, 0), R_0 > 0, then limsup_k R_k^(1/k) >= rho(F)^2 >= beta. The limsup statement (Cauchy-Hadamard on the generating function of x_k = e_1^T F^k e_1, R_k >= a_k) is not formalized; the declarations listed are the proved ingredient rho(F)^2 >= beta and rho(F)^2 <= rho(L).
 - **Corollary G.17** (`cor:recursion`, partial): Uniformity of M, c, Gamma over compact sets of (Delta*, Phi*, r) is not formalized: cor_recursion_tame fixes (r, Delta*, Phi*) and is uniform only over the parameter tube around it (CORRECTIONS.md V2-6). Instantiation with the actual Gaussian-coefficient drift recursion of prop:LR34 (non-autonomous through theta in R^d, with epsilon_B errors) is not formalized; only the tame coefficients of lem:B are covered.
 - **Proposition G.19** (`prop:W2`, partial): The persistence step is proved for any Jacobian family J_eps -> J0 entrywise; that the Jacobian of the drift recursion at its fixed point converges to J0 as eps -> 0 is a hypothesis, not derived from lem:LRdrift/lem:B. (CORRECTIONS.md V2-8)

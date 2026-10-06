@@ -20,9 +20,8 @@ formalization improved the written proofs (see
 
 | Status | Meaning | Results |
 |---|---|---|
-| complete | Every part of the statement is proved. In [`RESULTS.md`](RESULTS.md), 13 of these are marked `complete*` (see [below](#the-formalization-and-the-written-proofs)). | 45 |
+| complete | Every part of the statement is proved. In [`RESULTS.md`](RESULTS.md), 13 of these are marked `complete*` (see [below](#the-formalization-and-the-written-proofs)). | 46 |
 | partial | Corollary G.17 and Proposition G.19: one step is not formalized (below). | 2 |
-| restricted | Corollary E.8 (i), matched form: proved for `1/2 ≤ β` only, where the paper allows `β ∈ (0,1)`. | 1 |
 | remark, partly formalized | Remarks E.10 and H.11: some claims proved. | 2 |
 | assumption, definition | Assumptions A and B, Definition D.1 and the definition of the decay rate in Appendix H.1. | 4 |
 
@@ -167,12 +166,12 @@ python3 scripts/verify.py # about 3 minutes
 1. every module is reachable from `SparseSGD.lean`, so nothing escapes the build or the audit;
 2. the project builds;
 3. `Audit.lean` passes;
-4. all 849 declarations cited in [`obligations.json`](obligations.json) exist;
+4. all 862 declarations cited in [`obligations.json`](obligations.json) exist;
 5. the source snapshot matches its hashes, when it is present (it is not distributed, and
    the check is then skipped).
 
-It also regenerates `coverage.json` and `declarations.json`. The current log reports 373
-modules, 2,866 authored theorems, 6,586 audited declarations (5,587 of them theorems) and
+It also regenerates `coverage.json` and `declarations.json`. The current log reports 377
+modules, 2,895 authored theorems, 6,635 audited declarations (5,633 of them theorems) and
 only the three standard axioms.
 
 ## Layout
@@ -183,7 +182,7 @@ only the three standard axioms.
 | `SparseSGD/Probability` | the oracle and the least-squares sampling process (Appendix B) |
 | `SparseSGD/Discrete` | renewal, stability and floor (Appendix C); `Discrete/General` for `β ∈ [0,1)` |
 | `SparseSGD/Continuum` | the continuum moment system (Lemma C.5) and its modes (Lemma D.5) |
-| `SparseSGD/Comparison` | matching, embedding, quadrature, Theorem D.6 |
+| `SparseSGD/Comparison` | matching, embedding, quadrature, Theorem D.6; `Comparison/General` for matching, embedding and the square-root lift at `β ∈ (0,1)` |
 | `SparseSGD/Scaling` | the least-squares corollaries (Appendix E) and the phase dictionary (Appendix F) |
 | `SparseSGD/Scaling/Helps` | benefits of momentum (Appendix H) |
 | `SparseSGD/Logistic` | logistic regression (Appendix G); `Logistic/V2` for Propositions G.12, G.15, G.19 and Corollary G.17 |

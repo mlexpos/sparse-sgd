@@ -17,9 +17,9 @@ of the paper has a Lean counterpart, and Lean's kernel checks all the proofs. Th
 that the paper cites, such as the Jury criterion and Gaussian integration by parts, are
 explicit hypotheses of the theorems that use them.
 
-Of the 54 registered items, 45 results are formalized in full. Corollary G.17 and
-Proposition G.19 are formalized in part, and Corollary E.8 (i) only for `β ≥ 1/2`. The rest
-are two partly formalized remarks, two assumptions and two definitions.
+Of the 54 registered items, 46 results are formalized in full, and Corollary G.17 and
+Proposition G.19 in part. The rest are two partly formalized remarks, two assumptions and two
+definitions.
 
 The appendix and its formalization were developed together, over several rounds. Each round
 formalized the current text, and the gaps it found (a missing hypothesis, a lost error term,

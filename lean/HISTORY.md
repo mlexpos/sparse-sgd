@@ -503,6 +503,40 @@ complete numbered results (including corrected statements), 2 partial numbered r
 2 `v1_superseded`; 3 remarks (discussion, not required): `rem:crit_single` fully proved,
 `rem:retention-cold` and `rem:schedule` recorded as not required.
 
+## Matched layer for β ∈ (0,1) (2026-10-06)
+
+The live tex states `def:matched`, `lem:match`, `lem:embed` and the matched form of `cor:lift`
+(i) for `β ∈ (0,1)`. The v1 matched-coordinate layer (`Comparison/ExactMatching`,
+`Comparison/ExactEmbedding`, part of `Comparison/SquareRootLift`) assumed `1/2 ≤ β`, but used
+it only to obtain `0 < β`. The new directory `SparseSGD/Comparison/General/` restates it for
+`0 < β < 1` as new declarations with suffix `_v2`. Its modules are imported by `General/All.lean`,
+which `SparseSGD.lean` imports.
+
+| Module | Content |
+| --- | --- |
+| `Matching` | `lem:match`: 9 declarations, from `matchedMeanFlow_invariants_v2` to `exact_matching_existsUnique_v2` |
+| `Embedding` | `lem:embed`: 16 declarations, through the v2 renewal lemmas of `Discrete/General/Renewal` |
+| `SquareRootLift` | `cor:lift` (i), matched form: `noiseFree_risk_squareRootLift_grid_v2`, `comparisonFlow_squareRootLift_rank_v2`, and two supporting declarations |
+
+Each `_v2` statement is the v1 statement with `1/2 ≤ β` replaced by `0 < β`.
+
+Registry changes:
+
+- `def:matched`, `lem:match` and `lem:embed` are re-sourced to the live chunk 03
+  (`v2/chunks/03_master_theorem.tex`), with `relaxed_by` and `v1_declarations`.
+- `cor:lift` is complete; it is no longer `v1_restricted`.
+- `squareRootLift_defect` and `squareRootLift_oscillator_defect` keep `1/2 ≤ β`. The live
+  statement of (ii) is proved by `trajectory_risk_defect_sup_bound_v2`.
+
+Verification passed with:
+
+- 377 modules and 2,895 authored theorem declarations;
+- 6,635 audited declarations (5,633 theorems), using only the standard axioms;
+- 862 source-obligation references;
+- 29 v1 and 10 v2 frozen source hashes.
+
+Coverage: 45 complete numbered results, 2 partial (`cor:recursion`, `prop:W2`), 0 v1-restricted.
+
 ## Orchestration
 
 The coordinator owns interfaces, imports, configuration and integration. Three

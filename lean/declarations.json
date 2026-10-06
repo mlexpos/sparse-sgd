@@ -156,6 +156,58 @@
     ]
   },
   {
+    "module": "SparseSGD.Comparison.General.All",
+    "file": "SparseSGD/Comparison/General/All.lean",
+    "theorem_names": []
+  },
+  {
+    "module": "SparseSGD.Comparison.General.Embedding",
+    "file": "SparseSGD/Comparison/General/Embedding.lean",
+    "theorem_names": [
+      "Params.meanMatrix_pow_matching_v2",
+      "Params.sampledImpulse_eq_power_v2",
+      "Params.kickResponse_matched_v2",
+      "Params.kickResponse_sq_matched_v2",
+      "Params.matchedCovariance_first_entry_v2",
+      "Params.matchingImpulseDenominator_ne_zero_v2",
+      "Params.sampledImpulse_sq_hasSum_v2",
+      "Params.gridImpulseFactor_eq_v2",
+      "Params.normalizedKernelLag_eq_sampled_v2",
+      "Params.exact_embedding_step_v2",
+      "Params.freeRisk_eq_matched_grid_v2",
+      "Params.exact_embedding_renewal_v2",
+      "Params.noiseFree_risk_eq_matched_grid_v2",
+      "Params.sampledImpulse_sq_tsum_pos_v2",
+      "Params.normalizedKernelLag_eq_continuum_sampling_v2",
+      "Params.sampled_continuum_kernel_normalized_hasSum_v2"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.General.Matching",
+    "file": "SparseSGD/Comparison/General/Matching.lean",
+    "theorem_names": [
+      "Params.matchedMeanFlow_invariants_v2",
+      "Params.matchedMeanFlow_det_v2",
+      "Params.matchedMeanFlow_trace_v2",
+      "Params.matchedMeanFlow_impulse_ne_zero_v2",
+      "Params.exact_matching_similarity_v2",
+      "Params.exact_matching_kick_v2",
+      "Params.matchingMatrix_unique_v2",
+      "Params.matchingMatrix_det_ne_zero_v2",
+      "Params.exact_matching_existsUnique_v2"
+    ]
+  },
+  {
+    "module": "SparseSGD.Comparison.General.SquareRootLift",
+    "file": "SparseSGD/Comparison/General/SquareRootLift.lean",
+    "theorem_names": [
+      "Params.noiseFree_rankOne_square_root_lift_v2",
+      "Params.noiseFree_risk_squareRootLift_grid_v2",
+      "Params.squareRootLiftVector_ne_zero_v2",
+      "Params.comparisonFlow_squareRootLift_rank_v2"
+    ]
+  },
+  {
     "module": "SparseSGD.Comparison.Geometric",
     "file": "SparseSGD/Comparison/Geometric.lean",
     "theorem_names": [

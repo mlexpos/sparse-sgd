@@ -275,7 +275,9 @@
     "label": "def:matched",
     "kind": "definition",
     "title": "Matched parameters",
-    "source": "chunks/03_master_theorem.tex",
+    "source": "v2/chunks/03_master_theorem.tex",
+    "v1_source": "chunks/03_master_theorem.tex",
+    "beta_range": "Live tex: beta in (0,1). The Lean definitions are total functions of Params and carry no hypothesis on beta; the v2 matching layer (Comparison/General/Matching) proves their properties for 0 < beta < 1.",
     "subclaims": [
       {
         "id": "matched_parameters",
@@ -295,13 +297,21 @@
     "label": "lem:match",
     "kind": "lemma",
     "title": "Matching",
-    "source": "chunks/03_master_theorem.tex",
+    "source": "v2/chunks/03_master_theorem.tex",
+    "v1_source": "chunks/03_master_theorem.tex",
+    "beta_range": "Live tex: beta in (0,1). Proved for 0 < beta < 1 by the _v2 declarations of Comparison/General/Matching (2026-10-06); the v1 declarations (1/2 <= beta, used only to obtain 0 < beta) are kept because the comparison theorem builds on them.",
     "subclaims": [
       {
         "id": "exponential_invariants",
         "status": "complete",
         "declarations": [
           "SparseSGD.Params.matchedDelta_pos",
+          "SparseSGD.Params.matchedMeanFlow_invariants_v2"
+        ],
+        "relaxed_by": [
+          "SparseSGD.Params.matchedMeanFlow_invariants_v2"
+        ],
+        "v1_declarations": [
           "SparseSGD.Params.matchedMeanFlow_invariants"
         ]
       },
@@ -309,6 +319,12 @@
         "id": "similarity",
         "status": "complete",
         "declarations": [
+          "SparseSGD.Params.exact_matching_similarity_v2"
+        ],
+        "relaxed_by": [
+          "SparseSGD.Params.exact_matching_similarity_v2"
+        ],
+        "v1_declarations": [
           "SparseSGD.Params.exact_matching_similarity"
         ]
       },
@@ -316,6 +332,12 @@
         "id": "uniqueness",
         "status": "complete",
         "declarations": [
+          "SparseSGD.Params.exact_matching_existsUnique_v2"
+        ],
+        "relaxed_by": [
+          "SparseSGD.Params.exact_matching_existsUnique_v2"
+        ],
+        "v1_declarations": [
           "SparseSGD.Params.exact_matching_existsUnique"
         ]
       },
@@ -323,6 +345,12 @@
         "id": "kick_relation",
         "status": "complete",
         "declarations": [
+          "SparseSGD.Params.exact_matching_kick_v2"
+        ],
+        "relaxed_by": [
+          "SparseSGD.Params.exact_matching_kick_v2"
+        ],
+        "v1_declarations": [
           "SparseSGD.Params.exact_matching_kick"
         ]
       }
@@ -332,12 +360,22 @@
     "label": "lem:embed",
     "kind": "lemma",
     "title": "Exact embedding: impulses on a grid",
-    "source": "chunks/03_master_theorem.tex",
+    "source": "v2/chunks/03_master_theorem.tex",
+    "v1_source": "chunks/03_master_theorem.tex",
+    "beta_range": "Live tex: beta in (0,1). Proved for 0 < beta < 1 by the _v2 declarations of Comparison/General/Embedding (2026-10-06), through the v2 matching layer and the v2 renewal lemmas of Discrete/General/Renewal; the v1 declarations (1/2 <= beta) are kept because the comparison theorem builds on them.",
     "subclaims": [
       {
         "id": "covariance_embedding",
         "status": "complete",
         "declarations": [
+          "SparseSGD.Params.exact_embedding_step_v2",
+          "SparseSGD.Params.matchedCovariance_first_entry_v2"
+        ],
+        "relaxed_by": [
+          "SparseSGD.Params.exact_embedding_step_v2",
+          "SparseSGD.Params.matchedCovariance_first_entry_v2"
+        ],
+        "v1_declarations": [
           "SparseSGD.Params.exact_embedding_step",
           "SparseSGD.Params.matchedCovariance_first_entry"
         ]
@@ -346,6 +384,16 @@
         "id": "normalization",
         "status": "complete",
         "declarations": [
+          "SparseSGD.Params.gridImpulseFactor_eq_v2",
+          "SparseSGD.Params.normalizedKernelLag_eq_continuum_sampling_v2",
+          "SparseSGD.Params.sampled_continuum_kernel_normalized_hasSum_v2"
+        ],
+        "relaxed_by": [
+          "SparseSGD.Params.gridImpulseFactor_eq_v2",
+          "SparseSGD.Params.normalizedKernelLag_eq_continuum_sampling_v2",
+          "SparseSGD.Params.sampled_continuum_kernel_normalized_hasSum_v2"
+        ],
+        "v1_declarations": [
           "SparseSGD.Params.gridImpulseFactor_eq",
           "SparseSGD.Params.normalizedKernelLag_eq_continuum_sampling",
           "SparseSGD.Params.sampled_continuum_kernel_normalized_hasSum"
@@ -355,6 +403,12 @@
         "id": "renewal",
         "status": "complete",
         "declarations": [
+          "SparseSGD.Params.exact_embedding_renewal_v2"
+        ],
+        "relaxed_by": [
+          "SparseSGD.Params.exact_embedding_renewal_v2"
+        ],
+        "v1_declarations": [
           "SparseSGD.Params.exact_embedding_renewal"
         ]
       },
@@ -362,6 +416,12 @@
         "id": "noise_free_exactness",
         "status": "complete",
         "declarations": [
+          "SparseSGD.Params.noiseFree_risk_eq_matched_grid_v2"
+        ],
+        "relaxed_by": [
+          "SparseSGD.Params.noiseFree_risk_eq_matched_grid_v2"
+        ],
+        "v1_declarations": [
           "SparseSGD.Params.noiseFree_risk_eq_matched_grid"
         ]
       }
@@ -605,7 +665,7 @@
     "title": "Square-root lift and its defect",
     "source": "v2/chunks/07_cor_lift.tex",
     "v1_source": "chunks/07_cor_lift.tex",
-    "beta_range": "Live tex: (i) rank at most one for every beta (rank one if beta > 0) and the matched form for beta > 0; (ii) for beta in [0,1). The noise-free identities and (ii) hold in Lean for beta in [0,1); the matched-oscillator form of (i) is proved only for 1/2 <= beta (v1_restricted).",
+    "beta_range": "Live tex: (i) rank at most one for every beta (rank one if beta > 0) and the matched form for beta > 0; (ii) for beta in [0,1). The noise-free identities and (ii) hold in Lean for beta in [0,1); the matched-oscillator form of (i) holds for 0 < beta < 1 through Comparison/General/SquareRootLift (2026-10-06; it was v1_restricted to 1/2 <= beta before).",
     "subclaims": [
       {
         "id": "noise_free_identities",
@@ -622,17 +682,25 @@
       },
       {
         "id": "matched_oscillator",
-        "status": "v1_restricted",
+        "status": "complete",
         "declarations": [
           "SparseSGD.Params.squareRootLift_initial",
           "SparseSGD.Params.squareRootLiftX_hasDerivAt",
           "SparseSGD.Params.squareRootLiftY_hasDerivAt",
           "SparseSGD.Params.squareRootLiftX_second_hasDerivAt",
-          "SparseSGD.Params.noiseFree_risk_squareRootLift_grid",
+          "SparseSGD.Params.noiseFree_risk_squareRootLift_grid_v2",
           "SparseSGD.Params.comparisonFlow_squareRootLift_R",
+          "SparseSGD.Params.comparisonFlow_squareRootLift_rank_v2"
+        ],
+        "relaxed_by": [
+          "SparseSGD.Params.noiseFree_risk_squareRootLift_grid_v2",
+          "SparseSGD.Params.comparisonFlow_squareRootLift_rank_v2"
+        ],
+        "v1_declarations": [
+          "SparseSGD.Params.noiseFree_risk_squareRootLift_grid",
           "SparseSGD.Params.comparisonFlow_squareRootLift_rank"
         ],
-        "remaining": "cor:lift (i), matched form: R_k = X(k ebar)^2 with X'' + X' + Dbar X = 0 is proved only for 1/2 <= beta (noiseFree_risk_squareRootLift_grid, through noiseFree_risk_eq_matched_grid of Comparison/ExactEmbedding, whose section hypothesis is 1/2 <= beta). The live tex states it for every beta in (0,1), since def:matched now takes beta in (0,1). No relaxed declaration: the matched-coordinate layer (Comparison/ExactMatching, ExactEmbedding) is shared with thm:M and keeps 1/2 <= beta."
+        "note": "cor:lift (i), matched form: R_k = X(k ebar)^2 with X'' + X' + Dbar X = 0, for every beta in (0,1) (noiseFree_risk_squareRootLift_grid_v2, through noiseFree_risk_eq_matched_grid_v2 of Comparison/General/Embedding). The v1 matched-coordinate layer assumed 1/2 <= beta only to obtain 0 < beta."
       },
       {
         "id": "defect",

@@ -53,6 +53,7 @@ import SparseSGD.Comparison.MatchedParameters
 import SparseSGD.Comparison.MatchingScalars
 import SparseSGD.Comparison.ExactMatching
 import SparseSGD.Comparison.ExactEmbedding
+import SparseSGD.Comparison.General.All
 import SparseSGD.Comparison.UniformBounds
 import SparseSGD.Scaling.IntegerFamilies
 import SparseSGD.Probability.LeastSquares.Stability

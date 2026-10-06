@@ -248,9 +248,10 @@ Next work items (Lean only):
 - `rem:retention-cap` (b): `limsup R_k^(1/k) >= rho(F)^2` from the cold start
   (Cauchy–Hadamard on `sum_k x_k z^k = (1 - beta z)/(1 - (1+beta-w) z + beta z^2)`, then
   `R_k >= a_k = R_0 x_k^2`).
-- Relax the matched-coordinate layer (`Comparison/ExactMatching`, `ExactEmbedding`) to
-  `beta in (0,1)` as new declarations, then register the matched form of `cor:lift` (i)
-  and re-source `def:matched`, `lem:match`, `lem:embed` to the live chunk 03.
+- Done 2026-10-06: the matched-coordinate layer is relaxed to `beta in (0,1)` in
+  `Comparison/General/` (`_v2` declarations); the matched form of `cor:lift` (i) is
+  registered, and `def:matched`, `lem:match`, `lem:embed` are re-sourced to the live
+  chunk 03 (see the README section "Matched layer for β ∈ (0,1)").
 - Optional: the `rem:schedule` statistical sentence needs a cited statement first.
 
 ## Multi-agent execution
