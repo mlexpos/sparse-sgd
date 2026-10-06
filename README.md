@@ -17,18 +17,21 @@ of the paper has a Lean counterpart, and Lean's kernel checks all the proofs. Th
 that the paper cites, such as the Jury criterion and Gaussian integration by parts, are
 explicit hypotheses of the theorems that use them.
 
-Of the 54 registered items, 45 results are formalized in full, 13 of them in a corrected
-form recorded in [`lean/CORRECTIONS.md`](lean/CORRECTIONS.md). Corollary G.17 and
-Proposition G.19 are formalized in part. Corollary E.8 (i) is formalized only for
-`β ≥ 1/2`. The rest are two partly formalized remarks, two assumptions and two
-definitions.
+Of the 54 registered items, 45 results are formalized in full. Corollary G.17 and
+Proposition G.19 are formalized in part, and Corollary E.8 (i) only for `β ≥ 1/2`. The rest
+are two partly formalized remarks, two assumptions and two definitions.
+
+The appendix and its formalization were developed together, over several rounds. Each round
+formalized the current text, and the gaps it found (a missing hypothesis, a lost error term,
+an imprecise scope) led to revisions of the written statements and proofs before the next
+round.
 
 - [`lean/RESULTS.md`](lean/RESULTS.md) lists each result by its number in the paper, with
   its status and its main Lean declarations.
 - [`lean/README.md`](lean/README.md) explains the statuses, the notation (Lean names follow
-  an earlier notation of the paper), the trust boundary, an independent audit of four
-  central results, and how the code was produced: by an automated pipeline of
-  language-model agents.
+  an earlier notation of the paper), the trust boundary, what the formalization changed in
+  the written proofs, an independent audit of four central results, and how the code was
+  produced: by an automated pipeline of language-model agents.
 
 To build and check it, with [elan](https://github.com/leanprover/elan) installed:
 

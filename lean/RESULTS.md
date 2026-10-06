@@ -22,28 +22,28 @@ subclaim. The statuses are explained in [`README.md`](README.md#status-of-each-r
 | Theorem D.6 | Moment comparison theorem | `thm:M` | complete | `moment_comparison` |
 | Corollary E.2 | Small $\omega^2$: one-dimensional SGD with floor | `cor:tikhonov` | complete | `cor_tikhonov_v2`, `smallDelta_trajectory_learningProfile_v2`, `Scaling.learningProfile_initial` (+1 more) |
 | Corollary E.3 | Fixed $\omega^2$: the three-dimensional limit | `cor:regular` | complete | `cor_regular`, `regular_chain_uniform_convergence`, `continuumFlow_tendstoUniformlyOn_nonneg` |
-| Corollary E.4 | Boundary 1: the resonance line | `cor:resonance` | complete, corrected | `Scaling.cor_resonance_rate`, `Scaling.cor_resonance_rate_min`, `Scaling.cor_resonance_fixed_rate` (+5 more) |
+| Corollary E.4 | Boundary 1: the resonance line | `cor:resonance` | complete\* | `Scaling.cor_resonance_rate`, `Scaling.cor_resonance_rate_min`, `Scaling.cor_resonance_fixed_rate` (+5 more) |
 | Corollary E.5 | Large $\omega^2$: the long-oscillation window | `cor:window` | complete | `window_chain_energy_comparison`, `windowSlowProfile_initial`, `windowSlowProfile_derivative` (+4 more) |
 | Corollary E.8 | Square-root lift and its defect | `cor:lift` | restricted | `Params.trajectory_cov_noiseFree`, `Params.det_trajectory_cov_noiseFree`, `Params.trajectory_cov_rankOne_noiseFree` (+13 more) |
 | Lemma E.9 | The retention cap is exact | `lem:retention-cap` | complete | `Scaling.Helps.meanRoots`, `Scaling.Helps.meanRadius`, `Scaling.Helps.meanRadius_attained` (+5 more) |
 | Remark E.10 | The cap along the cold start | `rem:retention-cold` | remark, partly formalized | `Scaling.Helps.meanRadius_sq_le_stepRadius`, `Scaling.Helps.beta_le_meanRadius_sq` |
-| Corollary E.11 | Curvature ceiling and boundary 2: the noise/curvature switch | `cor:curv` | complete, corrected | `curvature_foldedAngle_tendsto`, `curvature_scaledDelta_tendsto`, `curvature_eventually_window` (+9 more) |
-| App. F | The phase dictionary | `sec:dict` | complete, corrected | `Scaling.integerBatch_pos`, `Scaling.integerBatch_ratio_tendsto`, `Scaling.fixedBatch_ratio` (+36 more) |
-| Lemma F.4 | Non-boundaries | `lem:nonboundary` | complete, corrected | `Scaling.batchLaw_someMaskActive_real`, `Scaling.actual_sparse_activity_ratio`, `Scaling.actual_dense_activity_tendsto_one` (+13 more) |
+| Corollary E.11 | Curvature ceiling and boundary 2: the noise/curvature switch | `cor:curv` | complete\* | `curvature_foldedAngle_tendsto`, `curvature_scaledDelta_tendsto`, `curvature_eventually_window` (+9 more) |
+| App. F | The phase dictionary | `sec:dict` | complete\* | `Scaling.integerBatch_pos`, `Scaling.integerBatch_ratio_tendsto`, `Scaling.fixedBatch_ratio` (+36 more) |
+| Lemma F.4 | Non-boundaries | `lem:nonboundary` | complete\* | `Scaling.batchLaw_someMaskActive_real`, `Scaling.actual_sparse_activity_ratio`, `Scaling.actual_dense_activity_tendsto_one` (+13 more) |
 | Lemma G.1 | Exact Markov reduction | `lem:LR0` | complete | `Logistic.sampleLaw`, `Logistic.batchLaw`, `Logistic.worldLaw` (+7 more) |
 | Lemma G.2 | Exact conditional drift: the bulk is the moment recursion | `lem:LRdrift` | complete | `Logistic.gradient_integral`, `Logistic.batchGradient_integral`, `Logistic.bulkGradient_norm_sq_integral` (+7 more) |
-| Lemma G.3 | Tame coefficients | `lem:B` | complete, corrected | `Logistic.tameError_source_formula`, `Logistic.tame_coefficients`, `Logistic.tame_scalarJets_first_second` (+13 more) |
-| Theorem G.4 | Fluid limit | `thm:A` | complete, corrected | `Logistic.martingale_stoppedProcess`, `Logistic.condLExp_predictable_indicator`, `Logistic.stopped_condLExp_exp_le` (+7 more) |
-| Lemma G.5 | LR increments | `lem:LRinc` | complete, corrected | `Logistic.tame_unit_gradient_projection_moments`, `Logistic.tame_batch_projection_mgf`, `Logistic.process_tame_projection_condLExp` (+5 more) |
-| Corollary G.6 | Fluid limit in cells 2–4 | `cor:fluid` | complete, corrected | `Logistic.matched_warm_slow_small_probability_eventually_bounded`, `Logistic.matched_regular_small_probability_eventually_bounded`, `Logistic.dynamicPhysical_preserved` (+18 more) |
-| Proposition G.9 | Cells 3–4: dynamic-$\varrho$ limit | `prop:LR34` | complete, corrected | `Logistic.prop_LR34`, `Logistic.dynamicDriftMap_eq_integral`, `Logistic.dynamic_rank_one_preserved` (+2 more) |
+| Lemma G.3 | Tame coefficients | `lem:B` | complete\* | `Logistic.tameError_source_formula`, `Logistic.tame_coefficients`, `Logistic.tame_scalarJets_first_second` (+13 more) |
+| Theorem G.4 | Fluid limit | `thm:A` | complete\* | `Logistic.martingale_stoppedProcess`, `Logistic.condLExp_predictable_indicator`, `Logistic.stopped_condLExp_exp_le` (+7 more) |
+| Lemma G.5 | LR increments | `lem:LRinc` | complete\* | `Logistic.tame_unit_gradient_projection_moments`, `Logistic.tame_batch_projection_mgf`, `Logistic.process_tame_projection_condLExp` (+5 more) |
+| Corollary G.6 | Fluid limit in cells 2–4 | `cor:fluid` | complete\* | `Logistic.matched_warm_slow_small_probability_eventually_bounded`, `Logistic.matched_regular_small_probability_eventually_bounded`, `Logistic.dynamicPhysical_preserved` (+18 more) |
+| Proposition G.9 | Cells 3–4: dynamic-$\varrho$ limit | `prop:LR34` | complete\* | `Logistic.prop_LR34`, `Logistic.dynamicDriftMap_eq_integral`, `Logistic.dynamic_rank_one_preserved` (+2 more) |
 | Proposition G.11 | Cell 2: slow system, globally stable | `prop:LR2` | complete | `Logistic.prop_LR2`, `Logistic.slowDriftMap_eq_integral`, `Logistic.slow_grid_error_of_tracking` (+4 more) |
-| Proposition G.12 | Cells 3–4: global stability | `prop:S` | complete, corrected | `Logistic.V2.lyapunov`, `Logistic.V2.dissipation`, `Logistic.V2.hasDerivAt_lyapunov` (+43 more) |
-| Proposition G.15 | Cell 6: rates in the noisy window | `prop:W1` | complete, corrected | `Logistic.V2.omega_skew`, `Logistic.V2.damping_lyapunov`, `Logistic.V2.hessian_damping_comm` (+26 more) |
+| Proposition G.12 | Cells 3–4: global stability | `prop:S` | complete\* | `Logistic.V2.lyapunov`, `Logistic.V2.dissipation`, `Logistic.V2.hasDerivAt_lyapunov` (+43 more) |
+| Proposition G.15 | Cell 6: rates in the noisy window | `prop:W1` | complete\* | `Logistic.V2.omega_skew`, `Logistic.V2.damping_lyapunov`, `Logistic.V2.hessian_damping_comm` (+26 more) |
 | Corollary G.17 | The drift recursion converges | `cor:recursion` | partial | `Logistic.V2.local_fixed_point`, `Logistic.V2.drift_recursion_converges`, `Logistic.V2.jacobian_products` (+5 more) |
 | Proposition G.19 | Cells 7–8: the LR curvature ceiling | `prop:W2` | partial | `Logistic.V2.windowMap_fixed`, `Logistic.V2.hasFDerivAt_windowMap`, `Logistic.V2.windowJacobian_det` (+25 more) |
 | Assumption B | Curvature window and switch | `ass:W2` | assumption (stated, not proved) | `Logistic.V2.AssumptionW2` |
-| Proposition G.23 | Equilibrium and floor | `prop:D` | complete, corrected | `Logistic.actual_drift_fixedPoint_signal`, `Logistic.actual_drift_fixedPoint_bulk`, `Logistic.logistic_fixedPoint_normalized_covariance` (+23 more) |
+| Proposition G.23 | Equilibrium and floor | `prop:D` | complete\* | `Logistic.actual_drift_fixedPoint_signal`, `Logistic.actual_drift_fixedPoint_bulk`, `Logistic.logistic_fixedPoint_normalized_covariance` (+23 more) |
 | App. H.1 | Decay rates of the per-step chain | `app:rates` | definition | `Scaling.Helps.stepLinearMatrix`, `Scaling.Helps.det_stepLinearMatrix`, `Scaling.Helps.stepRoots` (+10 more) |
 | Lemma H.1 | Roots of the characteristic polynomial | `lem:chi_roots` | complete | `Scaling.Helps.chi_roots_a`, `Scaling.Helps.chi_roots_a_eq_iff`, `Scaling.Helps.chi_roots_b_le` (+12 more) |
 | Lemma H.2 | Plain SGD | `lem:helps-sgd` | complete | `Scaling.Helps.stepCharPoly_beta_zero`, `Scaling.Helps.step_R_beta_zero`, `Scaling.Helps.totalLoad_beta_zero` (+11 more) |
@@ -54,13 +54,17 @@ subclaim. The statuses are explained in [`README.md`](README.md#status-of-each-r
 | Corollary H.7 | Sample cost | `cor:samplecost` | complete | `Scaling.Helps.beta_le_stepRadius`, `Scaling.Helps.perStepRate_le_neg_log_beta`, `Scaling.Helps.lsRate_le_neg_log_beta` (+33 more) |
 | Lemma H.8 | Sample cost of SGD | `lem:sgd-cost` | complete | `Scaling.Helps.ls_beta_zero_sup`, `Scaling.Helps.lsRate_zero_isGreatest`, `Scaling.Helps.criticalRate_zero_eq` (+12 more) |
 | Remark H.9 | Critical batch size of a single feature | `rem:crit_single` | complete | `Scaling.Helps.hyperbolaN`, `Scaling.Helps.hyperbola_eq`, `Scaling.Helps.hyperbola_relation` (+1 more) |
-| Proposition H.10 | Speed at a fixed floor | `lem:speedup` | complete, corrected | `Scaling.Helps.momentumParams`, `Scaling.Helps.sgdParams`, `Scaling.Helps.speedup_pointwise` (+36 more) |
+| Proposition H.10 | Speed at a fixed floor | `lem:speedup` | complete\* | `Scaling.Helps.momentumParams`, `Scaling.Helps.sgdParams`, `Scaling.Helps.speedup_pointwise` (+36 more) |
 | Remark H.11 | A decaying learning rate | `rem:schedule` | remark, partly formalized | `Scaling.Helps.chung_abstract`, `Scaling.Helps.chung_tendsto`, `Scaling.Helps.schedule_params` (+2 more) |
 | Lemma H.12 | The rows decouple | `lem:vocab_rows` | complete | `Scaling.Helps.VocabRows.vocab_row_gradient`, `Scaling.Helps.VocabRows.vocab_row_update`, `Scaling.Helps.VocabRows.vocab_row_process` (+16 more) |
 | Lemma H.13 | One learning rate for a vocabulary | `lem:helps-vocab` | complete | `Scaling.Helps.inverseCriticalRate_affine`, `Scaling.Helps.copy_stable_iff_lt_critical`, `Scaling.Helps.all_stable_iff_lt_min` (+42 more) |
 | Lemma H.14 | One step size for two curvatures | `lem:helps-twocurv` | complete | `Scaling.Helps.quad_pm_nonneg`, `Scaling.Helps.twocurv_real`, `Scaling.Helps.rhoMax_ge_twocurv` |
 | Proposition H.15 | Critical batch size of a vocabulary | `prop:helps-critical` | complete | `Scaling.Helps.sgdClass`, `Scaling.Helps.momClass`, `Scaling.Helps.admSet` (+90 more) |
 | Proposition H.16 | Full statement of Proposition 2 | `prop:vocab_full` | complete | `Scaling.Helps.vocabBx`, `Scaling.Helps.le_vocabBx_iff`, `Scaling.Helps.vocab_full_sgd_iff` (+21 more) |
+
+\* The formalization of this result led to a revision of the written statement or proof,
+or the Lean statement spells out a condition that the paper leaves to its standing
+assumptions or to the constants in `O(·)`. [`CORRECTIONS.md`](CORRECTIONS.md) records which.
 
 ## What is not formalized
 

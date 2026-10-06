@@ -12,17 +12,15 @@ axiom other than Lean's standard `propext`, `Classical.choice` and `Quot.sound`.
 results that the paper cites are not proved here: they are explicit hypotheses of the
 theorems that use them (see [Trust boundary](#trust-boundary)).
 
-A kernel-checked theorem can still say something other than the paper: it can use a
-different definition, assume more or conclude less. The registry records every such
-difference, and four central results were audited against the paper separately (see
-[Statement fidelity](#statement-fidelity)).
+The formalization and the appendix were developed together, over several rounds, and the
+formalization improved the written proofs (see
+[The formalization and the written proofs](#the-formalization-and-the-written-proofs)).
 
 ## Status of each result
 
 | Status | Meaning | Results |
 |---|---|---|
-| complete | Every part of the statement is proved. | 32 |
-| complete, corrected | The statement needed a repair when it was formalized (a missing hypothesis, a weaker rate or a narrower scope). Lean proves the repaired statement, and [`CORRECTIONS.md`](CORRECTIONS.md) records the repair. | 13 |
+| complete | Every part of the statement is proved. In [`RESULTS.md`](RESULTS.md), 13 of these are marked `complete*` (see [below](#the-formalization-and-the-written-proofs)). | 45 |
 | partial | Corollary G.17 and Proposition G.19: one step is not formalized (below). | 2 |
 | restricted | Corollary E.8 (i), matched form: proved for `1/2 ≤ β` only, where the paper allows `β ∈ (0,1)`. | 1 |
 | remark, partly formalized | Remarks E.10 and H.11: some claims proved. | 2 |
@@ -93,27 +91,47 @@ true form of the standard result.
 squares from the sampling law. Assumption B (cells 7–8 of logistic regression) is stated as
 the structure `Logistic.V2.AssumptionW2`; no theorem uses it.
 
+## The formalization and the written proofs
+
+The appendix and its formalization were developed together, over several rounds. In each
+round the current appendix was frozen, its results were formalized, and every place where a
+statement or proof could not be formalized as written was recorded in
+[`CORRECTIONS.md`](CORRECTIONS.md). The authors then revised the appendix, and the next
+round started from the revised text. Improvements to the paper that came out of this
+process include:
+
+- Corollary E.4: with integer batch sizes, the error has the extra term `|B_* d^σ/B - 1|`.
+- Theorem G.4: the neighbourhoods are closed balls, since the induction reaches the radius.
+- Corollary G.6: the statement requires `η = o(√(d/log d))` and a horizon polynomial in
+  `d`, which the proof uses.
+- Proposition G.23: part (iv) keeps an `O(ε_B)` error term, and part (v) needs a bounded `Φ`.
+- Proposition G.12: the dissipation identity is stated on the states with `Q > 0`, where it
+  holds.
+- Proposition G.15: the hypothesis `r > 0`, which the oscillatory eigenvectors need.
+- Proposition H.10: the limit `ε → 0` is taken with the noise feedback fixed, and its exact
+  counterpart needs SGD to be stable.
+
+The 13 results in which the formalization found such a gap are marked `complete*` in
+[`RESULTS.md`](RESULTS.md). For a few of them the text was left as it is, and the Lean
+statement spells out a condition that the paper leaves to its standing assumptions or to the
+constants in `O(·)`: one-sided derivatives at zero variance (Lemma G.3), a bounded effective
+step `ηp` (Lemma G.5), and a common initial state for the recursion and the limiting ODE
+(Proposition G.9). `CORRECTIONS.md` is the full log, in the notation of the time.
+
 ## Statement fidelity
 
-Each statement was compared with a frozen snapshot of its LaTeX source, taken on 3 or
-5 October 2026; the SHA-256 hashes are in [`source/manifest.json`](source/manifest.json) and
-[`source/v2/manifest.json`](source/v2/manifest.json), and the text itself is not
+The rounds were run against frozen snapshots of the appendix source, the last of them taken
+on 5 October 2026; the SHA-256 hashes are in [`source/manifest.json`](source/manifest.json)
+and [`source/v2/manifest.json`](source/v2/manifest.json), and the text itself is not
 distributed. Since then the appendix has changed its notation, some wording, figures and
 numerical tables, and three remarks have become lemmas; the registry uses the new labels.
 
-On 4 October 2026, separately from the pipeline that wrote the code, four central results
-were compared with the paper line by line, with every Lean definition they use traced back
-to the model: Theorem D.6 (the moment comparison theorem), Corollary E.4, Corollary G.6 and
+Separately from the pipeline that wrote the code, four central results were compared with
+the paper line by line, with every Lean definition they use traced back to the model:
+Theorem D.6 (the moment comparison theorem), Corollary E.4, Corollary G.6 and
 Proposition G.23, together with the least-squares process and the matched parameters. The
-definitions match exactly. Theorem D.6 matches, and Lean gives an explicit threshold. The
-other three are faithful, with corrections; each correction confirmed by the audit is in
-the paper:
-
-- Corollary E.4: with integer batch sizes the error has the extra term `|B_* d^σ/B - 1|`.
-- Proposition G.23: part (iv) keeps the `O(ε_B)` term, and part (v) needs a bounded `Φ`.
-- Corollary G.6: the statement needs `η = o(√(d/log d))` and a horizon polynomial in `d`.
-- Theorem G.4: the neighbourhoods are closed balls.
-
+definitions and statements match the paper as revised. Lean's Theorem D.6 gives an explicit
+threshold, and Lean's Corollary G.6 is slightly narrower: its initial data are fixed in `d`.
 The other results have not been audited this way; for them, the registry and
 `CORRECTIONS.md` are the record.
 
