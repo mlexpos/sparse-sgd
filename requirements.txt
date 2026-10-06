@@ -1,3 +1,0 @@
-sympy>=1.14
-jupytext>=1.19
-nbconvert>=7
