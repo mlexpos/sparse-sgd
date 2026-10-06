@@ -537,6 +537,40 @@ Verification passed with:
 
 Coverage: 45 complete numbered results, 2 partial (`cor:recursion`, `prop:W2`), 0 v1-restricted.
 
+## `prop:W2` (iii) for the drift recursion (2026-10-06)
+
+`Logistic/V2/WindowDrift` defines `windowDriftMap r h eps Phi`. It is the tame drift
+recursion of `lem:LRdrift`, with the tame coefficients of `lem:B` (`nu = 0`, `rho = 1`), in
+the window variables `(theta, eta m, R, eta^2 V, eta C)` with `h = eta eps p`.
+`windowDriftMap_conj` proves that it is conjugate to `tameDriftMap r eps (h/eps^2) Phi 0 1` by
+the scaling `diag(1, h/eps, 1, (h/eps)^2, h/eps)`. The module also proves:
+
+- `windowDriftMap_zero`: at `eps = 0` it is `windowMap`;
+- `windowDriftMap_fixed`: its fixed points satisfy `m = 0`, `alpha theta = r`,
+  `c = -h alpha R/(2-eps)` and `v = 2 h alpha R/(2-eps)` exactly;
+- `windowDrift_fixedPoint_tendsto`: they converge to the window fixed point when
+  `(theta, R)` does.
+
+`Logistic/V2/WindowDriftJacobian` gives:
+
+- the explicit Jacobian (`hasFDerivAt_windowDriftMap`), which is continuous in `(eps, x)` and
+  equal to `J0` at `eps = 0`;
+- `two_lt_windowUpper` and `prop_W2_iii_above_interval`, an eigenvalue below `-1` for every
+  `w` in `(w_c, 2)`;
+- `prop_W2_iii_drift`, statement (iii) for the drift recursion with no hypothesis on
+  `J_eps`.
+
+`prop:W2` is complete. `cor:recursion` is the only partial numbered result.
+
+Verification passed with:
+
+- 379 modules and 2,909 authored theorem declarations;
+- 6,668 audited declarations (5,662 theorems), using only the standard axioms;
+- 871 source-obligation references;
+- 29 v1 and 10 v2 frozen source hashes.
+
+Coverage: 46 complete numbered results and 1 partial.
+
 ## Orchestration
 
 The coordinator owns interfaces, imports, configuration and integration. Three

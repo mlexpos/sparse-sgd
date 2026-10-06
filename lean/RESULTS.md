@@ -41,7 +41,7 @@ subclaim. The statuses are explained in [`README.md`](README.md#status-of-each-r
 | Proposition G.12 | Cells 3–4: global stability | `prop:S` | complete\* | `Logistic.V2.lyapunov`, `Logistic.V2.dissipation`, `Logistic.V2.hasDerivAt_lyapunov` (+43 more) |
 | Proposition G.15 | Cell 6: rates in the noisy window | `prop:W1` | complete\* | `Logistic.V2.omega_skew`, `Logistic.V2.damping_lyapunov`, `Logistic.V2.hessian_damping_comm` (+26 more) |
 | Corollary G.17 | The drift recursion converges | `cor:recursion` | partial | `Logistic.V2.local_fixed_point`, `Logistic.V2.drift_recursion_converges`, `Logistic.V2.jacobian_products` (+5 more) |
-| Proposition G.19 | Cells 7–8: the LR curvature ceiling | `prop:W2` | partial | `Logistic.V2.windowMap_fixed`, `Logistic.V2.hasFDerivAt_windowMap`, `Logistic.V2.windowJacobian_det` (+25 more) |
+| Proposition G.19 | Cells 7–8: the LR curvature ceiling | `prop:W2` | complete\* | `Logistic.V2.windowMap_fixed`, `Logistic.V2.hasFDerivAt_windowMap`, `Logistic.V2.windowJacobian_det` (+34 more) |
 | Assumption B | Curvature window and switch | `ass:W2` | assumption (stated, not proved) | `Logistic.V2.AssumptionW2` |
 | Proposition G.23 | Equilibrium and floor | `prop:D` | complete\* | `Logistic.actual_drift_fixedPoint_signal`, `Logistic.actual_drift_fixedPoint_bulk`, `Logistic.logistic_fixedPoint_normalized_covariance` (+23 more) |
 | App. H.1 | Decay rates of the per-step chain | `app:rates` | definition | `Scaling.Helps.stepLinearMatrix`, `Scaling.Helps.det_stepLinearMatrix`, `Scaling.Helps.stepRoots` (+10 more) |
@@ -71,7 +71,6 @@ The registry's notes, in the Lean notation (see [`NOTATION.md`](NOTATION.md)).
 
 - **Remark E.10** (`rem:retention-cold`, remark, partly formalized): If phi = 0 and Sigma_0 = diag(R_0, 0), R_0 > 0, then limsup_k R_k^(1/k) >= rho(F)^2 >= beta. The limsup statement (Cauchy-Hadamard on the generating function of x_k = e_1^T F^k e_1, R_k >= a_k) is not formalized; the declarations listed are the proved ingredient rho(F)^2 >= beta and rho(F)^2 <= rho(L).
 - **Corollary G.17** (`cor:recursion`, partial): Uniformity of M, c, Gamma over compact sets of (Delta*, Phi*, r) is not formalized: cor_recursion_tame fixes (r, Delta*, Phi*) and is uniform only over the parameter tube around it (CORRECTIONS.md V2-6). Instantiation with the actual Gaussian-coefficient drift recursion of prop:LR34 (non-autonomous through theta in R^d, with epsilon_B errors) is not formalized; only the tame coefficients of lem:B are covered.
-- **Proposition G.19** (`prop:W2`, partial): The persistence step is proved for any Jacobian family J_eps -> J0 entrywise; that the Jacobian of the drift recursion at its fixed point converges to J0 as eps -> 0 is a hypothesis, not derived from lem:LRdrift/lem:B. (CORRECTIONS.md V2-8)
 - **Remark H.11** (`rem:schedule`, remark, partly formalized): rem:schedule, last sentence: varsigma^2 d/N is to leading order the risk of least squares on the N active samples, the Cramer-Rao bound for Gaussian label noise and asymptotically the minimax risk. This imported statistics claim (no citation in the tex) is not formalized. The numerical check R_k N_k/(varsigma^2 d) = 1.0028 is a numerical remark and is not registered.
 
 ## Registry entries without a statement in the paper

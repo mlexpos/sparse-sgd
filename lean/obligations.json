@@ -1720,18 +1720,28 @@
           "SparseSGD.Logistic.V2.windowQ_critical",
           "SparseSGD.Logistic.V2.windowQ_neg_above",
           "SparseSGD.Logistic.V2.prop_W2_iii_critical",
-          "SparseSGD.Logistic.V2.prop_W2_iii_above"
-        ]
+          "SparseSGD.Logistic.V2.prop_W2_iii_above",
+          "SparseSGD.Logistic.V2.two_lt_windowUpper",
+          "SparseSGD.Logistic.V2.prop_W2_iii_above_interval"
+        ],
+        "note": "prop_W2_iii_above_interval gives the real eigenvalue below -1 for every w in (w_c, 2), as stated in the tex; prop_W2_iii_above is its form near w_c."
       },
       {
         "id": "drift_recursion_instability",
-        "status": "partial",
+        "status": "complete",
         "declarations": [
-          "SparseSGD.Logistic.V2.real_eigenvalue_persistence_of_sign_change",
+          "SparseSGD.Logistic.V2.windowDriftMap_conj",
+          "SparseSGD.Logistic.V2.windowDriftMap_zero",
+          "SparseSGD.Logistic.V2.windowDriftMap_fixed",
+          "SparseSGD.Logistic.V2.windowDrift_fixedPoint_tendsto",
+          "SparseSGD.Logistic.V2.windowDrift_fixedPoint_signal",
+          "SparseSGD.Logistic.V2.hasFDerivAt_windowDriftMap",
+          "SparseSGD.Logistic.V2.windowDriftJacobian_zero_fixed",
+          "SparseSGD.Logistic.V2.windowDriftJacobian_tendsto",
           "SparseSGD.Logistic.V2.real_eigenvalue_persistence",
-          "SparseSGD.Logistic.V2.prop_W2_iii"
+          "SparseSGD.Logistic.V2.prop_W2_iii_drift"
         ],
-        "remaining": "The persistence step is proved for any Jacobian family J_eps -> J0 entrywise; that the Jacobian of the drift recursion at its fixed point converges to J0 as eps -> 0 is a hypothesis, not derived from lem:LRdrift/lem:B. (CORRECTIONS.md V2-8)"
+        "note": "Formalized 2026-10-06 (CORRECTIONS.md V2-8). windowDriftMap is the tame drift recursion (tame coefficients of lem:B: nu = 0, rho = 1) in the window variables (theta, eta m, R, eta^2 V, eta C) with h = eta eps p (windowDriftMap_conj: conjugate to tameDriftMap by the scaling diag(1, h/eps, 1, (h/eps)^2, h/eps)). Its fixed points satisfy m = 0, alpha theta = r, c = -h alpha R/(2-eps), v = 2 h alpha R/(2-eps) exactly, so they converge to the window fixed point when (theta, R) does; its Jacobian is explicit and continuous in (eps, x) and equals J0 at eps = 0. prop_W2_iii_drift: for lambda in (lambda_c, 2) and R > 0, the derivative of the drift map at its fixed point has an eigenvalue of modulus > 1 for eps small. The earlier prop_W2_iii (with J_eps -> J0 as a hypothesis) is kept."
       }
     ]
   },

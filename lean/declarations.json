@@ -3121,6 +3121,32 @@
     ]
   },
   {
+    "module": "SparseSGD.Logistic.V2.WindowDrift",
+    "file": "SparseSGD/Logistic/V2/WindowDrift.lean",
+    "theorem_names": [
+      "dynamicAlpha_windowScale",
+      "windowDriftMap_conj",
+      "windowDriftMap_zero",
+      "windowDriftMap_fixed",
+      "dynamicAlpha_windowFixedPoint",
+      "windowDrift_fixedPoint_tendsto",
+      "windowDrift_fixedPoint_signal"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.V2.WindowDriftJacobian",
+    "file": "SparseSGD/Logistic/V2/WindowDriftJacobian.lean",
+    "theorem_names": [
+      "hasFDerivAt_windowDriftMap",
+      "windowDriftJacobian_zero_fixed",
+      "continuous_windowDriftJacobian_entry",
+      "windowDriftJacobian_tendsto",
+      "two_lt_windowUpper",
+      "prop_W2_iii_above_interval",
+      "prop_W2_iii_drift"
+    ]
+  },
+  {
     "module": "SparseSGD.Logistic.V2.WindowMapAlgebra",
     "file": "SparseSGD/Logistic/V2/WindowMapAlgebra.lean",
     "theorem_names": [

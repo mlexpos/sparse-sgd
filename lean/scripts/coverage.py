@@ -47,8 +47,8 @@ components = {
         "v2: exact algebra of Omega, D, H, S and the Rayleigh shifts; large-Delta eigenvalue asymptotics via the explicit characteristic polynomial."),
     "cor:recursion": (["Logistic/V2/RecursionContraction", "Logistic/V2/RecursionTame", "Logistic/V2/All"],
         "v2: abstract drift-recursion contraction and its tame-coefficient instantiation at a fixed base point; actual coefficients and uniformity over compact parameter sets remain."),
-    "prop:W2": (["Logistic/V2/WindowMapAlgebra", "Logistic/V2/WindowUnitCircle"],
-        "v2: window-map Jacobian, determinants, palindromic factorization, unit-circle spectrum below w_c and period doubling; the drift-recursion Jacobian limit remains a hypothesis."),
+    "prop:W2": (["Logistic/V2/WindowMapAlgebra", "Logistic/V2/WindowUnitCircle", "Logistic/V2/WindowDrift", "Logistic/V2/WindowDriftJacobian"],
+        "v2: window-map Jacobian, determinants, palindromic factorization, unit-circle spectrum below w_c and period doubling on (w_c, 2); the tame drift recursion in window coordinates, its fixed points and the convergence of its Jacobian to J0, hence (iii) for the drift recursion."),
     "ass:W2": (["Logistic/V2/All"], "v2 assumption, stated as an explicit Prop structure (not an axiom)."),
     # v2 momentum-helps appendix (source/v2/momentum_helps.tex; snapshot of 2026-10-05,
     # after the merge with KE's section and the harmonization pass). Entries with

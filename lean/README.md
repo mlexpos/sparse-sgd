@@ -20,19 +20,15 @@ formalization improved the written proofs (see
 
 | Status | Meaning | Results |
 |---|---|---|
-| complete | Every part of the statement is proved. In [`RESULTS.md`](RESULTS.md), 13 of these are marked `complete*` (see [below](#the-formalization-and-the-written-proofs)). | 46 |
-| partial | Corollary G.17 and Proposition G.19: one step is not formalized (below). | 2 |
+| complete | Every part of the statement is proved. In [`RESULTS.md`](RESULTS.md), 14 of these are marked `complete*` (see [below](#the-formalization-and-the-written-proofs)). | 47 |
+| partial | Corollary G.17: part of the argument is not formalized (below). | 1 |
 | remark, partly formalized | Remarks E.10 and H.11: some claims proved. | 2 |
 | assumption, definition | Assumptions A and B, Definition D.1 and the definition of the decay rate in Appendix H.1. | 4 |
 
-The two partial results:
-
-- **Corollary G.17** (the drift recursion converges). The recursion is formalized with the
-  tame coefficients of Lemma G.3, not the Gaussian coefficients of Proposition G.9, and its
-  constants are uniform near one parameter point, not over compact parameter sets.
-- **Proposition G.19** (the LR curvature ceiling). Part (iii) takes as a hypothesis that the
-  Jacobian of the drift recursion converges to the limiting Jacobian `J0`; everything after
-  that step is proved.
+The partial result is **Corollary G.17** (the drift recursion converges). The recursion is
+formalized with the tame coefficients of Lemma G.3, not the Gaussian coefficients of
+Proposition G.9, and its constants are uniform near one parameter point, not over compact
+parameter sets.
 
 ## Notation
 
@@ -107,10 +103,13 @@ process include:
 - Proposition G.12: the dissipation identity is stated on the states with `Q > 0`, where it
   holds.
 - Proposition G.15: the hypothesis `r > 0`, which the oscillatory eigenvectors need.
+- Proposition G.19: parts (ii) and (iii) need `R* > 0`, and the proof of (iii) needed an
+  argument that the Jacobian of the drift recursion converges to `J0`. Lean derives this from
+  the exact location of the fixed point.
 - Proposition H.10: the limit `ε → 0` is taken with the noise feedback fixed, and its exact
   counterpart needs SGD to be stable.
 
-The 13 results in which the formalization found such a gap are marked `complete*` in
+The 14 results in which the formalization found such a gap are marked `complete*` in
 [`RESULTS.md`](RESULTS.md). The last revision also wrote into the paper the conditions that
 the formal statements need but the text had left implicit: integer batch sizes
 (Appendix E), the dependence of the error of Corollary E.11 on the initial size, one-sided
@@ -166,12 +165,12 @@ python3 scripts/verify.py # about 3 minutes
 1. every module is reachable from `SparseSGD.lean`, so nothing escapes the build or the audit;
 2. the project builds;
 3. `Audit.lean` passes;
-4. all 862 declarations cited in [`obligations.json`](obligations.json) exist;
+4. all 871 declarations cited in [`obligations.json`](obligations.json) exist;
 5. the source snapshot matches its hashes, when it is present (it is not distributed, and
    the check is then skipped).
 
-It also regenerates `coverage.json` and `declarations.json`. The current log reports 377
-modules, 2,895 authored theorems, 6,635 audited declarations (5,633 of them theorems) and
+It also regenerates `coverage.json` and `declarations.json`. The current log reports 379
+modules, 2,909 authored theorems, 6,668 audited declarations (5,662 of them theorems) and
 only the three standard axioms.
 
 ## Layout

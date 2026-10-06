@@ -72,8 +72,8 @@ Partial items:
   - not instantiated with the actual Gaussian coefficients of `prop:LR34`, which
     are non-autonomous through `theta`;
   - constants not made uniform over compact sets of `(Delta*, Phi*, r)`.
-- `prop:W2` (iii): convergence of the drift-recursion Jacobian to `J0` is a
-  hypothesis.
+- `prop:W2` (iii): done 2026-10-06. `prop_W2_iii_drift` derives the convergence of the
+  drift-recursion Jacobian to `J0` (`Logistic/V2/WindowDrift`, `WindowDriftJacobian`).
 
 Each of these is a natural next work item. The tex corrections are in
 `CORRECTIONS.md`, section "V2 drafts".

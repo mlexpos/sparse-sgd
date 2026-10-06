@@ -257,6 +257,10 @@ refers to.
   `V2.real_eigenvalue_persistence` and `V2.prop_W2_iii`, with entrywise
   `J_ε → J0` as a hypothesis. The convergence itself is not formalized.
   Applied to the tex on 2026-10-04.
+  Formalized on 2026-10-06 (`Logistic/V2/WindowDrift`, `WindowDriftJacobian`):
+  `prop_W2_iii_drift` proves (iii) for the tame drift recursion, with no hypothesis on
+  `J_ε`. The fixed point is located exactly, not through Proposition D: `m = 0`,
+  `alpha theta = r`, `c = -h alpha R/(2-eps)` and `v = 2 h alpha R/(2-eps)`.
 
 ### Sharpenings (optional, the tex is correct as stated)
 

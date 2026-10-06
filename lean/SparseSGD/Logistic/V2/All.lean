@@ -11,6 +11,7 @@ import SparseSGD.Logistic.V2.LargeDeltaAlgebra
 import SparseSGD.Logistic.V2.LargeDeltaPerturbation
 import SparseSGD.Logistic.V2.WindowMapAlgebra
 import SparseSGD.Logistic.V2.WindowUnitCircle
+import SparseSGD.Logistic.V2.WindowDriftJacobian
 
 /-!
 # V2 (revised appendix): composed results
