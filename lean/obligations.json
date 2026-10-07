@@ -1637,6 +1637,7 @@
     "kind": "corollary",
     "title": "The drift recursion converges (v2)",
     "source": "v2/lr_windows.tex",
+    "scope_note": "The live tex (chunk 14, draft block lean-recursion-constants, 2026-10-06) states the constants M, c, Gamma for a fixed base point (omega*^2, Phi*, r) and no longer claims uniformity over compact parameter sets; the frozen draft's parameter-uniformity subclaim (CORRECTIONS.md V2-6) is dropped accordingly.",
     "subclaims": [
       {
         "id": "abstract",
@@ -1660,16 +1661,30 @@
         "correction": "CORRECTIONS.md (V2-5): uniqueness holds in a fixed ball around y*, of radius independent of delta_eps; constants are for a fixed base point (r, Delta*, Phi*)."
       },
       {
-        "id": "parameter_uniformity",
-        "status": "pending",
-        "declarations": [],
-        "remaining": "Uniformity of M, c, Gamma over compact sets of (Delta*, Phi*, r) is not formalized: cor_recursion_tame fixes (r, Delta*, Phi*) and is uniform only over the parameter tube around it (CORRECTIONS.md V2-6)."
+        "id": "actual_coefficients",
+        "status": "complete",
+        "declarations": [
+          "SparseSGD.Logistic.V2.actualDriftMap_eq_dynamicDriftMap",
+          "SparseSGD.Logistic.V2.orbit_eq_actualDriftMap",
+          "SparseSGD.Logistic.V2.AP.ofModel_map",
+          "SparseSGD.Logistic.V2.AP_decomposition_near",
+          "SparseSGD.Logistic.V2.AP_fderiv_le",
+          "SparseSGD.Logistic.V2.AP_map_physical",
+          "SparseSGD.Logistic.V2.AP_tracking_of_bound",
+          "SparseSGD.Logistic.V2.AP_consistency_of_bound",
+          "SparseSGD.Logistic.V2.actual_family",
+          "SparseSGD.Logistic.V2.cor_recursion_actual",
+          "SparseSGD.Logistic.V2.cor_recursion_actual_dynamicDriftMap"
+        ],
+        "note": "Formalized 2026-10-06 for Phi* > 0 (cells 4 and 6). actualDriftMap is the actual Gaussian-coefficient drift recursion of prop:LR34 written as an autonomous map of the five state variables (coefficients at (theta_par, |theta|^2) = (y0, y0^2 + y2)); actualDriftMap_eq_dynamicDriftMap identifies it with dynamicDriftMap. It is y + eps (dynamicField + e) with |e|, |De| <= K (eps + |delta - Delta*| + |Phi - Phi*| + p) near y* (lem:B bounds in scalar variables, eps_B <= C p on compacts), preserves physical states, and cor_recursion_actual gives the conclusion of cor:recursion with delta_eps = eps + |delta - Delta*| + |Phi - Phi*| + p. The first- and second-order Gaussian Stein identities enter as explicit hypotheses (GaussianSteinCertificate 1 and 2), as elsewhere."
       },
       {
-        "id": "actual_coefficients",
-        "status": "pending",
-        "declarations": [],
-        "remaining": "Instantiation with the actual Gaussian-coefficient drift recursion of prop:LR34 (non-autonomous through theta in R^d, with epsilon_B errors) is not formalized; only the tame coefficients of lem:B are covered."
+        "id": "actual_coefficients_zero_temperature",
+        "status": "partial",
+        "declarations": [
+          "SparseSGD.Logistic.V2.cor_recursion_tame"
+        ],
+        "remaining": "Phi* = 0 (cell 3) is formalized only for the tame coefficients (cor_recursion_tame). The actual-coefficient theorem assumes Phi* > 0: at Phi* = 0 the equilibrium has R* = 0, every ball around y* contains states with R < 0 (q > 0), and the lem:B bounds are proved in Lean through vector realizations that need R >= 0. Closing this needs the scalar jet bounds for every q > 0."
       }
     ]
   },

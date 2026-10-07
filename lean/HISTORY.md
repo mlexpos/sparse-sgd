@@ -571,6 +571,33 @@ Verification passed with:
 
 Coverage: 46 complete numbered results and 1 partial.
 
+## `cor:recursion` for the actual coefficients (2026-10-06)
+
+Six new modules in `Logistic/V2/` formalize `cor:recursion` for the actual Gaussian-coefficient
+drift recursion of `prop:LR34`, at a fixed base point `(r, Delta*, Phi*)` with `Phi* > 0`. As of
+2026-10-06 (draft block `lean-recursion-constants`), the live tex claims constants for a fixed base
+point only.
+
+| Module | Content |
+| --- | --- |
+| `ActualMap` | `actualDriftMap`: the actual recursion as an autonomous map of the five state variables, with coefficients at `(y0, y0^2 + y2)`. `actualDriftMap_eq_dynamicDriftMap`, `orbit_eq_actualDriftMap`, the parameter structure `AP` and `AP.ofModel` |
+| `ActualCoefficients` | `lem:B` bounds in scalar variables: `tameErrorS`, `tameErrorS_le_mul` (`eps_B <= C p` on compacts), `scalar_tame_values`, `scalar_tame_jets` |
+| `ActualCoefficientDerivs` | derivatives of the coefficient errors at `q > 0` and their bounds; clipping at `q = 0`; Lipschitz bounds independent of `p` |
+| `ActualDecomposition` | `AP.err` and its derivative bounded by `K (eps + |delta - Delta*| + |Phi - Phi*| + p)` (`AP_decomposition_near`); the Jacobian bound `AP_fderiv_le` (from Lipschitz, valid at `q = 0` too) |
+| `ActualInvariance` | `AP.Model` (`rho = 1 - w p/h`), `AP_map_physical` (the actual map preserves physical states), `AP_tracking_of_bound`, `AP_consistency_of_bound` |
+| `RecursionActual` | `actual_family`, `uniformize_le`, `cor_recursion_actual`, `cor_recursion_actual_dynamicDriftMap` |
+
+The first- and second-order Gaussian Stein identities enter as explicit hypotheses
+(`GaussianSteinCertificate 1` and `2`). `Phi* = 0` (cell 3) remains open for the actual
+coefficients. There `R* = 0`, so every ball around `y*` contains states with `R < 0`, and the
+`lem:B` bounds are proved through vector realizations that need `R >= 0`.
+
+Verification passed with:
+
+- 385 modules and 2,982 authored theorem declarations;
+- 6,858 audited declarations (5,807 theorems), using only the standard axioms;
+- 882 references.
+
 ## Orchestration
 
 The coordinator owns interfaces, imports, configuration and integration. Three

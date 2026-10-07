@@ -45,8 +45,8 @@ components = {
         "v2: free-energy Lyapunov function and dissipation identity, global existence and LaSalle-type convergence, Hurwitz Jacobian, uniform exponential rate on compact initial data and parameters."),
     "prop:W1": (["Logistic/V2/LargeDeltaAlgebra", "Logistic/V2/LargeDeltaPerturbation"],
         "v2: exact algebra of Omega, D, H, S and the Rayleigh shifts; large-Delta eigenvalue asymptotics via the explicit characteristic polynomial."),
-    "cor:recursion": (["Logistic/V2/RecursionContraction", "Logistic/V2/RecursionTame", "Logistic/V2/All"],
-        "v2: abstract drift-recursion contraction and its tame-coefficient instantiation at a fixed base point; actual coefficients and uniformity over compact parameter sets remain."),
+    "cor:recursion": (["Logistic/V2/RecursionContraction", "Logistic/V2/RecursionTame", "Logistic/V2/ActualMap", "Logistic/V2/ActualCoefficients", "Logistic/V2/ActualCoefficientDerivs", "Logistic/V2/ActualDecomposition", "Logistic/V2/ActualInvariance", "Logistic/V2/RecursionActual", "Logistic/V2/All"],
+        "v2: abstract drift-recursion contraction; tame-coefficient instantiation; the actual Gaussian-coefficient recursion for Phi* > 0 (cor_recursion_actual), at a fixed base point as the live tex states. Phi* = 0 (cell 3) remains for the actual coefficients."),
     "prop:W2": (["Logistic/V2/WindowMapAlgebra", "Logistic/V2/WindowUnitCircle", "Logistic/V2/WindowDrift", "Logistic/V2/WindowDriftJacobian"],
         "v2: window-map Jacobian, determinants, palindromic factorization, unit-circle spectrum below w_c and period doubling on (w_c, 2); the tame drift recursion in window coordinates, its fixed points and the convergence of its Jacobian to J0, hence (iii) for the drift recursion."),
     "ass:W2": (["Logistic/V2/All"], "v2 assumption, stated as an explicit Prop structure (not an axiom)."),
@@ -176,9 +176,9 @@ for claim in claims:
     if entry.get("source"):
         claim["source"] = entry["source"]
     for key in ("tex_labels", "supporting_note", "lean_status", "lean_remaining",
-                "v1_source", "beta_range"):
+                "v1_source", "beta_range", "scope_note"):
         claim.pop(key, None)
-    for key in ("tex_labels", "v1_source", "beta_range"):
+    for key in ("tex_labels", "v1_source", "beta_range", "scope_note"):
         if entry.get(key):
             claim[key] = entry[key]
     # A "supporting" entry: the statement was dropped from the frozen tex, but its

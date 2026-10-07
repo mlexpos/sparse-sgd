@@ -21,14 +21,16 @@ formalization improved the written proofs (see
 | Status | Meaning | Results |
 |---|---|---|
 | complete | Every part of the statement is proved. In [`RESULTS.md`](RESULTS.md), 14 of these are marked `complete*` (see [below](#the-formalization-and-the-written-proofs)). | 47 |
-| partial | Corollary G.17: part of the argument is not formalized (below). | 1 |
+| partial | Corollary G.17: one case is not formalized (below). | 1 |
 | remark, partly formalized | Remarks E.10 and H.11: some claims proved. | 2 |
 | assumption, definition | Assumptions A and B, Definition D.1 and the definition of the decay rate in Appendix H.1. | 4 |
 
-The partial result is **Corollary G.17** (the drift recursion converges). The recursion is
-formalized with the tame coefficients of Lemma G.3, not the Gaussian coefficients of
-Proposition G.9, and its constants are uniform near one parameter point, not over compact
-parameter sets.
+The partial result is **Corollary G.17** (the drift recursion converges).
+`cor_recursion_actual` proves it for the actual drift recursion of Proposition G.9, with its
+Gaussian coefficients, when the limiting temperature `Φ*` is positive (cells 4 and 6). For
+`Φ* = 0` (cell 3) it is proved only for the tame coefficients of Lemma G.3. There the
+equilibrium has no bulk (`R* = 0`), and the Lean bounds of Lemma G.3 are available only at
+states with `R ≥ 0`, which do not fill a neighbourhood of the equilibrium.
 
 ## Notation
 
@@ -147,6 +149,13 @@ had to be recorded in `CORRECTIONS.md`. The audit above was carried out separate
 Claude (Anthropic). [`HISTORY.md`](HISTORY.md) is the pipeline's development log, in the
 notation of the time.
 
+The modules added on 6 October 2026 were written by Claude agents (Anthropic), one task at a
+time, with each statement checked against the paper before the next task started. They are
+`Comparison/General` (matching and embedding for `β ∈ (0,1)`), `Logistic/V2/WindowDrift*`
+(Proposition G.19 (iii)), and `Logistic/V2/Actual*` with `RecursionActual` (Corollary G.17 for
+the actual coefficients). The same rules applied, and the same audit and verification cover
+them.
+
 ## Building and verifying
 
 You need [elan](https://github.com/leanprover/elan). The toolchain (Lean 4.34.1) is pinned
@@ -165,12 +174,12 @@ python3 scripts/verify.py # about 3 minutes
 1. every module is reachable from `SparseSGD.lean`, so nothing escapes the build or the audit;
 2. the project builds;
 3. `Audit.lean` passes;
-4. all 871 declarations cited in [`obligations.json`](obligations.json) exist;
+4. all 882 declarations cited in [`obligations.json`](obligations.json) exist;
 5. the source snapshot matches its hashes, when it is present (it is not distributed, and
    the check is then skipped).
 
-It also regenerates `coverage.json` and `declarations.json`. The current log reports 379
-modules, 2,909 authored theorems, 6,668 audited declarations (5,662 of them theorems) and
+It also regenerates `coverage.json` and `declarations.json`. The current log reports 385
+modules, 2,982 authored theorems, 6,858 audited declarations (5,807 of them theorems) and
 only the three standard axioms.
 
 ## Layout
@@ -184,7 +193,7 @@ only the three standard axioms.
 | `SparseSGD/Comparison` | matching, embedding, quadrature, Theorem D.6; `Comparison/General` for matching, embedding and the square-root lift at `β ∈ (0,1)` |
 | `SparseSGD/Scaling` | the least-squares corollaries (Appendix E) and the phase dictionary (Appendix F) |
 | `SparseSGD/Scaling/Helps` | benefits of momentum (Appendix H) |
-| `SparseSGD/Logistic` | logistic regression (Appendix G); `Logistic/V2` for Propositions G.12, G.15, G.19 and Corollary G.17 |
+| `SparseSGD/Logistic` | logistic regression (Appendix G); `Logistic/V2` for Propositions G.12, G.15, G.19 and Corollary G.17 (the `Actual*` modules and `RecursionActual` for the actual coefficients) |
 | `SparseSGD/External` | the statements of the cited results |
 | `SparseSGD/Examples` | small worked instances (a one-step risk, end-to-end fluid limits) |
 | `Audit.lean`, `scripts/` | axiom audit, verification and coverage scripts |

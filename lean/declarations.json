@@ -2778,6 +2778,104 @@
     ]
   },
   {
+    "module": "SparseSGD.Logistic.V2.ActualCoefficientDerivs",
+    "file": "SparseSGD/Logistic/V2/ActualCoefficientDerivs.lean",
+    "theorem_names": [
+      "matchedScalarJet_hasFDerivAt_pos",
+      "matchedScalarState_hasFDerivAt",
+      "gaussianAverage_clip'",
+      "scalarGaussianJet_clip",
+      "matchedScalarJet_clip",
+      "hasFDerivAt_normJet",
+      "hasFDerivAt_dynamicAlpha_coord",
+      "coefErrA_hasFDerivAt",
+      "coefErrB_hasFDerivAt",
+      "coefErrD_hasFDerivAt",
+      "coefErrT_hasFDerivAt",
+      "norm_coord_comb_le",
+      "abs_coord_le_of_norm_le",
+      "clipq_mem",
+      "abs_div_le_of_le_mul",
+      "coefErr_deriv_bound",
+      "matchedScalarJet_clip_bound",
+      "actA_eq_clip",
+      "actB_eq_clip",
+      "actD0_eq_clip",
+      "actDt_eq_clip",
+      "actCoef_bounded",
+      "matchedScalarJet_clip_lipschitz",
+      "actCoef_lipschitzOn"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.V2.ActualCoefficients",
+    "file": "SparseSGD/Logistic/V2/ActualCoefficients.lean",
+    "theorem_names": [
+      "tameError_eq_tameErrorS",
+      "tameErrorS_le_mul",
+      "exists_frame",
+      "scalar_tame_values",
+      "scalar_tame_jets",
+      "scalar_tame_matched_jets"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.V2.ActualDecomposition",
+    "file": "SparseSGD/Logistic/V2/ActualDecomposition.lean",
+    "theorem_names": [
+      "contDiff_coefInc",
+      "AP.inc_eq_coefInc",
+      "dynamicField_eq_coefInc",
+      "AP.err_eq_coefInc_sub",
+      "coefInc_param_bounds",
+      "coefInc_comp_bounds",
+      "AP.varrho_nonneg",
+      "AP.p_le_varrho",
+      "AP.abs_h_le_varrho",
+      "AP.abs_delta_le_varrho",
+      "AP.abs_Phi_le_varrho",
+      "actKappaDiff",
+      "AP.kappa_bounds",
+      "AP_param_bounds",
+      "AP_decomposition_phys",
+      "sAct_deriv_bound",
+      "AP_decomposition_reg",
+      "AP_decomposition_near",
+      "dynamicIncrementData_sub_norm_le",
+      "dynamicIncrementData_norm_le",
+      "AP_inc_lipschitz",
+      "AP_fderiv_le"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.V2.ActualInvariance",
+    "file": "SparseSGD/Logistic/V2/ActualInvariance.lean",
+    "theorem_names": [
+      "AP.ofModel_model",
+      "physical_step_aux",
+      "AP_map_physical",
+      "AP_iterate_physical",
+      "AP.h_le_varrho",
+      "AP_step_residual",
+      "AP_tracking_of_bound",
+      "AP_consistency_of_bound"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.V2.ActualMap",
+    "file": "SparseSGD/Logistic/V2/ActualMap.lean",
+    "theorem_names": [
+      "actualDriftMap_eq_dynamicDriftMap",
+      "orbit_eq_actualDriftMap",
+      "AP.map_eq",
+      "AP.ofModel_map",
+      "AP.ofModel_w_le_kappa",
+      "AP.ofModel_rho",
+      "equilibrium_bulk_pos",
+      "AP.inc_of_tame"
+    ]
+  },
+  {
     "module": "SparseSGD.Logistic.V2.All",
     "file": "SparseSGD/Logistic/V2/All.lean",
     "theorem_names": [
@@ -3013,6 +3111,17 @@
       "determinant_lower_bound",
       "determinant_pos_of_pos_time",
       "determinant_pos_of_pos_initial"
+    ]
+  },
+  {
+    "module": "SparseSGD.Logistic.V2.RecursionActual",
+    "file": "SparseSGD/Logistic/V2/RecursionActual.lean",
+    "theorem_names": [
+      "ActualGood.mono",
+      "actual_family",
+      "uniformize_le",
+      "cor_recursion_actual",
+      "cor_recursion_actual_dynamicDriftMap"
     ]
   },
   {

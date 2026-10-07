@@ -236,6 +236,10 @@ refers to.
   the tube `|δ-Δ*| ≤ Δ*/2`, `ρ ∈ [0,1]`, `varrho ≤ varrho0` around that point,
   and they depend only on `(r, Δ*, Φ*, K)`.
   Applied to the tex on 2026-10-04.
+  Superseded on 2026-10-06: no downstream result used the uniformity, so the tex now
+  states the constants for a fixed base point `(ω*², Φ*, r)` (draft block
+  `lean-recursion-constants`). That is the form Lean proves. The registry subclaim
+  `parameter_uniformity` is dropped.
 - **V2-7, `prop:W2`, scope of $R^*>0$.** Parts (ii) and (iii) need $R^*>0$, but
   the statement attaches $R^*>0$ only to $0<w_c<2$. At $R^*=0$,
   $\mathsf d(w)=4(w-3+\theta^{*2})^2$ vanishes at $w=3-\theta^{*2}$. This lies

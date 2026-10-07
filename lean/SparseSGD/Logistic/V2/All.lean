@@ -7,6 +7,7 @@ import SparseSGD.Logistic.V2.LyapunovCertificate
 import SparseSGD.Logistic.V2.RecursionContraction
 import SparseSGD.Logistic.V2.UniformRate
 import SparseSGD.Logistic.V2.RecursionTame
+import SparseSGD.Logistic.V2.RecursionActual
 import SparseSGD.Logistic.V2.LargeDeltaAlgebra
 import SparseSGD.Logistic.V2.LargeDeltaPerturbation
 import SparseSGD.Logistic.V2.WindowMapAlgebra
