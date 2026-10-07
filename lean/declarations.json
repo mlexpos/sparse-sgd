@@ -3197,6 +3197,39 @@
     ]
   },
   {
+    "module": "SparseSGD.Logistic.V2.TameScalar",
+    "file": "SparseSGD/Logistic/V2/TameScalar.lean",
+    "theorem_names": [
+      "tameErrorS_ge_probability",
+      "exists_theta1",
+      "sc_sigmaPrime_error",
+      "sc_sigmaPrime_bound",
+      "sc_sigma_bound",
+      "sc_sigmaSq_bound",
+      "sc_oneMinusSigmaSq_error",
+      "sc_sigmaSqSecond_bound",
+      "sc_oneMinusSigmaSqSecond_bound",
+      "sc_bias_first",
+      "sc_bias_second",
+      "sc_exponential_controls",
+      "sc_coefficients",
+      "scalar_tame_values_q",
+      "sc_sigma_mixture_derivative",
+      "sc_sigma_positive_derivative",
+      "sc_square_mixture_derivative",
+      "sc_square_positive_derivative",
+      "sc_factor_abs_bound",
+      "sc_A_variance_jet",
+      "sc_A_signal_jet",
+      "sc_B_jet",
+      "sc_square_jet",
+      "sc_jetBounds_mono",
+      "sc_jets",
+      "scalar_tame_jets_q",
+      "scalar_tame_matched_jets_q"
+    ]
+  },
+  {
     "module": "SparseSGD.Logistic.V2.UniformRate",
     "file": "SparseSGD/Logistic/V2/UniformRate.lean",
     "theorem_names": [

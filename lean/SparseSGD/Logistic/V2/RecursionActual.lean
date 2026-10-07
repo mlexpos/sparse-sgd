@@ -69,7 +69,7 @@ depend on the family; the uniform form is `cor_recursion_actual`.  Copy of `tame
 `AP_consistency_of_bound` and `AP_fderiv_le`. -/
 theorem actual_family (S1 : SparseSGD.External.GaussianSteinCertificate 1)
     (S2 : SparseSGD.External.GaussianSteinCertificate 2)
-    (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < deltaS) (hP : 0 < PhiS)
+    (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < deltaS) (hP : 0 ≤ PhiS)
     (K : Set DynamicState) (hK : IsCompact K) (hKphys : ∀ y ∈ K, dynamicPhysical y)
     (hentry : UniformEntry (dynamicField r deltaS PhiS)
       (dynamicCanonicalEquilibrium r deltaS PhiS) K)
@@ -84,14 +84,14 @@ theorem actual_family (S1 : SparseSGD.External.GaussianSteinCertificate 1)
   classical
   set ystar := dynamicCanonicalEquilibrium r deltaS PhiS with hystar
   have hS : dynamicField r deltaS PhiS ystar = 0 :=
-    dynamicCanonicalEquilibrium_is_stationary r deltaS PhiS hr hd hP.le
+    dynamicCanonicalEquilibrium_is_stationary r deltaS PhiS hr hd hP
   obtain ⟨A, P, c0, hc0, hPs, hge, hdec, hstrict⟩ :=
-    tame_base_certificate r deltaS PhiS hr hd hP.le
+    tame_base_certificate r deltaS PhiS hr hd hP
   obtain ⟨K1', p0n, r0, hK1', hp0n, hr0, hnear⟩ :=
     AP_decomposition_near S1 r deltaS PhiS hr hd hP
-  obtain ⟨M0, hM00, hM0⟩ := solutions_uniform_bound r deltaS PhiS hd hP.le ystar K hK hKphys hentry
-  obtain ⟨Lf, p0f, hLf0, hp0f, hfd⟩ := AP_fderiv_le S1 r deltaS PhiS hr hd hP.le (M0 + 1)
-  obtain ⟨C1, p0c, hC10, hp0c, hcon⟩ := AP_consistency_of_bound r deltaS PhiS hr hd hP.le M0
+  obtain ⟨M0, hM00, hM0⟩ := solutions_uniform_bound r deltaS PhiS hd hP ystar K hK hKphys hentry
+  obtain ⟨Lf, p0f, hLf0, hp0f, hfd⟩ := AP_fderiv_le S1 r deltaS PhiS hr hd hP (M0 + 1)
+  obtain ⟨C1, p0c, hC10, hp0c, hcon⟩ := AP_consistency_of_bound r deltaS PhiS hr hd hP M0
   set K1 : ℝ := max K1' 1 with hK1def
   have hK1one : 1 ≤ K1 := le_max_right _ _
   have hK1ge : K1' ≤ K1 := le_max_left _ _
@@ -165,7 +165,7 @@ theorem actual_family (S1 : SparseSGD.External.GaussianSteinCertificate 1)
     simp [h1]
   have hex : ∀ y0 ∈ K, ∃ y : ℝ → DynamicState, IsODESol H.b y0 y := by
     intro y0 hy0
-    obtain ⟨y, hy0', hy, -⟩ := global_solution_exists r deltaS PhiS y0 hd hP.le (hKphys y0 hy0)
+    obtain ⟨y, hy0', hy, -⟩ := global_solution_exists r deltaS PhiS y0 hd hP (hKphys y0 hy0)
     exact ⟨y, hy0', hy⟩
   have hent : UniformEntry H.b H.ystar K := hentry
   have hbdd : ∀ T : ℝ, 0 ≤ T → ∃ M : ℝ, 0 ≤ M ∧ ∀ y0 ∈ K, ∀ y : ℝ → DynamicState,
@@ -179,7 +179,7 @@ theorem actual_family (S1 : SparseSGD.External.GaussianSteinCertificate 1)
         ∀ k : ℕ, (k : ℝ) * ε ≤ T →
           ‖(driftMap H.b H.e ε)^[k] y0 - y (k * ε)‖ ≤ CT * H.ρ ε := by
     intro T hT
-    obtain ⟨CT, vT, hCT, hvT, htr⟩ := AP_tracking_of_bound S2 r deltaS PhiS hr hd hP.le T M0 hT
+    obtain ⟨CT, vT, hCT, hvT, htr⟩ := AP_tracking_of_bound S2 r deltaS PhiS hr hd hP T M0 hT
     obtain ⟨ε', hε', hεv⟩ := hF2 vT hvT
     refine ⟨CT, min ε' εG, hCT, lt_min hε' hεG0, ?_⟩
     intro ε hε hεle y0 hy0 y hy k hk
@@ -239,7 +239,7 @@ theorem actual_family (S1 : SparseSGD.External.GaussianSteinCertificate 1)
       ∀ ε : ℝ, 0 < ε → ε ≤ εL → ∀ y0 ∈ K, ∀ k : ℕ, (k : ℝ) * ε ≤ T →
         ‖fderiv ℝ (driftMap H.b H.e ε) ((driftMap H.b H.e ε)^[k] y0)‖ ≤ 1 + L * ε := by
     intro T hT
-    obtain ⟨CT, vT, hCT, hvT, htr⟩ := AP_tracking_of_bound S2 r deltaS PhiS hr hd hP.le T M0 hT
+    obtain ⟨CT, vT, hCT, hvT, htr⟩ := AP_tracking_of_bound S2 r deltaS PhiS hr hd hP T M0 hT
     obtain ⟨ε', hε', hεv⟩ := hF2 vT hvT
     refine ⟨Lf, min ε' εG, hLf0, lt_min hε' hεG0, ?_⟩
     intro ε hε hεle y0 hy0 k hk
@@ -481,7 +481,8 @@ theorem uniformize_le {X : Type*} (hh vr : X → ℝ) (Adm : X → Prop)
   exact hbad (hmono C c s _ _ _ (x N) hA hpos hC.le hCN hcN hsN hg)
 
 /-- v2 `cor:recursion` (actual Gaussian-coefficient drift recursion), uniform form.  For
-`r, deltaS, PhiS > 0`, a compact physical set `K` with the uniform-entry property of the base
+`r, deltaS > 0` and `PhiS ≥ 0` (including the case `PhiS = 0`, where the equilibrium has
+`R* = 0`), a compact physical set `K` with the uniform-entry property of the base
 ODE, there are `C, c, v0, s > 0` such that for every model parameter tuple
 `(d, B, eta, beta, p)` with `2 ≤ d`, `|eta p/(1-beta) - deltaS| ≤ deltaS/2` and
 `varrho = (1-beta) + |eta p/(1-beta) - deltaS| + |Phi_{d,B}(eta) - PhiS| + p ≤ v0`, the map
@@ -493,7 +494,7 @@ hypotheses. -/
 theorem cor_recursion_actual
     (S1 : SparseSGD.External.GaussianSteinCertificate 1)
     (S2 : SparseSGD.External.GaussianSteinCertificate 2)
-    (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < deltaS) (hP : 0 < PhiS)
+    (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < deltaS) (hP : 0 ≤ PhiS)
     (K : Set DynamicState) (hK : IsCompact K) (hKphys : ∀ y ∈ K, dynamicPhysical y)
     (hentry : UniformEntry (dynamicField r deltaS PhiS)
       (dynamicCanonicalEquilibrium r deltaS PhiS) K) :
@@ -596,7 +597,7 @@ orbit of `actualDriftMap` (`orbit_eq_actualDriftMap`), and it converges to the f
 theorem cor_recursion_actual_dynamicDriftMap
     (S1 : SparseSGD.External.GaussianSteinCertificate 1)
     (S2 : SparseSGD.External.GaussianSteinCertificate 2)
-    (deltaS PhiS : ℝ) (hd : 0 < deltaS) (hP : 0 < PhiS) {d : ℕ} (mu : Vec d) (hr : 0 < r mu)
+    (deltaS PhiS : ℝ) (hd : 0 < deltaS) (hP : 0 ≤ PhiS) {d : ℕ} (mu : Vec d) (hr : 0 < r mu)
     (K : Set DynamicState) (hK : IsCompact K) (hKphys : ∀ y ∈ K, dynamicPhysical y)
     (hentry : UniformEntry (dynamicField (r mu) deltaS PhiS)
       (dynamicCanonicalEquilibrium (r mu) deltaS PhiS) K) :

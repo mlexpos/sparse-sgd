@@ -20,17 +20,14 @@ formalization improved the written proofs (see
 
 | Status | Meaning | Results |
 |---|---|---|
-| complete | Every part of the statement is proved. In [`RESULTS.md`](RESULTS.md), 14 of these are marked `complete*` (see [below](#the-formalization-and-the-written-proofs)). | 47 |
-| partial | Corollary G.17: one case is not formalized (below). | 1 |
+| complete | Every part of the statement is proved. In [`RESULTS.md`](RESULTS.md), 15 of these are marked `complete*` (see [below](#the-formalization-and-the-written-proofs)). | 48 |
 | remark, partly formalized | Remarks E.10 and H.11: some claims proved. | 2 |
 | assumption, definition | Assumptions A and B, Definition D.1 and the definition of the decay rate in Appendix H.1. | 4 |
 
-The partial result is **Corollary G.17** (the drift recursion converges).
-`cor_recursion_actual` proves it for the actual drift recursion of Proposition G.9, with its
-Gaussian coefficients, when the limiting temperature `Φ*` is positive (cells 4 and 6). For
-`Φ* = 0` (cell 3) it is proved only for the tame coefficients of Lemma G.3. There the
-equilibrium has no bulk (`R* = 0`), and the Lean bounds of Lemma G.3 are available only at
-states with `R ≥ 0`, which do not fill a neighbourhood of the equilibrium.
+Every theorem, proposition, lemma and corollary is formalized in full. Corollary G.17 (the
+drift recursion converges) is proved for the actual drift recursion of Proposition G.9, with
+its Gaussian coefficients (`cor_recursion_actual`), at a fixed limit point
+`(ω*², Φ*, r)` with `Φ* ≥ 0`.
 
 ## Notation
 
@@ -111,7 +108,7 @@ process include:
 - Proposition H.10: the limit `ε → 0` is taken with the noise feedback fixed, and its exact
   counterpart needs SGD to be stable.
 
-The 14 results in which the formalization found such a gap are marked `complete*` in
+The 15 results in which the formalization found such a gap are marked `complete*` in
 [`RESULTS.md`](RESULTS.md). The last revision also wrote into the paper the conditions that
 the formal statements need but the text had left implicit: integer batch sizes
 (Appendix E), the dependence of the error of Corollary E.11 on the initial size, one-sided
@@ -152,9 +149,9 @@ notation of the time.
 The modules added on 6 October 2026 were written by Claude agents (Anthropic), one task at a
 time, with each statement checked against the paper before the next task started. They are
 `Comparison/General` (matching and embedding for `β ∈ (0,1)`), `Logistic/V2/WindowDrift*`
-(Proposition G.19 (iii)), and `Logistic/V2/Actual*` with `RecursionActual` (Corollary G.17 for
-the actual coefficients). The same rules applied, and the same audit and verification cover
-them.
+(Proposition G.19 (iii)), and `Logistic/V2/Actual*`, `TameScalar` and `RecursionActual`
+(Corollary G.17 for the actual coefficients). The same rules applied, and the same audit and
+verification cover them.
 
 ## Building and verifying
 
@@ -174,12 +171,12 @@ python3 scripts/verify.py # about 3 minutes
 1. every module is reachable from `SparseSGD.lean`, so nothing escapes the build or the audit;
 2. the project builds;
 3. `Audit.lean` passes;
-4. all 882 declarations cited in [`obligations.json`](obligations.json) exist;
+4. all 884 declarations cited in [`obligations.json`](obligations.json) exist;
 5. the source snapshot matches its hashes, when it is present (it is not distributed, and
    the check is then skipped).
 
-It also regenerates `coverage.json` and `declarations.json`. The current log reports 385
-modules, 2,982 authored theorems, 6,858 audited declarations (5,807 of them theorems) and
+It also regenerates `coverage.json` and `declarations.json`. The current log reports 386
+modules, 3,009 authored theorems, 6,918 audited declarations (5,867 of them theorems) and
 only the three standard axioms.
 
 ## Layout
@@ -193,7 +190,7 @@ only the three standard axioms.
 | `SparseSGD/Comparison` | matching, embedding, quadrature, Theorem D.6; `Comparison/General` for matching, embedding and the square-root lift at `β ∈ (0,1)` |
 | `SparseSGD/Scaling` | the least-squares corollaries (Appendix E) and the phase dictionary (Appendix F) |
 | `SparseSGD/Scaling/Helps` | benefits of momentum (Appendix H) |
-| `SparseSGD/Logistic` | logistic regression (Appendix G); `Logistic/V2` for Propositions G.12, G.15, G.19 and Corollary G.17 (the `Actual*` modules and `RecursionActual` for the actual coefficients) |
+| `SparseSGD/Logistic` | logistic regression (Appendix G); `Logistic/V2` for Propositions G.12, G.15, G.19 and Corollary G.17 (the `Actual*` modules, `TameScalar` and `RecursionActual` for the actual coefficients) |
 | `SparseSGD/External` | the statements of the cited results |
 | `SparseSGD/Examples` | small worked instances (a one-step risk, end-to-end fluid limits) |
 | `Audit.lean`, `scripts/` | axiom audit, verification and coverage scripts |

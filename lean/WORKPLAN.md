@@ -70,9 +70,8 @@ Partial items:
 
 - `cor:recursion`. Done 2026-10-06 for `Phi* > 0`: `cor_recursion_actual` covers the actual
   Gaussian coefficients. The live tex claims fixed-base constants only, so compact-set
-  uniformity is no longer needed. Open: `Phi* = 0` (cell 3) with the actual coefficients. It
-  needs the `lem:B` jet bounds in scalar variables for every `q > 0`, not only on realizable
-  states with `R >= 0`.
+  uniformity is no longer needed. `Phi* = 0` (cell 3) is also done, through the scalar
+  `lem:B` chain in `Logistic/V2/TameScalar`; `cor_recursion_actual` now takes `0 <= PhiS`.
 - `prop:W2` (iii): done 2026-10-06. `prop_W2_iii_drift` derives the convergence of the
   drift-recursion Jacobian to `J0` (`Logistic/V2/WindowDrift`, `WindowDriftJacobian`).
 

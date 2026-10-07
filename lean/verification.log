@@ -1,47 +1,47 @@
 $ lake build
-⚠ [8923/9310] Replayed SparseSGD.Scaling.GeometricKernel
+⚠ [8923/9311] Replayed SparseSGD.Scaling.GeometricKernel
 warning: SparseSGD/Scaling/GeometricKernel.lean:68:40: try 'simp' instead of 'simpa'
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
 warning: SparseSGD/Scaling/GeometricKernel.lean:43:78: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8924/9310] Replayed SparseSGD.Logistic.SquareRemainderConvex
+⚠ [8924/9311] Replayed SparseSGD.Logistic.SquareRemainderConvex
 warning: SparseSGD/Logistic/SquareRemainderConvex.lean:17:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Logistic/SquareRemainderConvex.lean:34:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8926/9310] Replayed SparseSGD.Logistic.ContinuousBootstrap
+⚠ [8926/9311] Replayed SparseSGD.Logistic.ContinuousBootstrap
 warning: SparseSGD/Logistic/ContinuousBootstrap.lean:11:29: Variable name `hT` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hT
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [8930/9310] Replayed SparseSGD.Discrete.Loads
+⚠ [8930/9311] Replayed SparseSGD.Discrete.Loads
 warning: SparseSGD/Discrete/Loads.lean:21:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Discrete/Loads.lean:30:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8932/9310] Replayed SparseSGD.Discrete.RenewalBounds
+⚠ [8932/9311] Replayed SparseSGD.Discrete.RenewalBounds
 warning: SparseSGD/Discrete/RenewalBounds.lean:20:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Discrete/RenewalBounds.lean:61:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8933/9310] Replayed SparseSGD.Continuum.Algebra
+⚠ [8933/9311] Replayed SparseSGD.Continuum.Algebra
 warning: SparseSGD/Continuum/Algebra.lean:11:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Continuum/Algebra.lean:26:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8935/9310] Replayed SparseSGD.Scaling.Exponents
+⚠ [8935/9311] Replayed SparseSGD.Scaling.Exponents
 warning: SparseSGD/Scaling/Exponents.lean:78:27: This simp argument is unused:
   heq
 
@@ -49,7 +49,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-ℹ [8939/9310] Replayed SparseSGD.Logistic.Equilibrium
+ℹ [8939/9311] Replayed SparseSGD.Logistic.Equilibrium
 info: SparseSGD/Logistic/Equilibrium.lean:47:2: Try this:
   [apply] ring_nf
   
@@ -62,7 +62,7 @@ info: SparseSGD/Logistic/Equilibrium.lean:109:2: Try this:
   The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
     
   Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
-⚠ [8941/9310] Replayed SparseSGD.Continuum.Spectrum
+⚠ [8941/9311] Replayed SparseSGD.Continuum.Spectrum
 warning: SparseSGD/Continuum/Spectrum.lean:13:63: Variable name `hd` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -79,7 +79,7 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 warning: SparseSGD/Continuum/Spectrum.lean:20:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8942/9310] Replayed SparseSGD.Probability.GramStep
+⚠ [8942/9311] Replayed SparseSGD.Probability.GramStep
 warning: SparseSGD/Probability/GramStep.lean:22:48: This simp argument is unused:
   inner_add_left
 
@@ -152,7 +152,7 @@ Hint: Omit it from the simp argument list.
     real_inner_comm, real_inner_self_eq_norm_sq, heξ, hmξ]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8943/9310] Replayed SparseSGD.Probability.MomentReduction
+⚠ [8943/9311] Replayed SparseSGD.Probability.MomentReduction
 warning: SparseSGD/Probability/MomentReduction.lean:30:2: Try this: 
   letI̵
 
@@ -175,7 +175,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-⚠ [8948/9310] Replayed SparseSGD.Probability.Covariance
+⚠ [8948/9311] Replayed SparseSGD.Probability.Covariance
 warning: SparseSGD/Probability/Covariance.lean:10:49: This simp argument is unused:
   real_inner_self_eq_norm_sq
 
@@ -183,7 +183,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp [gramMoments, Moments.cov, Matrix.gram, real_inner_comm]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8955/9310] Replayed SparseSGD.Continuum.Hurwitz
+⚠ [8955/9311] Replayed SparseSGD.Continuum.Hurwitz
 warning: SparseSGD/Continuum/Hurwitz.lean:12:65: This simp argument is unused:
   Matrix.one_apply
 
@@ -194,21 +194,21 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 warning: SparseSGD/Continuum/Hurwitz.lean:15:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8957/9310] Replayed SparseSGD.Continuum.Energy
+⚠ [8957/9311] Replayed SparseSGD.Continuum.Energy
 warning: SparseSGD/Continuum/Energy.lean:43:78: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8965/9310] Replayed SparseSGD.Probability.LeastSquares.Model
+⚠ [8965/9311] Replayed SparseSGD.Probability.LeastSquares.Model
 warning: SparseSGD/Probability/LeastSquares/Model.lean:61:0: Definition `SparseSGD.Probability.LeastSquares.pastSigma` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
 definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
-⚠ [8975/9310] Replayed SparseSGD.Probability.LeastSquares.Process
+⚠ [8975/9311] Replayed SparseSGD.Probability.LeastSquares.Process
 warning: SparseSGD/Probability/LeastSquares/Process.lean:58:29: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
 warning: SparseSGD/Probability/LeastSquares/Process.lean:58:29: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [8976/9310] Replayed SparseSGD.Probability.LeastSquares.Dynamic
+⚠ [8976/9311] Replayed SparseSGD.Probability.LeastSquares.Dynamic
 warning: SparseSGD/Probability/LeastSquares/Dynamic.lean:24:2: Try this: 
   letI̵
 
@@ -217,7 +217,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-⚠ [8977/9310] Replayed SparseSGD.Probability.LeastSquares.SourceFiltration
+⚠ [8977/9311] Replayed SparseSGD.Probability.LeastSquares.SourceFiltration
 warning: SparseSGD/Probability/LeastSquares/SourceFiltration.lean:15:0: Definition `SparseSGD.Probability.LeastSquares.sourceSigma` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
 definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
 warning: SparseSGD/Probability/LeastSquares/SourceFiltration.lean:30:2: Try this: 
@@ -228,7 +228,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-⚠ [8978/9310] Replayed SparseSGD.Probability.LeastSquares.SourceOracle
+⚠ [8978/9311] Replayed SparseSGD.Probability.LeastSquares.SourceOracle
 warning: SparseSGD/Probability/LeastSquares/SourceOracle.lean:43:6: Try this: 
   letI̵
 
@@ -245,7 +245,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-⚠ [8983/9310] Replayed SparseSGD.Probability.RawOracle
+⚠ [8983/9311] Replayed SparseSGD.Probability.RawOracle
 warning: SparseSGD/Probability/RawOracle.lean:18:0: automatically included section variable(s) unused in theorem `SparseSGD.memLp_of_condLExp_sq`:
   [InnerProductSpace ℝ E]
   [CompleteSpace E]
@@ -261,14 +261,14 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [InnerProductSpace ℝ E] [CompleteSpace E] [IsProbabilityMeasure μ] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-⚠ [8984/9310] Replayed SparseSGD.Discrete.GeometricDecay
+⚠ [8984/9311] Replayed SparseSGD.Discrete.GeometricDecay
 warning: SparseSGD/Discrete/GeometricDecay.lean:43:42: Variable name `hC` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hC
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [8985/9310] Replayed SparseSGD.Discrete.Stability
+⚠ [8985/9311] Replayed SparseSGD.Discrete.Stability
 warning: SparseSGD/Discrete/Stability.lean:122:18: Variable name `hg0` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -278,18 +278,18 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 warning: SparseSGD/Discrete/Stability.lean:132:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8989/9310] Replayed SparseSGD.Continuum.KernelEstimates
+⚠ [8989/9311] Replayed SparseSGD.Continuum.KernelEstimates
 warning: SparseSGD/Continuum/KernelEstimates.lean:126:73: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8990/9310] Replayed SparseSGD.Continuum.PositiveFlow
+⚠ [8990/9311] Replayed SparseSGD.Continuum.PositiveFlow
 warning: SparseSGD/Continuum/PositiveFlow.lean:128:57: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Continuum/PositiveFlow.lean:186:31: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8991/9310] Replayed SparseSGD.Continuum.OscillatorFormula
+⚠ [8991/9311] Replayed SparseSGD.Continuum.OscillatorFormula
 warning: SparseSGD/Continuum/OscillatorFormula.lean:23:115: This simp argument is unused:
   Pi.sub_def
 
@@ -391,7 +391,7 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: SparseSGD/Continuum/OscillatorFormula.lean:61:59: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8992/9310] Replayed SparseSGD.Continuum.ModalInversion
+⚠ [8992/9311] Replayed SparseSGD.Continuum.ModalInversion
 warning: SparseSGD/Continuum/ModalInversion.lean:39:66: This simp argument is unused:
   Complex.div_re
 
@@ -406,7 +406,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp [oscillatoryRoot, pow_two, Complex.mul_re, Complex.mul_im]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8994/9310] Replayed SparseSGD.Comparison.QuadratureBound
+⚠ [8994/9311] Replayed SparseSGD.Comparison.QuadratureBound
 warning: SparseSGD/Comparison/QuadratureBound.lean:45:4: try 'simp' instead of 'simpa'
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
@@ -430,14 +430,14 @@ Note: This linter can be disabled with `set_option linter.unreachableTactic fals
 warning: SparseSGD/Comparison/QuadratureBound.lean:118:6: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [8996/9310] Replayed SparseSGD.Comparison.MatchingScalars
+⚠ [8996/9311] Replayed SparseSGD.Comparison.MatchingScalars
 warning: SparseSGD/Comparison/MatchingScalars.lean:10:45: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Comparison/MatchingScalars.lean:10:57: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8998/9310] Replayed SparseSGD.Comparison.ExactEmbedding
+⚠ [8998/9311] Replayed SparseSGD.Comparison.ExactEmbedding
 warning: SparseSGD/Comparison/ExactEmbedding.lean:51:0: automatically included section variable(s) unused in theorem `SparseSGD.Params.sampledImpulse_eq_power`:
   hb0
   hb1
@@ -455,7 +455,7 @@ Hint: Omit it from the simp argument list.
     mul_zero, add_zero]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9000/9310] Replayed SparseSGD.Discrete.General.Renewal
+⚠ [9000/9311] Replayed SparseSGD.Discrete.General.Renewal
 warning: SparseSGD/Discrete/General/Renewal.lean:118:24: Variable name `hb1` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -465,7 +465,7 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 warning: SparseSGD/Discrete/General/Renewal.lean:177:71: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9001/9310] Replayed SparseSGD.Comparison.General.Embedding
+⚠ [9001/9311] Replayed SparseSGD.Comparison.General.Embedding
 warning: SparseSGD/Comparison/General/Embedding.lean:44:0: automatically included section variable(s) unused in theorem `SparseSGD.Params.sampledImpulse_eq_power_v2`:
   hb0
   hb1
@@ -483,11 +483,11 @@ Hint: Omit it from the simp argument list.
     mul_zero, add_zero]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9005/9310] Replayed SparseSGD.Comparison.MatchedFlow
+⚠ [9005/9311] Replayed SparseSGD.Comparison.MatchedFlow
 warning: SparseSGD/Comparison/MatchedFlow.lean:22:75: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9006/9310] Replayed SparseSGD.Comparison.SquareRootLift
+⚠ [9006/9311] Replayed SparseSGD.Comparison.SquareRootLift
 warning: SparseSGD/Comparison/SquareRootLift.lean:184:4: This simp argument is unused:
   Matrix.mul_zero
 
@@ -507,21 +507,21 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 warning: SparseSGD/Comparison/SquareRootLift.lean:250:81: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9014/9310] Replayed SparseSGD.Logistic.Coefficients
+⚠ [9014/9311] Replayed SparseSGD.Logistic.Coefficients
 warning: SparseSGD/Logistic/Coefficients.lean:208:4: try 'simp' instead of 'simpa'
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
 warning: SparseSGD/Logistic/Coefficients.lean:215:4: try 'simp' instead of 'simpa'
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-⚠ [9016/9310] Replayed SparseSGD.Logistic.GaussianStein
+⚠ [9016/9311] Replayed SparseSGD.Logistic.GaussianStein
 warning: SparseSGD/Logistic/GaussianStein.lean:12:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Logistic/GaussianStein.lean:66:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9017/9310] Replayed SparseSGD.Continuum.LaplaceTransform
+⚠ [9017/9311] Replayed SparseSGD.Continuum.LaplaceTransform
 warning: SparseSGD/Continuum/LaplaceTransform.lean:139:77: This simp argument is unused:
   Pi.sub_apply
 
@@ -532,7 +532,7 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 warning: SparseSGD/Continuum/LaplaceTransform.lean:139:26: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9018/9310] Replayed SparseSGD.Continuum.ExponentialStability
+⚠ [9018/9311] Replayed SparseSGD.Continuum.ExponentialStability
 warning: SparseSGD/Continuum/ExponentialStability.lean:76:73: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -545,7 +545,7 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: SparseSGD/Continuum/ExponentialStability.lean:403:94: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9020/9310] Replayed SparseSGD.Continuum.LargeDeltaModes
+⚠ [9020/9311] Replayed SparseSGD.Continuum.LargeDeltaModes
 warning: SparseSGD/Continuum/LargeDeltaModes.lean:59:96: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -597,14 +597,14 @@ Note: This linter can be disabled with `set_option linter.unreachableTactic fals
 warning: SparseSGD/Continuum/LargeDeltaModes.lean:401:33: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-ℹ [9021/9310] Replayed SparseSGD.Comparison.ModalQuadrature
+ℹ [9021/9311] Replayed SparseSGD.Comparison.ModalQuadrature
 info: SparseSGD/Comparison/ModalQuadrature.lean:41:2: Try this:
   [apply] ring_nf
   
   The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
     
   Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
-⚠ [9022/9310] Replayed SparseSGD.Continuum.KernelModes
+⚠ [9022/9311] Replayed SparseSGD.Continuum.KernelModes
 warning: SparseSGD/Continuum/KernelModes.lean:21:72: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -703,14 +703,14 @@ Hint: Omit it from the simp argument list.
   [apply] simp [kernelModeCoefficients, Fin.sum_univ_succ, abs_div, abs_of_pos hdp]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9023/9310] Replayed SparseSGD.Comparison.BoundedComparison
+⚠ [9023/9311] Replayed SparseSGD.Comparison.BoundedComparison
 warning: SparseSGD/Comparison/BoundedComparison.lean:293:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Comparison/BoundedComparison.lean:293:34: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9025/9310] Replayed SparseSGD.Comparison.LargeComparison
+⚠ [9025/9311] Replayed SparseSGD.Comparison.LargeComparison
 warning: SparseSGD/Comparison/LargeComparison.lean:86:21: This simp argument is unused:
   abs_sub_comm
 
@@ -718,16 +718,16 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [mul_one] at H
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9026/9310] Replayed SparseSGD.Comparison.MomentComparison
+⚠ [9026/9311] Replayed SparseSGD.Comparison.MomentComparison
 warning: SparseSGD/Comparison/MomentComparison.lean:35:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
-⚠ [9027/9310] Replayed SparseSGD.Comparison.NormalizationBound
+⚠ [9027/9311] Replayed SparseSGD.Comparison.NormalizationBound
 warning: SparseSGD/Comparison/NormalizationBound.lean:93:6: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
 warning: SparseSGD/Comparison/NormalizationBound.lean:93:6: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9028/9310] Replayed SparseSGD.Logistic.Drift
+⚠ [9028/9311] Replayed SparseSGD.Logistic.Drift
 warning: SparseSGD/Logistic/Drift.lean:130:25: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
@@ -777,7 +777,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [update, bulkPart_add, bulkPart_smul, bulkResidual, P, driftParams, SparseSGD.oracleParams]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9029/9310] Replayed SparseSGD.Logistic.ConditionalDrift
+⚠ [9029/9311] Replayed SparseSGD.Logistic.ConditionalDrift
 warning: SparseSGD/Logistic/ConditionalDrift.lean:17:0: Definition `SparseSGD.Logistic.pastSigma` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
 definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
 warning: SparseSGD/Logistic/ConditionalDrift.lean:161:2: Try this: 
@@ -806,7 +806,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-⚠ [9034/9310] Replayed SparseSGD.Comparison.FunctionalEmbedding
+⚠ [9034/9311] Replayed SparseSGD.Comparison.FunctionalEmbedding
 info: SparseSGD/Comparison/FunctionalEmbedding.lean:39:4: Try this:
   [apply] ring_nf
   
@@ -832,7 +832,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [mul_zero, intervalIntegral.integral_zero, add_zero, continuumFlow_initial] at H
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9035/9310] Replayed SparseSGD.Comparison.FunctionalGrid
+⚠ [9035/9311] Replayed SparseSGD.Comparison.FunctionalGrid
 info: SparseSGD/Comparison/FunctionalGrid.lean:66:2: Try this:
   [apply] ring_nf
   
@@ -866,7 +866,7 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Comparison/FunctionalGrid.lean:136:63: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9036/9310] Replayed SparseSGD.Comparison.SingleModeQuadrature
+⚠ [9036/9311] Replayed SparseSGD.Comparison.SingleModeQuadrature
 warning: SparseSGD/Comparison/SingleModeQuadrature.lean:8:43: Variable name `hT` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -876,7 +876,7 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 warning: SparseSGD/Comparison/SingleModeQuadrature.lean:37:87: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9037/9310] Replayed SparseSGD.Logistic.MarkovReduction
+⚠ [9037/9311] Replayed SparseSGD.Logistic.MarkovReduction
 warning: SparseSGD/Logistic/MarkovReduction.lean:149:52: This simp argument is unused:
   Submodule.liftQ_apply
 
@@ -904,11 +904,11 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-⚠ [9042/9310] Replayed SparseSGD.Comparison.FunctionalModes
+⚠ [9042/9311] Replayed SparseSGD.Comparison.FunctionalModes
 warning: SparseSGD/Comparison/FunctionalModes.lean:26:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9044/9310] Replayed SparseSGD.Scaling.RegularPerturbation
+⚠ [9044/9311] Replayed SparseSGD.Scaling.RegularPerturbation
 warning: SparseSGD/Scaling/RegularPerturbation.lean:200:8: This simp argument is unused:
   Matrix.mulVec
 
@@ -991,14 +991,14 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 warning: SparseSGD/Scaling/RegularPerturbation.lean:245:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9045/9310] Replayed SparseSGD.Scaling.RegularUniformConstants
+⚠ [9045/9311] Replayed SparseSGD.Scaling.RegularUniformConstants
 warning: SparseSGD/Scaling/RegularUniformConstants.lean:49:40: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Scaling/RegularUniformConstants.lean:280:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9049/9310] Replayed SparseSGD.Logistic.FluidTheorem
+⚠ [9049/9311] Replayed SparseSGD.Logistic.FluidTheorem
 warning: SparseSGD/Logistic/FluidTheorem.lean:36:2: Try this: 
   letI̵
 
@@ -1065,7 +1065,7 @@ warning: SparseSGD/Logistic/FluidTheorem.lean:283:22: `ContinuousLinearMap.smul_
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
 warning: SparseSGD/Logistic/FluidTheorem.lean:424:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
 warning: SparseSGD/Logistic/FluidTheorem.lean:562:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
-⚠ [9051/9310] Replayed SparseSGD.Probability.GaussianCalculus
+⚠ [9051/9311] Replayed SparseSGD.Probability.GaussianCalculus
 warning: SparseSGD/Probability/GaussianCalculus.lean:51:35: This simp argument is unused:
   Pi.mul_apply
 
@@ -1087,10 +1087,10 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [Real.norm_eq_abs, Pi.mul_apply, Function.comp_apply, abs_mul]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9052/9310] Replayed SparseSGD.Logistic.SigmoidDerivatives
+⚠ [9052/9311] Replayed SparseSGD.Logistic.SigmoidDerivatives
 warning: SparseSGD/Logistic/SigmoidDerivatives.lean:75:67: `if_false` has been deprecated: Use `ite_false` instead
 warning: SparseSGD/Logistic/SigmoidDerivatives.lean:187:48: `if_false` has been deprecated: Use `ite_false` instead
-⚠ [9053/9310] Replayed SparseSGD.Probability.GaussianBounds
+⚠ [9053/9311] Replayed SparseSGD.Probability.GaussianBounds
 info: SparseSGD/Probability/GaussianBounds.lean:44:24: Try this:
   [apply] ring_nf
   
@@ -1100,7 +1100,7 @@ info: SparseSGD/Probability/GaussianBounds.lean:44:24: Try this:
 warning: SparseSGD/Probability/GaussianBounds.lean:44:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9054/9310] Replayed SparseSGD.Logistic.GaussianDerivativeBounds
+⚠ [9054/9311] Replayed SparseSGD.Logistic.GaussianDerivativeBounds
 info: SparseSGD/Logistic/GaussianDerivativeBounds.lean:81:25: Try this:
   [apply] ring_nf
   
@@ -1110,13 +1110,13 @@ info: SparseSGD/Logistic/GaussianDerivativeBounds.lean:81:25: Try this:
 warning: SparseSGD/Logistic/GaussianDerivativeBounds.lean:81:21: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9056/9310] Replayed SparseSGD.Logistic.ScalarCoefficients
+⚠ [9056/9311] Replayed SparseSGD.Logistic.ScalarCoefficients
 warning: SparseSGD/Logistic/ScalarCoefficients.lean:134:55: `if_false` has been deprecated: Use `ite_false` instead
 warning: SparseSGD/Logistic/ScalarCoefficients.lean:149:40: `if_true` has been deprecated: Use `ite_true` instead
 warning: SparseSGD/Logistic/ScalarCoefficients.lean:152:21: `if_true` has been deprecated: Use `ite_true` instead
 warning: SparseSGD/Logistic/ScalarCoefficients.lean:156:40: `if_false` has been deprecated: Use `ite_false` instead
 warning: SparseSGD/Logistic/ScalarCoefficients.lean:159:21: `if_false` has been deprecated: Use `ite_false` instead
-⚠ [9057/9310] Replayed SparseSGD.Scaling.WindowScalars
+⚠ [9057/9311] Replayed SparseSGD.Scaling.WindowScalars
 warning: SparseSGD/Scaling/WindowScalars.lean:23:8: This simp argument is unused:
   mul_zero
 
@@ -1131,7 +1131,7 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hm
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9058/9310] Replayed SparseSGD.Scaling.WindowModes
+⚠ [9058/9311] Replayed SparseSGD.Scaling.WindowModes
 warning: SparseSGD/Scaling/WindowModes.lean:31:33: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -1152,11 +1152,11 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [windowModeFactor, windowOscWeights, Matrix.cons_val]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9061/9310] Replayed SparseSGD.Scaling.WindowFlow
+⚠ [9061/9311] Replayed SparseSGD.Scaling.WindowFlow
 warning: SparseSGD/Scaling/WindowFlow.lean:131:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9064/9310] Replayed SparseSGD.Scaling.WindowReconstruction
+⚠ [9064/9311] Replayed SparseSGD.Scaling.WindowReconstruction
 warning: SparseSGD/Scaling/WindowReconstruction.lean:54:14: This simp argument is unused:
   norm_div
 
@@ -1191,21 +1191,21 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hN
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9066/9310] Replayed SparseSGD.Scaling.WindowAverages
+⚠ [9066/9311] Replayed SparseSGD.Scaling.WindowAverages
 warning: SparseSGD/Scaling/WindowAverages.lean:126:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Scaling/WindowAverages.lean:180:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9067/9310] Replayed SparseSGD.Scaling.WindowRate
+⚠ [9067/9311] Replayed SparseSGD.Scaling.WindowRate
 warning: SparseSGD/Scaling/WindowRate.lean:10:19: Variable name `ha1` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _ha1
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9071/9310] Replayed SparseSGD.Logistic.EquilibriumScaling
+⚠ [9071/9311] Replayed SparseSGD.Logistic.EquilibriumScaling
 info: SparseSGD/Logistic/EquilibriumScaling.lean:22:61: Try this:
   [apply] ring_nf
   
@@ -1218,7 +1218,7 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Logistic/EquilibriumScaling.lean:104:53: try 'simp' instead of 'simpa'
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-⚠ [9072/9310] Replayed SparseSGD.Logistic.TameCoefficientDerivatives
+⚠ [9072/9311] Replayed SparseSGD.Logistic.TameCoefficientDerivatives
 warning: SparseSGD/Logistic/TameCoefficientDerivatives.lean:54:21: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -1252,7 +1252,7 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Logistic/TameCoefficientDerivatives.lean:113:125: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9073/9310] Replayed SparseSGD.Scaling.CurvatureLimit
+⚠ [9073/9311] Replayed SparseSGD.Scaling.CurvatureLimit
 warning: SparseSGD/Scaling/CurvatureLimit.lean:110:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -1265,7 +1265,7 @@ info: SparseSGD/Scaling/CurvatureLimit.lean:162:26: Try this:
 warning: SparseSGD/Scaling/CurvatureLimit.lean:162:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9074/9310] Replayed SparseSGD.Scaling.CurvatureWindow
+⚠ [9074/9311] Replayed SparseSGD.Scaling.CurvatureWindow
 warning: SparseSGD/Scaling/CurvatureWindow.lean:37:58: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -1275,7 +1275,7 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hw4
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9077/9310] Replayed SparseSGD.Scaling.SmallDeltaFormulas
+⚠ [9077/9311] Replayed SparseSGD.Scaling.SmallDeltaFormulas
 warning: SparseSGD/Scaling/SmallDeltaFormulas.lean:56:63: This simp argument is unused:
   ← Matrix.transpose_pow
 
@@ -1285,7 +1285,7 @@ Hint: Omit it from the simp argument list.
 Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9078/9310] Replayed SparseSGD.Scaling.SmallDeltaKernel
+⚠ [9078/9311] Replayed SparseSGD.Scaling.SmallDeltaKernel
 warning: SparseSGD/Scaling/SmallDeltaKernel.lean:16:6: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -1302,18 +1302,18 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 warning: SparseSGD/Scaling/SmallDeltaKernel.lean:138:82: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9079/9310] Replayed SparseSGD.Scaling.SmallDeltaForcing
+⚠ [9079/9311] Replayed SparseSGD.Scaling.SmallDeltaForcing
 warning: SparseSGD/Scaling/SmallDeltaForcing.lean:44:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9083/9310] Replayed SparseSGD.Logistic.PopulationEquilibrium
+⚠ [9083/9311] Replayed SparseSGD.Logistic.PopulationEquilibrium
 warning: SparseSGD/Logistic/PopulationEquilibrium.lean:221:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Logistic/PopulationEquilibrium.lean:299:75: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9084/9310] Replayed SparseSGD.Logistic.IncrementDecomposition
+⚠ [9084/9311] Replayed SparseSGD.Logistic.IncrementDecomposition
 warning: SparseSGD/Logistic/IncrementDecomposition.lean:175:6: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -1323,7 +1323,7 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: SparseSGD/Logistic/IncrementDecomposition.lean:195:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9086/9310] Replayed SparseSGD.External.BernsteinMoments
+⚠ [9086/9311] Replayed SparseSGD.External.BernsteinMoments
 warning: SparseSGD/External/BernsteinMoments.lean:54:5: Variable name `hM` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -1345,14 +1345,14 @@ Note: This linter can be disabled with `set_option linter.unreachableTactic fals
 warning: SparseSGD/External/BernsteinMoments.lean:67:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9087/9310] Replayed SparseSGD.Logistic.IncrementLinearMGF
+⚠ [9087/9311] Replayed SparseSGD.Logistic.IncrementLinearMGF
 warning: SparseSGD/Logistic/IncrementLinearMGF.lean:65:6: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
 warning: SparseSGD/Logistic/IncrementLinearMGF.lean:65:6: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9089/9310] Replayed SparseSGD.Logistic.IncrementQuadraticMoments
+⚠ [9089/9311] Replayed SparseSGD.Logistic.IncrementQuadraticMoments
 warning: SparseSGD/Logistic/IncrementQuadraticMoments.lean:112:40: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -1389,7 +1389,7 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: SparseSGD/Logistic/IncrementQuadraticMoments.lean:260:6: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9090/9310] Replayed SparseSGD.Logistic.DynamicField
+⚠ [9090/9311] Replayed SparseSGD.Logistic.DynamicField
 warning: SparseSGD/Logistic/DynamicField.lean:59:40: This simp argument is unused:
   f
 
@@ -1403,14 +1403,14 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Logistic/DynamicField.lean:59:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9092/9310] Replayed SparseSGD.Scaling.GeometricRenewal
+⚠ [9092/9311] Replayed SparseSGD.Scaling.GeometricRenewal
 warning: SparseSGD/Scaling/GeometricRenewal.lean:24:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Scaling/GeometricRenewal.lean:130:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9096/9310] Replayed SparseSGD.Logistic.DynamicDrift
+⚠ [9096/9311] Replayed SparseSGD.Logistic.DynamicDrift
 warning: SparseSGD/Logistic/DynamicDrift.lean:43:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -1452,7 +1452,7 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: SparseSGD/Logistic/DynamicDrift.lean:86:8: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9097/9310] Replayed SparseSGD.Logistic.DynamicConsistency
+⚠ [9097/9311] Replayed SparseSGD.Logistic.DynamicConsistency
 warning: SparseSGD/Logistic/DynamicConsistency.lean:44:78: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -1474,42 +1474,42 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: SparseSGD/Logistic/DynamicConsistency.lean:181:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9098/9310] Replayed SparseSGD.Logistic.DynamicCompact
+⚠ [9098/9311] Replayed SparseSGD.Logistic.DynamicCompact
 warning: SparseSGD/Logistic/DynamicCompact.lean:40:18: Variable name `hD` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hD
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9104/9310] Replayed SparseSGD.Logistic.SlowTracking
+⚠ [9104/9311] Replayed SparseSGD.Logistic.SlowTracking
 warning: SparseSGD/Logistic/SlowTracking.lean:118:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Logistic/SlowTracking.lean:198:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9105/9310] Replayed SparseSGD.Logistic.SlowTrackingBounds
+⚠ [9105/9311] Replayed SparseSGD.Logistic.SlowTrackingBounds
 warning: SparseSGD/Logistic/SlowTrackingBounds.lean:77:65: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
 warning: SparseSGD/Logistic/SlowTrackingBounds.lean:77:65: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9106/9310] Replayed SparseSGD.Logistic.SlowContraction
+⚠ [9106/9311] Replayed SparseSGD.Logistic.SlowContraction
 warning: SparseSGD/Logistic/SlowContraction.lean:158:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Logistic/SlowContraction.lean:158:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9108/9310] Replayed SparseSGD.Logistic.SlowGlobal
+⚠ [9108/9311] Replayed SparseSGD.Logistic.SlowGlobal
 warning: SparseSGD/Logistic/SlowGlobal.lean:41:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Logistic/SlowGlobal.lean:41:81: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9110/9310] Replayed SparseSGD.Logistic.IncrementBoundedMGF
+⚠ [9110/9311] Replayed SparseSGD.Logistic.IncrementBoundedMGF
 warning: SparseSGD/Logistic/IncrementBoundedMGF.lean:112:10: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -1528,7 +1528,7 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: SparseSGD/Logistic/IncrementBoundedMGF.lean:122:42: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9111/9310] Replayed SparseSGD.Logistic.IncrementSquareMGF
+⚠ [9111/9311] Replayed SparseSGD.Logistic.IncrementSquareMGF
 info: SparseSGD/Logistic/IncrementSquareMGF.lean:106:41: Try this:
   [apply] ring_nf
   
@@ -1562,7 +1562,7 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Logistic/IncrementSquareMGF.lean:160:8: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9115/9310] Replayed SparseSGD.Scaling.PowerParameters
+⚠ [9115/9311] Replayed SparseSGD.Scaling.PowerParameters
 warning: SparseSGD/Scaling/PowerParameters.lean:44:6: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -1596,14 +1596,14 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: SparseSGD/Scaling/PowerParameters.lean:176:82: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9116/9310] Replayed SparseSGD.Scaling.FixedParameters
+⚠ [9116/9311] Replayed SparseSGD.Scaling.FixedParameters
 warning: SparseSGD/Scaling/FixedParameters.lean:117:6: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
 warning: SparseSGD/Scaling/FixedParameters.lean:117:6: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9117/9310] Replayed SparseSGD.Scaling.LeastSquaresParameters
+⚠ [9117/9311] Replayed SparseSGD.Scaling.LeastSquaresParameters
 warning: SparseSGD/Scaling/LeastSquaresParameters.lean:23:20: Variable name `pStar` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -1631,7 +1631,7 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hk
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9119/9310] Replayed SparseSGD.Logistic.IncrementGlobalEnvelope
+⚠ [9119/9311] Replayed SparseSGD.Logistic.IncrementGlobalEnvelope
 warning: SparseSGD/Logistic/IncrementGlobalEnvelope.lean:160:22: This simp argument is unused:
   labelReal
 
@@ -1639,7 +1639,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [feature, ↓reduceIte, Bool.false_eq_true, zero_add, inner_add_right, smul_eq_mul]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9122/9310] Replayed SparseSGD.Logistic.IncrementBatchFourthRemainder
+⚠ [9122/9311] Replayed SparseSGD.Logistic.IncrementBatchFourthRemainder
 warning: SparseSGD/Logistic/IncrementBatchFourthRemainder.lean:28:39: Variable name `hc2` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -1670,7 +1670,7 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: SparseSGD/Logistic/IncrementBatchFourthRemainder.lean:98:42: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9123/9310] Replayed SparseSGD.Logistic.IncrementSquareFourth
+⚠ [9123/9311] Replayed SparseSGD.Logistic.IncrementSquareFourth
 warning: SparseSGD/Logistic/IncrementSquareFourth.lean:29:5: Variable name `hf2` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -1684,11 +1684,11 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [integral_const, probReal_univ, smul_eq_mul, mul_one] at hh
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9132/9310] Replayed SparseSGD.Scaling.MatchingTaylor
+⚠ [9132/9311] Replayed SparseSGD.Scaling.MatchingTaylor
 warning: SparseSGD/Scaling/MatchingTaylor.lean:22:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9135/9310] Replayed SparseSGD.Scaling.ColdMatching
+⚠ [9135/9311] Replayed SparseSGD.Scaling.ColdMatching
 warning: SparseSGD/Scaling/ColdMatching.lean:98:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -1701,11 +1701,11 @@ Note: This linter can be disabled with `set_option linter.unreachableTactic fals
 warning: SparseSGD/Scaling/ColdMatching.lean:163:8: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9136/9310] Replayed SparseSGD.Scaling.ColdRegular
+⚠ [9136/9311] Replayed SparseSGD.Scaling.ColdRegular
 warning: SparseSGD/Scaling/ColdRegular.lean:97:42: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9137/9310] Replayed SparseSGD.Scaling.LearningProfileLimits
+⚠ [9137/9311] Replayed SparseSGD.Scaling.LearningProfileLimits
 warning: SparseSGD/Scaling/LearningProfileLimits.lean:10:32: Variable name `hbm` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -1736,7 +1736,7 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Scaling/LearningProfileLimits.lean:103:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9143/9310] Replayed SparseSGD.Scaling.PowerLimits
+⚠ [9143/9311] Replayed SparseSGD.Scaling.PowerLimits
 warning: SparseSGD/Scaling/PowerLimits.lean:8:43: Variable name `hc` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -1752,7 +1752,7 @@ Note: This linter can be disabled with `set_option linter.unnecessarySimpa false
 warning: SparseSGD/Scaling/PowerLimits.lean:239:4: try 'simp' instead of 'simpa'
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-⚠ [9144/9310] Replayed SparseSGD.Scaling.LSFamily
+⚠ [9144/9311] Replayed SparseSGD.Scaling.LSFamily
 warning: SparseSGD/Scaling/LSFamily.lean:18:22: Variable name `hb` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -1775,11 +1775,11 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Scaling/LSFamily.lean:119:6: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9147/9310] Replayed SparseSGD.Logistic.DynamicLinearBulk
+⚠ [9147/9311] Replayed SparseSGD.Logistic.DynamicLinearBulk
 warning: SparseSGD/Logistic/DynamicLinearBulk.lean:90:32: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9150/9310] Replayed SparseSGD.Logistic.IncrementProjectionSquare
+⚠ [9150/9311] Replayed SparseSGD.Logistic.IncrementProjectionSquare
 info: SparseSGD/Logistic/IncrementProjectionSquare.lean:61:70: Try this:
   [apply] ring_nf
   
@@ -1792,14 +1792,14 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Logistic/IncrementProjectionSquare.lean:61:66: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-ℹ [9151/9310] Replayed SparseSGD.Logistic.IncrementCenteredSquare
+ℹ [9151/9311] Replayed SparseSGD.Logistic.IncrementCenteredSquare
 info: SparseSGD/Logistic/IncrementCenteredSquare.lean:111:27: Try this:
   [apply] ring_nf
   
   The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
     
   Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
-⚠ [9155/9310] Replayed SparseSGD.Scaling.ResonanceParameters
+⚠ [9155/9311] Replayed SparseSGD.Scaling.ResonanceParameters
 warning: SparseSGD/Scaling/ResonanceParameters.lean:51:6: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -1815,11 +1815,11 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: SparseSGD/Scaling/ResonanceParameters.lean:157:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9156/9310] Replayed SparseSGD.Scaling.Resonance
+⚠ [9156/9311] Replayed SparseSGD.Scaling.Resonance
 warning: SparseSGD/Scaling/Resonance.lean:193:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9158/9310] Replayed SparseSGD.Scaling.ResonanceFixed
+⚠ [9158/9311] Replayed SparseSGD.Scaling.ResonanceFixed
 warning: SparseSGD/Scaling/ResonanceFixed.lean:33:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -1836,7 +1836,7 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 warning: SparseSGD/Scaling/ResonanceFixed.lean:215:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9164/9310] Replayed SparseSGD.Scaling.BatchActivity
+⚠ [9164/9311] Replayed SparseSGD.Scaling.BatchActivity
 warning: SparseSGD/Scaling/BatchActivity.lean:105:59: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -1855,7 +1855,7 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: SparseSGD/Scaling/BatchActivity.lean:147:8: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9165/9310] Replayed SparseSGD.Scaling.BatchActivityLaw
+⚠ [9165/9311] Replayed SparseSGD.Scaling.BatchActivityLaw
 warning: SparseSGD/Scaling/BatchActivityLaw.lean:18:8: This simp argument is unused:
   bernoulliMeasure_real_apply
 
@@ -1863,7 +1863,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9167/9310] Replayed SparseSGD.Scaling.ActivityFamily
+⚠ [9167/9311] Replayed SparseSGD.Scaling.ActivityFamily
 warning: SparseSGD/Scaling/ActivityFamily.lean:36:16: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -1876,19 +1876,19 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: SparseSGD/Scaling/ActivityFamily.lean:39:6: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9174/9310] Replayed SparseSGD.Logistic.IncrementDualDecomposition
+⚠ [9174/9311] Replayed SparseSGD.Logistic.IncrementDualDecomposition
 warning: SparseSGD/Logistic/IncrementDualDecomposition.lean:13:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9176/9310] Replayed SparseSGD.Logistic.IncrementDirectionMGF
+⚠ [9176/9311] Replayed SparseSGD.Logistic.IncrementDirectionMGF
 warning: SparseSGD/Logistic/IncrementDirectionMGF.lean:32:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9178/9310] Replayed SparseSGD.Logistic.IncrementComplementBounds
+⚠ [9178/9311] Replayed SparseSGD.Logistic.IncrementComplementBounds
 warning: SparseSGD/Logistic/IncrementComplementBounds.lean:45:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9182/9310] Replayed SparseSGD.Logistic.IncrementBulkBounds
+⚠ [9182/9311] Replayed SparseSGD.Logistic.IncrementBulkBounds
 warning: SparseSGD/Logistic/IncrementBulkBounds.lean:43:31: This simp argument is unused:
   Nat.cast_add
 
@@ -1937,7 +1937,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [div_eq_mul_inv, Nat.cast_add] at *
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9184/9310] Replayed SparseSGD.Logistic.IncrementFullConditional
+⚠ [9184/9311] Replayed SparseSGD.Logistic.IncrementFullConditional
 warning: SparseSGD/Logistic/IncrementFullConditional.lean:11:8: `measurable_pi_lambda` has been deprecated: Use `Measurable.of_eval` instead
 warning: SparseSGD/Logistic/IncrementFullConditional.lean:13:45: This simp argument is unused:
   Matrix.cons_val_zero
@@ -1980,14 +1980,14 @@ Hint: Omit it from the simp argument list.
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 warning: SparseSGD/Logistic/IncrementFullConditional.lean:24:8: `measurable_pi_lambda` has been deprecated: Use `Measurable.of_eval` instead
-⚠ [9188/9310] Replayed SparseSGD.Scaling.ContinuumSmallDeltaUniform
+⚠ [9188/9311] Replayed SparseSGD.Scaling.ContinuumSmallDeltaUniform
 warning: SparseSGD/Scaling/ContinuumSmallDeltaUniform.lean:32:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Scaling/ContinuumSmallDeltaUniform.lean:32:36: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9192/9310] Replayed SparseSGD.Scaling.NonBoundaryRatios
+⚠ [9192/9311] Replayed SparseSGD.Scaling.NonBoundaryRatios
 warning: SparseSGD/Scaling/NonBoundaryRatios.lean:21:6: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -2021,7 +2021,7 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Scaling/NonBoundaryRatios.lean:180:14: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9193/9310] Replayed SparseSGD.Scaling.ActivityCritical
+⚠ [9193/9311] Replayed SparseSGD.Scaling.ActivityCritical
 warning: SparseSGD/Scaling/ActivityCritical.lean:39:10: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -2046,7 +2046,7 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hb
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9194/9310] Replayed SparseSGD.Logistic.IncrementDriftMap
+⚠ [9194/9311] Replayed SparseSGD.Logistic.IncrementDriftMap
 warning: SparseSGD/Logistic/IncrementDriftMap.lean:36:51: This simp argument is unused:
   Matrix.cons_val_succ
 
@@ -2148,7 +2148,7 @@ Hint: Omit it from the simp argument list.
     Matrix.cons_val_two, Matrix.cons_val_three]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9195/9310] Replayed SparseSGD.Logistic.IncrementSourceRates
+⚠ [9195/9311] Replayed SparseSGD.Logistic.IncrementSourceRates
 warning: SparseSGD/Logistic/IncrementSourceRates.lean:33:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -2167,11 +2167,11 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Logistic/IncrementSourceRates.lean:117:80: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9196/9310] Replayed SparseSGD.Logistic.FluidDomain
+⚠ [9196/9311] Replayed SparseSGD.Logistic.FluidDomain
 warning: SparseSGD/Logistic/FluidDomain.lean:106:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
-⚠ [9197/9310] Replayed SparseSGD.Logistic.IncrementFluidBridge
+⚠ [9197/9311] Replayed SparseSGD.Logistic.IncrementFluidBridge
 warning: SparseSGD/Logistic/IncrementFluidBridge.lean:57:24: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
-⚠ [9200/9310] Replayed SparseSGD.Logistic.FluidScaling
+⚠ [9200/9311] Replayed SparseSGD.Logistic.FluidScaling
 warning: SparseSGD/Logistic/FluidScaling.lean:40:8: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -2181,7 +2181,7 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Logistic/FluidScaling.lean:40:8: Unused tactic linter: `ring` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9201/9310] Replayed SparseSGD.Logistic.IncrementFluidRates
+⚠ [9201/9311] Replayed SparseSGD.Logistic.IncrementFluidRates
 warning: SparseSGD/Logistic/IncrementFluidRates.lean:38:105: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -2191,11 +2191,11 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Logistic/IncrementFluidRates.lean:114:40: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9202/9310] Replayed SparseSGD.Logistic.FluidClock
+⚠ [9202/9311] Replayed SparseSGD.Logistic.FluidClock
 warning: SparseSGD/Logistic/FluidClock.lean:19:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9205/9310] Replayed SparseSGD.Logistic.FluidDeterministicFree
+⚠ [9205/9311] Replayed SparseSGD.Logistic.FluidDeterministicFree
 warning: SparseSGD/Logistic/FluidDeterministicFree.lean:30:18: `ContinuousLinearMap.mul_apply` has been deprecated: Use `mul_apply_eq_comp` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mul_apply` to `mul_apply_eq_comp x`).
@@ -2227,7 +2227,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp [Real.norm_eq_abs, abs_mul, abs_of_nonneg hb0]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9207/9310] Replayed SparseSGD.Logistic.FluidDeterministicPhysical
+⚠ [9207/9311] Replayed SparseSGD.Logistic.FluidDeterministicPhysical
 warning: SparseSGD/Logistic/FluidDeterministicPhysical.lean:25:95: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -2243,14 +2243,14 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Logistic/FluidDeterministicPhysical.lean:60:69: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9208/9310] Replayed SparseSGD.Logistic.FluidConfidence
+⚠ [9208/9311] Replayed SparseSGD.Logistic.FluidConfidence
 warning: SparseSGD/Logistic/FluidConfidence.lean:78:81: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Logistic/FluidConfidence.lean:81:21: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9209/9310] Replayed SparseSGD.Logistic.FluidDeterministicCoefficients
+⚠ [9209/9311] Replayed SparseSGD.Logistic.FluidDeterministicCoefficients
 warning: SparseSGD/Logistic/FluidDeterministicCoefficients.lean:62:18: `if_true` has been deprecated: Use `ite_true` instead
 warning: SparseSGD/Logistic/FluidDeterministicCoefficients.lean:71:18: `if_false` has been deprecated: Use `ite_false` instead
 warning: SparseSGD/Logistic/FluidDeterministicCoefficients.lean:49:16: Variable name `hP` is not explicitly referenced.
@@ -2273,11 +2273,11 @@ Hint: Omit it from the simp argument list.
     abs_of_nonneg (by positivity : 0 ≤ (1 / 2 : ℝ) ^ b), abs_of_nonneg hp]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9211/9310] Replayed SparseSGD.Logistic.FluidDeterministicStateTaylor
+⚠ [9211/9311] Replayed SparseSGD.Logistic.FluidDeterministicStateTaylor
 warning: SparseSGD/Logistic/FluidDeterministicStateTaylor.lean:127:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9213/9310] Replayed SparseSGD.Logistic.FluidDeterministicRealization
+⚠ [9213/9311] Replayed SparseSGD.Logistic.FluidDeterministicRealization
 warning: SparseSGD/Logistic/FluidDeterministicRealization.lean:24:12: This simp argument is unused:
   PiLp.single_apply
 
@@ -2306,14 +2306,14 @@ Hint: Omit it from the simp argument list.
   [apply] simp [PiLp.norm_single, PiLp.single_apply, hneq, Real.sq_sqrt hR]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9214/9310] Replayed SparseSGD.Logistic.FluidDimensionRate
+⚠ [9214/9311] Replayed SparseSGD.Logistic.FluidDimensionRate
 warning: SparseSGD/Logistic/FluidDimensionRate.lean:100:40: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: SparseSGD/Logistic/FluidDimensionRate.lean:105:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9216/9310] Replayed SparseSGD.Scaling.FluidHorizon
+⚠ [9216/9311] Replayed SparseSGD.Scaling.FluidHorizon
 warning: SparseSGD/Scaling/FluidHorizon.lean:29:5: Variable name `ha` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -2344,7 +2344,7 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _heps
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9217/9310] Replayed SparseSGD.Logistic.FluidDeterministicTransport
+⚠ [9217/9311] Replayed SparseSGD.Logistic.FluidDeterministicTransport
 warning: SparseSGD/Logistic/FluidDeterministicTransport.lean:13:64: This simp argument is unused:
   hd
 
@@ -2372,7 +2372,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp [dynamicToMatched, Real.norm_eq_abs, abs_mul]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9218/9310] Replayed SparseSGD.Logistic.FluidDeterministicSlowTransport
+⚠ [9218/9311] Replayed SparseSGD.Logistic.FluidDeterministicSlowTransport
 warning: SparseSGD/Logistic/FluidDeterministicSlowTransport.lean:16:76: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -2383,28 +2383,28 @@ Hint: Omit it from the simp argument list.
   [apply] simp [slowToMatched, Real.norm_eq_abs]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9219/9310] Replayed SparseSGD.Logistic.FluidDeterministicSlowContainmentCore
+⚠ [9219/9311] Replayed SparseSGD.Logistic.FluidDeterministicSlowContainmentCore
 warning: SparseSGD/Logistic/FluidDeterministicSlowContainmentCore.lean:7:31: Variable name `hh` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hh
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9220/9310] Replayed SparseSGD.Logistic.FluidDeterministicSlowContainment
+⚠ [9220/9311] Replayed SparseSGD.Logistic.FluidDeterministicSlowContainment
 warning: SparseSGD/Logistic/FluidDeterministicSlowContainment.lean:15:7: Variable name `S` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _S
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9221/9310] Replayed SparseSGD.Logistic.FluidDeterministicRegularContainment
+⚠ [9221/9311] Replayed SparseSGD.Logistic.FluidDeterministicRegularContainment
 warning: SparseSGD/Logistic/FluidDeterministicRegularContainment.lean:16:7: Variable name `S` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _S
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9222/9310] Replayed SparseSGD.Logistic.IncrementFluidMapBounds
+⚠ [9222/9311] Replayed SparseSGD.Logistic.IncrementFluidMapBounds
 warning: SparseSGD/Logistic/IncrementFluidMapBounds.lean:34:67: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
@@ -2462,7 +2462,7 @@ Note: The updated constant is in a different namespace. Dot notation may need to
 warning: SparseSGD/Logistic/IncrementFluidMapBounds.lean:305:67: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9226/9310] Replayed SparseSGD.Logistic.IncrementFluidAutomatic
+⚠ [9226/9311] Replayed SparseSGD.Logistic.IncrementFluidAutomatic
 info: SparseSGD/Logistic/IncrementFluidAutomatic.lean:78:63: Try this:
   [apply] ring_nf
   
@@ -2550,7 +2550,7 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _F
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9229/9310] Replayed SparseSGD.Scaling.FluidGrid
+⚠ [9229/9311] Replayed SparseSGD.Scaling.FluidGrid
 warning: SparseSGD/Scaling/FluidGrid.lean:43:5: Variable name `heta` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -2563,7 +2563,7 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hp
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9230/9310] Replayed SparseSGD.Logistic.FluidDeterministicRegularFamily
+⚠ [9230/9311] Replayed SparseSGD.Logistic.FluidDeterministicRegularFamily
 warning: SparseSGD/Logistic/FluidDeterministicRegularFamily.lean:11:24: Variable name `hPhi` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -2579,36 +2579,36 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 warning: SparseSGD/Logistic/FluidDeterministicRegularFamily.lean:114:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9231/9310] Replayed SparseSGD.Logistic.FluidDeterministicRegularEventually
+⚠ [9231/9311] Replayed SparseSGD.Logistic.FluidDeterministicRegularEventually
 warning: SparseSGD/Logistic/FluidDeterministicRegularEventually.lean:18:10: Variable name `d` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _d
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9233/9310] Replayed SparseSGD.Logistic.FluidDeterministicSlowLoadCore
+⚠ [9233/9311] Replayed SparseSGD.Logistic.FluidDeterministicSlowLoadCore
 warning: SparseSGD/Logistic/FluidDeterministicSlowLoadCore.lean:121:31: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9234/9310] Replayed SparseSGD.Logistic.FluidDeterministicSlowFamily
+⚠ [9234/9311] Replayed SparseSGD.Logistic.FluidDeterministicSlowFamily
 warning: SparseSGD/Logistic/FluidDeterministicSlowFamily.lean:15:7: Variable name `S` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _S
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9235/9310] Replayed SparseSGD.Logistic.FluidDeterministicSlowEventually
+⚠ [9235/9311] Replayed SparseSGD.Logistic.FluidDeterministicSlowEventually
 warning: SparseSGD/Logistic/FluidDeterministicSlowEventually.lean:17:10: Variable name `d` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _d
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9238/9310] Replayed SparseSGD.Logistic.DynamicEnergy
+⚠ [9238/9311] Replayed SparseSGD.Logistic.DynamicEnergy
 warning: SparseSGD/Logistic/DynamicEnergy.lean:24:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9239/9310] Replayed SparseSGD.Logistic.DynamicPhysical
+⚠ [9239/9311] Replayed SparseSGD.Logistic.DynamicPhysical
 warning: SparseSGD/Logistic/DynamicPhysical.lean:58:32: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -2624,7 +2624,7 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Logistic/DynamicPhysical.lean:142:54: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9243/9310] Replayed SparseSGD.Scaling.FluidPowerParameters
+⚠ [9243/9311] Replayed SparseSGD.Scaling.FluidPowerParameters
 warning: SparseSGD/Scaling/FluidPowerParameters.lean:121:33: Variable name `heta` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -2642,11 +2642,11 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 warning: SparseSGD/Scaling/FluidPowerParameters.lean:206:4: try 'simp' instead of 'simpa'
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-⚠ [9245/9310] Replayed SparseSGD.Logistic.FluidDeterministicWarmComparison
+⚠ [9245/9311] Replayed SparseSGD.Logistic.FluidDeterministicWarmComparison
 warning: SparseSGD/Logistic/FluidDeterministicWarmComparison.lean:105:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9246/9310] Replayed SparseSGD.Logistic.WarmCoordinates
+⚠ [9246/9311] Replayed SparseSGD.Logistic.WarmCoordinates
 warning: SparseSGD/Logistic/WarmCoordinates.lean:18:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -2656,11 +2656,11 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: SparseSGD/Logistic/WarmCoordinates.lean:105:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9247/9310] Replayed SparseSGD.Logistic.WarmDriftBounds
+⚠ [9247/9311] Replayed SparseSGD.Logistic.WarmDriftBounds
 warning: SparseSGD/Logistic/WarmDriftBounds.lean:31:15: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
-⚠ [9248/9310] Replayed SparseSGD.Logistic.FluidDeterministicWarmEventually
+⚠ [9248/9311] Replayed SparseSGD.Logistic.FluidDeterministicWarmEventually
 info: SparseSGD/Logistic/FluidDeterministicWarmEventually.lean:54:37: Try this:
   [apply] ring_nf
   
@@ -2673,7 +2673,7 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _d
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9250/9310] Replayed SparseSGD.Logistic.FluidTameFamily
+⚠ [9250/9311] Replayed SparseSGD.Logistic.FluidTameFamily
 warning: SparseSGD/Logistic/FluidTameFamily.lean:25:5: Variable name `F` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -2758,7 +2758,7 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _href
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9251/9310] Replayed SparseSGD.Logistic.FluidDeterministicTameRegular
+⚠ [9251/9311] Replayed SparseSGD.Logistic.FluidDeterministicTameRegular
 warning: SparseSGD/Logistic/FluidDeterministicTameRegular.lean:17:10: Variable name `d` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -2820,7 +2820,7 @@ warning: SparseSGD/Logistic/FluidDeterministicTameRegular.lean:70:20: Unused tac
     1` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9252/9310] Replayed SparseSGD.Logistic.FluidDeterministicTameSlow
+⚠ [9252/9311] Replayed SparseSGD.Logistic.FluidDeterministicTameSlow
 warning: SparseSGD/Logistic/FluidDeterministicTameSlow.lean:17:10: Variable name `d` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -2885,7 +2885,7 @@ warning: SparseSGD/Logistic/FluidDeterministicTameSlow.lean:66:20: Unused tactic
     1` does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [9253/9310] Replayed SparseSGD.Logistic.FluidDeterministicTameWarm
+⚠ [9253/9311] Replayed SparseSGD.Logistic.FluidDeterministicTameWarm
 info: SparseSGD/Logistic/FluidDeterministicTameWarm.lean:59:37: Try this:
   [apply] ring_nf
   
@@ -2946,7 +2946,7 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hpp
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9254/9310] Replayed SparseSGD.Logistic.FluidTameComplete
+⚠ [9254/9311] Replayed SparseSGD.Logistic.FluidTameComplete
 warning: SparseSGD/Logistic/FluidTameComplete.lean:33:5: Variable name `F` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -3079,34 +3079,41 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hpp
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9255/9310] Replayed SparseSGD.Scaling.FluidPowerTameParameters
+⚠ [9255/9311] Replayed SparseSGD.Scaling.FluidPowerTameParameters
 warning: SparseSGD/Scaling/FluidPowerTameParameters.lean:15:22: Variable name `hp1` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hp1
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9270/9310] Replayed SparseSGD.Logistic.V2.ActualMap
+⚠ [9270/9311] Replayed SparseSGD.Logistic.V2.ActualMap
 warning: SparseSGD/Logistic/V2/ActualMap.lean:167:5: Variable name `hd` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hd
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9272/9310] Replayed SparseSGD.Logistic.V2.ActualCoefficientDerivs
-warning: SparseSGD/Logistic/V2/ActualCoefficientDerivs.lean:54:13: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+⚠ [9272/9311] Replayed SparseSGD.Logistic.V2.TameScalar
+warning: SparseSGD/Logistic/V2/TameScalar.lean:386:21: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: SparseSGD/Logistic/V2/TameScalar.lean:472:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9273/9311] Replayed SparseSGD.Logistic.V2.ActualCoefficientDerivs
+warning: SparseSGD/Logistic/V2/ActualCoefficientDerivs.lean:55:13: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
-warning: SparseSGD/Logistic/V2/ActualCoefficientDerivs.lean:54:44: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+warning: SparseSGD/Logistic/V2/ActualCoefficientDerivs.lean:55:44: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
-info: SparseSGD/Logistic/V2/ActualCoefficientDerivs.lean:181:2: Try this:
+info: SparseSGD/Logistic/V2/ActualCoefficientDerivs.lean:182:2: Try this:
   [apply] ring_nf
   
   The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
     
   Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
-⚠ [9273/9310] Replayed SparseSGD.Logistic.V2.ActualDecomposition
+⚠ [9274/9311] Replayed SparseSGD.Logistic.V2.ActualDecomposition
 warning: SparseSGD/Logistic/V2/ActualDecomposition.lean:60:56: This simp argument is unused:
   Matrix.head_cons
 
@@ -3117,13 +3124,13 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 warning: SparseSGD/Logistic/V2/ActualDecomposition.lean:183:66: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
-warning: SparseSGD/Logistic/V2/ActualDecomposition.lean:738:25: Variable name `hr` is not explicitly referenced.
+warning: SparseSGD/Logistic/V2/ActualDecomposition.lean:752:25: Variable name `hr` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hr
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9283/9310] Replayed SparseSGD.Scaling.Helps.StepMatrix
+⚠ [9284/9311] Replayed SparseSGD.Scaling.Helps.StepMatrix
 warning: SparseSGD/Scaling/Helps/StepMatrix.lean:293:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -3135,14 +3142,14 @@ Hint: Omit it from the simp argument list.
     Matrix.diagonal_apply, Params.eps]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [9284/9310] Replayed SparseSGD.Scaling.Helps.CubicRoots
+⚠ [9285/9311] Replayed SparseSGD.Scaling.Helps.CubicRoots
 warning: SparseSGD/Scaling/Helps/CubicRoots.lean:202:64: Variable name `ha1` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _ha1
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9294/9310] Replayed SparseSGD.Scaling.Helps.CriticalBatch
+⚠ [9295/9311] Replayed SparseSGD.Scaling.Helps.CriticalBatch
 warning: SparseSGD/Scaling/Helps/CriticalBatch.lean:1937:33: Variable name `hκ` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -3173,18 +3180,18 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hκ
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9297/9310] Replayed SparseSGD.Scaling.Helps.SmallDeltaSlowRoot
+⚠ [9298/9311] Replayed SparseSGD.Scaling.Helps.SmallDeltaSlowRoot
 warning: SparseSGD/Scaling/Helps/SmallDeltaSlowRoot.lean:33:5: Variable name `h1u` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _h1u
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [9302/9310] Replayed SparseSGD.Scaling.Helps.Schedule
+⚠ [9303/9311] Replayed SparseSGD.Scaling.Helps.Schedule
 warning: SparseSGD/Scaling/Helps/Schedule.lean:264:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [9304/9310] Replayed SparseSGD.Scaling.Helps.VocabRows
+⚠ [9305/9311] Replayed SparseSGD.Scaling.Helps.VocabRows
 warning: SparseSGD/Scaling/Helps/VocabRows.lean:172:2: Try this: 
   haveI̵
 
@@ -3217,12 +3224,12 @@ The difference between `have` and `haveI` is that `haveI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-Build completed successfully (9310 jobs).
+Build completed successfully (9311 jobs).
 
 $ lake env lean Audit.lean
-Audited 6858 SparseSGD declarations (5807 theorems); only standard Lean axioms.
+Audited 6918 SparseSGD declarations (5867 theorems); only standard Lean axioms.
 
-$ lake env lean .lake/obligation-check-0ek388w2.lean
+$ lake env lean .lake/obligation-check-8znu2yla.lean
 SparseSGD.External.mean_powers_tendsto_zero (jury : SparseSGD.External.JuryStability) (p : SparseSGD.Params)
   (hb : p.beta < 1) (hw : 0 < p.w) (hceiling : p.w < 2 * (1 + p.beta)) :
   Filter.Tendsto (fun n => p.meanMatrix ^ n) Filter.atTop (nhds 0)
@@ -3250,7 +3257,7 @@ SparseSGD.Logistic.V2.AP_consistency_of_bound (r deltaS PhiS : ℝ) (hr : 0 < r)
                           ‖y (↑(k + 1) * a.h) - SparseSGD.Logistic.V2.AP.map r a (y (↑k * a.h))‖ ≤
                             C1 * a.h * SparseSGD.Logistic.V2.AP.varrho deltaS PhiS a
 SparseSGD.Logistic.V2.AP_decomposition_near (S1 : SparseSGD.External.GaussianSteinCertificate 1) (r deltaS PhiS : ℝ)
-  (hr : 0 < r) (hd : 0 < deltaS) (hP : 0 < PhiS) :
+  (hr : 0 < r) (hd : 0 < deltaS) (hP : 0 ≤ PhiS) :
   ∃ K p0 r0,
     0 ≤ K ∧
       0 < p0 ∧
@@ -3311,7 +3318,7 @@ SparseSGD.Logistic.V2.actualDriftMap_eq_dynamicDriftMap {d B : ℕ} (eta beta : 
     SparseSGD.Logistic.dynamicDriftMap eta beta p mu theta y
 SparseSGD.Logistic.V2.actual_family (S1 : SparseSGD.External.GaussianSteinCertificate 1)
   (S2 : SparseSGD.External.GaussianSteinCertificate 2) (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < deltaS)
-  (hP : 0 < PhiS) (K : Set SparseSGD.Logistic.DynamicState) (hK : IsCompact K)
+  (hP : 0 ≤ PhiS) (K : Set SparseSGD.Logistic.DynamicState) (hK : IsCompact K)
   (hKphys : ∀ y ∈ K, SparseSGD.Logistic.dynamicPhysical y)
   (hentry :
     SparseSGD.Logistic.V2.UniformEntry (SparseSGD.Logistic.dynamicField r deltaS PhiS)
@@ -3345,7 +3352,7 @@ SparseSGD.Logistic.V2.certificate_robust {n : ℕ} (A P : Matrix (Fin n) (Fin n)
           ∀ (x : Fin n → ℝ), x ⬝ᵥ (A'.transpose * P + P * A').mulVec x ≤ -(c / 2) * x ⬝ᵥ x
 SparseSGD.Logistic.V2.cor_recursion_actual (S1 : SparseSGD.External.GaussianSteinCertificate 1)
   (S2 : SparseSGD.External.GaussianSteinCertificate 2) (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < deltaS)
-  (hP : 0 < PhiS) (K : Set SparseSGD.Logistic.DynamicState) (hK : IsCompact K)
+  (hP : 0 ≤ PhiS) (K : Set SparseSGD.Logistic.DynamicState) (hK : IsCompact K)
   (hKphys : ∀ y ∈ K, SparseSGD.Logistic.dynamicPhysical y)
   (hentry :
     SparseSGD.Logistic.V2.UniformEntry (SparseSGD.Logistic.dynamicField r deltaS PhiS)
@@ -3399,7 +3406,7 @@ SparseSGD.Logistic.V2.cor_recursion_actual (S1 : SparseSGD.External.GaussianStei
                                                       m‖ ≤
                                                   C * Real.exp (-(c * (1 - beta) * ↑m))
 SparseSGD.Logistic.V2.cor_recursion_actual_dynamicDriftMap (S1 : SparseSGD.External.GaussianSteinCertificate 1)
-  (S2 : SparseSGD.External.GaussianSteinCertificate 2) (deltaS PhiS : ℝ) (hd : 0 < deltaS) (hP : 0 < PhiS) {d : ℕ}
+  (S2 : SparseSGD.External.GaussianSteinCertificate 2) (deltaS PhiS : ℝ) (hd : 0 < deltaS) (hP : 0 ≤ PhiS) {d : ℕ}
   (mu : SparseSGD.Logistic.Vec d) (hr : 0 < SparseSGD.Logistic.r mu) (K : Set SparseSGD.Logistic.DynamicState)
   (hK : IsCompact K) (hKphys : ∀ y ∈ K, SparseSGD.Logistic.dynamicPhysical y)
   (hentry :
@@ -4146,6 +4153,31 @@ SparseSGD.Logistic.V2.real_eigenvalue_persistence {l : Filter ℝ} (J : ℝ → 
   (hz0 : z0 < -1)
   (hsign : ∀ δ > 0, ∃ x1 x2, |x1 - z0| < δ ∧ |x2 - z0| < δ ∧ (x1 • 1 - J0).det * (x2 • 1 - J0).det < 0) :
   ∀ᶠ (ε : ℝ) in l, ∃ z < -1, (z • 1 - J ε).det = 0 ∧ ∃ z', (z' • 1 - (J ε).map Complex.ofReal).det = 0 ∧ 1 < ‖z'‖
+SparseSGD.Logistic.V2.scalar_tame_matched_jets_q (r : ℝ) (hr : 0 < r) :
+  ∃ C,
+    0 ≤ C ∧
+      ∀ (a b : ℕ),
+        1 ≤ a + b →
+          a + b ≤ 2 →
+            ∀ (p : ↑unitInterval) (t q : ℝ),
+              0 < ↑p →
+                0 ≤ q →
+                  SparseSGD.Logistic.V2.tameErrorS p r t q ≤ 1 / 2 →
+                    ∀ (i : Fin 4),
+                      |SparseSGD.Logistic.matchedScalarJet i a b p r t q -
+                            if i = 0 ∧ a = 0 then r ^ a * (1 / 2) ^ b * ↑p * Real.exp ((q - r ^ 2) / 2) else 0| ≤
+                        C * (r ^ a * (1 / 2) ^ b) * ↑p * SparseSGD.Logistic.V2.tameErrorS p r t q *
+                          if i = 0 ∧ a = 0 then Real.exp ((q - r ^ 2) / 2) else 1
+SparseSGD.Logistic.V2.scalar_tame_values_q (r : ℝ) (hr : 0 < r) (p : ↑unitInterval)
+  (y : SparseSGD.Logistic.DynamicState) :
+  0 < ↑p →
+    0 ≤ y 0 ^ 2 + y 2 →
+      SparseSGD.Logistic.V2.tameErrorS p r (y 0) (y 0 ^ 2 + y 2) ≤ 1 / 2 →
+        |SparseSGD.Logistic.V2.actA p r y - SparseSGD.Logistic.dynamicAlpha r y| ≤
+            6 * SparseSGD.Logistic.dynamicAlpha r y * SparseSGD.Logistic.V2.tameErrorS p r (y 0) (y 0 ^ 2 + y 2) ∧
+          |SparseSGD.Logistic.V2.actB p r y + 1| ≤ 2 * SparseSGD.Logistic.V2.tameErrorS p r (y 0) (y 0 ^ 2 + y 2) ∧
+            |SparseSGD.Logistic.V2.actD0 p r y - 1| ≤ 6 * SparseSGD.Logistic.V2.tameErrorS p r (y 0) (y 0 ^ 2 + y 2) ∧
+              |SparseSGD.Logistic.V2.actDt p r y| ≤ 12 * SparseSGD.Logistic.V2.tameErrorS p r (y 0) (y 0 ^ 2 + y 2)
 SparseSGD.Logistic.V2.slow_residuals_tendsto_zero (r delta Phi : ℝ) (y : ℝ → SparseSGD.Logistic.DynamicState)
   (hdelta : 0 < delta) (hPhi : 0 ≤ Phi)
   (hy : ∀ (t : ℝ), 0 ≤ t → HasDerivAt y (SparseSGD.Logistic.dynamicField r delta Phi (y t)) t)
@@ -9364,8 +9396,8 @@ SparseSGD.window_continuum_rate_bound (delta u : ℝ) (hd : 1 ≤ delta) (hu0 : 
   0 ≤ 1 - u - SparseSGD.continuumPerronRate delta u ∧ 1 - u - SparseSGD.continuumPerronRate delta u ≤ 1 / (4 * delta)
 
 $ python3 scripts/coverage.py
-385 modules; 2982 authored theorem declarations.
-46 complete numbered results (including corrected statements) and 1 partial numbered results; 0 pending; 0 v1-restricted (proved only for 1/2 <= beta where the live tex has beta in [0,1)); 2 v1 assumptions superseded in v2; 4 supporting entries (dropped from the frozen tex, Lean proofs kept). Source assumptions remain explicit.
+386 modules; 3009 authored theorem declarations.
+47 complete numbered results (including corrected statements) and 0 partial numbered results; 0 pending; 0 v1-restricted (proved only for 1/2 <= beta where the live tex has beta in [0,1)); 2 v1 assumptions superseded in v2; 4 supporting entries (dropped from the frozen tex, Lean proofs kept). Source assumptions remain explicit.
 3 remarks (discussion, not required): 1 fully proved, 2 recorded as not required (proved parts listed, the rest not formalized).
 
-Verified 385 imported modules and 29 frozen v1 source hashes and 10 frozen v2 source hashes (7 of them live appendix chunks).
+Verified 386 imported modules and 29 frozen v1 source hashes and 10 frozen v2 source hashes (7 of them live appendix chunks).

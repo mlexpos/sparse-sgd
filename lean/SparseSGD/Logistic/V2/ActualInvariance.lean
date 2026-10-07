@@ -155,7 +155,7 @@ theorem AP_tracking_of_bound (S2 : SparseSGD.External.GaussianSteinCertificate 2
       show ‖(a.map r)^[n + 1] y0 -
         ((a.map r)^[n] y0 + a.h • dynamicField r deltaS PhiS ((a.map r)^[n] y0))‖ ≤ _
       rw [hn, hres, norm_smul, Real.norm_eq_abs, abs_of_nonneg hh]
-      exact mul_le_mul_of_nonneg_left (hK a ha hpp0 _ hxn (hphys n).1) hh |>.trans
+      exact mul_le_mul_of_nonneg_left (hK a ha hpp0 _ hxn (add_nonneg (sq_nonneg _) (hphys n).1)) hh |>.trans
         (le_of_eq (by ring)))
     (by simpa [hy.1] using hsmall)
   have := hgrid k le_rfl
@@ -203,7 +203,7 @@ theorem AP_consistency_of_bound (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < del
     have e1 : ((k + 1 : ℕ) : ℝ) * a.h = (k : ℝ) * a.h + a.h := by push_cast; ring
     rw [e1, ← hres]; abel
   rw [hid]
-  have hb1 := hK a ha hpp0 (y ((k : ℝ) * a.h)) (hyb _ hk0) hphys.1
+  have hb1 := hK a ha hpp0 (y ((k : ℝ) * a.h)) (hyb _ hk0) (add_nonneg (sq_nonneg _) hphys.1)
   calc _ ≤ ‖y ((k : ℝ) * a.h + a.h) - (y ((k : ℝ) * a.h) +
           a.h • dynamicField r deltaS PhiS (y ((k : ℝ) * a.h)))‖ +
         ‖a.h • a.err r deltaS PhiS (y ((k : ℝ) * a.h))‖ := norm_sub_le _ _

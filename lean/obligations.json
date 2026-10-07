@@ -1666,6 +1666,8 @@
         "declarations": [
           "SparseSGD.Logistic.V2.actualDriftMap_eq_dynamicDriftMap",
           "SparseSGD.Logistic.V2.orbit_eq_actualDriftMap",
+          "SparseSGD.Logistic.V2.scalar_tame_values_q",
+          "SparseSGD.Logistic.V2.scalar_tame_matched_jets_q",
           "SparseSGD.Logistic.V2.AP.ofModel_map",
           "SparseSGD.Logistic.V2.AP_decomposition_near",
           "SparseSGD.Logistic.V2.AP_fderiv_le",
@@ -1676,15 +1678,7 @@
           "SparseSGD.Logistic.V2.cor_recursion_actual",
           "SparseSGD.Logistic.V2.cor_recursion_actual_dynamicDriftMap"
         ],
-        "note": "Formalized 2026-10-06 for Phi* > 0 (cells 4 and 6). actualDriftMap is the actual Gaussian-coefficient drift recursion of prop:LR34 written as an autonomous map of the five state variables (coefficients at (theta_par, |theta|^2) = (y0, y0^2 + y2)); actualDriftMap_eq_dynamicDriftMap identifies it with dynamicDriftMap. It is y + eps (dynamicField + e) with |e|, |De| <= K (eps + |delta - Delta*| + |Phi - Phi*| + p) near y* (lem:B bounds in scalar variables, eps_B <= C p on compacts), preserves physical states, and cor_recursion_actual gives the conclusion of cor:recursion with delta_eps = eps + |delta - Delta*| + |Phi - Phi*| + p. The first- and second-order Gaussian Stein identities enter as explicit hypotheses (GaussianSteinCertificate 1 and 2), as elsewhere."
-      },
-      {
-        "id": "actual_coefficients_zero_temperature",
-        "status": "partial",
-        "declarations": [
-          "SparseSGD.Logistic.V2.cor_recursion_tame"
-        ],
-        "remaining": "Phi* = 0 (cell 3) is formalized only for the tame coefficients (cor_recursion_tame). The actual-coefficient theorem assumes Phi* > 0: at Phi* = 0 the equilibrium has R* = 0, every ball around y* contains states with R < 0 (q > 0), and the lem:B bounds are proved in Lean through vector realizations that need R >= 0. Closing this needs the scalar jet bounds for every q > 0."
+        "note": "Formalized 2026-10-06 for every Phi* >= 0 (cells 3, 4 and 6). At Phi* = 0 the equilibrium has R* = 0; the lem:B bounds are used in the scalar form of TameScalar (scalar_tame_values_q, scalar_tame_matched_jets_q: every t, every q >= 0, no vector realization), and the ball around y* is chosen with q >= theta*^2/8 > 0. actualDriftMap is the actual Gaussian-coefficient drift recursion of prop:LR34 written as an autonomous map of the five state variables (coefficients at (theta_par, |theta|^2) = (y0, y0^2 + y2)); actualDriftMap_eq_dynamicDriftMap identifies it with dynamicDriftMap. It is y + eps (dynamicField + e) with |e|, |De| <= K (eps + |delta - Delta*| + |Phi - Phi*| + p) near y* (lem:B bounds in scalar variables, eps_B <= C p on compacts), preserves physical states, and cor_recursion_actual gives the conclusion of cor:recursion with delta_eps = eps + |delta - Delta*| + |Phi - Phi*| + p. The first- and second-order Gaussian Stein identities enter as explicit hypotheses (GaussianSteinCertificate 1 and 2), as elsewhere."
       }
     ]
   },

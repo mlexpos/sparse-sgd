@@ -336,7 +336,7 @@ base vector, the tame error is `≤ 1/2` and `≤ E varrho`, and `w ≤ Kw`. -/
 theorem AP_param_bounds (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < deltaS) (hP : 0 ≤ PhiS)
     (M : ℝ) :
     ∃ Ms K1 E Kw p0 : ℝ, 0 ≤ Ms ∧ 0 ≤ K1 ∧ 0 ≤ E ∧ 0 ≤ Kw ∧ 0 < p0 ∧
-      ∀ a : AP, a.Adm deltaS PhiS → (a.p : ℝ) ≤ p0 → ∀ y : DynamicState, ‖y‖ ≤ M → 0 ≤ y 2 →
+      ∀ a : AP, a.Adm deltaS PhiS → (a.p : ℝ) ≤ p0 → ∀ y : DynamicState, ‖y‖ ≤ M → 0 ≤ y 0 ^ 2 + y 2 →
         ‖sAct r a y‖ ≤ Ms ∧ ‖sBase deltaS PhiS a.rho‖ ≤ Ms ∧
         ‖sAct r a y - sBase deltaS PhiS a.rho‖ ≤ K1 * a.varrho deltaS PhiS ∧
         tameErrorS a.p r (y 0) (y 0 ^ 2 + y 2) ≤ 1 / 2 ∧
@@ -380,7 +380,7 @@ theorem AP_param_bounds (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < deltaS) (hP
   have he_half : e ≤ 1 / 2 := heEp.trans hEp0
   have heEv : e ≤ E * a.varrho deltaS PhiS :=
     heEp.trans (mul_le_mul_of_nonneg_left hpv hE0)
-  obtain ⟨hA, hB, hD, hT⟩ := scalar_tame_values r hr a.p y hpp hy2 he_half
+  obtain ⟨hA, hB, hD, hT⟩ := scalar_tame_values_q r hr a.p y hpp hy2 he_half
   have hα : dynamicAlpha r y ≤ Aα := by
     rw [hAα]; unfold dynamicAlpha; exact Real.exp_le_exp.2 (by linarith)
   have hα0 : 0 < dynamicAlpha r y := Real.exp_pos _
@@ -439,7 +439,7 @@ theorem AP_param_bounds (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < deltaS) (hP
 theorem AP_decomposition_phys (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < deltaS) (hP : 0 ≤ PhiS)
     (M : ℝ) :
     ∃ K p0 : ℝ, 0 ≤ K ∧ 0 < p0 ∧ ∀ a : AP, a.Adm deltaS PhiS → (a.p : ℝ) ≤ p0 →
-      ∀ y : DynamicState, ‖y‖ ≤ M → 0 ≤ y 2 →
+      ∀ y : DynamicState, ‖y‖ ≤ M → 0 ≤ y 0 ^ 2 + y 2 →
         ‖a.err r deltaS PhiS y‖ ≤ K * a.varrho deltaS PhiS := by
   obtain ⟨Ms, K1, E, Kw, p0, hMs, hK1, hE, hKw, hp0, hPb⟩ :=
     AP_param_bounds r deltaS PhiS hr hd hP M
@@ -458,14 +458,14 @@ theorem AP_decomposition_phys (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < delta
 theorem sAct_deriv_bound (S1 : SparseSGD.External.GaussianSteinCertificate 1) (r : ℝ)
     (hr : 0 < r) (M : ℝ) :
     ∃ C : ℝ, 0 ≤ C ∧ ∀ (a : AP), 0 ≤ a.w → 0 < (a.p : ℝ) → (a.p : ℝ) ≤ 1 / 2 →
-      ∀ y : DynamicState, ‖y‖ ≤ M → 0 ≤ y 2 → 0 < y 0 ^ 2 + y 2 →
+      ∀ y : DynamicState, ‖y‖ ≤ M → 0 < y 0 ^ 2 + y 2 →
       tameErrorS a.p r (y 0) (y 0 ^ 2 + y 2) ≤ 1 / 2 →
       DifferentiableAt ℝ (sAct r a) y ∧
       ‖fderiv ℝ (sAct r a) y‖ ≤ C * (1 + a.w) * tameErrorS a.p r (y 0) (y 0 ^ 2 + y 2) := by
   obtain ⟨C, hC, h⟩ := coefErr_deriv_bound S1 r hr M
   refine ⟨C, hC, ?_⟩
-  intro a hw hp hp2 y hy hy2 hq he
-  obtain ⟨dA, dB, dD, dT⟩ := h a.p y hp hp2 hy hy2 hq he
+  intro a hw hp hp2 y hy hq he
+  obtain ⟨dA, dB, dD, dT⟩ := h a.p y hp hp2 hy hq he
   set e := tameErrorS a.p r (y 0) (y 0 ^ 2 + y 2) with he_def
   have he0 : 0 ≤ e := by
     rw [he_def]; unfold tameErrorS; have := a.p.property.1; positivity
@@ -523,7 +523,7 @@ with `‖e‖, ‖De‖ ≤ K varrho`. -/
 theorem AP_decomposition_reg (S1 : SparseSGD.External.GaussianSteinCertificate 1)
     (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < deltaS) (hP : 0 ≤ PhiS) (M : ℝ) :
     ∃ K p0 : ℝ, 0 ≤ K ∧ 0 < p0 ∧ ∀ a : AP, a.Adm deltaS PhiS → (a.p : ℝ) ≤ p0 →
-      ∀ y : DynamicState, ‖y‖ ≤ M → 0 ≤ y 2 → 0 < y 0 ^ 2 + y 2 →
+      ∀ y : DynamicState, ‖y‖ ≤ M → 0 < y 0 ^ 2 + y 2 →
         ‖a.err r deltaS PhiS y‖ ≤ K * a.varrho deltaS PhiS ∧
         DifferentiableAt ℝ (a.err r deltaS PhiS) y ∧
         ‖fderiv ℝ (a.err r deltaS PhiS) y‖ ≤ K * a.varrho deltaS PhiS := by
@@ -533,13 +533,13 @@ theorem AP_decomposition_reg (S1 : SparseSGD.External.GaussianSteinCertificate 1
   obtain ⟨Kc2, hKc20, hKc2⟩ := coefInc_comp_bounds r (max M Ms)
   obtain ⟨Cd, hCd0, hCd⟩ := sAct_deriv_bound S1 r hr M
   refine ⟨Kc * K1 + Kc2 * (K1 + Cd * (1 + Kw) * E), p0, by positivity, hp0, ?_⟩
-  intro a ha hp y hy hy2 hq
-  obtain ⟨b1, b2, b3, b4, b5, b6⟩ := hPb a ha hp y hy hy2
+  intro a ha hp y hy hq
+  obtain ⟨b1, b2, b3, b4, b5, b6⟩ := hPb a ha hp y hy hq.le
   have hv0 := AP.varrho_nonneg deltaS PhiS a
   have hw0 : 0 ≤ a.w := ha.2.2.2.1
   have hpos : 0 < (a.p : ℝ) := ha.2.2.2.2.2.1
   have hp2 : (a.p : ℝ) ≤ 1 / 2 := ha.2.2.2.2.2.2.1
-  obtain ⟨hdiff, hDs⟩ := hCd a hw0 hpos hp2 y hy hy2 hq b4
+  obtain ⟨hdiff, hDs⟩ := hCd a hw0 hpos hp2 y hy hq b4
   have hyM : ‖y‖ ≤ max M Ms := hy.trans (le_max_left _ _)
   have hsM : ‖sAct r a y‖ ≤ max M Ms := b1.trans (le_max_right _ _)
   have hs0M : ‖sBase deltaS PhiS a.rho‖ ≤ max M Ms := b2.trans (le_max_right _ _)
@@ -568,10 +568,11 @@ theorem AP_decomposition_reg (S1 : SparseSGD.External.GaussianSteinCertificate 1
       _ ≤ _ := by nlinarith [mul_nonneg (mul_nonneg hKc0 hK1) hv0]
 
 /-- Decomposition near the equilibrium `y* = dynamicCanonicalEquilibrium r deltaS PhiS`
-(`PhiS > 0`): on a ball `closedBall y* r0` the perturbation `e` is differentiable, with
-`‖e‖, ‖De‖ ≤ K varrho` and `Lip(e) ≤ K varrho`. -/
+(`PhiS ≥ 0`): on a ball `closedBall y* r0`, with `r0 = min 1 (min (θ*/2) (θ*^2/8))`, one has
+`q = y 0^2 + y 2 ≥ θ*^2/8 > 0` (even when `R* = 0`), and the perturbation `e` is differentiable,
+with `‖e‖, ‖De‖ ≤ K varrho` and `Lip(e) ≤ K varrho`. -/
 theorem AP_decomposition_near (S1 : SparseSGD.External.GaussianSteinCertificate 1)
-    (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < deltaS) (hP : 0 < PhiS) :
+    (r deltaS PhiS : ℝ) (hr : 0 < r) (hd : 0 < deltaS) (hP : 0 ≤ PhiS) :
     ∃ K p0 r0 : ℝ, 0 ≤ K ∧ 0 < p0 ∧ 0 < r0 ∧ ∀ a : AP, a.Adm deltaS PhiS →
       (a.p : ℝ) ≤ p0 → ∀ y z : DynamicState,
         ‖y - dynamicCanonicalEquilibrium r deltaS PhiS‖ ≤ r0 →
@@ -582,40 +583,53 @@ theorem AP_decomposition_near (S1 : SparseSGD.External.GaussianSteinCertificate 
         ‖a.err r deltaS PhiS y - a.err r deltaS PhiS z‖ ≤
           K * a.varrho deltaS PhiS * ‖y - z‖ := by
   set ystar := dynamicCanonicalEquilibrium r deltaS PhiS with hystar
-  have hy2 : 0 < ystar 2 := equilibrium_bulk_pos r deltaS PhiS hr hP hd
+  have hθ : 0 < ystar 0 := by
+    simpa [hystar, dynamicCanonicalEquilibrium] using (positiveRoot_spec r PhiS hr hP).1
+  have hR : 0 ≤ ystar 2 := by
+    have hs := (positiveRoot_spec r PhiS hr hP).1
+    simp only [hystar, dynamicCanonicalEquilibrium, equilibriumBulk]
+    simpa using div_nonneg (mul_nonneg hP hs.le) hr.le
   obtain ⟨K, p0, hK, hp0, hreg⟩ :=
-    AP_decomposition_reg S1 r deltaS PhiS hr hd hP.le (‖ystar‖ + 1)
-  refine ⟨K, p0, min 1 (ystar 2 / 2), hK, hp0, lt_min one_pos (by linarith), ?_⟩
+    AP_decomposition_reg S1 r deltaS PhiS hr hd hP (‖ystar‖ + 1)
+  obtain ⟨r0, hr0def⟩ : ∃ r0 : ℝ, r0 = min 1 (min (ystar 0 / 2) (ystar 0 ^ 2 / 8)) := ⟨_, rfl⟩
+  have hr0pos : 0 < r0 := by
+    rw [hr0def]; exact lt_min one_pos (lt_min (by linarith) (by positivity))
+  have hr0 : r0 ≤ 1 := by rw [hr0def]; exact min_le_left _ _
+  have hr1 : r0 ≤ ystar 0 / 2 := by
+    rw [hr0def]; exact (min_le_right _ _).trans (min_le_left _ _)
+  have hr2 : r0 ≤ ystar 0 ^ 2 / 8 := by
+    rw [hr0def]; exact (min_le_right _ _).trans (min_le_right _ _)
+  refine ⟨K, p0, r0, hK, hp0, hr0pos, ?_⟩
   intro a ha hp y z hy hz
-  have hr0 : min 1 (ystar 2 / 2) ≤ 1 := min_le_left _ _
-  have hr1 : min 1 (ystar 2 / 2) ≤ ystar 2 / 2 := min_le_right _ _
-  have hball : ∀ x : DynamicState, ‖x - ystar‖ ≤ min 1 (ystar 2 / 2) →
-      ‖x‖ ≤ ‖ystar‖ + 1 ∧ 0 ≤ x 2 ∧ 0 < x 0 ^ 2 + x 2 := by
+  have hball : ∀ x : DynamicState, ‖x - ystar‖ ≤ r0 →
+      ‖x‖ ≤ ‖ystar‖ + 1 ∧ 0 < x 0 ^ 2 + x 2 := by
     intro x hx
-    refine ⟨?_, ?_, ?_⟩
+    refine ⟨?_, ?_⟩
     · calc ‖x‖ = ‖(x - ystar) + ystar‖ := by simp
         _ ≤ ‖x - ystar‖ + ‖ystar‖ := norm_add_le _ _
         _ ≤ _ := by linarith
-    · have h2 : |x 2 - ystar 2| ≤ ‖x - ystar‖ := by
+    · have h0 : |x 0 - ystar 0| ≤ ‖x - ystar‖ := by
+        simpa only [Real.norm_eq_abs, Pi.sub_apply] using norm_le_pi_norm (x - ystar) 0
+      have h2 : |x 2 - ystar 2| ≤ ‖x - ystar‖ := by
         simpa only [Real.norm_eq_abs, Pi.sub_apply] using norm_le_pi_norm (x - ystar) 2
-      have := (abs_le.1 (h2.trans hx)).1
-      linarith
-    · have h2 : |x 2 - ystar 2| ≤ ‖x - ystar‖ := by
-        simpa only [Real.norm_eq_abs, Pi.sub_apply] using norm_le_pi_norm (x - ystar) 2
-      have := (abs_le.1 (h2.trans hx)).1
-      nlinarith [sq_nonneg (x 0)]
-  have hpt : ∀ x : DynamicState, ‖x - ystar‖ ≤ min 1 (ystar 2 / 2) →
+      have e0 := (abs_le.1 (h0.trans hx)).1
+      have e2 := (abs_le.1 (h2.trans hx)).1
+      have hx0 : ystar 0 / 2 ≤ x 0 := by linarith
+      have hsq : (ystar 0 / 2) ^ 2 ≤ x 0 ^ 2 :=
+        pow_le_pow_left₀ (by linarith) hx0 2
+      nlinarith
+  have hpt : ∀ x : DynamicState, ‖x - ystar‖ ≤ r0 →
       ‖a.err r deltaS PhiS x‖ ≤ K * a.varrho deltaS PhiS ∧
       DifferentiableAt ℝ (a.err r deltaS PhiS) x ∧
       ‖fderiv ℝ (a.err r deltaS PhiS) x‖ ≤ K * a.varrho deltaS PhiS := by
     intro x hx
-    obtain ⟨h1, h2, h3⟩ := hball x hx
-    exact hreg a ha hp x h1 h2 h3
+    obtain ⟨h1, h3⟩ := hball x hx
+    exact hreg a ha hp x h1 h3
   obtain ⟨b1, b2, b3⟩ := hpt y hy
   refine ⟨b1, b2, b3, ?_⟩
-  have hconv : Convex ℝ (closedBall ystar (min 1 (ystar 2 / 2))) := convex_closedBall _ _
-  have hmem : ∀ x : DynamicState, ‖x - ystar‖ ≤ min 1 (ystar 2 / 2) →
-      x ∈ closedBall ystar (min 1 (ystar 2 / 2)) := fun x hx => by
+  have hconv : Convex ℝ (closedBall ystar r0) := convex_closedBall _ _
+  have hmem : ∀ x : DynamicState, ‖x - ystar‖ ≤ r0 →
+      x ∈ closedBall ystar r0 := fun x hx => by
     rw [mem_closedBall, dist_eq_norm]; exact hx
   exact hconv.norm_image_sub_le_of_norm_fderiv_le (f := a.err r deltaS PhiS)
     (fun x hx => (hpt x (by rw [mem_closedBall, dist_eq_norm] at hx; exact hx)).2.1)

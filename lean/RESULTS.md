@@ -40,7 +40,7 @@ subclaim. The statuses are explained in [`README.md`](README.md#status-of-each-r
 | Proposition G.11 | Cell 2: slow system, globally stable | `prop:LR2` | complete | `Logistic.prop_LR2`, `Logistic.slowDriftMap_eq_integral`, `Logistic.slow_grid_error_of_tracking` (+4 more) |
 | Proposition G.12 | Cells 3–4: global stability | `prop:S` | complete\* | `Logistic.V2.lyapunov`, `Logistic.V2.dissipation`, `Logistic.V2.hasDerivAt_lyapunov` (+43 more) |
 | Proposition G.15 | Cell 6: rates in the noisy window | `prop:W1` | complete\* | `Logistic.V2.omega_skew`, `Logistic.V2.damping_lyapunov`, `Logistic.V2.hessian_damping_comm` (+26 more) |
-| Corollary G.17 | The drift recursion converges | `cor:recursion` | partial | `Logistic.V2.local_fixed_point`, `Logistic.V2.drift_recursion_converges`, `Logistic.V2.jacobian_products` (+16 more) |
+| Corollary G.17 | The drift recursion converges | `cor:recursion` | complete\* | `Logistic.V2.local_fixed_point`, `Logistic.V2.drift_recursion_converges`, `Logistic.V2.jacobian_products` (+18 more) |
 | Proposition G.19 | Cells 7–8: the LR curvature ceiling | `prop:W2` | complete\* | `Logistic.V2.windowMap_fixed`, `Logistic.V2.hasFDerivAt_windowMap`, `Logistic.V2.windowJacobian_det` (+34 more) |
 | Assumption B | Curvature window and switch | `ass:W2` | assumption (stated, not proved) | `Logistic.V2.AssumptionW2` |
 | Proposition G.23 | Equilibrium and floor | `prop:D` | complete\* | `Logistic.actual_drift_fixedPoint_signal`, `Logistic.actual_drift_fixedPoint_bulk`, `Logistic.logistic_fixedPoint_normalized_covariance` (+23 more) |
@@ -70,7 +70,6 @@ the paper was revised; [`CORRECTIONS.md`](CORRECTIONS.md) records the gap.
 The registry's notes, in the Lean notation (see [`NOTATION.md`](NOTATION.md)).
 
 - **Remark E.10** (`rem:retention-cold`, remark, partly formalized): If phi = 0 and Sigma_0 = diag(R_0, 0), R_0 > 0, then limsup_k R_k^(1/k) >= rho(F)^2 >= beta. The limsup statement (Cauchy-Hadamard on the generating function of x_k = e_1^T F^k e_1, R_k >= a_k) is not formalized; the declarations listed are the proved ingredient rho(F)^2 >= beta and rho(F)^2 <= rho(L).
-- **Corollary G.17** (`cor:recursion`, partial): Phi* = 0 (cell 3) is formalized only for the tame coefficients (cor_recursion_tame). The actual-coefficient theorem assumes Phi* > 0: at Phi* = 0 the equilibrium has R* = 0, every ball around y* contains states with R < 0 (q > 0), and the lem:B bounds are proved in Lean through vector realizations that need R >= 0. Closing this needs the scalar jet bounds for every q > 0.
 - **Remark H.11** (`rem:schedule`, remark, partly formalized): rem:schedule, last sentence: varsigma^2 d/N is to leading order the risk of least squares on the N active samples, the Cramer-Rao bound for Gaussian label noise and asymptotically the minimax risk. This imported statistics claim (no citation in the tex) is not formalized. The numerical check R_k N_k/(varsigma^2 d) = 1.0028 is a numerical remark and is not registered.
 
 ## Registry entries without a statement in the paper

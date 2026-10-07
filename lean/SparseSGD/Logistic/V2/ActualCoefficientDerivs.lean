@@ -1,4 +1,5 @@
 import SparseSGD.Logistic.V2.ActualCoefficients
+import SparseSGD.Logistic.V2.TameScalar
 import SparseSGD.Logistic.FluidDeterministicDerivative
 
 /-!
@@ -261,17 +262,17 @@ on bounded physical states with `q > 0` and small tame error. -/
 theorem coefErr_deriv_bound (S1 : SparseSGD.External.GaussianSteinCertificate 1) (r : ℝ)
     (hr : 0 < r) (M : ℝ) :
     ∃ C : ℝ, 0 ≤ C ∧ ∀ (p : unitInterval) (y : DynamicState), 0 < (p : ℝ) → (p : ℝ) ≤ 1 / 2 →
-      ‖y‖ ≤ M → 0 ≤ y 2 → 0 < y 0 ^ 2 + y 2 →
+      ‖y‖ ≤ M → 0 < y 0 ^ 2 + y 2 →
       tameErrorS p r (y 0) (y 0 ^ 2 + y 2) ≤ 1 / 2 →
       ‖fderiv ℝ (coefErrA p r) y‖ ≤ C * tameErrorS p r (y 0) (y 0 ^ 2 + y 2) ∧
       ‖fderiv ℝ (coefErrB p r) y‖ ≤ C * tameErrorS p r (y 0) (y 0 ^ 2 + y 2) ∧
       ‖fderiv ℝ (coefErrD p r) y‖ ≤ C * tameErrorS p r (y 0) (y 0 ^ 2 + y 2) ∧
       ‖fderiv ℝ (coefErrT p r) y‖ ≤ C * tameErrorS p r (y 0) (y 0 ^ 2 + y 2) := by
-  obtain ⟨C, hC, hj⟩ := scalar_tame_matched_jets r hr
+  obtain ⟨C, hC, hj⟩ := scalar_tame_matched_jets_q r hr
   set Aα := Real.exp ((M ^ 2 + M - r ^ 2) / 2) with hAα
   have hAα0 : 0 ≤ Aα := (Real.exp_pos _).le
   refine ⟨C * (r + (2 * |M| + 1) * (1 + Aα)), by positivity, ?_⟩
-  intro p y hp hp2 hy hy2 hq he
+  intro p y hp hp2 hy hq he
   set e := tameErrorS p r (y 0) (y 0 ^ 2 + y 2) with he_def
   have he0 : 0 ≤ e := by
     rw [he_def]; unfold tameErrorS; have := p.property.1; positivity
@@ -284,7 +285,7 @@ theorem coefErr_deriv_bound (S1 : SparseSGD.External.GaussianSteinCertificate 1)
   have j10 : ∀ i : Fin 4, |matchedScalarJet i 1 0 p r (y 0) (y 0 ^ 2 + y 2) / (p : ℝ)| ≤
       C * r * e := by
     intro i
-    have := hj 1 0 (by norm_num) (by norm_num) p (y 0) (y 2) hp hy2 he i
+    have := hj 1 0 (by norm_num) (by norm_num) p (y 0) (y 0 ^ 2 + y 2) hp hq.le he i
     apply abs_div_le_of_le_mul _ _ _ hp
     have h' : |matchedScalarJet i 1 0 p r (y 0) (y 0 ^ 2 + y 2)| ≤ C * r * (p : ℝ) * e := by
       simpa using this
@@ -292,14 +293,14 @@ theorem coefErr_deriv_bound (S1 : SparseSGD.External.GaussianSteinCertificate 1)
   have j01 : ∀ i : Fin 4, i ≠ 0 →
       |matchedScalarJet i 0 1 p r (y 0) (y 0 ^ 2 + y 2) / (p : ℝ)| ≤ C / 2 * e := by
     intro i hi
-    have := hj 0 1 (by norm_num) (by norm_num) p (y 0) (y 2) hp hy2 he i
+    have := hj 0 1 (by norm_num) (by norm_num) p (y 0) (y 0 ^ 2 + y 2) hp hq.le he i
     apply abs_div_le_of_le_mul _ _ _ hp
     have h' : |matchedScalarJet i 0 1 p r (y 0) (y 0 ^ 2 + y 2)| ≤ C * 2⁻¹ * (p : ℝ) * e := by
       simpa [hi, he_def] using this
     linarith
   have j01A : |matchedScalarJet 0 0 1 p r (y 0) (y 0 ^ 2 + y 2) / (p : ℝ) -
       dynamicAlpha r y / 2| ≤ C / 2 * e * dynamicAlpha r y := by
-    have := hj 0 1 (by norm_num) (by norm_num) p (y 0) (y 2) hp hy2 he 0
+    have := hj 0 1 (by norm_num) (by norm_num) p (y 0) (y 0 ^ 2 + y 2) hp hq.le he 0
     have e1 : matchedScalarJet 0 0 1 p r (y 0) (y 0 ^ 2 + y 2) / (p : ℝ) -
         dynamicAlpha r y / 2 =
         (matchedScalarJet 0 0 1 p r (y 0) (y 0 ^ 2 + y 2) -

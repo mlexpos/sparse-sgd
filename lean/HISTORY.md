@@ -588,9 +588,27 @@ point only.
 | `RecursionActual` | `actual_family`, `uniformize_le`, `cor_recursion_actual`, `cor_recursion_actual_dynamicDriftMap` |
 
 The first- and second-order Gaussian Stein identities enter as explicit hypotheses
-(`GaussianSteinCertificate 1` and `2`). `Phi* = 0` (cell 3) remains open for the actual
-coefficients. There `R* = 0`, so every ball around `y*` contains states with `R < 0`, and the
-`lem:B` bounds are proved through vector realizations that need `R >= 0`.
+(`GaussianSteinCertificate 1` and `2`).
+
+**Update, later the same day: `Phi* = 0` (cell 3).** `Logistic/V2/TameScalar` restates the
+`lem:B` chain in scalar variables, for every `t` and every `q >= 0`. The restated chain covers
+the exponential controls, the core Gaussian–sigmoid estimates and the value and jet bounds.
+The existing vector Gaussian lemmas are applied in dimension 1 with `theta = sqrt q`. No
+vector-only fact was needed, and the constants are unchanged. The results are
+`scalar_tame_values_q`, `scalar_tame_jets_q` and `scalar_tame_matched_jets_q`.
+
+The downstream hypotheses `0 <= y 2` became `0 <= y 0^2 + y 2`.
+`AP_decomposition_near` now uses the radius `min 1 (theta*/2) (theta*^2/8)`, on which
+`q >= theta*^2/8 > 0`. `cor_recursion_actual` holds for `Phi* >= 0`, so `cor:recursion` is
+complete.
+
+Verification passed with:
+
+- 386 modules and 3,009 authored theorem declarations;
+- 6,918 audited declarations (5,867 theorems), using only the standard axioms;
+- 884 references.
+
+Coverage: 47 complete numbered results, 0 partial.
 
 Verification passed with:
 
