@@ -1,8 +1,9 @@
-# Sparse momentum: supplementary code
+# Auto-formalized theory for SGD + momentum with sparse gradients
 
-Code accompanying a paper on SGD with momentum when each parameter receives a gradient only
-on some steps, as the embedding and readout vectors of a language model do. It has two
-parts:
+Companion code for *Dynamics of Stochastic Momentum with Sparse Updates in High Dimensions*
+(Everett and Paquette), [arXiv:2605.28961](https://arxiv.org/abs/2605.28961). The paper studies
+SGD with momentum when each parameter receives a gradient only on some steps, as the
+embedding and readout vectors of a language model do. The repository has two parts:
 
 | Directory | Contents |
 |---|---|
